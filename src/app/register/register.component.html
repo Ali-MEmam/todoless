@@ -1,0 +1,29 @@
+<section class="form">
+    <form class="form-container" [formGroup]="register" (ngSubmit)="createAccount(register)">
+        <div class="form-container__wrapper">
+        <input class="form-container__wrapper-input" formControlName="companyName" type="text" placeholder="Company name">
+        <div class="not-valid-name"></div>
+        </div>
+        <div class="form-container__wrapper">
+        <input class="form-container__wrapper-input" formControlName="email" type="email" placeholder="Email">
+        </div>
+        <div class="form-container__wrapper">
+        <input class="form-container__wrapper-input" formControlName="password" type="password" placeholder="Password">
+        </div>
+        <div class="form-container__wrapper">
+        <input class="form-container__wrapper-input" formControlName="phone" type="text" placeholder="Phone">
+        </div>
+        <div class="form-container__wrapper">
+        <select class="form-container__wrapper-selector"  formControlName="companySize" >
+            <option class="form-container__wrapper-selector--option" disabled value="none">Company size</option>
+            <option class="form-container__wrapper-selector--option" value="freelancing">Less Than 5</option>
+            <option class="form-container__wrapper-selector--option" value="small">5 ~ 10 </option>
+            <option  class="form-container__wrapper-selector--option" value="medium">10 ~ 50</option>
+            <option  class="form-container__wrapper-selector--option" value="big">50+</option>
+        </select>
+        </div>
+    <div class="form-container__btns">
+        <button class="form-container__btns-submit" type="submit">Send</button>
+    </div>
+    </form>
+</section>

@@ -1,0 +1,19 @@
+.nav{
+    background-color: #192965;
+    
+    padding: 1rem;
+    &-container{
+        display: flex;
+        &__list{
+            list-style: none;
+            display: flex;
+            flex:0 1 60%;
+            justify-content: space-evenly;
+            &-item{
+                &--link{
+                    color:#f0efef;
+                }
+            }
+        }
+    }
+}

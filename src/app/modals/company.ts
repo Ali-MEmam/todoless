@@ -1,7 +1,7 @@
 export interface company {
-    Id?:string;
-    Name?:string;
-    Size?:string;
+    id?:string;
+    name?:string;
+    size?:string;
     email?:any;
     role:string;
     password?:string

@@ -32,23 +32,23 @@ export class TasksService {
   }
 
   //create-tasks 
-  createCompany(item: tasks) {
+  createTasks(item: tasks) {
     return this.firestore.collection('tasks').add(item);
   }
 
   //get-tasks
-  getCompay() {
+  getTasks() {
     return this.firestore.collection('tasks').valueChanges({idField:'id'});
   }
 
   //delete-tasks
-  deleteCompany(item:tasks) {
+  deleteTasks(item:tasks) {
     this.tasksDoc = this.firestore.doc(`tasks/${item.id}`);
     this.tasksDoc.delete();
   }
 
   //edit-tasks
-  editCompany(item:any){
+  editTasks(item:any){
     this.idTranssform.next(item);
   }
 

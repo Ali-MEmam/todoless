@@ -14,6 +14,7 @@ import { pipe } from 'rxjs';
 import { SearchPipe } from './search.pipe';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
+    AdminPanelComponent,
     
   ],
   imports: [

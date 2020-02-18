@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
@@ -14,6 +16,9 @@ import { pipe } from 'rxjs';
 import { SearchPipe } from './search.pipe';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DeveloperContentComponent } from './developer-content/developer-content.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TimerFormatPipe } from './timer-format.pipe';
 
 @NgModule({
   declarations: [
@@ -21,16 +26,20 @@ import { NavbarComponent } from './navbar/navbar.component';
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
+    DeveloperContentComponent,
+    TimerFormatPipe,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    DragDropModule,
     AngularFireModule.initializeApp(environment.firebase,'todoless'),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     
   ],
   providers: [],

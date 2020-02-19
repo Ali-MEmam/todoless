@@ -7,19 +7,20 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms'
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { pipe } from 'rxjs';
+import { pipe, from } from 'rxjs';
 import { SearchPipe } from './search.pipe';
+import { TimerFormatPipe } from './timer-format.pipe';
+
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
-
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TimerFormatPipe } from './timer-format.pipe';
+import {DragTimerComponent} from './drag-timer/drag-timer.component';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +31,8 @@ import { TimerFormatPipe } from './timer-format.pipe';
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,    
+    DragTimerComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,6 @@ import { TimerFormatPipe } from './timer-format.pipe';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

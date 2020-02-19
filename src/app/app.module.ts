@@ -12,13 +12,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { pipe } from 'rxjs';
 import { SearchPipe } from './search.pipe';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimerFormatPipe } from './timer-format.pipe';
+import {DragTimerComponent} from './drag-timer/drag-timer.component';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { TimerFormatPipe } from './timer-format.pipe';
     RegisterComponent,
     NavbarComponent,
     DeveloperContentComponent,
+    DragTimerComponent,
     TimerFormatPipe,
     
   ],

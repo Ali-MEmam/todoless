@@ -1,9 +1,14 @@
-export interface employees{
+export interface users{
     id?:string;
     name?:string;
-    role?:string;
     email?:string;
     password?:any;
-    projects?:any;
+    phone?:any;
+    friends?:any;
+    group?:any;
+    projects?:[{
+        projectId?:any;
+        edit?:any
+    }];
     tasks?:any;
 }

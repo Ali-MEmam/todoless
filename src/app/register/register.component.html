@@ -3,11 +3,12 @@
 <!-- ----------------------------- Name Input ------------------------------ -->
         <div class="form-container__wrapper">
             <input class="form-container__wrapper-input" (change)="onChangeName()" formControlName="name" type="text"
-                placeholder="Company name">
+                placeholder="Username">
             <div *ngIf="nameIsExist" class="not-valid-name">vaild name</div>
             <div *ngIf="register.get('name').hasError('pattern')" class="not-valid-name"> name Must be </div>
         </div>
 <!-- ----------------------------- Email Input ----------------------------- -->
+
         <div class="form-container__wrapper">
             <input class="form-container__wrapper-input" (change)="onChangeEmail()" formControlName="email" type="email"
                 placeholder="Email">

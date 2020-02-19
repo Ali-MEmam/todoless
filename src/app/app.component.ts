@@ -6,6 +6,9 @@ import {employees} from './modals/employees'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title(title: any) {
+    throw new Error("Method not implemented.");
+  }
    filtering = "";
   
   ArrObj:employees[]=[{

@@ -15,6 +15,7 @@ import { TimerFormatPipe } from './timer-format.pipe';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AsideDeveloperComponent } from './aside/aside-developer/aside-developer.component';
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DragTimerComponent} from './drag-timer/drag-timer.component';
@@ -27,6 +28,11 @@ import { CreateProjectComponent } from './create-project/create-project.componen
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
+    AsideDeveloperComponent,
+    DeveloperContentComponent,
+    TimerFormatPipe,
+    AdminPanelComponent,    
+
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,   

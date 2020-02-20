@@ -24,12 +24,11 @@ export class DeveloperContentComponent implements OnInit {
         event.container.data,
         event.previousIndex,
         event.currentIndex);
+
       // start hours and minutes initialization
-      console.log(this.workingOn[0].time);
       this.splittedTimer = this.workingOn[0].time.split(':');
       this.dropCardTime = parseInt(this.splittedTimer[0]);
       this.dropCardMinnutes = parseInt(this.splittedTimer[1]);
-
       if (!this.splittedTimer[1]) {
         this.dropCardMinnutes = 0
       }

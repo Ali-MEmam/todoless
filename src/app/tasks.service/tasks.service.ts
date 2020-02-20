@@ -35,6 +35,7 @@ export class TasksService {
   createTasks(item: tasks) {
     return this.firestore.collection('tasks').add(item);
   }
+
   //get-tasks
   getTasks() {
     return this.firestore.collection('tasks').valueChanges({idField:'id'});
@@ -45,6 +46,7 @@ export class TasksService {
     this.tasksDoc = this.firestore.doc(`tasks/${item.id}`);
     this.tasksDoc.delete();
   }
+
   //edit-tasks
   editTasks(item:any){
     this.idTranssform.next(item);

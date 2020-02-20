@@ -49,6 +49,7 @@ export class DragTimerComponent implements OnInit {
     this.TasksService.getTasks().subscribe(item =>{
       this.todo = item;
       console.log(item);
+      console.log(this.todo)
     })
 
     this.TasksService.currentId.subscribe((message:any)=>{

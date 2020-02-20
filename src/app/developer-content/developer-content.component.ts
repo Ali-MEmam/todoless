@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { tasks } from '../modals/tasks';
-import { TasksService } from '../tasks.service/tasks.service'
+import { TasksService } from '../tasks.service/tasks.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-developer-content',
@@ -12,7 +14,6 @@ export class DeveloperContentComponent implements OnInit {
   todo : tasks[];
   workingOn = [];
   finished = [];
-  
 constructor( private TasksService : TasksService){}
 
   drop(event: CdkDragDrop<string[]>) {
@@ -152,7 +153,7 @@ deadline(){
   delayValue: any = 0;
   calculatedTimeArr: any;
   handelBonusDelayTime() {
-    this.finishedTaskTime = (event.target.childNodes[0].innerHTML);
+    // this.finishedTaskTime = (event.target.childNodes[0].innerHTML);
     this.calculatedTimeArr = (this.finishedTaskTime).split(":");
     console.log(parseFloat(this.calculatedTimeArr[0]), parseInt(this.calculatedTimeArr[0]));
     if (parseFloat(this.calculatedTimeArr[0]) === parseInt(this.calculatedTimeArr[0])) { 

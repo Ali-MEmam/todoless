@@ -1,6 +1,6 @@
 <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CREATE PROJECT FORM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 
-<form [formGroup]='projectForm' ngSubmit='createProject(projectForm)'>
+<form [formGroup]='projectForm' (ngSubmit)='createProject(projectForm)'>
 
     <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project Name >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 
@@ -47,13 +47,15 @@
 
     <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project Next >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 
-    <button type="button">Next</button>
+    <!-- <button type="button">Next</button> -->
 
     <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project Attachment >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 
     <div class="form-container__wrapper">
         <label>Project Attachment:</label>
-        <input type="file" formControlName="attachment"  (change)='encodeImageFileAsURL($event,item)'>  
+        <input type="file" id="imageUpload" formControlName='attachment' (change)="readURL($event)" />
+        <!-- <img id="imagePreview" [src]="imageSrc"  #Datavalue /> -->
+        <!-- <input type="text" [value]="Datavalue.src" style="display: none;" /> -->
     </div>
 
     <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project Start Date >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
@@ -76,7 +78,7 @@
         <div class="profiles-container__search-form">
             <label>assign to:</label>
             <label>users::{{usersLength}}</label>
-            <input formControlName="filterValue" placeholder="Search">
+            <input name="filterValue" placeholder="Search">
         </div>
         <div *ngIf="users?.length > 0 ; else nousers">
             <ul>

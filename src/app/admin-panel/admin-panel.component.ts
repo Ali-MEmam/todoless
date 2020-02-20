@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { EmployeesService } from "../employees.service/employees.service";
-import { employees } from "../modals/employees";
+import { usersService } from "../users.service/users.service";
+import { users } from "../modals/users";
 
 @Component({
   selector: 'app-admin-panel',
@@ -16,15 +16,15 @@ export class AdminPanelComponent implements OnInit {
     name: ''
   }
   
-  employees: employees[];
+  users: users[];
   editState:boolean=false;
-  itemtoEdit:employees;
+  itemtoEdit:users;
   filterValue = "";
   itemLength;
 
   myForm: FormGroup;
 
-  constructor(private employeesService: EmployeesService,
+  constructor(private usersService: usersService,
               private fb:FormBuilder) { }
 
   ngOnInit(): any {
@@ -37,39 +37,41 @@ export class AdminPanelComponent implements OnInit {
     })
 
     
-    this.employeesService.getEmp().subscribe(items=>{
+    this.usersService.getUser().subscribe(items=>{
       console.log(items);
-      this.employees = items;
-      this.itemLength = this.employees.length;
+      this.users = items;
+      this.itemLength = this.users.length;
     })
     
-    this.employeesService.currentId.subscribe((message: any) => {
+    this.usersService.currentId.subscribe((message: any) => {
       this.item.name = message.name;
-      this.item.role = message.role;
+      // this.item.role = message.role;
       this.item.password = message.password;
       this.item.email = message.email;
     })
   }
 
+  //function-subbmit-to-create-user-object
   onSubmit(form: FormGroup) {
     if (form.valid) {      
       console.log("valid")  
-      this.employeesService.createEmp(this.item);
+      this.usersService.createUser(this.item);
       this.item.name = this.item.email = this.item.password = this.item.role = "";
     }
   }
 
   
-  
-  deleteEmp(event,item) {
-    this.employeesService.deleteEmp(item);
+  //delete-user
+  deleteUser(event,item) {
+    this.usersService.deleteUser(item);
   }
   
-  editEmp(event,item) {
+  //edit-user 
+  editUser(event,item) {
     this.editState = true;
     this.itemtoEdit = item;
-    this.employeesService.editEmp(item);
-    this.deleteEmp(event,item);
+    this.usersService.editUser(item);
+    this.deleteUser(event,item);
   }
 
 }

@@ -32,23 +32,23 @@ export class ProjectsService {
   }
 
   //create-projects
-  createCompany(item: projects) {
+  createProject(item: projects) {
     return this.firestore.collection('projects').add(item);
   }
 
   //get-projects
-  getCompay() {
+  getProject() {
     return this.firestore.collection('projects').valueChanges({idField:'id'});
   }
 
   //delete-projects
-  deleteCompany(item:projects) {
+  deleteProject(item:projects) {
     this.projectsDoc = this.firestore.doc(`projects/${item.id}`);
     this.projectsDoc.delete();
   }
 
   //edit-projects
-  editCompany(item:any){
+  editProject(item:any){
     this.idTranssform.next(item);
   }
   

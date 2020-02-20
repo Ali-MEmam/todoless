@@ -10,13 +10,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { pipe, from } from 'rxjs';
 import { SearchPipe } from './search.pipe';
+import { TimerFormatPipe } from './timer-format.pipe';
+
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TimerFormatPipe } from './timer-format.pipe';
 import {DragTimerComponent} from './drag-timer/drag-timer.component';
+import { CreateProjectComponent } from './create-project/create-project.component';
 
 
 @NgModule({
@@ -25,13 +27,15 @@ import {DragTimerComponent} from './drag-timer/drag-timer.component';
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
-    DragTimerComponent,
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,   
     DragTimerComponent,
     TimerFormatPipe,
     
+    TimerFormatPipe,    
+    DragTimerComponent, CreateProjectComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,7 @@ import {DragTimerComponent} from './drag-timer/drag-timer.component';
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
-    // BrowserAnimationsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

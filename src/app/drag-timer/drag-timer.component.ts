@@ -17,12 +17,14 @@ export class DragTimerComponent implements OnInit {
     time: '',
     employeeId: '',
     deadLine: '',
-    startDate: ''
+    startDate: '',
+    status:""
   }
 
   //all arrays and vars
   editState:boolean=false;
   itemtoEdit:tasks;
+  
   todo: tasks[];
 
   workingOn = [
@@ -43,7 +45,8 @@ export class DragTimerComponent implements OnInit {
       time: '',
       employeeId: '',
       deadLine: '',
-      startDate:''
+      startDate:'',
+      status:''
     });
 
     this.TasksService.getTasks().subscribe(item =>{
@@ -59,6 +62,7 @@ export class DragTimerComponent implements OnInit {
       this.item.employeeId = message.employeeId;
       this.item.deadLine = message.deadLine;
       this.item.startDate = message.startDate;
+      this.item.status = message.status;
     })
 
     // task code
@@ -87,6 +91,7 @@ export class DragTimerComponent implements OnInit {
     this.item.name = this.item.descrption = 
     this.item.time =this.item.startDate =this.item.employeeId =
     this.item.deadLine = "";
+    this.item.status ='';
     //  const create((item: Item)=>{
     //     this.itemService.createPolicy(item)
     //     this.TasksService.createPolicy(item)

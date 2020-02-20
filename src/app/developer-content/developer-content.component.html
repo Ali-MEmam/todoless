@@ -23,11 +23,10 @@
         class="example-list"
         (cdkDropListDropped)="drop($event)" >
         <div class="example-box" *ngFor="let item of workingOn" cdkDrag>
-          <p>{{result|timerFormat:dropCardMinnutes:dropCardSeconds}}</p>
+          <p>{{dropCardTime}}</p>
           <p>{{item.name}}</p>
           <p>{{item.time}}</p>
           <button id="btn" (click)="handlePause()">{{status}}</button>
-  
         </div>
       </div>
     </div>

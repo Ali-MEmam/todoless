@@ -17,16 +17,23 @@ import { AsideDeveloperComponent } from './aside/aside-developer/aside-developer
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimerFormatPipe } from './timer-format.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
+
     AsideDeveloperComponent,
     DeveloperContentComponent,
     TimerFormatPipe,
     AdminPanelComponent,    
+
+    AdminPanelComponent,
+    DeveloperContentComponent,
+    TimerFormatPipe,    
+
   ],
   imports: [
     BrowserModule,

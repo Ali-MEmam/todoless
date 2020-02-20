@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { tasks } from '../modals/tasks';
+import { TasksService } from '../tasks.service/tasks.service'
 
 @Component({
   selector: 'app-developer-content',
@@ -7,36 +9,14 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
   styleUrls: ['./developer-content.component.scss']
 })
 export class DeveloperContentComponent implements OnInit {
-  todo = [
-    {
-      taskName : 'first task',
-      taskTime : 1,
-      finishedTime : 0 
-    },
-    {
-      taskName : 'second task',
-      taskTime : 2,
-      finishedTime : 0
-    },
-    {
-      taskName : 'third task',
-      taskTime : 3,
-      finishedTime : 0
-    },
-    {
-      taskName : 'force task',
-      taskTime : 4,
-      finishedTime : 0
-    }
-  ];
+  todo : tasks[];
 
-  workingOn = [
-    
-  ];
+  workingOn = [];
 
-  finished = [
+  finished = [];
+  
+constructor( private TasksService : TasksService){}
 
-  ];
   drop(event: CdkDragDrop<string[]>) {
 
     if (event.previousContainer.id === 'cdk-drop-list-0' && event.container.id === 'cdk-drop-list-1') {
@@ -44,9 +24,10 @@ export class DeveloperContentComponent implements OnInit {
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
-                        this.dropCardTime =this.workingOn[0].taskTime -1 ;
+                        this.dropCardTime =parseInt(this.workingOn[0].time) -1 ;
                         this.disabledDrag = "true";
                         this.countdown()
+                        console.log(this.workingOn)
                         
     }
     if (event.previousContainer.id === 'cdk-drop-list-1' && event.container.id === 'cdk-drop-list-2') {
@@ -80,9 +61,14 @@ export class DeveloperContentComponent implements OnInit {
 on init 
 ============================= */
 ngOnInit(): any {
-  for (let i = 0; i < this.todo.length; i++) {
-    this.totalProjectTime = this.todo[i].taskTime + this.totalProjectTime;
-  }
+  // for (let i = 0; i < this.todo.length; i++) {
+  //   this.totalProjectTime = this.todo[i]. + this.totalProjectTime;
+  // }
+
+  this.TasksService.getTasks().subscribe(items =>{
+    console.log(items);
+    this.todo = items;
+  })
 
   
 }

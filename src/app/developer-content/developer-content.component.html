@@ -20,14 +20,13 @@
   
     <div class="example-container">
       <h2>working On</h2>
-  
       <div
         cdkDropList
         [cdkDropListData]="workingOn"
         class="example-list"
         (cdkDropListDropped)="drop($event)" >
         <div class="example-box" *ngFor="let item of workingOn" cdkDrag>
-          <p>{{result|timerFormat:dropCardMinnutes:dropCardSeconds}}</p>
+          <p>{{result}}</p>
           <p>{{item.name}}</p>
           <p>{{item.time}}</p>
           <button (click)="handlePause()">{{status}}</button>
@@ -46,6 +45,8 @@
         <div class="example-box" *ngFor="let item of finished" cdkDrag>
           <p>{{item.name}}</p>
           <p>{{item.time}}</p>
+          <p class="bonus" >{{finishedTaskTime}} </p>
+          
         </div>
       </div>
     </div>

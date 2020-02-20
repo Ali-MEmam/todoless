@@ -8,8 +8,8 @@
         class="example-list"
         (cdkDropListDropped)="drop($event)" cdkDropList= "disable">
         <div class="example-box" *ngFor="let item of todo" cdkDrag cdkDragDisabled="{{disabledDrag}}">
-          <p>{{item.taskName}}</p>
-          <p>{{item.taskTime}}</p>
+          <p>{{item.name}}</p>
+          <p>{{item.time}}</p>
         </div>
       </div>
     </div>
@@ -24,8 +24,8 @@
         (cdkDropListDropped)="drop($event)" >
         <div class="example-box" *ngFor="let item of workingOn" cdkDrag>
           <p>{{result|timerFormat:dropCardMinnutes:dropCardSeconds}}</p>
-          <p>{{item.taskName}}</p>
-          <p>{{item.taskTime}}</p>
+          <p>{{item.name}}</p>
+          <p>{{item.time}}</p>
           <button id="btn" (click)="handlePause()">{{status}}</button>
   
         </div>
@@ -40,8 +40,8 @@
         class="example-list"
         (cdkDropListDropped)="drop($event)">
         <div class="example-box" *ngFor="let item of finished" cdkDrag>
-          <p>{{item.taskName}}</p>
-          <p>{{item.taskTime}}</p>
+          <p>{{item.name}}</p>
+          <p>{{item.time}}</p>
         </div>
       </div>
     </div>

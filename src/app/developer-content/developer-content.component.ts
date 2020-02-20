@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { tasks } from '../modals/tasks';
 
 @Component({
   selector: 'app-developer-content',
@@ -7,36 +8,11 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
   styleUrls: ['./developer-content.component.scss']
 })
 export class DeveloperContentComponent implements OnInit {
-  todo = [
-    {
-      taskName : 'first task',
-      taskTime : 1,
-      finishedTime : 0 
-    },
-    {
-      taskName : 'second task',
-      taskTime : 2,
-      finishedTime : 0
-    },
-    {
-      taskName : 'third task',
-      taskTime : 3,
-      finishedTime : 0
-    },
-    {
-      taskName : 'force task',
-      taskTime : 4,
-      finishedTime : 0
-    }
-  ];
+  todo = [];
 
-  workingOn = [
-    
-  ];
+  workingOn = [];
 
-  finished = [
-
-  ];
+  finished = [];
   drop(event: CdkDragDrop<string[]>) {
 
     if (event.previousContainer.id === 'cdk-drop-list-0' && event.container.id === 'cdk-drop-list-1') {
@@ -73,7 +49,6 @@ export class DeveloperContentComponent implements OnInit {
   status = 'pause';                         //default status for working on task button
   taskCountresult: number;                 //task count result
   start: any;                             //start timer
-
   dropCardTime:number;
   result:string;
 /* =============================
@@ -159,7 +134,6 @@ deadline(){
     }
 
   }
-
   /* ===================
   estemate time 
   =================== */

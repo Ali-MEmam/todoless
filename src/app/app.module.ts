@@ -1,13 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-
-
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
-
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +29,9 @@ import {DragTimerComponent} from './drag-timer/drag-timer.component';
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,   
+    DragTimerComponent,
+    TimerFormatPipe,
+    
   ],
   imports: [
     BrowserModule,

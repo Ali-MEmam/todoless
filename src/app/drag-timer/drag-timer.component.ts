@@ -88,6 +88,7 @@ export class DragTimerComponent implements OnInit {
     this.item.deadLine = "";
     //  const create((item: Item)=>{
     //     this.itemService.createPolicy(item)
+    //     this.TasksService.createPolicy(item)
     //   });
     // let fromValue =this.taskForm.value;
     // console.log(fromValue);

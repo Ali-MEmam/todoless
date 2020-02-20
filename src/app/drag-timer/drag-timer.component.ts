@@ -23,6 +23,7 @@ export class DragTimerComponent implements OnInit {
   //all arrays and vars
   editState:boolean=false;
   itemtoEdit:tasks;
+  
   todo: tasks[];
 
   workingOn = [

@@ -20,6 +20,7 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DragTimerComponent} from './drag-timer/drag-timer.component';
+import { CreateProjectComponent } from './create-project/create-project.component';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import {DragTimerComponent} from './drag-timer/drag-timer.component';
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,    
-    DragTimerComponent,
+    DragTimerComponent, CreateProjectComponent,
 
   ],
   imports: [

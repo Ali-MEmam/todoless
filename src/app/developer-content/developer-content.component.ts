@@ -22,11 +22,8 @@ export class DeveloperContentComponent implements OnInit {
   start: any;                             //start timer
   dropCardTime: number;
   result: string;
-
   todo: tasks[];
-
   workingOn = [];
-
   finished = [];
 
 

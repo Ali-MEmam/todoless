@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
 
   allUsers:users[]
-
+  currentUser:users;
 /* ----------------------- Specific Error Validationg ----------------------- */
 
   login:FormGroup;
@@ -51,7 +51,19 @@ export class LoginComponent implements OnInit {
 
 
   onLogin(loginInfo){
-    console.log('hello')
-      console.log(this.login.value)
+    if(this.login.valid){
+      this.currentUser = this.allUsers.find(account =>{
+        return account.email === loginInfo.value.emailOrUsername || account.name === loginInfo.value.emailOrUsername
+      })
+      if(this.currentUser){
+        if(this.currentUser.password === loginInfo.value.password){
+          console.log("logined")
+        }else{
+          console.log("wrong password")
+        }
+      }else{
+        console.log("This account doesn't exist")
+       }
+    }
   }
 }

@@ -25,9 +25,9 @@
       cdkDropList
       [cdkDropListData]="todo"
       class="example-list"
-      (cdkDropListDropped)="drop($event)" cdkDropList= "disable">
+       cdkDropList= "disable">
       <div class="example-box" 
-      *ngFor="let item of todo" cdkDrag cdkDragDisabled="{{disabledDrag}}"><br>
+      *ngFor="let item of todo"><br>
         <p>task name :{{item.name}}</p><br>
         <p>task descrption :{{item.descrption}}</p><br>
         <p>task time :{{item.time}}</p><br>

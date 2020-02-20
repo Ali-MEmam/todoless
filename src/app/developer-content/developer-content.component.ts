@@ -27,7 +27,6 @@ export class DeveloperContentComponent implements OnInit {
   finished = [];
 
 
-  
   /* =============================
   on init 
   ============================= */

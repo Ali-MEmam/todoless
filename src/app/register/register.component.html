@@ -2,7 +2,7 @@
     <form class="form-container" [formGroup]="register" (ngSubmit)="createAccount(register)">
 <!-- ----------------------------- Name Input ------------------------------ -->
         <div class="form-container__wrapper">
-            <input class="form-container__wrapper-input"  formControlName="name" type="text"
+            <input class="form-container__wrapper-input" (change)="onChangeName()" formControlName="name" type="text"
                 placeholder="Username">
             <div *ngIf="register.get('name').hasError('pattern')" class="not-valid-name"> name Must be </div>
         </div>
@@ -32,7 +32,7 @@
 <!-- ------------------------------- Sumbit -------------------------------- -->
         <div class="form-container__btns">
             <button class="form-container__btns-submit" type="submit"
-                [disabled]="phoneIsExist || register.invalid">Send</button>
+                [disabled]="nameIsExist || phoneIsExist || register.invalid">Send</button>
         </div>
     </form>
 </section>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder, Validators} from '@angular/forms';
-import {CompanyService} from './../company.service/company.service';
-import {company} from './../modals/company';
+
 import {users} from './../modals/users';
 import {usersService} from './../users.service/users.service';
 
@@ -15,11 +14,12 @@ export class RegisterComponent implements OnInit {
 
 /* ------------------------------- Get MyData ------------------------------- */
 
-  allCompanies:users[];
+  allUsers:users[];
 
 /* ---------------- Check For Email To Display specific error --------------- */
 
 
+  nameIsExist:boolean = false;
   emailIsExist:boolean = false;
   passwordIsExist:boolean = false;
   phoneIsExist:boolean = false;
@@ -52,8 +52,8 @@ export class RegisterComponent implements OnInit {
 
 
     this.UsersService.getUser().subscribe(company =>{
-      this.allCompanies = company;
-      console.log(this.allCompanies)
+      this.allUsers = company;
+      console.log(this.allUsers)
     })
   }
 
@@ -69,15 +69,20 @@ export class RegisterComponent implements OnInit {
     }
   }
   
-
+onChangeName(){
+    let checker = this.allUsers.some(value=>{
+      return value.name === this.register.value.name
+    })
+    this.nameIsExist = checker
+  }
   onChangeEmail(){
-    let checker = this.allCompanies.some(value=>{
+    let checker = this.allUsers.some(value=>{
       return value.email === this.register.value.email
     })
     this.emailIsExist = checker
   }
   onChangePhone(){
-    let checker = this.allCompanies.some(value=>{
+    let checker = this.allUsers.some(value=>{
       return value.phone === this.register.value.phone
     })
     this.phoneIsExist = checker

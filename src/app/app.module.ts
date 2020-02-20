@@ -19,7 +19,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {DragTimerComponent} from './drag-timer/drag-timer.component';
+// import {DragTimerComponent} from './drag-timer/drag-timer.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import {DragTimerComponent} from './drag-timer/drag-timer.component';
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,    
-    DragTimerComponent,
+ LoginComponent,
 
   ],
   imports: [

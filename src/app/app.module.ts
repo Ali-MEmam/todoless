@@ -28,6 +28,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon';
+import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import {MatIconModule} from '@angular/material/icon';
     DeveloperContentComponent,
     TimerFormatPipe,    
     LoginComponent,
-    DragTimerComponent, CreateProjectComponent,
+    DragTimerComponent, CreateProjectComponent, RegAnimationComponent,
 
   ],
   imports: [

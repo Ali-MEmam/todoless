@@ -10,9 +10,7 @@ import { TasksService } from '../tasks.service/tasks.service'
 })
 export class DeveloperContentComponent implements OnInit {
   todo : tasks[];
-
   workingOn = [];
-
   finished = [];
   
 constructor( private TasksService : TasksService){}
@@ -40,9 +38,8 @@ constructor( private TasksService : TasksService){}
                         this.dropCardMinnutes = 0;
                         this.disabledDrag = "false";
                         this.count = 0;
+                        this.handelBonusDelayTime();
     }  
-      
-    
   }
 
  /*================================================
@@ -61,15 +58,14 @@ constructor( private TasksService : TasksService){}
 on init 
 ============================= */
 ngOnInit(): any {
-  // for (let i = 0; i < this.todo.length; i++) {
-  //   this.totalProjectTime = this.todo[i]. + this.totalProjectTime;
-  // }
-
+ 
   this.TasksService.getTasks().subscribe(items =>{
     console.log(items);
     this.todo = items;
+    for (let i = 0; i < this.todo.length; i++) {
+      this.totalProjectTime = this.todo[i].totalTime+ this.totalProjectTime;
+    }
   })
-
   
 }
  /*======================
@@ -93,10 +89,9 @@ ngOnInit(): any {
       this.dropCardMinnutes=59;
       this.dropCardTime--;
     }
-    if(this.dropCardTime==0&& this.dropCardMinnutes==0 && this.dropCardSeconds==0){
+    if(this.dropCardTime== 0 && this.dropCardMinnutes== 0 && this.dropCardSeconds==0){
       clearInterval(this.start);
-      this.deadline();
-      
+      this.deadline();   
     }
     
   },1000);
@@ -149,6 +144,27 @@ deadline(){
   /* ===================
   estemate time 
   =================== */
+  finishedTaskTime: any;
+  bonusValue: any = 0;
+  bonusValueHours: any = 0;
+  bonusValueMinuts: any = 0;
+  bonusValueSeconds: any = 0;
+  delayValue: any = 0;
+  calculatedTimeArr: any;
+  handelBonusDelayTime() {
+    this.finishedTaskTime = (event.target.childNodes[0].innerHTML);
+    this.calculatedTimeArr = (this.finishedTaskTime).split(":");
+    console.log(parseFloat(this.calculatedTimeArr[0]), parseInt(this.calculatedTimeArr[0]));
+    if (parseFloat(this.calculatedTimeArr[0]) === parseInt(this.calculatedTimeArr[0])) { 
+      this.bonusValueHours = parseFloat(this.calculatedTimeArr[0]) + this.bonusValueHours;
+      this.bonusValueMinuts = parseFloat(this.calculatedTimeArr[1]) + this.bonusValueMinuts;
+      this.bonusValueSeconds = parseFloat(this.calculatedTimeArr[2]) + this.bonusValueSeconds;
+      this.bonusValue = this.bonusValueHours + ":" + this.bonusValueMinuts + ":" + this.bonusValueSeconds;
+    }
+    else {
+      this.delayValue = this.delayValue + this.finishedTaskTime.innerHTML
+    }
+  }
 
 
 }

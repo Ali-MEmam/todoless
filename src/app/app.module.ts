@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {ChartsModule} from "ng2-charts"
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
@@ -17,7 +18,7 @@ import { AsideDeveloperComponent } from './aside/aside-developer/aside-developer
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimerFormatPipe } from './timer-format.pipe';
-
+import { AllProjectsComponent } from './all-projects/all-projects.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { TimerFormatPipe } from './timer-format.pipe';
 
     AdminPanelComponent,
     DeveloperContentComponent,
-    TimerFormatPipe,    
+    TimerFormatPipe,
+    AllProjectsComponent,    
 
   ],
   imports: [
@@ -45,7 +47,7 @@ import { TimerFormatPipe } from './timer-format.pipe';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

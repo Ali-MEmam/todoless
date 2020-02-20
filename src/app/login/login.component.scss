@@ -12,21 +12,30 @@
         &__wrapper{
             flex: 0 1 70%;
             margin-bottom: 1.5rem;
+            
             &-input{
                 width: 100%;
                 padding: 0.5rem 0.5rem;
                 border: none;
                 position: relative;
-                border-bottom:#bbcfff  solid 1px;
                 transition:border-bottom 1s ;
                 &:focus{
                     outline: none;
-                    border-bottom:  #192965 solid 1px;
                 }
                 &:hover{
-                    border-bottom:  #192965 solid 1px;
                 }
             }
         }
     }
 }
+.mat-form-field-appearance-legacy .mat-form-field-infix{
+    border-bottom: 12px solid green !important;
+}
+.hide{
+    font-size:20px !important;
+    margin-bottom: 10px;
+
+}
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: white !important;
+  }

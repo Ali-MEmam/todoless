@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 /* ----------------------- Specific Error Validationg ----------------------- */
 
   login:FormGroup;
-
+  hide = true;
 /* -------------------------------------------------------------------------- */
 /*                                 Constructor                                */
 /* -------------------------------------------------------------------------- */
@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
         }
       }else{
         console.log("This account doesn't exist")
-       }
+      }
     }
   }
 }

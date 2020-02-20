@@ -1,15 +1,16 @@
-<!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CREATE PROJECT FORM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    
+    <!-- !!!!!!!!!!!!!!---------------  CREATE PROJECT FORM ---------------!!!!!!!!!!!!!!!!! -->
 
 <form [formGroup]='projectForm' (ngSubmit)='createProject(projectForm)'>
 
-    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project Name >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <!-- !!!!!!!!!!!!!!--------------- Project Name  ---------------!!!!!!!!!!!!!!!!! -->
 
     <div class="form-container__wrapper">
         <label>Project Name:</label>
         <input class="form-container__wrapper-input" formControlName="name" type="text" placeholder="Project Name">
     </div>
 
-    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project Key >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <!-- !!!!!!!!!!!!!!--------------- Project Key  ---------------!!!!!!!!!!!!!!!!! -->
 
     <div class="form-container__wrapper">
         <label>Project Key:</label>
@@ -17,7 +18,7 @@
             value={{projectsLength}} disabled>
     </div>
 
-    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project Privacy >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <!-- !!!!!!!!!!!!!!--------------- Project Privacy  ---------------!!!!!!!!!!!!!!!!! -->
 
     <div class="form-container__wrapper">
         <label>privacy:</label>
@@ -27,10 +28,10 @@
         </select>
     </div>
 
-    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project Color >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <!-- !!!!!!!!!!!!!!--------------- Project Color  ---------------!!!!!!!!!!!!!!!!! -->
 
     <div class="form-container__wrapper">
-        <label>Project Label:</label>
+        <label>Project Color:</label>
         <select formControlName="color">
             <option value="red" (change)='SelectColor($event)'>Red</option>
             <option value="green">Green</option>
@@ -38,18 +39,18 @@
         </select>
     </div>
 
-    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project Description >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <!-- !!!!!!!!!!!!!!--------------- Project Description  ---------------!!!!!!!!!!!!!!!!! -->
 
     <div class="form-container__wrapper">
         <label>Project Description:</label>
         <textarea formControlName="description"></textarea>
     </div>
 
-    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project Next >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <!-- !!!!!!!!!!!!!!--------------- Project Next  ---------------!!!!!!!!!!!!!!!!! -->
 
     <!-- <button type="button">Next</button> -->
 
-    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project Attachment >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <!-- !!!!!!!!!!!!!!--------------- Project Attachment  ---------------!!!!!!!!!!!!!!!!! -->
 
     <div class="form-container__wrapper">
         <label>Project Attachment:</label>
@@ -58,32 +59,32 @@
         <!-- <input type="text" [value]="Datavalue.src" style="display: none;" /> -->
     </div>
 
-    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project Start Date >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <!-- !!!!!!!!!!!!!!--------------- Project Start Date  ---------------!!!!!!!!!!!!!!!!! -->
 
     <div class="form-container__wrapper">
         <label>Project Start:</label>
         <input type="date" formControlName="startDate">
     </div>
 
-    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project End Date >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <!-- !!!!!!!!!!!!!!--------------- Project End Date  ---------------!!!!!!!!!!!!!!!!! -->
 
     <div class="form-container__wrapper">
         <label>Project End:</label>
         <input type="date" formControlName="endDate">
     </div>
 
-    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project Assign to >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <!-- !!!!!!!!!!!!!!--------------- Project Assign to  ---------------!!!!!!!!!!!!!!!!! -->
 
     <div class="form-container__wrapper">
         <div class="profiles-container__search-form">
-            <label>assign to:</label>
+            <label>Add From:</label>
             <label>users::{{usersLength}}</label>
             <input name="filterValue" placeholder="Search">
         </div>
         <div *ngIf="users?.length > 0 ; else nousers">
             <ul>
-                <li *ngFor="let item of users | search:filterValue" style="cursor: pointer;">
-                    {{item.name}} : {{item.email}}
+                <li *ngFor="let item of users | search:filterValue" style="cursor: pointer;" (click)="selectUser($event,item)">
+                    {{item.name}} , {{item.email}}
                 </li>
             </ul>
         </div>
@@ -92,12 +93,14 @@
         </ng-template>
     </div>
 
-    <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Project Invite by Email >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <!-- !!!!!!!!!!!!!!--------------- Project Invite by Email ---------------!!!!!!!!!!!!!!!!! -->
 
     <div class="form-container__wrapper">
         <label>Invite by Email:</label>
         <input type="email" formControlName="invitors">
     </div>
+
+    <!-- !!!!!!!!!!!!!!--------------- submit Button ---------------!!!!!!!!!!!!!!!!! -->
 
     <button type="submit">Create</button>
 </form>

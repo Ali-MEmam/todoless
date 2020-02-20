@@ -63,13 +63,13 @@ export class RegisterComponent implements OnInit {
 
   createAccount(AccountInfo){
     if(this.register.valid){
-      this.UsersService.createUser(this.register.value)
+      this.UsersService.createUser(this.register.value);
     }else{
       console.log("not valid")
     }
   }
   
-onChangeName(){
+  onChangeName(){
     let checker = this.allUsers.some(value=>{
       return value.name === this.register.value.name
     })

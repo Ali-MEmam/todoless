@@ -1,0 +1,13 @@
+<section class="login">
+    <form class="login-container" [formGroup]="login" (ngSubmit)="onLogin(login)">
+        <div class="login-container__wrapper">
+            <input formControlName="emailOrUsername" placeholder="Enter Your Username or Email" type="text" class="login-container__wrapper-input">
+        </div>
+        <div class="login-container__wrapper">
+            <input formControlName="password" placeholder="Password" type="password" class="login-container__wrapper-input">
+        </div>
+        <div class="login-container__wrapper">
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</section>

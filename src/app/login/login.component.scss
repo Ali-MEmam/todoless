@@ -1,4 +1,4 @@
-.form{
+.login{
     height: 90vh;
     display: flex;
     justify-content: center;
@@ -28,16 +28,5 @@
                 }
             }
         }
-        &__btns{
-            flex : 0 1 40%;
-            &-submit{
-                border: none;
-                border-radius: 30px;
-                padding: 1rem 2rem;
-                outline: none;
-                cursor: pointer;
-            }
     }
-        }
-
 }

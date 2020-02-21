@@ -1,0 +1,50 @@
+<header class="header">
+  <h2>total time: {{totalProjectTime}}</h2>
+  <h2 class="bonus">Bonus :{{bonusValue}} </h2>
+  <h2 class="delay">Delay :{{delayValue}} </h2>
+</header>
+<div cdkDropListGroup>
+    <div class="example-container">
+      <h2>To do</h2>
+      <div
+        cdkDropList 
+        [cdkDropListData]="todo"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)" cdkDropList= "disable">
+        <div class="example-box" *ngFor="let item of todo" cdkDrag cdkDragDisabled="{{disabledDrag}}">
+          <p>{{item.name}}</p>
+          <p>{{item.time}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="example-container">
+      <h2>working On</h2>
+      <div
+        cdkDropList
+        [cdkDropListData]="workingOn"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)" >
+        <div class="example-box" *ngFor="let item of workingOn" cdkDrag>
+          <p>{{result}}</p>
+          <p>{{item.name}}</p>
+          <p>{{item.time}}</p>
+          <button (click)="handlePause()">{{status}}</button>
+        </div>
+      </div>
+    </div>
+    <div class="example-container">
+      <h2>Finished</h2>
+      <div
+        cdkDropList
+        [cdkDropListData]="finished"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of finished" cdkDrag>
+          <!-- <p>{{myObj.result}}</p> -->
+          <p>{{item.name}}</p>
+          <p>{{item.time}}</p>
+          <p class="bonus" >{{finishedTaskTime}} </p>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,21 @@
+<section class="login">
+    <form class="login-container" [formGroup]="login" (ngSubmit)="onLogin(login)">
+        <mat-form-field class="login-container__wrapper">
+            <mat-label>Username or Email</mat-label>
+            <input matInput formControlName="emailOrUsername" type="text" class="login-container__wrapper-input">
+        </mat-form-field>
+        <!-- <div class="login-container__wrapper " matFormField> -->
+        <mat-form-field class="login-container__wrapper">
+            <mat-label>Enter your password</mat-label>
+            <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" class="login-container__wrapper-input">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon class="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <!-- </div> -->
+        <div class="login-container__wrapper">
+            <button type="submit" mat-stroked-button>Login</button>
+        </div>
+    </form>
+</section>

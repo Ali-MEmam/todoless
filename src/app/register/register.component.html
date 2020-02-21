@@ -1,0 +1,39 @@
+<section class="form">
+    <app-reg-animation></app-reg-animation>
+    <form class="form-container" [formGroup]="register" (ngSubmit)="createAccount(register)">
+<!-- ----------------------------- Name Input ------------------------------ -->
+        <div class="form-container__wrapper">
+            <input class="form-container__wrapper-input" (change)="onChangeName()" formControlName="name" type="text"
+                placeholder="Username">
+            <div *ngIf="register.get('name').hasError('pattern')" class="not-valid-name"> name Must be </div>
+        </div>
+<!-- ----------------------------- Email Input ----------------------------- -->
+
+        <div class="form-container__wrapper">
+            <input class="form-container__wrapper-input" (change)="onChangeEmail()" formControlName="email" type="email"
+                placeholder="Email">
+            <div *ngIf="emailIsExist" class="not-valid-name">vaild email</div>
+            <div *ngIf="register.get('email').hasError('pattern')" class="not-valid-name"> Email Must be include @ and
+                domin</div>
+        </div>
+<!-- --------------------------- Password Input ---------------------------- -->
+        <div class="form-container__wrapper">
+            <input class="form-container__wrapper-input" formControlName="password" type="password"
+                placeholder="Password">
+            <div *ngIf="register.get('password').hasError('pattern')" class="not-valid-name"> password Must be include
+                uppercase and lowercase</div>
+        </div>
+<!-- ----------------------------- Phone Input ----------------------------- -->
+        <div class="form-container__wrapper">
+            <input class="form-container__wrapper-input" formControlName="phone" (change)="onChangePhone()" type="text"
+                placeholder="Phone">
+            <div *ngIf="register.get('phone').hasError('pattern')" class="not-valid-name"> phone must be 8+</div>
+            <div *ngIf="phoneIsExist" class="not-valid-name">vaild phone</div>
+        </div>
+<!-- ------------------------------- Sumbit -------------------------------- -->
+        <div class="form-container__btns">
+            <button class="form-container__btns-submit" type="submit"
+                [disabled]="nameIsExist || phoneIsExist || register.invalid">Send</button>
+        </div>
+    </form>
+</section>

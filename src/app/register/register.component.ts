@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
   passwordIsExist:boolean = false;
   phoneIsExist:boolean = false;
   register:FormGroup;
+  hide:boolean = true;
 
 
 /* -------------------------------------------------------------------------- */

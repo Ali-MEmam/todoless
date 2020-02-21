@@ -34,6 +34,7 @@ export class CompanyService {
 
   //create-company 
   createCompany(item: company) {
+    console.log({...item,role:"Admin"})
     return this.firestore.collection('company').add(item);
   }
 

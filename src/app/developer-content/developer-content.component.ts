@@ -11,12 +11,35 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./developer-content.component.scss']
 })
 export class DeveloperContentComponent implements OnInit {
+  /*================================================
+                     variables
+  ===============================================*/
+  totalProjectTime: number = 0;             //sum of all tasks time
+  disabledDrag: string = "false";           //default value for card is draggable
+  desabledDrop: string = "false";           //default value for section is droppable
+  status = 'pause';                         //default status for working on task button
+  taskCountresult: number;                 //task count result
+  start: any;                             //start timer
+  dropCardTime: number;
+  result: string;
+  splittedTimer: any;
+ /*================================================
+                     arrays
+  ===============================================*/
   todo: tasks[];
   workingOn = [];
   finished = [];
+  tasks=[];
+  myObj ={
+    finishedTaskTime:'',
+  }
+
   constructor(private TasksService: TasksService) { }
 
 
+ /*================================================
+                     drop function
+  ===============================================*/
   drop(event: CdkDragDrop<string[]>) {
 
     if (event.previousContainer.id === 'cdk-drop-list-0' && event.container.id === 'cdk-drop-list-1') {
@@ -33,10 +56,10 @@ export class DeveloperContentComponent implements OnInit {
         this.dropCardMinnutes = 0
       }
       // end hours and minutes initialization
-
+      
       this.disabledDrag = "true";
       this.handelBonusDelayTime();
-      this.countdown()
+      this.countdown();
     }
     if (event.previousContainer.id === 'cdk-drop-list-1' && event.container.id === 'cdk-drop-list-2') {
       transferArrayItem(event.previousContainer.data,
@@ -48,23 +71,19 @@ export class DeveloperContentComponent implements OnInit {
       this.dropCardMinnutes = 0;
       this.disabledDrag = "false";
       //.element.nativeElement
-      console.log(event.container.data)
-      console.log(event.container.element.nativeElement)
+      console.log(event.container.data);
+      console.log(event.container.element.nativeElement);
+      this.myObj.finishedTaskTime=this.result;
+      this.tasks.push(this.myObj);
+      console.log(this.result);
+      console.log(this.myObj);
+      console.log(this.tasks);
+      
+      
     }
   }
 
-  /*================================================
-                      variables
-   ===============================================*/
-  totalProjectTime: number = 0;             //sum of all tasks time
-  disabledDrag: string = "false";           //default value for card is draggable
-  desabledDrop: string = "false";           //default value for section is droppable
-  status = 'pause';                         //default status for working on task button
-  taskCountresult: number;                 //task count result
-  start: any;                             //start timer
-  dropCardTime: number;
-  result: string;
-  splittedTimer: any;
+
   /* =============================
   on init 
   ============================= */
@@ -100,8 +119,8 @@ export class DeveloperContentComponent implements OnInit {
         clearInterval(this.start);
         this.deadline();
       }
-      this.result = this.dropCardTime.toString()+":"+this.dropCardMinnutes+":"+this.dropCardSeconds; // alternative solution instade of pipe
-    },1000);
+      this.result = this.dropCardTime.toString() + ":" + this.dropCardMinnutes + ":" + this.dropCardSeconds; // alternative solution instade of pipe
+    }, 1000);
   }
   deadline() {
     this.start = setInterval(() => {
@@ -114,7 +133,7 @@ export class DeveloperContentComponent implements OnInit {
         this.dropCardMinnutes = 0;
         this.dropCardTime++;
       }
-      this.result = '-' +this.dropCardTime.toString()+":"+this.dropCardMinnutes+":"+this.dropCardSeconds; // alternative solution instade of pipe
+      this.result = '-' + this.dropCardTime.toString() + ":" + this.dropCardMinnutes + ":" + this.dropCardSeconds; // alternative solution instade of pipe
     }, 1000);
 
   }
@@ -150,7 +169,7 @@ export class DeveloperContentComponent implements OnInit {
   delayValue: any = 0;
   calculatedTimeArr: any;
   handelBonusDelayTime() {
-      console.log(this.result);
+    console.log(this.result);
     // this.calculatedTimeArr = (this.finishedTaskTime).split(":");
     // console.log(parseFloat(this.calculatedTimeArr[0]), parseInt(this.calculatedTimeArr[0]));
     // if (parseFloat(this.calculatedTimeArr[0]) === parseInt(this.calculatedTimeArr[0])) { 

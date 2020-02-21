@@ -26,6 +26,12 @@ export class DragTimerComponent implements OnInit {
   itemtoEdit:tasks;
   
   todo: tasks[];
+
+  workingOn = [
+
+  ];
+
+  finished = [];
   taskForm: FormGroup;
 
   constructor(private f: FormBuilder, private TasksService: TasksService) { }

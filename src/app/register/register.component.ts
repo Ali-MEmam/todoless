@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder, Validators} from '@angular/forms';
+
 import {users} from './../modals/users';
 import {usersService} from './../users.service/users.service';
-
 
 @Component({
   selector: 'app-register',
@@ -40,11 +40,10 @@ export class RegisterComponent implements OnInit {
 /*                             Ng OnInit LifeCycle                            */
 /* -------------------------------------------------------------------------- */
 
-  register:FormGroup;
 
   ngOnInit(): void {
     this.register = this.fb.group({
-      companyName:['',[Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
+      name:['',[Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
       email:['',[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
       password:['',[Validators.required, Validators.pattern(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/)]],
       phone:['',[Validators.required, Validators.pattern(/^[0-9]{8,}$/)]],
@@ -66,12 +65,6 @@ export class RegisterComponent implements OnInit {
   createAccount(AccountInfo){
     if(this.register.valid){
       this.UsersService.createUser(this.register.value);
-      companySize:['',Validators.required]
-    })
-  }
-  createAccount(item){
-    if(this.register.valid){
-      console.log(item.value)
     }else{
       console.log("not valid")
     }
@@ -95,5 +88,4 @@ export class RegisterComponent implements OnInit {
     })
     this.phoneIsExist = checker
   }
-
 }

@@ -90,6 +90,7 @@ export class DeveloperContentComponent implements OnInit {
         clearInterval(this.start);
         this.deadline();
       }
+      
 
     }, 1000);
   }

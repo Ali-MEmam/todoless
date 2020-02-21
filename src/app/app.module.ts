@@ -25,11 +25,11 @@ import {DragTimerComponent} from './drag-timer/drag-timer.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MatSliderModule } from '@angular/material/slider';
-// import {MatButtonModule} from '@angular/material/button';
-// import {MatFormFieldModule} from '@angular/material/form-field';
-// import {MatInputModule} from '@angular/material/input'
-// import {MatIconModule} from '@angular/material/icon';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input'
+import {MatIconModule} from '@angular/material/icon';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 
 @NgModule({
@@ -54,12 +54,13 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
-    // MatSliderModule,
-    // BrowserAnimationsModule,
-    // MatButtonModule,
-    // MatFormFieldModule,
-    // MatIconModule,
-    // MatInputModule
+    BrowserAnimationsModule,
+    MatSliderModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

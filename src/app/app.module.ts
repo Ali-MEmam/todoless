@@ -1,3 +1,5 @@
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -19,6 +21,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimerFormatPipe } from './timer-format.pipe';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +31,15 @@ import { TimerFormatPipe } from './timer-format.pipe';
     NavbarComponent,
     DeveloperContentComponent,
     TimerFormatPipe,
+    AdminPanelComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DragDropModule,
+    MatDialogModule,
+    MatButtonToggleModule,
     AngularFireModule.initializeApp(environment.firebase,'todoless'),
     AngularFireDatabaseModule,
     AngularFirestoreModule,

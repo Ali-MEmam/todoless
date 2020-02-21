@@ -15,8 +15,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AsideDeveloperComponent } from './aside/aside-developer/aside-developer.component';
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
-<<<<<<< HEAD
-
 
 import { LoginComponent } from './login/login.component';
 import {DragTimerComponent} from './drag-timer/drag-timer.component';
@@ -29,10 +27,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
-=======
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimerFormatPipe } from './timer-format.pipe';
->>>>>>> 2b563011e205b0e0f374ee74112577fd2dac13ab
 
 @NgModule({
   declarations: [
@@ -40,20 +35,12 @@ import { TimerFormatPipe } from './timer-format.pipe';
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
-
     AsideDeveloperComponent,
-    DeveloperContentComponent,
-    TimerFormatPipe,
-    AdminPanelComponent,    
-
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,    
-<<<<<<< HEAD
     LoginComponent,
     DragTimerComponent, CreateProjectComponent, RegAnimationComponent,
-=======
->>>>>>> 2b563011e205b0e0f374ee74112577fd2dac13ab
 
   ],
   imports: [
@@ -66,16 +53,12 @@ import { TimerFormatPipe } from './timer-format.pipe';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-<<<<<<< HEAD
     MatSliderModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule
-=======
-    
->>>>>>> 2b563011e205b0e0f374ee74112577fd2dac13ab
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { tasks } from '../modals/tasks';
-import { TasksService } from '../tasks.service/tasks.service'
+import { TasksService } from '../tasks.service/tasks.service';
 
 @Component({
   selector: 'app-developer-content',
   templateUrl: './developer-content.component.html',
   styleUrls: ['./developer-content.component.scss']
 })
+
 export class DeveloperContentComponent implements OnInit {
+<<<<<<< HEAD
   todo: tasks[];
+=======
+
+  /* =====================================================================================
+                              drag and drop  function 
+  ======================================================================================= */
+
+  todo : tasks[];
+
+>>>>>>> mohamed
   workingOn = [];
   finished = [];
 
@@ -19,6 +30,7 @@ export class DeveloperContentComponent implements OnInit {
 
     if (event.previousContainer.id === 'cdk-drop-list-0' && event.container.id === 'cdk-drop-list-1') {
       transferArrayItem(event.previousContainer.data,
+<<<<<<< HEAD
         event.container.data,
         event.previousIndex,
         event.currentIndex);
@@ -47,12 +59,46 @@ export class DeveloperContentComponent implements OnInit {
                       variables
    ===============================================*/
   totalProjectTime: number = 0;             //sum of all tasks time
+=======
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+
+                        this.dropCardTime =parseInt(this.workingOn[0].time) -1  ;
+
+                        
+                        this.disabledDrag = "true";
+                        this.countdown()
+                        console.log(this.workingOn)
+                        
+                        
+    }
+    if (event.previousContainer.id === 'cdk-drop-list-1' && event.container.id === 'cdk-drop-list-2') {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+                        clearInterval(this.start);                        
+                        this.dropCardSeconds = 0;
+                        this.dropCardMinnutes = 0;
+                        this.disabledDrag = "false";
+                        this.count = 0;
+                        
+    }  
+      
+    
+  }
+
+ /*================================================
+                     variables
+  ===============================================*/
+>>>>>>> mohamed
   disabledDrag: string = "false";           //default value for card is draggable
   desabledDrop: string = "false";           //default value for section is droppable
   status = 'pause';                         //default status for working on task button
-  taskCountresult: number;                 //task count result
   start: any;                             //start timer
 
+<<<<<<< HEAD
   dropCardTime: number;
   result: string;
   /* =============================
@@ -66,6 +112,24 @@ export class DeveloperContentComponent implements OnInit {
         this.totalProjectTime = this.todo[i].totalTime + this.totalProjectTime;
       }
     })
+=======
+  dropCardTime:number;
+  result:string;
+/* =============================
+on init 
+============================= */
+
+ngOnInit(): any {
+
+  this.TasksService.getTasks().subscribe(items=>{
+    console.log(items);
+    this.todo = items;
+  })
+
+  // for (let i = 0; i < this.todo.length; i++) {
+  //   this.totalProjectTime = this.todo[i]. + this.totalProjectTime;
+  // }
+>>>>>>> mohamed
 
   }
   /*======================

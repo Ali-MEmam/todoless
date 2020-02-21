@@ -13,50 +13,72 @@ import { usersService } from '../users.service/users.service'
 })
 
 export class CreateProjectComponent implements OnInit {
-  projectForm:FormGroup;
+
+  // !!!!!!!!!!!!!!--------------- Declartion && Intialization ---------------!!!!!!!!!!!!!!!!!
+
+  projectForm: FormGroup;
   projects: projects[];
-  users:users[];
+  users: users[];
   projectsLength;
   filterValue = "";
   usersLength;
   fileData: any;
   fileSrc: string | ArrayBuffer;
   file: any;
+  invitors = [];
 
-  constructor(private ProjectsService:ProjectsService,
-              private fb:FormBuilder,
-              private usersService:usersService) { }
+
+  constructor(private ProjectsService: ProjectsService,
+    private fb: FormBuilder,
+    private usersService: usersService) { }
 
   ngOnInit(): void {
 
+    // !!!!!!!!!!!!!!--------------- declare Form AND Validators ---------------!!!!!!!!!!!!!!!!!
+
     this.projectForm = this.fb.group({
-      name:['',[Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
-      id:this.projectsLength,
-      privacy:['',[Validators.required]],
-      color:'',
-      description:['',[Validators.required]],
-      attachment:'',
-      invitors:'',
-      startDate:'',
-      endDate:'',
+      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
+      id: '',
+      privacy: ['', [Validators.required]],
+      color: '',
+      description: ['', [Validators.required]],
+      attachment: ['', [Validators.required]],
+      invitors: ['',[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
+      startDate: ['', [Validators.required]],
+      endDate: ['', [Validators.required]]
     })
 
-    this.ProjectsService.getProject().subscribe(items=>{
-      // console.log(items.length);
+    // !!!!!!!!!!!!!!--------------- Get projects from firebase ---------------!!!!!!!!!!!!!!!!!
+
+    this.ProjectsService.getProject().subscribe(items => {
+      console.log(items);
       this.projects = items;
       this.projectsLength = items.length;
     })
-    
 
-    this.usersService.getUser().subscribe(items=>{
+    // !!!!!!!!!!!!!!--------------- Get Users from firebase ---------------!!!!!!!!!!!!!!!!!
+
+    this.usersService.getUser().subscribe(items => {
       console.log(items);
-      this.usersLength = items.length;
       this.users = items;
+      this.usersLength = items.length;
     })
-    
   }
 
-  SelectColor(event){}
+  // !!!!!!!!!!!!!!--------------- Select Color of project ---------------!!!!!!!!!!!!!!!!!
+
+  SelectColor(event) { }
+
+
+  // !!!!!!!!!!!!!!--------------- Select Id of UserInvited ---------------!!!!!!!!!!!!!!!!!
+
+  selectUser(event, item) {
+    this.invitors.push(item.id);
+    console.log(this.invitors)
+  }
+
+  // !!!!!!!!!!!!!!--------------- Attachment image or text to string---------------!!!!!!!!!!!!!!!!!
+
   readURL(event: any) {
     this.fileData = <File>event.target.files[0];
     console.log(this.fileData);
@@ -65,30 +87,34 @@ export class CreateProjectComponent implements OnInit {
 
   preview() {
     let mimeType = this.fileData.type;
-    if (mimeType.match(/image||text\/*/) == null)  {
+    if (mimeType.match(/image||text\/*/) == null) {
       return;
     }
-  
+
     let reader = new FileReader();
     reader.readAsDataURL(this.fileData);
     reader.onload = event => {
       this.fileSrc = reader.result;
       this.file = reader.result;
       this.projectForm.value.attachment = this.file;
-      console.log(this.projectForm.value.attachment) ;
+      // console.log(this.projectForm.value.attachment) ;
     };
   }
 
-  createProject(projectForm:FormGroup){
-    if (projectForm.valid) {      
+  // !!!!!!!!!!!!!!--------------- Create Project and send object to firebase ---------------!!!!!!!!!!!!!!!!!
+
+  createProject(projectForm: FormGroup) {
+    if (projectForm.valid) {
+      this.projectForm.value.id = this.projectsLength;
+      this.projectForm.value.attachment = this.file;
+      this.invitors.push(this.projectForm.value.invitors);
+      this.projectForm.value.invitors = this.invitors;  
       console.log("valid");
       console.log(this.projectForm.value);
-      // this.ProjectsService.createProject(this.projectForm.value);
-      // this.item.name = this.item.email = this.item.password = this.item.role = "";
-    }else{
+      this.ProjectsService.createProject(this.projectForm.value);
+    } else {
       console.log("Not Vaild")
     }
-
   }
 
 }

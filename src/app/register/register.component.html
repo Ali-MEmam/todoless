@@ -12,6 +12,8 @@
         <div class="form-container__wrapper">
             <input class="form-container__wrapper-input" (change)="onChangeEmail()" formControlName="email" type="email"
                 placeholder="Email">
+                <button *ngIf="register.get('email').hasError('pattern')" class="form-container__wrapper-input-msg"><mat-icon class="support">error</mat-icon>
+                </button>
             <div *ngIf="emailIsExist" class="not-valid-name">vaild email</div>
             <div *ngIf="register.get('email').hasError('pattern')" class="not-valid-name"> Email Must be include @ and
                 domin</div>

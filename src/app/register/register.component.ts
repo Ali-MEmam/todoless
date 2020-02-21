@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder, Validators} from '@angular/forms';
+<<<<<<< HEAD
 
 import {users} from './../modals/users';
 import {usersService} from './../users.service/users.service';
 
+=======
+>>>>>>> 2b563011e205b0e0f374ee74112577fd2dac13ab
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+<<<<<<< HEAD
 
 
 /* ------------------------------- Get MyData ------------------------------- */
@@ -40,13 +44,18 @@ export class RegisterComponent implements OnInit {
 /*                             Ng OnInit LifeCycle                            */
 /* -------------------------------------------------------------------------- */
 
+=======
+  register:FormGroup;
+  constructor(private fb:FormBuilder) { }
+>>>>>>> 2b563011e205b0e0f374ee74112577fd2dac13ab
 
   ngOnInit(): void {
     this.register = this.fb.group({
-      name:['',[Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
+      companyName:['',[Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
       email:['',[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
       password:['',[Validators.required, Validators.pattern(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/)]],
       phone:['',[Validators.required, Validators.pattern(/^[0-9]{8,}$/)]],
+<<<<<<< HEAD
     })
 
 /* ------------------ Get All My Data And Set it To Company ----------------- */
@@ -65,10 +74,19 @@ export class RegisterComponent implements OnInit {
   createAccount(AccountInfo){
     if(this.register.valid){
       this.UsersService.createUser(this.register.value);
+=======
+      companySize:['',Validators.required]
+    })
+  }
+  createAccount(item){
+    if(this.register.valid){
+      console.log(item.value)
+>>>>>>> 2b563011e205b0e0f374ee74112577fd2dac13ab
     }else{
       console.log("not valid")
     }
   }
+<<<<<<< HEAD
   
   onChangeName(){
     let checker = this.allUsers.some(value=>{
@@ -88,4 +106,6 @@ export class RegisterComponent implements OnInit {
     })
     this.phoneIsExist = checker
   }
+=======
+>>>>>>> 2b563011e205b0e0f374ee74112577fd2dac13ab
 }

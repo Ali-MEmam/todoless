@@ -3,7 +3,6 @@ export interface company {
     name?:string;
     size?:string;
     email?:any;
-    role?:string;
-    password?:string;
-    phone?:string;
+    role:string;
+    password?:string
 }

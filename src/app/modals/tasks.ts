@@ -1,16 +1,9 @@
 export interface tasks{
-    id?:any;
-    projectId?:any;
-    personId?:any;
+    id?:string;
     name?:string;
-    description?:string;
     status?:string;
-    image?:any;
-    attachment?:any;
-    startDate?:any;
-    endDate?:any;
+    description?:string;
     totalTime?:any;
     bouns?:any;
-    delay?:any;
     assignTo?:any;
 }

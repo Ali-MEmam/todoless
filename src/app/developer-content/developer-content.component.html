@@ -40,9 +40,8 @@
         class="example-list"
         (cdkDropListDropped)="drop($event)">
         <div class="example-box" *ngFor="let item of finished" cdkDrag>
-          <p>{{item.name}}</p>
+          <p>{{item.name}}<p>
           <p>{{item.time}}</p>
-          <p>{{result}}</p>
           <p class="bonus" >{{finishedTaskTime}} </p>
         </div>
       </div>

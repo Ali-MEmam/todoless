@@ -18,11 +18,8 @@ import { TimerFormatPipe } from './timer-format.pipe';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
-<<<<<<< HEAD
 import {AllProjectsComponent} from './all-projects/all-projects.component';
 import {AsideDeveloperComponent} from './aside/aside-developer/aside-developer.component';
-=======
->>>>>>> 57ded8e5d6f59cf2ef588c168f179d8185b6a77f
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
@@ -36,7 +33,7 @@ import { CreateProjectComponent } from './create-project/create-project.componen
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
-<<<<<<< HEAD
+
     AsideDeveloperComponent,
     DeveloperContentComponent,
     TimerFormatPipe,
@@ -49,14 +46,12 @@ import { CreateProjectComponent } from './create-project/create-project.componen
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,   
-=======
+
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,    
     LoginComponent,
     DragTimerComponent, CreateProjectComponent,
->>>>>>> 57ded8e5d6f59cf2ef588c168f179d8185b6a77f
-
   ],
   imports: [
     BrowserModule,
@@ -67,15 +62,8 @@ import { CreateProjectComponent } from './create-project/create-project.componen
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
-<<<<<<< HEAD
-
     BrowserAnimationsModule,
     ChartsModule
-
-   
-=======
-    BrowserAnimationsModule,
->>>>>>> 57ded8e5d6f59cf2ef588c168f179d8185b6a77f
   ],
   providers: [],
   bootstrap: [AppComponent]

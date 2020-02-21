@@ -11,7 +11,7 @@ export class SearchPipe implements PipeTransform {
       return value  
     }
     for(const item of value){
-      if(item.name.startsWith(args.toLowerCase()) || item.name.includes(args.toLowerCase())){
+      if(item.role.startsWith(args.toLowerCase()) || item.role.includes(args.toLowerCase())){
         filterd.push(item)
         console.log(item.role)
       }

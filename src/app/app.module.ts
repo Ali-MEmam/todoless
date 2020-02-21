@@ -3,24 +3,30 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
-
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { pipe, from } from 'rxjs';
+import { pipe } from 'rxjs';
 import { SearchPipe } from './search.pipe';
+<<<<<<< HEAD
 
+=======
+>>>>>>> omnia
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AsideDeveloperComponent } from './aside/aside-developer/aside-developer.component';
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
+<<<<<<< HEAD
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimerFormatPipe } from './timer-format.pipe';
+=======
+
+>>>>>>> omnia
 import { LoginComponent } from './login/login.component';
 import {DragTimerComponent} from './drag-timer/drag-timer.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
@@ -31,7 +37,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
+<<<<<<< HEAD
 
+=======
+import { TimerFormatPipe } from './timer-format.pipe';
+>>>>>>> omnia
 
 @NgModule({
   declarations: [
@@ -39,6 +49,11 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
+<<<<<<< HEAD
+=======
+    AsideDeveloperComponent,
+    AdminPanelComponent,
+>>>>>>> omnia
     DeveloperContentComponent,
     TimerFormatPipe,
     AdminPanelComponent,
@@ -57,6 +72,7 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     MatSliderModule,
     BrowserAnimationsModule,
     MatButtonModule,

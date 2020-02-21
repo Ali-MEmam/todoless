@@ -43,16 +43,21 @@
                     <ul class="adminprofile-container__side__search-list">
                         <section class="profiles">
                             <div class="profiles-container">
+<<<<<<< HEAD
                                 <div class="profiles-container__search-form">button>
                                     <label>users::{{itemLength}}</label>
+=======
+                                <div class="profiles-container__search-form">
+                                    <label>Emplyees::{{itemLength}}</label>
+>>>>>>> omnia
                                     <input [(ngModel)]="filterValue" placeholder="Search">
                                 </div>
-                                <div class="profiles-container__list" *ngIf="users?.length > 0 ; else noemployees">
+                                <div class="profiles-container__list" *ngIf="employees?.length > 0 ; else noemployees">
                                     <ul>
-                                        <li *ngFor="let item of users | search:filterValue">
+                                        <li *ngFor="let item of employees | search:filterValue">
                                             {{item.name}} :{{item.role}}: {{item.email}}
-                                            <button type="button" (click)="deleteUser($event,item)">X</button>
-                                            <button type="button" (click)="editUser($event,item)">E</button>
+                                            <button type="button" (click)="deleteEmp($event,item)">X</button>
+                                            <button type="button" (click)="editEmp($event,item)">E</button>
                                         </li>
                                     </ul>
                                 </div>

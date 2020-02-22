@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
@@ -17,6 +16,7 @@ import { TimerFormatPipe } from './timer-format.pipe';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AsideDeveloperComponent } from './aside/aside-developer/aside-developer.component';
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
 import { LoginComponent } from './login/login.component';
 import {DragTimerComponent} from './drag-timer/drag-timer.component';
@@ -37,6 +37,12 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
+
+    AsideDeveloperComponent,
+    DeveloperContentComponent,
+    TimerFormatPipe,
+    AdminPanelComponent,    
+
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,    

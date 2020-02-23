@@ -169,6 +169,7 @@ export class DeveloperContentComponent implements OnInit {
   delayValue: any = 0;
   calculatedTimeArr: any;
   handelBonusDelayTime() {
+<<<<<<< HEAD
     console.log(this.result);
     // this.calculatedTimeArr = (this.finishedTaskTime).split(":");
     // console.log(parseFloat(this.calculatedTimeArr[0]), parseInt(this.calculatedTimeArr[0]));
@@ -192,6 +193,20 @@ export class DeveloperContentComponent implements OnInit {
     // else {
     //   this.delayValue = this.delayValue + this.finishedTaskTime.innerHTML
     // }
+=======
+    // this.finishedTaskTime = (event.target.childNodes[0].innerHTML);
+    this.calculatedTimeArr = (this.finishedTaskTime).split(":");
+    console.log(parseFloat(this.calculatedTimeArr[0]), parseInt(this.calculatedTimeArr[0]));
+    if (parseFloat(this.calculatedTimeArr[0]) === parseInt(this.calculatedTimeArr[0])) { 
+      this.bonusValueHours = parseFloat(this.calculatedTimeArr[0]) + this.bonusValueHours;
+      this.bonusValueMinuts = parseFloat(this.calculatedTimeArr[1]) + this.bonusValueMinuts;
+      this.bonusValueSeconds = parseFloat(this.calculatedTimeArr[2]) + this.bonusValueSeconds;
+      this.bonusValue = this.bonusValueHours + ":" + this.bonusValueMinuts + ":" + this.bonusValueSeconds;
+    }
+    else {
+      this.delayValue = this.delayValue + this.finishedTaskTime.innerHTML
+    }
+>>>>>>> 1f386c4098f50d4a6b103043a9b18976c992144e
   }
 
 

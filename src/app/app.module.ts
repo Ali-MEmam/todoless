@@ -7,8 +7,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms'
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { pipe, from } from 'rxjs';
@@ -33,34 +32,21 @@ import {MatIconModule} from '@angular/material/icon';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
-
     AsideDeveloperComponent,
-    DeveloperContentComponent,
-    TimerFormatPipe,
-    AdminPanelComponent,    
+    DeveloperContentComponent,   
     AdminPanelComponent,
-    DeveloperContentComponent,
-    TimerFormatPipe,
     AllProjectsComponent,    
-    DragTimerComponent,
-    AdminPanelComponent,
-    DeveloperContentComponent,
     TimerFormatPipe,   
-
-    AdminPanelComponent,
-    DeveloperContentComponent,
-    TimerFormatPipe,    
     LoginComponent,
-    DragTimerComponent, CreateProjectComponent,
-    DragTimerComponent, CreateProjectComponent, RegAnimationComponent,
-
+    DragTimerComponent,
+    CreateProjectComponent,
+    RegAnimationComponent,
 
   ],
   imports: [

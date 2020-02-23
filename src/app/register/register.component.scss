@@ -1,3 +1,4 @@
+@import './../ourVariables.scss';
 .form{
     height: 90vh;
     display: flex;
@@ -22,7 +23,7 @@
                 width: 100%;
                 padding: 0.5rem 0.5rem;
                 border: none;
-                border-bottom:#bbcfff  solid 1px;
+                border-bottom:$orange solid 1px;
                 transition:border-bottom 1s ;
                 &:focus{
                     outline: none;

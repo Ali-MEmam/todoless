@@ -1,1 +1,17 @@
 @import './../ourVariables.scss';
+.createProject{
+    height:100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    &-container{
+        &__wrapper{
+            position: relative;
+            font-size: 14px;
+            &-label{
+                position: absolute;
+            }
+           
+        }
+    }
+}

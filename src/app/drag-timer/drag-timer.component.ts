@@ -67,6 +67,9 @@ export class DragTimerComponent implements OnInit {
     /* for (let i = 0; i < this.todo.length; i++) {
       this.totalProjectTime = this.todo[i].totalTime + this.totalProjectTime;
     } */
+    // for (let i = 0; i < this.todo.length; i++) {
+    //   this.totalProjectTime = this.todo[i].totalTime + this.totalProjectTime;
+    // }
   }
 
 

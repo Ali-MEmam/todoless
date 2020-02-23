@@ -8,9 +8,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
-
-import {FormsModule, ReactiveFormsModule} from '@angular/forms'
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { pipe, from } from 'rxjs';
@@ -20,7 +18,7 @@ import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import {AllProjectsComponent} from './all-projects/all-projects.component';
-import {AsideDeveloperComponent} from './aside/aside-developer/aside-developer.component';
+import { AsideDeveloperComponent } from './aside/aside-developer/aside-developer.component';
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
@@ -35,7 +33,6 @@ import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
-
 
 
 @NgModule({
@@ -67,6 +64,11 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
     DragTimerComponent, CreateProjectComponent, RegAnimationComponent,
 
     DragTimerComponent, CreateProjectComponent, RegAnimationComponent, ProjectDetailsComponent,
+    TimerFormatPipe,    
+    LoginComponent,
+    DragTimerComponent,
+    CreateProjectComponent,
+    RegAnimationComponent,
 
   ],
   imports: [

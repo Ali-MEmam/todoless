@@ -5,6 +5,8 @@
         <div class="form-container__wrapper">
             <input class="form-container__wrapper-input" (change)="onChangeName()" formControlName="name" type="text"
                 placeholder="Username">
+                 <button *ngIf="register.get('name').hasError('pattern')" class="form-container__wrapper-input-msg"><mat-icon class="support">error</mat-icon>
+                </button>
             <div *ngIf="register.get('name').hasError('pattern')" class="not-valid-name"> name Must be </div>
         </div>
 <!-- ----------------------------- Email Input ----------------------------- -->
@@ -29,6 +31,8 @@
         <div class="form-container__wrapper">
             <input class="form-container__wrapper-input" formControlName="phone" (change)="onChangePhone()" type="text"
                 placeholder="Phone">
+            <button *ngIf="register.get('phone').hasError('pattern')" class="form-container__wrapper-input-msg"><mat-icon class="support">error</mat-icon>
+            </button>
             <div *ngIf="register.get('phone').hasError('pattern')" class="not-valid-name"> phone must be 8+</div>
             <div *ngIf="phoneIsExist" class="not-valid-name">vaild phone</div>
         </div>

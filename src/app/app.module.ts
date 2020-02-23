@@ -43,11 +43,11 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
     TimerFormatPipe,
     AdminPanelComponent,    
 
-    AdminPanelComponent,
-    DeveloperContentComponent,
     TimerFormatPipe,    
     LoginComponent,
-    DragTimerComponent, CreateProjectComponent, RegAnimationComponent,
+    DragTimerComponent,
+    CreateProjectComponent,
+    RegAnimationComponent,
 
   ],
   imports: [

@@ -1,0 +1,138 @@
+/*===============
+search-add project
+================*/
+.add-project {
+  &__wrapper {
+    border-radius: 40px;
+    -webkit-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+    -moz-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+    box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+
+    &-search {
+      & input {
+        border: unset;
+        border-bottom: 3px solid #f0f2f8;
+        font-size: 20px;
+        color: #fd611c;
+      }
+
+      & input::placeholder {
+        font-size: 25px;
+        color: #fd611c;
+      }
+    }
+     & .col-2{
+      position: absolute;
+      right: 0;
+      padding: 0;
+      margin: 0;
+     }
+    &-add {
+      background-color: #f0f2f8;
+      border-bottom-left-radius: 20px;
+      border-top-left-radius: 20px;
+      -webkit-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+      -moz-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+      box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+
+      &-content {
+        background-color: #fd611c;
+        border-radius: 10px;
+        width: 50px;
+
+        & mat-icon {
+          color: #fff;
+          font-size: 25px;
+        }
+      }
+    }
+  }
+
+}
+
+/*===============
+all projects
+===============*/
+.all-projects {
+  &__wrapper {
+    border-radius: 40px;
+    -webkit-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+    -moz-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+    box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+  }
+
+  & a {
+    text-decoration: none;
+    color: unset
+  }
+
+  &__card {
+    width: 220px;
+    height: 160px;
+    margin: 0 auto;
+    margin-top: 50px;
+    position: relative;
+    background-color: #f0f2f8;
+    border-radius: 0 6px 6px 6px;
+    -webkit-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+    -moz-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+    box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+
+    &-head {
+      color: #2564C5;
+      border-bottom: 1px solid #fd611c;
+      width: 50%;
+    }
+
+
+    &:after,
+    &:before {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 12px;
+      border-radius: 0 20px 0 0;
+    }
+
+    &:after {
+      border-top-left-radius: 20px;
+      background-color: #f0f2f8;
+      top: -12px;
+      left: 0px;
+    }
+
+    &:before {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      background-color: #fff;
+      top: -5px;
+      right: 0px;
+    }
+
+    //hovering
+    &:hover {
+      background-color: #2564C5;
+    }
+
+    &:hover {
+
+      &:after {
+        background-color: #2564C5;
+      }
+
+    }
+
+    &:hover & {
+      &-head {
+        color: #fff
+      }
+    }
+
+    &:hover & {
+      &-date {
+        color: #fff
+      }
+    }
+  }
+
+}

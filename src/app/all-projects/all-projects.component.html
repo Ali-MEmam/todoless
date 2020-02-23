@@ -1,11 +1,62 @@
 
-   <div class="chart">
-     <canvas baseChart
-       [data]="pieChartData"
-       [labels]="pieChartLabels"
-       [chartType]="pieChartType"
-       [options]="pieChartOptions"
-       [colors]="pieChartColors"
-       [legend]="pieChartLegend">
-     </canvas>
-   </div>
+<!-----------------search-add-------------------->
+ <section class="add-project my-5">
+   <div class="container add-project__wrapper p-5">
+     <div class="row">
+      <div class="col-10">
+        <div class="add-project__wrapper-search">
+          <form>
+            <div class="form-group">
+              <input type="search" class="form-control py-5" placeholder="Search Project"/>
+            </div>
+          </form>
+         </div>
+        
+      </div>
+      <div class="col-2">
+        <div class="add-project__wrapper-add py-3">
+          <div class="add-project__wrapper-add-content py-3 ml-1 text-center">
+            <mat-icon aria-hidden="false" aria-label="Example add icon">add</mat-icon>
+          </div>
+         </div>
+      </div>
+     </div>
+     </div>
+ <!--------------------------------------------->
+ <!-----------------create project popup-------->
+ 
+ <!-----------------/create project popup------->
+ <!--------------------------------------------->
+ </section>
+<!-----------------/search-add------------------->
+<!----------------------------------------------->
+<!-----------------all projects------------------>
+<section class="all-projects my-5">
+  <div class="all-projects__wrapper container p-5 ">
+    <div class="row">
+      <div class="col-lg-3 col-md-6" *ngFor="let project of projects ; let i = index">
+        <a href="#" (click)="selectProject($event ,project)">
+          <div class="all-projects__card">
+            <h2 class="all-projects__card-head pt-5 ml-4">{{project.name}}</h2>
+            <p class="all-projects__card-date ml-4 pt-4"><i class="mr-2">Start Date:</i>{{project.startDate}}</p>
+            <p class="all-projects__card-date ml-4"><i class="mr-2">End Date:</i>{{project.endDate}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-----------------/all projects----------------->
+<!----------------------------------------------->
+<div class="chart">
+  <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+    [options]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
+  </canvas>
+</div>
+
+<!-- <div class="project">
+     <p>project name:{{project.name}}</p>
+     <p>project number:{{i+1}}</p>
+     <img src={{project.attachment}}/>
+     <a  href="data:application/pdf;base64,{{project.attachment}}" target=_blank download>download</a>
+   </div> -->

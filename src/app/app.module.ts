@@ -2,7 +2,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ChartsModule} from "ng2-charts"
+import {ChartsModule} from "ng2-charts";
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
@@ -23,27 +23,19 @@ import {AllProjectsComponent} from './all-projects/all-projects.component';
 import {AsideDeveloperComponent} from './aside/aside-developer/aside-developer.component';
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-<<<<<<< HEAD
 import { LoginComponent } from './login/login.component';
-import {DragTimerComponent} from './drag-timer/drag-timer.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
-=======
 import { TimerFormatPipe } from './timer-format.pipe';
-import { LoginComponent } from './login/login.component';
 import {DragTimerComponent} from './drag-timer/drag-timer.component';
-import { CreateProjectComponent } from './create-project/create-project.component';
 
->>>>>>> mohamed
 import { MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
-<<<<<<< HEAD
+import { ProjectDetailsComponent } from './project-details/project-details.component';
 
-=======
->>>>>>> mohamed
 
 
 @NgModule({
@@ -52,7 +44,6 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
-<<<<<<< HEAD
 
     AsideDeveloperComponent,
     DeveloperContentComponent,
@@ -68,19 +59,14 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
     TimerFormatPipe,   
 
     AdminPanelComponent,
-=======
->>>>>>> mohamed
     DeveloperContentComponent,
     TimerFormatPipe,
     AdminPanelComponent,
     LoginComponent,
-<<<<<<< HEAD
     DragTimerComponent, CreateProjectComponent,
     DragTimerComponent, CreateProjectComponent, RegAnimationComponent,
 
-=======
-    DragTimerComponent, CreateProjectComponent, RegAnimationComponent,
->>>>>>> mohamed
+    DragTimerComponent, CreateProjectComponent, RegAnimationComponent, ProjectDetailsComponent,
 
   ],
   imports: [

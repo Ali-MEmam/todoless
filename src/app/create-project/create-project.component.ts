@@ -51,7 +51,6 @@ export class CreateProjectComponent implements OnInit {
     // !!!!!!!!!!!!!!--------------- Get projects from firebase ---------------!!!!!!!!!!!!!!!!!
 
     this.ProjectsService.getProject().subscribe(items => {
-      console.log(items);
       this.projects = items;
       this.projectsLength = items.length;
     })
@@ -59,7 +58,6 @@ export class CreateProjectComponent implements OnInit {
     // !!!!!!!!!!!!!!--------------- Get Users from firebase ---------------!!!!!!!!!!!!!!!!!
 
     this.usersService.getUser().subscribe(items => {
-      console.log(items);
       this.users = items;
       this.usersLength = items.length;
     })

@@ -9,7 +9,7 @@
 <form [formGroup]='taskForm' (ngSubmit)='onSubmit(taskForm)'>
   <input formControlName="name"[(ngModel)]="item.name" placeholder="task name">
   <input formControlName="descrption"[(ngModel)]="item.descrption" placeholder="task description">
-  <input formControlName="time" [(ngModel)]="item.time" placeholder="task time">
+  <input formControlName="totalTime" [(ngModel)]="item.totalTime" placeholder="task time">
   <input formControlName="deadLine" [(ngModel)]="item.deadLine" placeholder="task deadLine" type="date">
   <input formControlName="startDate"  [(ngModel)]="item.startDate" placeholder="task startDate" type="date">
   <input formControlName="employeeId" [(ngModel)]="item.employeeId" placeholder="employee name">

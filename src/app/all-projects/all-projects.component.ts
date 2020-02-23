@@ -27,7 +27,7 @@ export class AllProjectsComponent implements OnInit {
     public pieChartLegend = true;
     public pieChartColors = [
         {
-            backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
+            backgroundColor: ['rgba(247,149,99,1)', 'rgba(0,171,178,1)', 'rgba(216,70,114,1)'],
         },
     ];
 

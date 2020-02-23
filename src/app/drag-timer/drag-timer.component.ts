@@ -14,7 +14,7 @@ export class DragTimerComponent implements OnInit {
   item: any = {
     name: '',
     descrption: '',
-    time: '',
+    totalTime: '',
     employeeId: '',
     deadLine: '',
     startDate: '',
@@ -42,7 +42,7 @@ export class DragTimerComponent implements OnInit {
     this.taskForm = this.f.group({
       name: '',
       descrption: '',
-      time: '',
+      totalTime: '',
       employeeId: '',
       deadLine: '',
       startDate:'',
@@ -51,13 +51,12 @@ export class DragTimerComponent implements OnInit {
 
     this.TasksService.getTasks().subscribe(item =>{
       this.todo = item;
-      console.log(item);
     })
 
     this.TasksService.currentId.subscribe((message:any)=>{
       this.item.name = message.name;
       this.item.descrption = message.descrption;
-      this.item.time = message.time;
+      this.item.totalTime = message.totalTime;
       this.item.employeeId = message.employeeId;
       this.item.deadLine = message.deadLine;
       this.item.startDate = message.startDate;
@@ -65,9 +64,9 @@ export class DragTimerComponent implements OnInit {
     })
 
     // task code
-    for (let i = 0; i < this.todo.length; i++) {
+    /* for (let i = 0; i < this.todo.length; i++) {
       this.totalProjectTime = this.todo[i].totalTime + this.totalProjectTime;
-    }
+    } */
   }
 
 

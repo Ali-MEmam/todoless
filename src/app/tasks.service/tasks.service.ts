@@ -54,7 +54,8 @@ export class TasksService {
     this.idTranssform.next(item);
   }
 
-
-
+  editTaskStatus(id : string){
+    
+  }
 
 }

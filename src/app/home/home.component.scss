@@ -1,0 +1,17 @@
+@import '../ourVariables.scss';
+.home{
+    width:80px 0px;
+    background-color:$black;
+    font-family:$mainFont;
+    &-nav{
+        &__container{
+            &-logo{
+                color:$lightblue;
+                span{
+                    color:$orange;
+                }
+            }
+        }
+        
+    }   
+}

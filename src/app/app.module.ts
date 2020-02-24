@@ -29,6 +29,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
     AdminPanelComponent,
     DragTimerComponent, CreateProjectComponent, RegAnimationComponent,
     TimerFormatPipe,    
-    LoginComponent,
+    LoginComponent, HomeComponent,
 
   ],
   imports: [

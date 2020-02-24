@@ -80,6 +80,7 @@ export class DragTimerComponent implements OnInit {
       this.item.status = message.status;
     })
 
+
   }
 
 
@@ -101,6 +102,7 @@ export class DragTimerComponent implements OnInit {
       this.fileSrc = reader.result;
       this.file = reader.result;
       this.taskForm.value.attachment = this.file;
+      // console.log(this.projectForm.value.attachment) ;
     };
   }
   taskObj;
@@ -117,22 +119,20 @@ export class DragTimerComponent implements OnInit {
   }
 
   onSubmit(form:FormGroup) {
-    this.TasksService.createTasks(this.taskForm.value);
-
-    // if (form.valid){
-    //   this.taskForm.value.attachment = this.file;
-    //   this.assignTo.push(this.taskForm.value.assignTo);
-    //   this.taskForm.value.assignTo = this.assignTo;  
-    //   // console.log("valid");
-    //   console.log(this.taskForm.value);
-    //   this.item.name = this.item.descrption = 
-    //   this.item.time =this.item.startDate =this.item.employeeId =
-    //   this.item.deadLine = "";
-    //   this.item.status ='';
-    // }
+    if (form.valid){
+      this.taskForm.value.attachment = this.file;
+      this.assignTo.push(this.taskForm.value.assignTo);
+      this.taskForm.value.assignTo = this.assignTo;  
+      console.log("valid");
+      console.log(this.taskForm.value);
+      this.TasksService.createTasks(this.taskForm.value);
+      this.item.name = this.item.description = 
+      this.item.totalTime =this.item.startDate =this.item.personId =
+      this.item.endDate = "";
+      this.item.status ='';
+    }
   }
-
-
+ 
 
   title = 'to-do-less';
 

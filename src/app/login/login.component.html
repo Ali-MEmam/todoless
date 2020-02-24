@@ -1,4 +1,7 @@
 <section class="login">
+    <div class="login-google">
+
+    </div>
     <form class="login-container" [formGroup]="login" (ngSubmit)="onLogin(login)">
         <mat-form-field class="login-container__wrapper">
             <mat-label>Username or Email</mat-label>
@@ -12,7 +15,6 @@
             <mat-icon class="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>
-
         <!-- </div> -->
         <div class="login-container__wrapper">
             <button type="submit" mat-stroked-button>Login</button>

@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 import { pipe, from } from 'rxjs';
 import { SearchPipe } from './search.pipe';
 import { TimerFormatPipe } from './timer-format.pipe';
-
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
@@ -38,14 +37,15 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
     RegisterComponent,
     NavbarComponent,
     DeveloperContentComponent,
-    TimerFormatPipe,
     AllProjectsComponent,    
     AdminPanelComponent,
-    LoginComponent,
     DragTimerComponent, CreateProjectComponent, RegAnimationComponent,
+    TimerFormatPipe,    
+    LoginComponent,
 
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     DragDropModule,
@@ -60,7 +60,7 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
 
   ],
   providers: [],

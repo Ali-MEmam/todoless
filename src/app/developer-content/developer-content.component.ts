@@ -3,6 +3,8 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { tasks } from '../modals/tasks';
 import { TasksService } from '../tasks.service/tasks.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { isNgTemplate } from '@angular/compiler';
+import { element } from 'protractor';
 
 
 @Component({
@@ -22,15 +24,18 @@ export class DeveloperContentComponent implements OnInit {
   start: any;                             //start timer
   dropCardTime: number;
   result: string;
-  timeStatus:any;
   splittedTimer: any;
  /*================================================
                      arrays
   ===============================================*/
-  todo: tasks[];
-  workingOn = [];
-  finished = [];
+  todo :tasks [];
+  workingOn :tasks[];
+  finished :tasks[];
   tasks=[];
+  myObj ={
+    finishedTaskTime:'',
+  };
+  workObj=[];
 
   constructor(private TasksService: TasksService) { }
 
@@ -39,72 +44,89 @@ export class DeveloperContentComponent implements OnInit {
                      drop function
   ===============================================*/
   drop(event: CdkDragDrop<string[]>) {
-
-    if (event.previousContainer.id === 'cdk-drop-list-0' && event.container.id === 'cdk-drop-list-1') {
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
-        console.log(event.container.data);
-        console.log(event.container.element.nativeElement);
-      // start hours and minutes initialization
-      this.splittedTimer = this.workingOn[0].time.split(':');
-      this.dropCardTime = parseInt(this.splittedTimer[0]);
-      this.dropCardMinnutes = parseInt(this.splittedTimer[1]);
-      if (!this.splittedTimer[1]) {
-        this.dropCardMinnutes = 0
-      }
-      // end hours and minutes initialization
+if (this.workingOn.length === 0 ){
+  if (event.previousContainer.id === 'cdk-drop-list-0' && event.container.id === 'cdk-drop-list-1') {
+    transferArrayItem(event.previousContainer.data,
+      event.container.data,
+      event.previousIndex,
+      event.currentIndex);
       
-      this.disabledDrag = "true";
-      this.handelBonusDelayTime();
-      this.countdown();
+    // start hours and minutes initialization
+    
+    this.splittedTimer = this.workingOn[0].totalTime.split(':');
+    this.dropCardTime = parseInt(this.splittedTimer[0]);
+    this.dropCardMinnutes = parseInt(this.splittedTimer[1]);
+    if (!this.splittedTimer[1]) {
+      this.dropCardMinnutes = 0
     }
+    this.workingOn[0].status = 'workingOn';
+
+
+    // edit task status on firebase 
+    // this.TasksService.editTaskStatus(this.workingOn[1] , this.workingOn[1].status) 
+    console.log(event.currentIndex);
+
+
+    // end hours and minutes initialization
+    this.editStatus(this.workingOn[0]);
+    this.disabledDrag = "true";
+    this.handelBonusDelayTime();
+    this.countdown();
+  }
+}
     if (event.previousContainer.id === 'cdk-drop-list-1' && event.container.id === 'cdk-drop-list-2') {
       transferArrayItem(event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex);
-      clearInterval(this.start);
-      this.dropCardSeconds = 0;
-      this.dropCardMinnutes = 0;
-      this.disabledDrag = "false";
+        clearInterval(this.start);
+        this.dropCardSeconds = 0;
+        this.dropCardMinnutes = 0;
+        this.disabledDrag = "false";
+        this.finished.forEach((element)=>{
+        element.status = 'finished';
+        });
+        
+        
       //.element.nativeElement
-      console.log(event.container.data);
-      console.log(event.container.element.nativeElement);
-            
-        let myObj ={
-          finishedTaskTime:'',
-        }
-      myObj.finishedTaskTime=this.result;
-      console.log(myObj.finishedTaskTime);
-      this.tasks.push(myObj);
-      if(parseInt(this.result) >= 0){
-        this.timeStatus = "bouns";
-        console.log(this.timeStatus)
-      }else{
-        this.timeStatus = "delay";
-        console.log(this.timeStatus)
-
-      }
-      console.log(myObj);
-      console.log(this.tasks);
+      this.myObj.finishedTaskTime=this.result;
+      this.tasks.push(this.myObj);
+      this.editStatus(this.finished[0]);
     }
   }
+  editStatus(item){
+    this.TasksService.createTasks(item);
+    this.TasksService.deleteTasks(item);
+}
+// editFinish(item){
+//   console.log(item)
+//   // this.TasksService.createTasks(item);
+//   // this.TasksService.deleteTasks(item);
+// }
 
   /* =============================
   on init 
   ============================= */
   ngOnInit(): any {
-    this.TasksService.getTasks().subscribe(items => {
+    this.TasksService.getTasks().subscribe((items : any) => {
+      this.todo = items.filter(data=>data.status === 'pending');
+      this.workingOn = items.filter(data=>data.status === 'workingOn');
+      this.finished = items.filter(data=>data.status === 'finished');
       console.log(items);
-      this.todo = items;
       for (let i = 0; i < this.todo.length; i++) {
         this.totalProjectTime = this.todo[i].totalTime + this.totalProjectTime;
       }
     })
-
+    // this.workingOn = this.TasksService.currentId.subscribe((message: any) =>  return message)
+    
+    // this.TasksService.currentId.subscribe((message: any) => {
+    //   // this.workObj.push(message);
+    //   // console.log(this.workObj);
+    // })
   }
+
+
+
   /*======================
    task count down timer
    ======================*/
@@ -128,7 +150,7 @@ export class DeveloperContentComponent implements OnInit {
         this.deadline();
       }
       this.result = this.dropCardTime.toString() + ":" + this.dropCardMinnutes + ":" + this.dropCardSeconds; // alternative solution instade of pipe
-    }, 0.5);
+    }, 1000);
   }
   deadline() {
     this.start = setInterval(() => {
@@ -142,7 +164,7 @@ export class DeveloperContentComponent implements OnInit {
         this.dropCardTime++;
       }
       this.result = '-' + this.dropCardTime.toString() + ":" + this.dropCardMinnutes + ":" + this.dropCardSeconds; // alternative solution instade of pipe
-    }, 0.5);
+    }, 1000);
 
   }
 
@@ -177,7 +199,6 @@ export class DeveloperContentComponent implements OnInit {
   delayValue: any = 0;
   calculatedTimeArr: any;
   handelBonusDelayTime() {
-    console.log(this.result);
     // this.calculatedTimeArr = (this.finishedTaskTime).split(":");
     // console.log(parseFloat(this.calculatedTimeArr[0]), parseInt(this.calculatedTimeArr[0]));
     // if (parseFloat(this.calculatedTimeArr[0]) === parseInt(this.calculatedTimeArr[0])) { 

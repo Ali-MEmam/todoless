@@ -1,54 +1,91 @@
-<section class="developer-content">
-  <div class="container-fluid">
+<section class="developer-content py-2">
+  <div class="container">
    <div class="row" cdkDropListGroup>
       <div class="col-4 developer-content__status">
-        <h2>Pending</h2>
-        <div class=""
+        <h2 class="text-center developer-content__status-head ">Pending</h2>
+        <div
           cdkDropList 
           [cdkDropListData]="todo"
           (cdkDropListDropped)="drop($event)" cdkDropList= "disable">
-          <div class="example-box row" *ngFor="let item of todo" cdkDrag cdkDragDisabled="{{disabledDrag}}">
-              <div class="col-5">
+          <div class="example-box row  my-1 developer-content__status-task" *ngFor="let item of todo" cdkDrag cdkDragDisabled="{{disabledDrag}}">
+              <div class="col-8 ">
                 <h2>{{item.name}}</h2>
-                <p>Start: {{item.startDate}}</p>
+                <p><i>Start:</i> {{item.startDate}}</p>
+                <p><i>End:</i> {{item.endDate}}</p>
               </div>
-              <div class="col-5">
-                <p>Time: {{item.totalTime}}</p>
-                <p>End: {{item.endDate}}</p>
-              </div>
-              <div class="col-2">
+              
+              <div class="col-4">
                 <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+                <p><i>Time:</i> {{item.totalTime}}</p>
+              </div>
+              
+              <div class="col-12">
+                <div class="task-owner ml-auto">
+                  <span>mm</span>
+                </div>
               </div>
           </div>
         </div>
       </div>
       <div class=" col-4 developer-content__status">
-        <h2>working On</h2>
+        <h2 class="text-center  developer-content__status-head">working On</h2>
         <div
           cdkDropList
           [cdkDropListData]="workingOn"
           class="example-list"
           (cdkDropListDropped)="drop($event)" >
-          <div class="example-box" *ngFor="let item of workingOn" cdkDrag>
-            <p>{{result}}</p>
-            <p>{{item.name}}</p>
-            <p>{{item.totalTime}}</p>
-            <button (click)="handlePause()">{{status}}</button>
+          <div class="example-box developer-content__status-task row" *ngFor="let item of workingOn" cdkDrag>
+            <div class="col-8 ">
+              <h2>{{item.name}}</h2>
+              <p><i>Start:</i> {{item.startDate}}</p>
+              <p><i>End:</i> {{item.endDate}}</p>
+            </div>
+            
+            <div class="col-4">
+              <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+              <p><i>Time:</i> {{result}}</p>
+            </div>
+            <div class="col-8">
+              <button (click)="handlePause()" class="btn btn-block btn-info ">{{status}}</button>
+            </div>
+            <div class="col-4">
+              <div class="task-owner ml-auto">
+                <span>mm</span>
+              </div>
+            </div>
+           
+            
           </div>
         </div>
       </div>
       <div class="col-4 developer-content__status">
-        <h2>Finished</h2>
+        <h2 class="text-center  developer-content__status-head ">Finished</h2>
         <div
           cdkDropList
           [cdkDropListData]="finished"
           class="example-list"
           (cdkDropListDropped)="drop($event)">
-          <div class="example-box" *ngFor="let item of finished" cdkDrag>
+          <div class="example-box developer-content__status-task row" *ngFor="let item of finished" cdkDrag>
+            <div class="col-8 ">
+              <h2>{{item.name}}</h2>
+              <p><i>Start:</i> {{item.startDate}}</p>
+              <p><i>End:</i> {{item.endDate}}</p>
+            </div>
             
-            <p>{{item.name}}</p>
-            <p>{{item.time}}</p>
-            <p class="bonus" >{{finishedTaskTime}} </p>
+            <div class="col-4">
+              <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+              <p><i>Time:</i> {{result}}</p>
+            </div>
+            <div class="col-8">
+              <p class="bonus"><i>Status:</i> {{finishedTaskTime}} </p>
+             </div>
+            <div class="col-4">
+              <div class="task-owner ml-auto">
+                <span>mm</span>
+              </div>
+            </div>
+        
+           
           </div>
         </div>
       </div>

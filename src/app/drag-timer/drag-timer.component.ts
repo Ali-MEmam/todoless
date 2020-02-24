@@ -13,11 +13,11 @@ import { tasks } from '../modals/tasks';
 export class DragTimerComponent implements OnInit {
   item: any = {
     name: '',
-    descrption: '',
-    time: '',
-    employeeId: '',
-    deadLine: '',
+    description: '',
+    totalTime: '',
+    personId: '',
     startDate: '',
+    endDate: '',
     status:""
   }
 
@@ -41,12 +41,12 @@ export class DragTimerComponent implements OnInit {
   ngOnInit(): any {
     this.taskForm = this.f.group({
       name: '',
-      descrption: '',
-      time: '',
-      employeeId: '',
-      deadLine: '',
-      startDate:'',
-      status:''
+      description: '',
+      totalTime: '',
+      personId: '',
+      startDate: '',
+      endDate: '',
+      status:""
     });
 
     this.TasksService.getTasks().subscribe(item =>{
@@ -57,10 +57,10 @@ export class DragTimerComponent implements OnInit {
     this.TasksService.currentId.subscribe((message:any)=>{
       this.item.name = message.name;
       this.item.descrption = message.descrption;
-      this.item.time = message.time;
-      this.item.employeeId = message.employeeId;
-      this.item.deadLine = message.deadLine;
+      this.item.totalTime = message.totalTime;
+      this.item.personId = message.personId;
       this.item.startDate = message.startDate;
+      this.item.endDate = message.endDate;
       this.item.status = message.status;
     })
 
@@ -86,10 +86,10 @@ export class DragTimerComponent implements OnInit {
 
   onSubmit(form:FormGroup) {
     this.TasksService.createTasks(this.taskForm.value);
-    this.TasksService.getTasks();
-    this.item.name = this.item.descrption = 
-    this.item.time =this.item.startDate =this.item.employeeId =
-    this.item.deadLine = "";
+    // this.TasksService.getTasks();
+    this.item.name = this.item.description = 
+    this.item.totalTime =this.item.startDate =this.item.personId =
+    this.item.endDate = "";
     this.item.status ='';
     //  const create((item: Item)=>{
     //     this.itemService.createPolicy(item)

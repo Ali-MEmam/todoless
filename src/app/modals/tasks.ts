@@ -10,7 +10,6 @@ export interface tasks{
     startDate?:any;
     endDate?:any;
     totalTime?:any;
-    bouns?:any;
-    delay?:any;
+    TimeStatus?:any;
     assignTo?:any;
 }

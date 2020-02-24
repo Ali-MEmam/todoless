@@ -20,7 +20,6 @@ import { AppComponent } from './app.component';
 import { pipe, from } from 'rxjs';
 import { SearchPipe } from './search.pipe';
 import { TimerFormatPipe } from './timer-format.pipe';
-
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
@@ -46,9 +45,12 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 <<<<<<< HEAD
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> omnia
 
+=======
+>>>>>>> a0681480ff1d1c14031bf1a9b491906bd4cea7b5
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +72,7 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
     DeveloperContentComponent,
     TimerFormatPipe,   
 
+<<<<<<< HEAD
 =======
 >>>>>>> omnia
     AdminPanelComponent,
@@ -83,9 +86,17 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 =======
     DragTimerComponent, CreateProjectComponent, RegAnimationComponent,
 >>>>>>> omnia
+=======
+    TimerFormatPipe,    
+    LoginComponent,
+    DragTimerComponent,
+    CreateProjectComponent,
+    RegAnimationComponent,
+>>>>>>> a0681480ff1d1c14031bf1a9b491906bd4cea7b5
 
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     DragDropModule,
@@ -101,7 +112,8 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+ 
 
   ],
   providers: [],

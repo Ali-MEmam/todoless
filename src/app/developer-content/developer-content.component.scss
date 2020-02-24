@@ -1,5 +1,6 @@
 @import './../ourVariables.scss';
 .developer-content{
+  font-family:$mainFont;
  &__status{
   -webkit-box-shadow:$boxShadow;
     -moz-box-shadow: $boxShadow;
@@ -23,7 +24,7 @@
       border-bottom: solid 1px #ccc;
       color: rgba(0, 0, 0, 0.87);
       cursor: move;
-      background: #fff;
+      background: pink;
       font-size: 14px;
     }
     

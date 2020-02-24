@@ -16,7 +16,7 @@ export class DragTimerComponent implements OnInit {
     descrption: '',
     time: '',
     employeeId: '',
-    deadLine: '',
+    endDate: '',
     startDate: '',
     status:""
   }

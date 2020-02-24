@@ -1,24 +1,25 @@
+@import './../ourVariables.scss';
 /*===============
 search-add project
 ================*/
 .add-project {
   &__wrapper {
     border-radius: 40px;
-    -webkit-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
-    -moz-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
-    box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+    -webkit-box-shadow:$boxShadow;
+    -moz-box-shadow: $boxShadow;
+    box-shadow:$boxShadow;
 
     &-search {
       & input {
         border: unset;
         border-bottom: 3px solid #f0f2f8;
         font-size: 20px;
-        color: #fd611c;
+        color: $orange;
       }
 
       & input::placeholder {
         font-size: 25px;
-        color: #fd611c;
+        color: $orange;
       }
     }
      & .col-2{
@@ -31,12 +32,12 @@ search-add project
       background-color: #f0f2f8;
       border-bottom-left-radius: 20px;
       border-top-left-radius: 20px;
-      -webkit-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
-      -moz-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
-      box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+      -webkit-box-shadow: $boxShadow;
+      -moz-box-shadow: $boxShadow;
+      box-shadow: $boxShadow;
 
       &-content {
-        background-color: #fd611c;
+        background-color: $orange;
         border-radius: 10px;
         width: 50px;
 
@@ -56,9 +57,9 @@ all projects
 .all-projects {
   &__wrapper {
     border-radius: 40px;
-    -webkit-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
-    -moz-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
-    box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+    -webkit-box-shadow:$boxShadow;
+    -moz-box-shadow: $boxShadow;
+    box-shadow: $boxShadow;
   }
 
   & a {
@@ -74,12 +75,12 @@ all projects
     position: relative;
     background-color: #f0f2f8;
     border-radius: 0 6px 6px 6px;
-    -webkit-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
-    -moz-box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
-    box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
+    -webkit-box-shadow:$boxShadow;
+    -moz-box-shadow: $boxShadow;
+    box-shadow: $boxShadow;
 
     &-head {
-      color: #2564C5;
+      color: $blue;
       border-bottom: 1px solid #fd611c;
       width: 50%;
     }
@@ -111,13 +112,13 @@ all projects
 
     //hovering
     &:hover {
-      background-color: #2564C5;
+      background-color: $blue;
     }
 
     &:hover {
 
       &:after {
-        background-color: #2564C5;
+        background-color: $blue;
       }
 
     }

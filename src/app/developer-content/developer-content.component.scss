@@ -21,9 +21,11 @@
     -webkit-box-shadow: $boxShadow;
     -moz-box-shadow: $boxShadow;
     box-shadow: $boxShadow;
-    height: 80vh;
-    overflow-y: auto;
-
+    
+&-list{
+  height: 80vh;
+  overflow-y: auto;
+}
     & .example-list {
       min-height: 60vh;
       background: white;
@@ -111,4 +113,9 @@
 
 .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+ .example-list{
+  height:80vh !important;
+  overflow-y: auto !important;
 }

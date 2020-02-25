@@ -31,6 +31,7 @@ import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { FriendsComponent } from './friends/friends.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     CreateProjectComponent,
     RegAnimationComponent,
     SidebarComponent,
+    FriendsComponent,
 
   ],
   imports: [

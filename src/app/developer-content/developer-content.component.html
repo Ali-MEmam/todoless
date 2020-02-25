@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row" cdkDropListGroup>
       <div class="col-4 developer-content__status">
-        <h2 class="text-center developer-content__status-head ">Pending</h2>
+        <h2 class="text-center developer-content__status-head">Pending</h2>
         <div class="developer-content__status-list"cdkDropList [cdkDropListData]="todo" (cdkDropListDropped)="drop($event)" cdkDropList="disable">
           <div class=" row  my-1 developer-content__status-task" *ngFor="let item of todo" cdkDrag
             cdkDragDisabled="{{disabledDrag}}">
@@ -22,6 +22,11 @@
                 <span>mm</span>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="developer-content__status-footer text-center">
+          <div class="developer-content__status-footer-add">
+            <mat-icon aria-hidden="false" aria-label="Example add icon">add</mat-icon>
           </div>
         </div>
       </div>
@@ -80,3 +85,4 @@
     </div>
   </div>
 </section>
+

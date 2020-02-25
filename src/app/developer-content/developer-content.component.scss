@@ -4,44 +4,49 @@
   font-family: $mainFont;
 
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
+
   }
 
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px $lightBlue;
     border-radius: 10px;
+
   }
 
   ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     box-shadow: inset 0 0 6px $lightBlue;
+    background-color: $white
   }
 
   &__status {
     -webkit-box-shadow: $boxShadow;
     -moz-box-shadow: $boxShadow;
     box-shadow: $boxShadow;
-    border:1px solid $lightBlue;
+    border: 1px solid $lightBlue;
     border-radius: 20px;
-    
+    width: 100px;
+    margin: 0 20px;
 
     &-list {
       height: 70vh;
       overflow-y: auto;
+      margin: -15px;
     }
 
     & .example-list {
-      min-height: 60vh;
+      min-height: 77vh;
       background: white;
       border-radius: 4px;
       overflow: hidden;
       display: block;
-
+      margin: -15px;
     }
 
     &-head {
-      background-color: $blue;
-      color: $white;
+      border: 1px solid $lightBlue;
+      color: $blue;
       border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
       text-transform: capitalize;
@@ -49,14 +54,28 @@
     }
 
     &-task {
-      padding: 20px 10px 5px 10px;
+      padding: 5px 10px;
       cursor: move;
-      border-bottom-left-radius: 20px;
-      border-top-right-radius: 20px;
-      margin: 10px;
+      box-shadow: $boxShadow;
+      border-radius: 10px;
+      margin: 13px 3px;
+      background-color: $white;
+
+      & h2 {
+        margin: unset;
+        font-size: 16px;
+      }
+
+      &-icons,
+      & .pause {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
 
       & mat-icon {
-        color: $orange;
+        color: $lightBlue;
         cursor: pointer;
       }
 
@@ -68,36 +87,27 @@
         width: 30px;
         height: 30px;
         border-radius: 50%;
-        background-color: $orange;
+        background-color: $lightBlue;
         display: flex;
         align-items: center;
         justify-content: center;
 
         & span {
-          color: $white;
-          font-weight: $bold
+          text-transform: capitalize;
         }
       }
 
       & .bonus {
-        color: $orange;
-        font-weight: $bold
+        color: #90c73e;
+
       }
-    }
-
-    &-task:nth-child(odd) {
-      background-color: $white;
-    }
-
-    &-task:nth-child(even) {
-      background-color: $lightBlue;
     }
 
     &-footer {
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
       margin-top: 30px;
-      background-color: $lightBlue;
+      border: 1px solid $lightBlue;
 
       &-add {
         width: 40px;
@@ -106,13 +116,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 3px solid $white;
+        border: 3px solid $lightBlue;
         margin: 4px auto;
         background-color: $blue;
-        position:relative;
-        bottom:10px;
+        position: relative;
+        bottom: 12px;
         border-radius: 5px;
         cursor: pointer;
+
         & mat-icon {
           color: $white;
         }
@@ -150,4 +161,5 @@
 .example-list {
   height: 70vh !important;
   overflow-y: auto !important;
+
 }

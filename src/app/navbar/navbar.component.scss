@@ -1,5 +1,7 @@
+@import './../ourVariables.scss';
+
 .nav{
-    background-color: #192965; 
+    background-color: $white; 
     padding: 1rem;
     &-container{
         display: flex;

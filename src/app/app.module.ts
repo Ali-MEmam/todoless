@@ -6,14 +6,12 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
-
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { pipe, from } from 'rxjs';
 import { SearchPipe } from './search.pipe';
 import { TimerFormatPipe } from './timer-format.pipe';
-
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
@@ -30,6 +28,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
+import { LoginRegComponent } from './login-reg/login-reg.component';
+import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
+
 
 
 @NgModule({
@@ -38,18 +39,29 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
+
     AsideDeveloperComponent,
-    DeveloperContentComponent,   
+    DeveloperContentComponent,
+    TimerFormatPipe,
+    AdminPanelComponent,    
     AdminPanelComponent,
+    DeveloperContentComponent,
+    TimerFormatPipe,
     AllProjectsComponent,    
+    DragTimerComponent,
+    AdminPanelComponent,
+    DeveloperContentComponent,
     TimerFormatPipe,   
+    TimerFormatPipe,    
     LoginComponent,
     DragTimerComponent,
     CreateProjectComponent,
     RegAnimationComponent,
-
+    LoginRegComponent,
+    LoginNavbarComponent,
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     DragDropModule,
@@ -64,7 +76,8 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+ 
 
   ],
   providers: [],

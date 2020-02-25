@@ -8,15 +8,18 @@
 
     <div class="createProject-container__wrapper">
         <label class="createProject-container__wrapper-label">Project Name</label>
-        <input class="createProject-container__wrapper-input" formControlName="name" type="text" >
+        <input class="createProject-container__wrapper-input"  formControlName="name" type="text" >
     </div>
 
 <!-- ------------------------------ Key Input ------------------------------ -->
 
     <div class="createProject-container__wrapper">
-        <label class="createProject-container__wrapper-label">Project Key</label>
-        <input class="createProject-container__wrapper-input" formControlName="id" type="text"
-            value={{projectsLength}} disabled>
+        <label class="createProject-container__wrapper-label" #labelKey >Project Key</label>
+        <input class="createProject-container__wrapper-input"
+         (focus)="labelUp($event,labelKey)"
+        (focusout)="labelDown($event,labelKey)" 
+        formControlName="id" type="text"
+            value={{projectsLength}} >
     </div>
 
 <!-- -------------------------- Privacy Selector --------------------------- -->

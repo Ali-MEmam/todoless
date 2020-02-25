@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ChartsModule} from "ng2-charts"
+// import {ChartsModule} from "ng2-charts"
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
@@ -31,6 +31,8 @@ import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 import { OwnerContentComponent } from './owner-content/owner-content.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { FriendsComponent } from './friends/friends.component';
 
 
 @NgModule({
@@ -59,6 +61,8 @@ import { OwnerContentComponent } from './owner-content/owner-content.component';
     CreateProjectComponent,
     RegAnimationComponent,
     OwnerContentComponent,
+    SidebarComponent,
+    FriendsComponent,
 
   ],
   imports: [
@@ -73,7 +77,7 @@ import { OwnerContentComponent } from './owner-content/owner-content.component';
     ReactiveFormsModule,
     MatSliderModule,
     BrowserAnimationsModule,
-    ChartsModule,
+  
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,

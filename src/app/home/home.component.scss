@@ -1,17 +1,266 @@
 @import '../ourVariables.scss';
+
+a:hover{
+    text-decoration: none;
+}
+
+.nav-link:hover{
+    color:$blue;
+    font-weight: $bold;
+}
+
+p{
+    font-family: $mainFont;
+    color:$gray;
+    font-weight: $regular;
+}
+
 .home{
-    width:80px 0px;
-    background-color:$black;
     font-family:$mainFont;
+    background-image: url('../../assets/img/hero.png');
+    // height: 200vh;
+    background-position: top right;
+    background-size: 65% 18%;
+    background-repeat: no-repeat;
     &-nav{
         &__container{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             &-logo{
                 color:$lightblue;
+                font-weight: $bold;
+                font-size: 35px;
+                margin-left: 6%;
                 span{
                     color:$orange;
+                    font-weight: $medium;
+                }
+            }
+            &-list{
+                .nav-link{
+                    color:white;
+                    font-weight: $medium;
+                    font-family: 'lato';
+                }
+                    .signin{
+                        background-color: white;
+                        color:$blue;
+                        margin-right: 7px;
+                        font-weight: $semiBold;
+                    }
+                    .signup{
+                        background-color:$orange;
+                        color:white;
+                        font-weight: $semiBold;
+                    }
+            }
+        }
+    }  
+
+    // --------------------hero Image-----------------
+
+    &-headr{
+        &__hero{
+            width: 40%;
+            margin-left: 6%;
+            margin-top: 15%;
+            display: flex;
+            .home-header__hero-header{
+                width: 85%;
+                h1{
+                    font-family: $mainFont;
+                    font-size: 70px;
+                    line-height: 50px;
+                    font-weight: $bold;
+                    span{
+                        font-size: 30px;
+                        font-weight: $regular;
+                    }
+                }
+            }
+            .started{
+                background-color:$orange;
+                color:white;
+                font-weight: $semiBold;
+                padding: 10px;
+            }
+        }
+    }
+    
+     // --------------------How Work It-----------------
+
+    &-work{
+        padding: 3% 0%;
+        &__container{
+            &-row{
+                display: flex;
+                align-items:center;
+                justify-content: space-evenly;
+                video{
+                    box-shadow: $boxShadow;
+                }
+                &-content{
+                    padding-left: 7%;
+                    padding-top: 15%;
+                    h5{
+                        color:$orange;
+                        font-family: $mainFont;
+                        font-size: 20px;
+                        font-weight: $medium;
+                        margin-bottom: 10px;
+                    }
+                    h3{
+                        color:$blue;
+                        font-family: $mainFont;
+                        font-size: 40px;
+                        font-weight: $bold;
+                    }
+                    p{
+                        width: 80%;
+                    }
+                    
                 }
             }
         }
-        
-    }   
+    }
+
+    // --------------------About Us-----------------
+
+    &-about{
+        padding: 3% 0%;
+        background-image:url('../../assets/img/right-orange.png');
+        background-repeat: no-repeat;
+        background-position: right;
+        &__container{
+            &-row{
+                display: flex;
+                align-items:center;
+                justify-content: space-evenly;
+                &-content{
+                    padding-top: 15%;
+                    padding-right: 6%;
+                    h5{
+                        color:$orange;
+                        font-family: $mainFont;
+                        font-size: 20px;
+                        font-weight: $medium;
+                        margin-bottom: 10px;
+                    }
+                    h3{
+                        color:$blue;
+                        font-family: $mainFont;
+                        font-size: 40px;
+                        font-weight: $bold;
+                    }
+                    p{
+                        width: 80%;
+                    }
+                }
+            }
+        }
+    }
+
+    // --------------------Features-----------------
+
+    &-features{
+        padding: 3% 0%;
+        &__container{
+            &-header{
+                text-align: center;
+                font-family: $mainFont;
+                h5{
+                    color:$orange;
+                    font-family: $mainFont;
+                    font-size: 20px;
+                    font-weight: $medium;
+                    margin-bottom: 10px;
+                }
+                h3{
+                    color:$blue;
+                    font-family: $mainFont;
+                    font-size: 40px;
+                    font-weight: $bold;
+                }
+            }
+            &-row{
+                .row{
+                    display: flex;
+                    align-items:center;
+                    justify-content: space-between;
+                    margin-top: 5%;
+                    }
+                    &__item{
+                        background-color:white;
+                        box-shadow: $boxShadow;
+                        padding:5%;
+                        text-align: center;
+                        mat-icon{
+                            font-size: 100px;
+                            height: auto;
+                            width: auto;
+                            color: $blue;
+                        }
+                        h4{
+                            font-family: $mainFont;
+                            font-size: 20px;
+                            color: $lightblue;
+                            font-weight: $bold;
+                            margin-top: 2%;
+                        }
+                }
+            }
+        }
+    }
+
+        // --------------------Team-----------------
+
+
+        &-team{
+            padding: 3% 0%;
+            &_img{
+                padding-right: unset;
+                padding-left: unset;
+            }
+            &__header{
+                padding: 3% 0%;
+                text-align: center;
+                h5{
+                    color:$orange;
+                    font-family: $mainFont;
+                    font-size: 20px;
+                    font-weight: $medium;
+                    margin-bottom: 10px;
+                }
+                h3{
+                    color:$blue;
+                    font-family: $mainFont;
+                    font-size: 40px;
+                    font-weight: $bold;
+                }
+            } 
+        }
+
+    // --------------------Footer-----------------
+
+    &-footer{
+        background-color:$blue;
+        padding: unset 5%;
+        .home-footer__contaier_header{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .home-footer__container-content__item{
+            a{
+                text-decoration: none;
+            }
+            max-width: 24%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    }
 }
+
+    // --------------------End Landing Page-----------------
+

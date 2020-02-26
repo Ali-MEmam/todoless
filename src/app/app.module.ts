@@ -31,6 +31,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 import { HomeComponent } from './home/home.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,7 @@ import { HomeComponent } from './home/home.component';
     AdminPanelComponent,
     DragTimerComponent, CreateProjectComponent, RegAnimationComponent,
     TimerFormatPipe,    
-    LoginComponent, HomeComponent,
+    LoginComponent, HomeComponent
 
   ],
   imports: [

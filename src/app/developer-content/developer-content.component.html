@@ -1,50 +1,79 @@
-<header class="header">
-  <h2>total time: {{totalProjectTime}}</h2>
-  <h2 class="bonus">Bonus :{{bonusValue}} </h2>
-  <h2 class="delay">Delay :{{delayValue}} </h2>
-</header>
-<div cdkDropListGroup>
-    <div class="example-container">
-      <h2>To do</h2>
-      <div
-        cdkDropList 
-        [cdkDropListData]="todo"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)" cdkDropList= "disable">
-        <div class="example-box" *ngFor="let item of todo" cdkDrag cdkDragDisabled="{{disabledDrag}}">
-          <p>{{item.name}}</p>
-          <p>{{item.totalTime}}</p>
-        </div>
+<section class="developer-content ">
+  <div class="container-fluid pl-0">
+    <div class="row">
+      <div class="col-2 ">
+        <app-sidebar></app-sidebar>
       </div>
-    </div>
-    <div class="example-container">
-      <h2>working On</h2>
-      <div
-        cdkDropList
-        [cdkDropListData]="workingOn"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)" >
-        <div class="example-box" *ngFor="let item of workingOn" cdkDrag>
-          <p>{{result}}</p>
-          <p>{{item.name}}</p>
-          <p>{{item.totalTime}}</p>
-          <button (click)="handlePause()">{{status}}</button>
-        </div>
-      </div>
-    </div>
-    <div class="example-container">
-      <h2>Finished</h2>
-      <div
-        cdkDropList
-        [cdkDropListData]="finished"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of finished" cdkDrag>
-          <!-- <p>{{myObj.result}}</p> -->
-          <p>{{item.name}}</p>
-          <p>{{item.totalTime}}</p>
-          <p class="bonus" >{{finishedTaskTime}} </p>
+      <div class="col-10 pt-4 pb-2">
+        <div class="container">
+          <div class="row" cdkDropListGroup>
+            <div class="col developer-content__status">
+              <h2 class="text-center developer-content__status-head">Pending</h2>
+              <div class="developer-content__status-list" cdkDropList [cdkDropListData]="todo"
+                (cdkDropListDropped)="drop($event)" cdkDropList="disable">
+                <div class=" developer-content__status-task" *ngFor="let item of todo" cdkDrag
+                  cdkDragDisabled="{{disabledDrag}}">
+                  <h2>{{item.name}}</h2>
+                  <p><i>Time:</i> {{item.totalTime}}</p>
+                  <div class="developer-content__status-task-icons">
+                    <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+                    <div class="task-owner">
+                      <span>m</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="developer-content__status-footer text-center">
+                <div class="developer-content__status-footer-add">
+                  <mat-icon aria-hidden="false" aria-label="Example add icon">add</mat-icon>
+                </div>
+              </div>
+            </div>
+            <div class=" col developer-content__status">
+              <h2 class="text-center  developer-content__status-head">working On</h2>
+              <div class="parent-status" cdkDropList [cdkDropListData]="workingOn" class="example-list"
+                (cdkDropListDropped)="drop($event)">
+                <div class=" developer-content__status-task" *ngFor="let item of workingOn" cdkDrag>
+                  <div>
+                    <h2>{{item.name}}</h2>
+                    <div class="pause">
+                      <p><i>Time:</i> {{result}}</p>
+                      <button (click)="handlePause()" class="btn btn-danger">{{status}}</button>
+                    </div>
+                  </div>
+                  <div class="developer-content__status-task-icons">
+                    <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+                    <div class="task-owner">
+                      <span>m</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col developer-content__status">
+              <h2 class="text-center  developer-content__status-head ">Finished</h2>
+              <div class="developer-content__status-list" cdkDropList [cdkDropListData]="finished" class="example-list"
+                (cdkDropListDropped)="drop($event)">
+                <div class=" developer-content__status-task " *ngFor="let item of finished" cdkDrag>
+                  <div>
+                    <h2>{{item.name}}</h2>
+                    <div class="pause">
+                      <p><i>Time:</i> {{item.totalTime}}</p>
+                      <p class="bonus"><i>bonus</i> {{finishedTaskTime}} </p>
+                    </div>
+                  </div>
+                  <div class="developer-content__status-task-icons">
+                    <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+                    <div class="task-owner">
+                      <span>m</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</section>

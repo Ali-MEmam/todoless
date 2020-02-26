@@ -5,9 +5,7 @@ import { TasksService } from '../tasks.service/tasks.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { isNgTemplate } from '@angular/compiler';
 import { element } from 'protractor';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
-import { messaging } from 'firebase';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-developer-content',
@@ -31,12 +29,13 @@ export class DeveloperContentComponent implements OnInit {
                      arrays
   ===============================================*/
   todo :tasks [];
-  workingOn :tasks [];
+  workingOn :tasks[];
   finished :tasks[];
   tasks=[];
   myObj ={
     finishedTaskTime:'',
-  }
+  };
+  workObj=[];
 
   constructor(private TasksService: TasksService) { }
 
@@ -64,11 +63,12 @@ if (this.workingOn.length === 0 ){
 
 
     // edit task status on firebase 
-    
-    console.log(this.workingOn[0].id);
-    
-    this.edit(this.workingOn[0].id)
+    // this.TasksService.editTaskStatus(this.workingOn[1] , this.workingOn[1].status) 
+    console.log(event.currentIndex);
+
+
     // end hours and minutes initialization
+    this.editStatus(this.workingOn[0]);
     this.disabledDrag = "true";
     this.handelBonusDelayTime();
     this.countdown();
@@ -91,14 +91,18 @@ if (this.workingOn.length === 0 ){
       //.element.nativeElement
       this.myObj.finishedTaskTime=this.result;
       this.tasks.push(this.myObj);
-      
-      
+      this.editStatus(this.finished[0]);
     }
   }
-edit(id : string){
-  return this.TasksService.editTasks(id);
-  
+  editStatus(item){
+    this.TasksService.createTasks(item);
+    this.TasksService.deleteTasks(item);
 }
+// editFinish(item){
+//   console.log(item)
+//   // this.TasksService.createTasks(item);
+//   // this.TasksService.deleteTasks(item);
+// }
 
   /* =============================
   on init 
@@ -108,13 +112,17 @@ edit(id : string){
       this.todo = items.filter(data=>data.status === 'pending');
       this.workingOn = items.filter(data=>data.status === 'workingOn');
       this.finished = items.filter(data=>data.status === 'finished');
-
-      // this.todo = items.status;
+      console.log(items);
       for (let i = 0; i < this.todo.length; i++) {
         this.totalProjectTime = this.todo[i].totalTime + this.totalProjectTime;
       }
     })
-  
+    // this.workingOn = this.TasksService.currentId.subscribe((message: any) =>  return message)
+    
+    // this.TasksService.currentId.subscribe((message: any) => {
+    //   // this.workObj.push(message);
+    //   // console.log(this.workObj);
+    // })
   }
 
 
@@ -191,17 +199,7 @@ edit(id : string){
   delayValue: any = 0;
   calculatedTimeArr: any;
   handelBonusDelayTime() {
-    this.calculatedTimeArr = (this.finishedTaskTime).split(":");
-    console.log(parseFloat(this.calculatedTimeArr[0]), parseInt(this.calculatedTimeArr[0]));
-    if (parseFloat(this.calculatedTimeArr[0]) === parseInt(this.calculatedTimeArr[0])) { 
-      this.bonusValueHours = parseFloat(this.calculatedTimeArr[0]) + this.bonusValueHours;
-      this.bonusValueMinuts = parseFloat(this.calculatedTimeArr[1]) + this.bonusValueMinuts;
-      this.bonusValueSeconds = parseFloat(this.calculatedTimeArr[2]) + this.bonusValueSeconds;
-      this.bonusValue = this.bonusValueHours + ":" + this.bonusValueMinuts + ":" + this.bonusValueSeconds;
-    }
-    else {
-      this.delayValue = this.delayValue + this.finishedTaskTime.innerHTML
-    }
+    
   }
 
 

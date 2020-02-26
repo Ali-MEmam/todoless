@@ -114,5 +114,10 @@ export class CreateProjectComponent implements OnInit {
       console.log("Not Vaild")
     }
   }
-
+  labelUp(event,element){
+    element.classList.add("up")
+  }
+  labelDown($event,element){
+    element.classList.remove("up")
+  }
 }

@@ -1,4 +1,3 @@
-    
 <!-- --------------------------- Create Project ---------------------------- -->
 
 <section  class="createProject">
@@ -8,14 +7,14 @@
 
     <div class="createProject-container__wrapper">
         <label class="createProject-container__wrapper-label">Project Name</label>
-        <input class="createProject-container__wrapper-input" formControlName="name" type="text" placeholder="Project Name">
+        <input class="createProject-container__wrapper-input" formControlName="name" type="text" >
     </div>
 
 <!-- ------------------------------ Key Input ------------------------------ -->
 
     <div class="createProject-container__wrapper">
         <label class="createProject-container__wrapper-label">Project Key</label>
-        <input class="createProject-container__wrapper-input" formControlName="id" type="text" placeholder="Key Number"
+        <input class="createProject-container__wrapper-input" formControlName="id" type="text"
             value={{projectsLength}} disabled>
     </div>
 
@@ -73,9 +72,9 @@
 
         <div class="createProject-container__wrapper">
             <div class="profiles-container__search-form">
-                <label class="createProject-container__wrapper-label" >Add From</label>
-                <label class="createProject-container__wrapper-label" >users::{{usersLength}}</label>
-                <input class="createProject-container__wrapper-user" name="filterValue" placeholder="Search">
+                <label class="createProject-container__wrapper-label" >Search</label>
+                <!-- <p>users::{{usersLength}}</p> -->
+                <input class="createProject-container__wrapper-user" name="filterValue" >
             </div>
             <div *ngIf="users?.length > 0 ; else nousers">
                 <ul>

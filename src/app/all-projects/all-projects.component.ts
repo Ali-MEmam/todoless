@@ -1,12 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
+import { projects } from '../modals/projects';
+import { ProjectsService } from '../projects.service/projects.service';
 @Component({
     selector: 'app-all-projects',
     templateUrl: './all-projects.component.html',
     styleUrls: ['./all-projects.component.scss']
 })
 export class AllProjectsComponent implements OnInit {
+    ///////////////////////////////////
+    //projects
+    projects: projects[];
+    projectlength: number;
+    projectId: any;
+    constructor(private ProjectsService: ProjectsService,) { }
+    ngOnInit() {
+        this.ProjectsService.getProject().subscribe((project: any) => {
+            console.log(project)
+            this.projects = project
+        })
+    }
+    //////////////////////////////////
     public pieChartOptions: ChartOptions = {
         responsive: true,
         legend: {
@@ -31,7 +46,11 @@ export class AllProjectsComponent implements OnInit {
             backgroundColor: ['rgba(247,149,99,1)', 'rgba(0,171,178,1)', 'rgba(216,70,114,1)'],
         },
     ];
+    ///////////////////////////////
+    //select project id
+    selectProject(event, project) {
+        this.projectId = project.id;
+        console.log(this.projectId)
+    }
 
-    constructor() { }
-    ngOnInit() { }
 }

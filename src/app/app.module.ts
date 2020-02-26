@@ -36,6 +36,7 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core'
 
 @NgModule({
   declarations: [
@@ -74,11 +75,11 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatIconModule,
     MatInputModule,
     MatAutocompleteModule,
-    MatDatepickerModule
-    
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
  
-  providers: [],
+  providers: [MatButtonToggleModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

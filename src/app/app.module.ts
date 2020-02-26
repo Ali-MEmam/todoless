@@ -7,9 +7,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { pipe, from } from 'rxjs';
@@ -34,6 +32,10 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 import { OwnerContentComponent } from './owner-content/owner-content.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FriendsComponent } from './friends/friends.component';
+import { LoginRegComponent } from './login-reg/login-reg.component';
+import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
+
+
 
 @NgModule({
   declarations: [
@@ -54,7 +56,6 @@ import { FriendsComponent } from './friends/friends.component';
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,   
-
     TimerFormatPipe,    
     LoginComponent,
     DragTimerComponent,
@@ -64,6 +65,8 @@ import { FriendsComponent } from './friends/friends.component';
     SidebarComponent,
     FriendsComponent,
 
+    LoginRegComponent,
+    LoginNavbarComponent,
   ],
   imports: [
     
@@ -83,6 +86,7 @@ import { FriendsComponent } from './friends/friends.component';
     MatIconModule,
     MatInputModule,
     MatDatepickerModule
+ 
 
   ],
   providers: [],

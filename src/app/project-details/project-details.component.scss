@@ -1,19 +1,82 @@
 @import '../ourVariables.scss';
-.projects-nav{
-    .btn-group{
-        box-shadow: 0px 6px 5px 0px rgba(245, 242, 245, 1);
-        .btn{
-            font-size: 2rem;
-            color: $blue !important; 
+
+.container{
+    background-color: $white;
+    padding: 3rem;
+    .projects-nav{
+        .btn-group{
+            .btn{
+                font-size: 1.5rem;
+                color: $blue;
+                font-weight: $medium;
+                background-color: #fff; 
+            }
+            .btn:active , .btn:focus{
+                border: 1px solid $orange !important;
+                background-color: $orange;
+            }
+            .project-details-btn{
+                color: #fff;
+                padding: 1rem;
+                background-color: $orange;
+                border-bottom-left-radius: 0;
+            }
+            .project-flow-btn{
+                color: $black;
+                border-bottom-right-radius: 0;
+            }
         }
-        /* .btn:hover::after{
-            content: '';
-            display: block;
-            width: 50%;
-            height: .4rem;
-            margin: 0 auto;
-            // margin-top: 1rem;
-            background-color: #d6d6d6;
-        } */
+        .edit-project{
+            background-color: $lightBlue;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+            color: $blue;
+        }
+        .edit-project:hover{
+            color: #fff;
+        }
+    }
+    .project-details{
+        background-color: #fff;
+        border-top: 1px solid $white;
+        padding: 4rem 2rem;
+        .col-md-6{
+            .list-unstyled{
+                font-size: 1.5rem;
+                li{
+                    margin-bottom: .5rem;
+                    color: $blue;
+                    border-radius: .5rem;   
+                           
+                    .title{
+                        font-weight: $bold;
+                        border-bottom-left-radius: .5rem;
+                        border-top-left-radius: .5rem;
+                        padding: .5rem;
+                        padding-left: 2rem;
+                        // width: 20rem;
+                        display: inline-block;
+                    }
+                    .data{
+                        padding: .5rem;
+                        padding-left: 2rem;
+                        display: inline-block;
+                        width: 30rem;
+                        border-top-right-radius: .5rem;
+                        border-bottom-right-radius: .5rem;
+                    }
+                    .project-descrip-title{
+                        border-bottom-left-radius: 0;
+                        border-top-right-radius: .5rem;
+                    }
+                    p{
+                        padding: .5rem;
+                        margin-left: 2rem;
+                        line-height: 3rem;
+                    }
+                }
+            
+            }
+        }
     }
 }

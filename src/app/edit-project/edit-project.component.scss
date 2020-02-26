@@ -1,0 +1,20 @@
+// Import a pre-built theme 
+// @import '~@angular/material/core/theming/prebuilt/deeppurple-amber';
+// Import your custom input theme file so you can call the custom-input-theme function 
+// @import '~angular-material-datepicker/src/datepicker/calendar.component.scss';
+ 
+// Using the $theme variable from the pre-built theme you can call the theming function 
+// @include calendar-theme($theme);
+
+.example-form {
+    /* min-width: 150px;
+    max-width: 500px; */
+    width: 60rem;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .example-half-width{
+      width: 45%;
+  }

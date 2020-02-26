@@ -1,3 +1,4 @@
+import { EditProjectComponent } from './edit-project/edit-project.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,7 +34,8 @@ import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -41,35 +43,17 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
-
     AsideDeveloperComponent,
     DeveloperContentComponent,
     TimerFormatPipe,
-    AdminPanelComponent,    
     AdminPanelComponent,
-    DeveloperContentComponent,
-    TimerFormatPipe,
     AllProjectsComponent,    
-    DragTimerComponent,
-    AdminPanelComponent,
-    DeveloperContentComponent,
-    TimerFormatPipe,   
-
-    AdminPanelComponent,
-    DeveloperContentComponent,
-    TimerFormatPipe,
-    AdminPanelComponent,
-    LoginComponent,
-    DragTimerComponent, CreateProjectComponent,
-    DragTimerComponent, CreateProjectComponent, RegAnimationComponent,
-
-    DragTimerComponent, CreateProjectComponent, RegAnimationComponent, ProjectDetailsComponent,
-    TimerFormatPipe,    
     LoginComponent,
     DragTimerComponent,
+    ProjectDetailsComponent,
     CreateProjectComponent,
     RegAnimationComponent,
-
+    EditProjectComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,9 +72,12 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
-
+    MatInputModule,
+    MatAutocompleteModule,
+    MatDatepickerModule
+    
   ],
+ 
   providers: [],
   bootstrap: [AppComponent]
 })

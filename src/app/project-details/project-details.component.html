@@ -1,6 +1,43 @@
-<section class="text-center row p-4 projects-nav">
-    <div class="btn-group col-5 m-auto p-0" role="group" aria-label="Basic example">
-        <button type="button" class="btn p-4 active">Project Details</button>
-        <button type="button" class="btn p-4">Project Flow</button>
+<section class="container pt-4">
+  <section class="projects-nav row d-flex justify-content-between">
+    <div class="btn-group col-4 p-0" role="group" aria-label="Basic example">
+      <button type="button" class="btn project-details-btn">Project Details</button>
+      <button type="button" class="btn project-flow-btn">Project Flow</button>
     </div>
+    <button mat-button (click)="openDialog()" class="edit-project">Edit Project</button>
+  </section>
+
+  <section class="row project-details">
+    <div class="col-md-6">
+      <ul class="list-unstyled">
+        <li>
+          <span class="title">Project Name : </span>
+          <span class="data">{{ project.name }}</span>
+        </li>
+        <li>
+          <span class="title">Project Privacy : </span>
+          <span class="data">{{ project.privacy }}</span>
+        </li>
+        <li class="d-flex date-details row">
+          <div class="col-6">
+            <span class="title">Start Date : </span>
+            <span class="data">{{ project.startDate }}</span>
+          </div>
+          <div class="col-6">
+            <span class="title">End Date : </span>
+            <span class="data">{{ project.endDate }}</span>
+          </div>
+        </li>
+        <li>
+          <span class="title project-descrip-title"
+            >Project Description :
+          </span>
+          <p>{{ project.description }}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <app-all-projects></app-all-projects>
+    </div>
+  </section>
 </section>

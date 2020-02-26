@@ -10,7 +10,8 @@ export class AllProjectsComponent implements OnInit {
     public pieChartOptions: ChartOptions = {
         responsive: true,
         legend: {
-            position: 'top',
+            position: 'right',
+                        
         },
         plugins: {
             datalabels: {

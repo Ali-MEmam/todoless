@@ -34,6 +34,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FriendsComponent } from './friends/friends.component';
 import { LoginRegComponent } from './login-reg/login-reg.component';
 import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -67,6 +68,7 @@ import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
 
     LoginRegComponent,
     LoginNavbarComponent,
+    ProfileComponent,
   ],
   imports: [
     

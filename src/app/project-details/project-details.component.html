@@ -1,42 +1,66 @@
 <section class="container pt-4">
   <section class="projects-nav row d-flex justify-content-between">
-    <div class="btn-group col-4 p-0" role="group" aria-label="Basic example">
-      <button type="button" class="btn project-details-btn">Project Details</button>
-      <button type="button" class="btn project-flow-btn">Project Flow</button>
+    <div class="btn-group  p-0" role="group" aria-label="Basic example">
+      <button type="button" routerLinkActive="project-active" class="btn project-details-btn project-active">Project Details</button>
+      <button type="button" routerLinkActive="project-active" class="btn project-flow-btn">Project Flow</button>
     </div>
     <button mat-button (click)="openDialog()" class="edit-project">Edit Project</button>
   </section>
 
-  <section class="row project-details">
+  <section class="row project-details justify-content-between mb-5">
     <div class="col-md-6">
-      <ul class="list-unstyled">
-        <li>
-          <span class="title">Project Name : </span>
-          <span class="data">{{ project.name }}</span>
-        </li>
-        <li>
-          <span class="title">Project Privacy : </span>
-          <span class="data">{{ project.privacy }}</span>
-        </li>
-        <li class="d-flex date-details row">
-          <div class="col-6">
-            <span class="title">Start Date : </span>
-            <span class="data">{{ project.startDate }}</span>
-          </div>
-          <div class="col-6">
-            <span class="title">End Date : </span>
-            <span class="data">{{ project.endDate }}</span>
-          </div>
-        </li>
-        <li>
-          <span class="title project-descrip-title">Project Description :</span>
-          <p>{{ project.description }}</p>
-        </li>
-        
-      </ul>
+      <div class="container">
+        <ul class="list-unstyled">
+          <li>
+            <span class="title h3">Project Name : </span>
+            <span class="data">{{ project.name }}</span>
+          </li>
+          <li>
+            <span class="title h3">Project Privacy : </span>
+            <span class="data">{{ project.privacy }}</span>
+          </li>
+          <li class="d-flex date-details row">
+            <div class="col-6">
+              <span class="title h3">Start Date : </span>
+              <span class="data">{{ project.startDate }}</span>
+            </div>
+            <div class="col-6">
+              <span class="title h3">End Date : </span>
+              <span class="data">{{ project.endDate }}</span>
+            </div>
+          </li>
+          <li>
+            <span class="title h3 project-descrip-title">Project Description :</span>
+            <blockquote>{{ project.description }}</blockquote>
+          </li>
+          
+        </ul>
+      </div>
     </div>
     <div class="col-md-6">
-      <app-all-projects></app-all-projects>
+      <div class="container">
+        <app-all-projects></app-all-projects>
+      </div>
+    </div>
+  </section>
+  <section class="row attachments">
+    <p class="h3 pl-4">Attachments</p>
+    <div class="container attachments-wrapper d-flex align-items-center">
+      <div class="attachmentItem">
+        <a href="../../assets/images/pdfFile.png" download> 
+          <img src="../../assets/images/pdfFile.png" class="img-fluid" alt="pdf file"> 
+        </a> 
+      </div>
+      <div class="attachmentItem">
+        <a href="../../assets/images/Screenshot.png" download> 
+          <img src="../../assets/images/Screenshot.png" class="img-fluid" alt="code"> 
+        </a>
+      </div>
+      <div class="attachmentItem">
+        <a href="../../assets/images/pdfFile.png" download> 
+          <img src="../../assets/images/pdfFile.png" class="img-fluid" alt="pdf file"> 
+        </a>
+      </div>
     </div>
   </section>
 </section>

@@ -4,64 +4,60 @@
     background-color: $white;
     padding: 3rem;
     .projects-nav{
+        padding-left: 3.4rem;
+        padding-right: 3.4rem;
         .btn-group{
             .btn{
                 font-size: 1.5rem;
-                color: $blue;
+                color: #7f8386;
                 font-weight: $medium;
-                background-color: #fff; 
+                border-radius: 0;
+                border: 0 !important;
             }
-            .btn:active , .btn:focus{
-                border: 1px solid $orange !important;
-                background-color: $orange;
+            .btn:active , .btn:focus , .btn:hover{
+                border: 0 !important;
             }
-            .project-details-btn{
-                color: #fff;
-                padding: 1rem;
-                background-color: $orange;
-                border-bottom-left-radius: 0;
+            .project-active{
+                color: #32a1f2;
             }
-            .project-flow-btn{
-                color: $black;
-                border-bottom-right-radius: 0;
+            .project-active::after{
+                content:'';
+                display: block;
+                margin: 0 auto;
+                width: 100%;
+                height: .2rem;
+                background-color: #32a1f2;
+                position: relative;
+                top: .7rem;
             }
         }
         .edit-project{
-            background-color: $lightBlue;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: 0;
-            color: $blue;
-        }
-        .edit-project:hover{
-            color: #fff;
+            background-color: #32a1f2;
+            color: white;
+            border-radius: 0;
         }
     }
     .project-details{
-        background-color: #fff;
+        background-color: $white;
         border-top: 1px solid $white;
-        padding: 4rem 2rem;
-        .col-md-6{
+        padding: 2rem;
+        .container{
+            background-color: #fff;
             .list-unstyled{
                 font-size: 1.5rem;
                 li{
                     margin-bottom: .5rem;
-                    color: $blue;
                     border-radius: .5rem;   
-                           
+                    
                     .title{
-                        font-weight: $bold;
-                        border-bottom-left-radius: .5rem;
-                        border-top-left-radius: .5rem;
-                        padding: .5rem;
-                        padding-left: 2rem;
-                        // width: 20rem;
+                        color: #393e41;
+                        padding: .43rem;
                         display: inline-block;
                     }
                     .data{
                         padding: .5rem;
                         padding-left: 2rem;
                         display: inline-block;
-                        width: 30rem;
                         border-top-right-radius: .5rem;
                         border-bottom-right-radius: .5rem;
                     }
@@ -69,14 +65,29 @@
                         border-bottom-left-radius: 0;
                         border-top-right-radius: .5rem;
                     }
-                    p{
-                        padding: .5rem;
-                        margin-left: 2rem;
-                        line-height: 3rem;
+                    blockquote{
+                        padding-left: .5rem;
+                        line-height: 2rem;
                     }
                 }
             
             }
         }
     }
+    .attachments{
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+        .attachments-wrapper{
+            background-color: #fff;
+            padding: 2rem;
+            .attachmentItem{
+                width: 7rem;
+                margin-left: 3rem;
+            }
+            .attachmentItem:hover{
+                
+            }
+        }
+    }
+    
 }

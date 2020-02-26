@@ -7,6 +7,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -87,11 +88,13 @@ import { ProfileComponent } from './profile/profile.component';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatDatepickerModule
- 
+    MatDatepickerModule,
+    MatNativeDateModule
 
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,29 +1,30 @@
 <section class="developer-content py-2">
   <div class="container">
-   <div class="row" cdkDropListGroup>
+    <div class="row" cdkDropListGroup>
       <div class="col-4 developer-content__status">
         <h2 class="text-center developer-content__status-head ">Pending</h2>
         <div
-          cdkDropList 
-          [cdkDropListData]="todo"
-          (cdkDropListDropped)="drop($event)" cdkDropList= "disable">
-          <div class="example-box row  my-1 developer-content__status-task" *ngFor="let item of todo" cdkDrag cdkDragDisabled="{{disabledDrag}}">
-              <div class="col-8 ">
-                <h2>{{item.name}}</h2>
-                <p><i>Start:</i> {{item.startDate}}</p>
-                <p><i>End:</i> {{item.endDate}}</p>
+        cdkDropList 
+        [cdkDropListData]="todo"
+        (cdkDropListDropped)="drop($event)" cdkDropList= "disable">
+        <div class="example-box row  my-1 developer-content__status-task" *ngFor="let item of todo" cdkDrag cdkDragDisabled="{{disabledDrag}}">
+
+            <div class="col-8 ">
+              <h2>{{item.name}}</h2>
+              <p><i>Start:</i> {{item.startDate}}</p>
+              <p><i>End:</i> {{item.endDate}}</p>
+            </div>
+
+            <div class="col-4">
+              <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+              <p><i>Time:</i> {{item.totalTime}}</p>
+            </div>
+
+            <div class="col-12">
+              <div class="task-owner ml-auto">
+                <span>mm</span>
               </div>
-              
-              <div class="col-4">
-                <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
-                <p><i>Time:</i> {{item.totalTime}}</p>
-              </div>
-              
-              <div class="col-12">
-                <div class="task-owner ml-auto">
-                  <span>mm</span>
-                </div>
-              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -40,7 +41,7 @@
               <p><i>Start:</i> {{item.startDate}}</p>
               <p><i>End:</i> {{item.endDate}}</p>
             </div>
-            
+
             <div class="col-4">
               <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
               <p><i>Time:</i> {{result}}</p>
@@ -53,8 +54,6 @@
                 <span>mm</span>
               </div>
             </div>
-           
-            
           </div>
         </div>
       </div>
@@ -71,69 +70,22 @@
               <p><i>Start:</i> {{item.startDate}}</p>
               <p><i>End:</i> {{item.endDate}}</p>
             </div>
-            
+
             <div class="col-4">
               <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
               <p><i>Time:</i> {{result}}</p>
             </div>
             <div class="col-8">
               <p class="bonus"><i>Status:</i> {{finishedTaskTime}} </p>
-             </div>
+            </div>
             <div class="col-4">
               <div class="task-owner ml-auto">
                 <span>mm</span>
               </div>
             </div>
-        
-           
           </div>
         </div>
       </div>
-   </div>
+    </div>
   </div>
 </section>
-<!------------------------------------------------------>
-<!-- <div cdkDropListGroup>
-    <div class="example-container">
-      <h2>To do</h2>
-      <div
-        cdkDropList 
-        [cdkDropListData]="todo"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)" cdkDropList= "disable">
-        <div class="example-box" *ngFor="let item of todo" cdkDrag cdkDragDisabled="{{disabledDrag}}">
-          <p>{{item.name}}</p>
-          <p>{{item.totalTime}}</p>
-        </div>
-      </div>
-    </div>
-    <div class="example-container">
-      <h2>working On</h2>
-      <div
-        cdkDropList
-        [cdkDropListData]="workingOn"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)" >
-        <div class="example-box" *ngFor="let item of workingOn" cdkDrag>
-          <p>{{result}}</p>
-          <p>{{item.name}}</p>
-          <p>{{item.totalTime}}</p>
-          <button (click)="handlePause()">{{status}}</button>
-        </div>
-      </div>
-    </div>
-    <div class="example-container">
-      <h2>Finished</h2>
-      <div
-        cdkDropList
-        [cdkDropListData]="finished"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of finished" cdkDrag>
-          <p>{{item.name}}</p>
-          <p>{{item.totalTime}}</p>
-          <p class="bonus" >{{finishedTaskTime}} </p>
-        </div>
-      </div>
-    </div>
-  </div> -->

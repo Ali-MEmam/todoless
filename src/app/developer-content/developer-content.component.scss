@@ -24,6 +24,15 @@
     height: 80vh;
     overflow-y: auto;
 
+    & .example-list {
+      min-height: 60vh;
+      background: white;
+      border-radius: 4px;
+      overflow: hidden;
+      display: block;
+
+    }
+
     &-head {
       background-color: $blue;
       color: $white;
@@ -47,22 +56,25 @@
       & i {
         font-weight: $bold;
       }
-      & .task-owner{
-        width:30px;
-        height:30px;
+
+      & .task-owner {
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         background-color: $orange;
-        display:flex;
+        display: flex;
         align-items: center;
         justify-content: center;
-        & span{
-          color:$white;
-          font-weight:$bold
+
+        & span {
+          color: $white;
+          font-weight: $bold
         }
       }
-      & .bonus{
-        color:$orange;
-        font-weight:$bold
+
+      & .bonus {
+        color: $orange;
+        font-weight: $bold
       }
     }
 
@@ -74,18 +86,6 @@
       background-color: $lightBlue;
     }
   }
-}
-
-/////////////////////////////////////////////////////////////////////////////
-
-
-.example-list {
-  // border: solid 1px green;
-  min-height: 60vh;
-  background: white;
-  border-radius: 4px;
-  overflow: hidden;
-  display: block;
 }
 
 

@@ -1,0 +1,79 @@
+@import '../ourVariables.scss';
+.navbar{
+    &-container{
+        font-family: $mainFont;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        &__menu{
+
+        }
+        &__content{
+            padding-top: 5px;
+            &-list{
+                display: flex;
+                list-style: none;
+                margin-left: 10px;
+                align-items: center;
+
+                &--item{
+                    margin-left: 15px;
+                    font-size: 30px;
+                    &-img{
+                        height:30px;
+                        width:30px;
+                        margin-bottom: 0;
+                        display:inline-block;
+                        margin-right: 10px;
+                    }
+                   
+                }
+            }
+        }
+    }
+}
+.img-full{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.dropdown-menu{
+    padding: 0;
+    right: 0;
+    left: auto;
+    background-color: white;
+
+}
+.dropdown-toggle{
+    font-size: 13px;
+    font-weight:$bold;
+}
+.dropdown-toggle::after{
+    vertical-align: 0;
+}
+.dropdown-item{
+    background-color: white;
+    color: black;
+}
+.dropdown-item:hover{
+    background-color: black;
+    color: white;
+}
+.btn:focus{
+    box-shadow: none;
+}
+.connections{
+    cursor: pointer;
+
+}
+.notification {
+    font-size: 22px;
+    cursor: pointer;
+}
+::ng-deep .mat-badge-small.mat-badge-overlap.mat-badge-after .mat-badge-content{
+    right:-4px
+}
+::ng-deep .mat-badge-small.mat-badge-above .mat-badge-content{
+    top:-4px
+}

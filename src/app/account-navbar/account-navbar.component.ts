@@ -11,5 +11,7 @@ export class AccountNavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  menuOpen(event,navbar){
+    console.log(navbar.parentNode)
+  }
 }

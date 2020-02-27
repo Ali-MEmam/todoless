@@ -6,9 +6,9 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { pipe, from } from 'rxjs';
@@ -29,11 +29,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon';
-import {MatBadgeModule} from '@angular/material/badge';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
+import { OwnerContentComponent } from './owner-content/owner-content.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FriendsComponent } from './friends/friends.component';
-import { AccountNavbarComponent } from './account-navbar/account-navbar.component';
+import { LoginRegComponent } from './login-reg/login-reg.component';
+import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
+import { ProfileComponent } from './profile/profile.component';
+
 
 
 @NgModule({
@@ -42,6 +45,7 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
+
     AsideDeveloperComponent,
     DeveloperContentComponent,
     TimerFormatPipe,
@@ -59,12 +63,16 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     DragTimerComponent,
     CreateProjectComponent,
     RegAnimationComponent,
+    OwnerContentComponent,
     SidebarComponent,
     FriendsComponent,
-    AccountNavbarComponent,
-    
+
+    LoginRegComponent,
+    LoginNavbarComponent,
+    ProfileComponent,
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     DragDropModule,
@@ -80,10 +88,13 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatBadgeModule
+    MatDatepickerModule,
+    MatNativeDateModule
 
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

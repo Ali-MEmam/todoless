@@ -119,11 +119,7 @@ export class CreateProjectComponent implements OnInit {
   labelUp(event,element){
     element.classList.add("up")
   }
-  labelDown(event,element){
-    console.log(event.target)
-    if(event.target.value === ""){
-      element.classList.remove("up")
-
-    }
+  labelDown($event,element){
+    element.classList.remove("up")
   }
 }

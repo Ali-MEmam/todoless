@@ -131,8 +131,6 @@ export class DragTimerComponent implements OnInit {
     }
   }
 
-
-
   title = 'to-do-less';
 
   drop(event: CdkDragDrop<string[]>) {

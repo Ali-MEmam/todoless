@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ChartsModule} from "ng2-charts"
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +30,15 @@ import {MatIconModule} from '@angular/material/icon';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 import { LoginRegComponent } from './login-reg/login-reg.component';
 import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
+import { OwnerContentComponent } from './owner-content/owner-content.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { FriendsComponent } from './friends/friends.component';
+import { ProfileComponent } from './profile/profile.component';
+import {ChartsModule} from "ng2-charts";
+import { RatingModule } from 'ng-starrating';
+import { BarRatingModule } from "ngx-bar-rating";
+
+
 
 
 
@@ -59,6 +68,12 @@ import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
     RegAnimationComponent,
     LoginRegComponent,
     LoginNavbarComponent,
+    OwnerContentComponent,
+    SidebarComponent,
+    FriendsComponent,
+    LoginRegComponent,
+    LoginNavbarComponent,
+    ProfileComponent,
   ],
   imports: [
     
@@ -77,6 +92,9 @@ import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatDatepickerModule,
+    RatingModule ,
+    BarRatingModule,
  
 
   ],

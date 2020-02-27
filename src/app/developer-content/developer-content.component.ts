@@ -5,6 +5,7 @@ import { TasksService } from '../tasks.service/tasks.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { isNgTemplate } from '@angular/compiler';
 import { element } from 'protractor';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-developer-content',
@@ -16,7 +17,7 @@ export class DeveloperContentComponent implements OnInit {
                      variables
   ===============================================*/
   totalProjectTime: number = 0;             //sum of all tasks time
-  disabledDrag: string = "false";           //default value for card is draggable
+  disabledDrag: string = "false";       //default value for card is draggable
   desabledDrop: string = "false";           //default value for section is droppable
   status = 'pause';                         //default status for working on task button
   taskCountresult: number;                 //task count result

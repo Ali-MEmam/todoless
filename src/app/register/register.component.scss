@@ -1,4 +1,4 @@
-@import '../ourVariables.scss';
+@import './../ourVariables.scss';
 .register{
   background-image: url('../../assets/imgs/register/signinBg.jpg');
   background-size: cover;
@@ -8,7 +8,6 @@
 }
 .form {
   &-container {
-    
     padding-top:15rem ;
     &__btns{
       &-btn{
@@ -16,6 +15,8 @@
       font-size: 17px;
       background-color: $lightBlue;
       border-radius: $btnBorderRadius;     
+      // border-radius: $btnBorderRadius;     
+      border-radius: 20px; 
       box-shadow: $boxShadow;
       margin-top: 25px;
       border:none;

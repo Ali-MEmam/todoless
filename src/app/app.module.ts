@@ -34,14 +34,10 @@ import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 import { OwnerContentComponent } from './owner-content/owner-content.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FriendsComponent } from './friends/friends.component';
-<<<<<<< HEAD
 import { LoginRegComponent } from './login-reg/login-reg.component';
 import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
 import { ProfileComponent } from './profile/profile.component';
-
-=======
 import { AccountNavbarComponent } from './account-navbar/account-navbar.component';
->>>>>>> blue
 
 
 @NgModule({
@@ -71,15 +67,12 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     OwnerContentComponent,
     SidebarComponent,
     FriendsComponent,
-<<<<<<< HEAD
 
     LoginRegComponent,
     LoginNavbarComponent,
     ProfileComponent,
-=======
     AccountNavbarComponent,
     
->>>>>>> blue
   ],
   imports: [
     
@@ -99,7 +92,8 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     MatIconModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+
 
   ],
   providers: [

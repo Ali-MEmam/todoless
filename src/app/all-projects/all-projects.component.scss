@@ -61,7 +61,7 @@ all projects
       height: 12px;
       border-radius: 0 20px 0 0;
     }
-
+ 
     &:after {
       border-top-left-radius: 20px;
       background-color: $pureLight;
@@ -121,4 +121,7 @@ all projects
 }
 .all-projects__card .create-project{
   position:relative
+}
+.handler:first-of-type .all-projects__card:after{
+  background-color:#2ca6ef;
 }

@@ -13,6 +13,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
   styleUrls: ['./developer-content.component.scss']
 })
 export class DeveloperContentComponent implements OnInit {
+  
   /*================================================
                      variables
   ===============================================*/

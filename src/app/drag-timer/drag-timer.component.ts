@@ -79,11 +79,6 @@ export class DragTimerComponent implements OnInit {
       this.item.startDate = message.startDate;
       this.item.status = message.status;
     })
-
-    // task code
-    // for (let i = 0; i < this.todo.length; i++) {
-    //   this.totalProjectTime = this.todo[i].totalTime + this.totalProjectTime;
-    // }
   }
 
 
@@ -129,38 +124,13 @@ export class DragTimerComponent implements OnInit {
       console.log("valid");
       console.log(this.taskForm.value);
       this.TasksService.createTasks(this.taskForm.value);
-      this.item.name = this.item.description = 
-      this.item.totalTime =this.item.startDate =this.item.personId =
-      this.item.endDate = "";
+      this.item.name = this.item.descrption = 
+      this.item.time =this.item.startDate =this.item.employeeId =
+      this.item.deadLine = "";
       this.item.status ='';
     }
-    //  const create((item: Item)=>{
-    //     this.itemService.createPolicy(item)
-    //   });
-    // let fromValue =this.taskForm.value;
-    // console.log(fromValue);
-    // console.log(fromValue.name); 
-    // console.log(fromValue.descrption); 
-    // console.log(fromValue.time); 
-    // this.createNewTask();
-    // this.taskObj.taskName=fromValue.name
-    // this.taskObj.taskDescription=fromValue.descrption ;
-    // this.taskObj.taskTime =fromValue.time;
-    // this.taskObj.employeeId=fromValue.employeeId;
-    // this.todo.push(this.taskObj);
   }
-  // createNewTask() {
-    //  this.taskObj={
-    //     taskId:'' ,
-    //     taskName: '',
-    //     taskStatus: '',
-    //     taskDescription: '',
-    //     taskTime:'',
-    //     finishedTime: '',
-    //     projectId: '',
-    //     employeeId: ''
-    // }  
-  // }
+
 
 
   title = 'to-do-less';

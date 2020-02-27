@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToggleasideService } from '../toggleaside.service';
 
 @Component({
   selector: 'app-friends',
@@ -79,9 +80,20 @@ friends=[{
   email:"Ahmed@outlook.com",
   phone:"0111254544"
 },]
-  constructor() { }
-
+  constructor(private togglerAside:ToggleasideService) { }
+  pro:any;
+  
   ngOnInit(): void {
+    const aside = document.getElementsByClassName('friends-container')
+    this.togglerAside.currentStatus.subscribe(arg =>{
+      if(arg){
+        aside[0].classList.add("marginright")
+      }else{
+        aside[0].classList.remove("marginright")
+      }
+    });
   }
+
+
 
 }

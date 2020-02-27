@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToggleasideService } from '../toggleaside.service';
 
 @Component({
   selector: 'app-account-navbar',
@@ -6,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-navbar.component.scss']
 })
 export class AccountNavbarComponent implements OnInit {
-
-  constructor() { }
+  buttonStatus:boolean = true;
+  constructor(private toggler:ToggleasideService) { }
 
   ngOnInit(): void {
   }
   menuOpen(event,navbar){
-    console.log(navbar.parentNode)
+    this.toggler.togglerSlider(this.buttonStatus)
+    this.buttonStatus = !this.buttonStatus
+    
   }
 }

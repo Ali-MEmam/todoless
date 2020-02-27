@@ -35,9 +35,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FriendsComponent } from './friends/friends.component';
 import { LoginRegComponent } from './login-reg/login-reg.component';
 import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
+
 import { ProfileComponent } from './profile/profile.component';
-
-
+import {ChartsModule} from "ng2-charts";
+// import { RatingModule } from 'ng-starrating';
+// import { BarRatingModule } from "ngx-bar-rating";
 
 @NgModule({
   declarations: [
@@ -69,6 +71,11 @@ import { ProfileComponent } from './profile/profile.component';
 
     LoginRegComponent,
     LoginNavbarComponent,
+    OwnerContentComponent,
+    SidebarComponent,
+    FriendsComponent,
+    LoginRegComponent,
+    LoginNavbarComponent,
     ProfileComponent,
   ],
   imports: [
@@ -88,8 +95,16 @@ import { ProfileComponent } from './profile/profile.component';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+
+    MatDatepickerModule,
+
+    MatDatepickerModule,
+    // RatingModule ,
+    // BarRatingModule,
+
 
   ],
   providers: [

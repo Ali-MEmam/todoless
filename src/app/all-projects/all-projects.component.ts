@@ -25,7 +25,8 @@ export class AllProjectsComponent implements OnInit {
     public pieChartOptions: ChartOptions = {
         responsive: true,
         legend: {
-            position: 'top',
+            position: 'right',
+            
         },
         plugins: {
             datalabels: {
@@ -42,7 +43,8 @@ export class AllProjectsComponent implements OnInit {
     public pieChartLegend = true;
     public pieChartColors = [
         {
-            backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
+            backgroundColor: ['#d62676', '#00ca5d', '#2ca6ef'],
+
         },
     ];
     ///////////////////////////////

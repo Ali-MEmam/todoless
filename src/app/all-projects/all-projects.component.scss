@@ -48,25 +48,6 @@ all projects
     -webkit-box-shadow: $boxShadow;
     -moz-box-shadow: $boxShadow;
     box-shadow: $boxShadow;
-
-    &-add {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      background-color: $lightBlue;
-      cursor: pointer;
-      & mat-icon,
-      & p {
-        color: $pureLight;
-      }
-
-      &:after {
-        background-color: $lightBlue;
-      }
-    }
-
     &-head {
       color: $blue;
       border-bottom: 1px solid #fd611c;
@@ -95,7 +76,22 @@ all projects
       top: -5px;
       right: 0px;
     }
-
+    
+    &-add {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      background-color: $lightBlue;
+      cursor: pointer;
+      & mat-icon,
+      & p {
+        color: $pureLight;
+      }
+     
+    }
+  
     //hovering
     &:hover {
       background-color: $lightBlue;
@@ -122,4 +118,7 @@ all projects
     }
   }
 
+}
+.all-projects__card .create-project{
+  position:relative
 }

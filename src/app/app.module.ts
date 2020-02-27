@@ -42,7 +42,6 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
-
     AsideDeveloperComponent,
     DeveloperContentComponent,
     TimerFormatPipe,
@@ -55,7 +54,6 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,   
-
     TimerFormatPipe,    
     LoginComponent,
     DragTimerComponent,
@@ -67,7 +65,6 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     
   ],
   imports: [
-    
     BrowserModule,
     AppRoutingModule,
     DragDropModule,

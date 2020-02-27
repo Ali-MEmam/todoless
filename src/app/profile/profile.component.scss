@@ -1,4 +1,95 @@
 @import './../ourVariables.scss';
-.profile{
- font-family: $mainFont;
+a{
+    text-decoration: none;
+    color: $lightBlue;
 }
+
+mat-icon{
+    color: #ffc200;
+    margin-top: 1.3rem;
+    margin-bottom: 4rem;
+}
+h2{
+    margin-bottom: 2px;
+    text-transform: capitalize;
+}
+p{
+    color: $gray;
+    font-size: 12px;
+}
+h3{
+    margin-bottom: 2px;
+    text-transform: capitalize;
+    
+}
+.profile{
+    background-color: #f7f7f7;
+    height: 100vh;
+    
+    &__info{
+        background-color: $white;
+        padding: 3rem;
+        margin-top: 15rem;
+        &-details{
+            color: $blue;
+        }
+    }
+    &__info:first-of-type{
+        box-sizing: content-box;
+        padding: 3rem;
+        margin-top: 15rem;
+    }
+    &__chart{
+        background-color: $white;
+        margin-top: 15rem;
+        padding: 3rem;
+    }
+    &__comments{
+        background-color: white;
+        padding: 2rem;
+        border-bottom: 1px solid #eeeeee;
+        &-comment__user-img{
+            figure{
+                height: 40px;
+                width: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $white;
+                overflow: hidden;
+            }
+        }
+       
+    }
+}
+figure{
+    background-color: #00ca5d;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    vertical-align: middle;
+    img{
+        width: 100%;
+    }
+}
+.comments-parent{
+    max-height:200px;
+    overflow: auto;
+    margin-top: 3rem;
+}
+::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 5px;
+    border: 1px solid #d9dfe2;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #eae5e5;
+  }
+  .borderLeft{
+      border-left: 3px solid $lightBlue;
+  }

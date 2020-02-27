@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+<<<<<<< HEAD
 // import {ChartsModule} from "ng2-charts"
+=======
+>>>>>>> 8670bde4a3ac4e9fa4db063f3a332b75d11c3b81
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
@@ -34,6 +37,15 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FriendsComponent } from './friends/friends.component';
 import { LoginRegComponent } from './login-reg/login-reg.component';
 import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
+import { OwnerContentComponent } from './owner-content/owner-content.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { FriendsComponent } from './friends/friends.component';
+import { ProfileComponent } from './profile/profile.component';
+import {ChartsModule} from "ng2-charts";
+import { RatingModule } from 'ng-starrating';
+import { BarRatingModule } from "ngx-bar-rating";
+
+
 
 
 
@@ -67,6 +79,12 @@ import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
 
     LoginRegComponent,
     LoginNavbarComponent,
+    OwnerContentComponent,
+    SidebarComponent,
+    FriendsComponent,
+    LoginRegComponent,
+    LoginNavbarComponent,
+    ProfileComponent,
   ],
   imports: [
     
@@ -85,7 +103,13 @@ import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+<<<<<<< HEAD
     MatDatepickerModule
+=======
+    MatDatepickerModule,
+    RatingModule ,
+    BarRatingModule,
+>>>>>>> 8670bde4a3ac4e9fa4db063f3a332b75d11c3b81
  
 
   ],

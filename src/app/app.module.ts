@@ -39,13 +39,14 @@ import { ProfileComponent } from './profile/profile.component';
 
 
 
+import {ChartsModule} from "ng2-charts";
+import { AccountNavbarComponent } from './account-navbar/account-navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
-
     AsideDeveloperComponent,
     DeveloperContentComponent,
     TimerFormatPipe,
@@ -70,6 +71,7 @@ import { ProfileComponent } from './profile/profile.component';
     LoginRegComponent,
     LoginNavbarComponent,
     ProfileComponent,
+    AccountNavbarComponent,
   ],
   imports: [
     

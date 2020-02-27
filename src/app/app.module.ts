@@ -29,10 +29,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon';
+import {MatBadgeModule} from '@angular/material/badge';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 import { OwnerContentComponent } from './owner-content/owner-content.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FriendsComponent } from './friends/friends.component';
+import { AccountNavbarComponent } from './account-navbar/account-navbar.component';
 
 
 @NgModule({
@@ -63,7 +65,8 @@ import { FriendsComponent } from './friends/friends.component';
     OwnerContentComponent,
     SidebarComponent,
     FriendsComponent,
-
+    AccountNavbarComponent,
+    
   ],
   imports: [
     

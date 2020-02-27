@@ -1,5 +1,6 @@
 @import './../ourVariables.scss';
 .friends{
+<<<<<<< HEAD
     display: flex;
     font-family: $mainFont;
     font-weight: $regular;
@@ -68,3 +69,17 @@ app-account-navbar{
 .marginright{
     margin-left:220px
 }
+=======
+    font-family:$mainFont;
+    background-color: $white;
+    &__content{
+      border-bottom:1px solid grey;
+      &-img{
+          width:50px;
+          height: 50px;
+          border-radius: 50%;
+          
+      }
+    }
+}
+>>>>>>> mai

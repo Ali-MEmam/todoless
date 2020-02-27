@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section class="developer-content py-2">
   <div class="container">
     <div class="row" cdkDropListGroup>
@@ -23,6 +24,34 @@
             <div class="col-12">
               <div class="task-owner ml-auto">
                 <span>mm</span>
+=======
+<section class="developer-content ">
+  <div class="container-fluid pl-0">
+    <div class="row">
+      <div class="col-12 pt-4 pb-2">
+        <div class="container">
+          <div class="row" cdkDropListGroup>
+            <div class="col developer-content__status">
+              <h2 class="text-center developer-content__status-head">Pending</h2>
+              <div class="developer-content__status-list" cdkDropList [cdkDropListData]="todo"
+                (cdkDropListDropped)="drop($event)" cdkDropList="disable">
+                <div class=" developer-content__status-task" *ngFor="let item of todo" cdkDrag
+                  cdkDragDisabled="{{disabledDrag}}">
+                  <h2>{{item.name}}</h2>
+                  <p><i>Time:</i> {{item.totalTime}}</p>
+                  <div class="developer-content__status-task-icons">
+                    <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+                    <div class="task-owner">
+                      <span>m</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="developer-content__status-footer text-center">
+                <div class="developer-content__status-footer-add">
+                  <mat-icon aria-hidden="false" aria-label="Example add icon">add</mat-icon>
+                </div>
+>>>>>>> mai
               </div>
             </div>
           </div>

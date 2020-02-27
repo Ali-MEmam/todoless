@@ -1,7 +1,5 @@
 @import './../ourVariables.scss';
 .friends{
-    font-family:$mainFont;
-    background-color: $white;
     display: flex;
     font-family: $mainFont;
     font-weight: $regular;
@@ -27,12 +25,12 @@
                 display: flex;
                 margin-right: 10px;
                 flex-wrap: wrap;
-                background-color:$pureLight;
+                background-color:$blue;
                 justify-content: center;
                 color:$white;
                 justify-content: space-between;
-                border-left:2px solid $lightBlue;
-                box-shadow:$boxShadow;
+                border-radius: 20px;
+                box-shadow: 1px 1px 7px 1px #192965;
                 &--img{
                     flex: 0 1 15%;
                     height: 45px;

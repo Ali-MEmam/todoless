@@ -6,9 +6,9 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { pipe, from } from 'rxjs';
@@ -31,12 +31,8 @@ import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
-import { OwnerContentComponent } from './owner-content/owner-content.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FriendsComponent } from './friends/friends.component';
-import { LoginRegComponent } from './login-reg/login-reg.component';
-import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
-import { ProfileComponent } from './profile/profile.component';
 import { AccountNavbarComponent } from './account-navbar/account-navbar.component';
 
 
@@ -59,18 +55,14 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,   
+
     TimerFormatPipe,    
     LoginComponent,
     DragTimerComponent,
     CreateProjectComponent,
     RegAnimationComponent,
-    OwnerContentComponent,
     SidebarComponent,
     FriendsComponent,
-
-    LoginRegComponent,
-    LoginNavbarComponent,
-    ProfileComponent,
     AccountNavbarComponent,
     
   ],
@@ -91,14 +83,10 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-
+    MatBadgeModule
 
   ],
-  providers: [
-    MatDatepickerModule
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

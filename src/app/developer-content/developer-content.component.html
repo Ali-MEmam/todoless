@@ -1,26 +1,8 @@
-
 <section class="developer-content ">
   <div class="container-fluid pl-0">
     <div class="row">
       <div class="col-2 ">
-<header class="header">
-  <h2>total time: {{totalProjectTime}}</h2>
-  <h2 class="bonus">Bonus :{{bonusValue}} </h2>
-  <h2 class="delay">Delay :{{delayValue}} </h2>
-</header>
-<div cdkDropListGroup>
-    <div class="example-container">
-      <h2>To do</h2>
-      <div
-        cdkDropList 
-        [cdkDropListData]="todo"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)" cdkDropList= "disable">
-        <div class="example-box" *ngFor="let item of todo" cdkDrag cdkDragDisabled="{{disabledDrag}}">
-          <p>{{item.name}}</p>
-          <p>{{item.totalTime}}</p>
-        </div>
-
+        <app-sidebar></app-sidebar>
       </div>
       <div class="col-10 pt-4 pb-2">
         <div class="container">
@@ -95,4 +77,3 @@
     </div>
   </div>
 </section>
-

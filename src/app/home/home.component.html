@@ -1,86 +1,79 @@
-<main class="home container-fluid ">
-    <section class="home-headr">
-        <nav class="home-nav__container no-gutters">
-            <div class="home-nav__container-logo mt-5">
-                <a href="#" class=" mt-3">TODO<span>LESS</span></a>
+<main class="home">
+    <section class="home-header">
+        <nav class="home-header__nav navbar navbar-expand-lg navbar-light home-header__nav no-gutters">
+            <div class="home-header__nav-logo mt-5">
+                <a href="#" class="mt-3">TODO<span>LESS</span></a>
             </div>
-            <ul class=" no-gutters nav justify-content-end home-nav__container-list mt-5">
 
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">HOW IT WORK</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">ABOUT US</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">OUR FEATURES</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">OUR TEAM</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CONTACT US</a>
-                </li>
-                <li class="nav-item">
-                    <a class="signin nav-link rounded-pill" href="#">Sign In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="signup nav-link rounded-pill" href="#">Sign Up</a>
-                </li>
-            </ul>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="nav justify-content-end home-header__nav-list mt-5 mr-4 ml-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">HOW IT WORK</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ABOUT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">OUR FEATURES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">OUR TEAM</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="signin nav-link rounded-pill" href="#">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="signup nav-link rounded-pill" href="#">Sign Up</a>
+                    </li>
+
+                </ul>
+            </div>
         </nav>
-        <header class="home-headr__hero">
+
+        <header class="home-header__hero">
             <div class="container">
-                <header class="home-header__hero-header">
-                    <h1>Welcome To <span>TODO less</span></h1>
-                </header>
-                <div class="home-header__hero-content mb-5">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio totam, nisi ratione
-                        debitis
-                        dolore odio enim perspiciatis
-                        veniam impedit omnis itaque nam tempora deserunt eligendi voluptatum, placeat laborum ex
-                        pariatur.</p>
+                <div class="row no-gutters">
+                    <div class="col-md-6">
+                        <div class="home-header__hero-header">
+                            <h1>Welcome To <span>TODOLESS</span></h1>
+                        </div>
+                        <div class="home-header__hero-content mb-5">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio totam, nisi ratione
+                                debitis
+                                dolore odio enim perspiciatis
+                                veniam impedit omnis itaque nam tempora deserunt eligendi voluptatum, placeat laborum ex
+                                pariatur.</p>
+                            <a class="started rounded-pill " href="#">Get Started</a>
+                        </div>
+                    </div>
                 </div>
-                <a class="started rounded-pill " href="#">Get Started</a>
             </div>
         </header>
     </section>
 
     <!-------------------How it Work------------------------->
 
-    <section class="home-work">
-        <div class="home-work__container container">
-            <div class="home-work__container-row row">
-                <div class="home-work__container-row-video col-md-6">
-                    <video width="100%" poster="../../assets/img/video-8.png" controls>
-                    </video>
-                </div>
-                <div class="home-work__container-row-content col-md-6">
-                    <h5>See Now</h5>
-                    <h3>How it Work</h3>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur recusandae architecto
-                        placeat voluptatum nesciunt in, pariatur ratione! Modi porro
-                        distinctio beatae delectus, cumque officia, tempora excepturi laborum, libero recusandae
-                        praesentium.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-------------------About Us------------------------->
-
-    <section class="home-about">
-        <div class="home-work__container container">
-            <div class="home-about__container-row row">
-                <div class="col-md-6">
-                    <div class="home-about__container-row-content">
-                        <h5>About Us</h5>
-                        <h3>What We Do</h3>
+    <div class="about-background-image">
+        <section class="home-work">
+            <div class="home-work__container container">
+                <div class="home-work__container-row row">
+                    <div class="home-work__container-row-video col-md-6">
+                        <video width="100%" poster="../../assets/img/video-8.png" controls>
+                        </video>
+                    </div>
+                    <div class="home-work__container-row-content col-md-6">
+                        <h5>See Now</h5>
+                        <h3>How it Work</h3>
                         <p>
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur recusandae architecto
                             placeat voluptatum nesciunt in, pariatur ratione! Modi porro
@@ -89,116 +82,108 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="home-about-container-row-img">
-                        <img class="img-fluid" src="../../assets/img/about.png" alt="">
+            </div>
+        </section>
+
+        <!-------------------About Us------------------------->
+
+        <section class="home-about">
+            <div class="home-work__container container">
+                <div class="home-about__container-row row">
+                    <div class="col-md-6">
+                        <div class="home-about__container-row-content">
+                            <h5>About Us</h5>
+                            <h3>What We Do</h3>
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur recusandae
+                                architecto
+                                placeat voluptatum nesciunt in, pariatur ratione! Modi porro
+                                distinctio beatae delectus, cumque officia, tempora excepturi laborum, libero
+                                recusandae
+                                praesentium.
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-------------------Our Features------------------------->
-
-    <section class="home-features">
-        <div class="home-features__container container">
-            <div class="home-features__container-header">
-                <h5>Our Features</h5>
-                <h3>What We Serve</h3>
-            </div>
-            <div class="home-features__container-row row">
-                <div class="col-md-9 container">
-                    <div class="row">
-                        <div class="home-features__container-row__item col-md-3">
-                            <span>
-                                <mat-icon aria-hidden="false" aria-label="Example list icon">list</mat-icon>
-                            </span>
-                            <h4>Task Managment</h4>
-                        </div>
-                        <div class="home-features__container-row__item col-md-3">
-                            <span> <span>
-                                    <mat-icon aria-hidden="false" aria-label="Example schedule icon">schedule</mat-icon>
-                                </span></span>
-                            <h4>Time Managment</h4>
-                        </div>
-                        <div class="home-features__container-row__item col-md-3">
-                            <span>
-                                <mat-icon aria-hidden="false" aria-label="Example event_note icon">event_note</mat-icon>
-                            </span>
-                            <h4>Planning</h4>
+                    <div class="col-md-6">
+                        <div class="home-about-container-row-img">
+                            <img class="img-fluid" src="../../assets/img/about.png" alt="">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+
+        <!-------------------Our Features------------------------->
+
+        <section class="home-features">
+            <div class="home-features__container container">
+                <div class="home-features__container-header">
+                    <h5>Our Features</h5>
+                    <h3>What We Serve</h3>
+                </div>
+                <div class="home-features__container-row row">
+                    <div class="col-md-9 container">
+                        <div class="row">
+                            <div class="home-features__container-row__item  col-md-3">
+                                <span>
+                                    <mat-icon aria-hidden="false" aria-label="Example list icon">list</mat-icon>
+                                </span>
+                                <h4>Task Managment</h4>
+                            </div>
+                            <div class="home-features__container-row__item col-md-3">
+                                <span> <span>
+                                        <mat-icon aria-hidden="false" aria-label="Example schedule icon">schedule
+                                        </mat-icon>
+                                    </span></span>
+                                <h4>Time Managment</h4>
+                            </div>
+                            <div class="home-features__container-row__item col-md-3">
+                                <span>
+                                    <mat-icon aria-hidden="false" aria-label="Example event_note icon">event_note
+                                    </mat-icon>
+                                </span>
+                                <h4>Planning</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
 
     <!-------------------Our Team------------------------->
 
-    <section class="home-team">
-        <div class="home-team_img container-fluid">
-            <div class="row">
-                <img src="../../assets/img/team1.png" alt="" class="img-fluid">
-            </div>
+    <section class="home-team  container-fluid">
+        <div class="home-team_img">
+            <img src="../../assets/img/team1.png" alt="" class="img-fluid">
         </div>
         <div class="container">
             <div class="home-team__header">
                 <h5>Meet Us</h5>
                 <h3>Our Team</h3>
             </div>
-            <div class="home-team__header-row__item row">
-                <div class="home-team__header-row__item col-md-4">
-                    <div class="home-team__item-img">
-                        <img src="../../assets/img/ali.jpg" alt="" class="rounded-circle img-fluid">
-                        <div class="home-team__item-content">
-                            <h4>ALi Emam</h4>
-                            <h5>Front End Developer</h5>
-                        </div>
-                    </div>
-
+            <div class="home-team__gallery row">
+                <div class="home-team__gallery-item col-md-2">
+                    <h3>Ali</h3>
+                    <img src="../../assets/img/ali.jpg" alt="" class="rounded-circle img-fluid">
                 </div>
-                <div class="home-team__header-row__item col-md-4">
-                    <div class="home-team__item-img">
-                        <img src="../../assets/img/mai.jpg" alt="" class="rounded-circle img-fluid">
-                        <div class="home-team__item-content">
-                            <h4>Mai Mohamed</h4>
-                            <h5>Front End Developer</h5>
-                        </div>
-                    </div>
-
+                <div class="home-team__gallery-item col-md-2">
+                    <h3>Mai</h3>
+                    <img src="../../assets/img/mai.jpg" alt="" class="rounded-circle img-fluid">
                 </div>
-                <div class="home-team__header-row__item col-md-4">
-                    <div class="home-team__item-img">
-                        <img src="../../assets/img/moahmed.jpg" alt="" class="rounded-circle img-fluid">
-                        <div class="home-team__item-content">
-                            <h4>Mohamed Elsaied</h4>
-                            <h5>Front End Developer</h5>
-                        </div>
-                    </div>
+                <div class="home-team__gallery-item col-md-2">
+                    <h3>Mohamed</h3>
+                    <img src="../../assets/img/moahmed.jpg" alt="" class="rounded-circle img-fluid">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-8-md">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="home-team__item-img">
-                                <img src="../../assets/img/nada.jpeg" alt="" class="rounded-circle img-fluid">
-                            </div>
-                            <div class="home-team__item-content">
-                                <h4>Nada Yousry</h4>
-                                <h5>Front End Developer</h5>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="home-team__item-img">
-                                <img src="../../assets/img/omnia.png" alt="" class="rounded-circle img-fluid">
-                            </div>
-                            <div class="home-team__item-content">
-                                <h4>Omnia Ahmed</h4>
-                                <h5>Front End Developer</h5>
-                            </div>
-                        </div>
-                    </div>
+                <div class="home-team__gallery-item col-md-2">
+                    <h3>Nada</h3>
+                    <img src="../../assets/img/nada.jpeg" alt="" class="rounded-circle img-fluid">
+                </div>
+                <div class="home-team__gallery-item col-md-2">
+                    <h3>Omnia</h3>
+                    <img src="../../assets/img/omnia.png" alt="" class="rounded-circle img-fluid">
                 </div>
             </div>
         </div>
@@ -207,23 +192,23 @@
     <!-------------------Footer------------------------->
 
 
-    <footer class="home-footer container-fluid">
-        <div class="home-footer__container">
-            <div class="home-footer__contaier_header row">
-                <form class="form-inline">
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="Get Started Now" class="sr-only">Get Started Now</label>
-                        <input type="email" class="form-control" placeholder="Email Address">
-                    </div>
-                    <button type="submit" class="btn btn-primary mb-2">Subscribe</button>
-                </form>
+    <footer class="home-footer">
+        <div class="home-footer__container container-fluid">
+            <div class="boxheader">
+                <a class="home-header__nav-logo " href="#">TODO<span>LESS</span></a>
+                <div class="home-footer__container-header row">
+                    <form class="form-inline">
+                        <div class="form-group mx-sm-3 mb-2">
+                            <h3 class="mr-3">Get Started Now</h3>
+                            <input type="email" class="form-control" placeholder="Email Address">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="home-footer__container_content row">
-                <div class="home-footer__container_content-item col-md-3">
+            <div class="home-footer__container-content row mt-3">
+                <div class="home-footer__container-content-item col-md-3">
                     <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">TODOLESS</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Home</a>
                         </li>
@@ -241,7 +226,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="home-footer__container_content-item col-md-3">
+                <div class="home-footer__container-content-item col-md-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link" href="#">ABOUT</a>
@@ -257,7 +242,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="home-footer__container_content-item col-md-3">
+                <div class="home-footer__container-content-item col-md-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link" href="#">FEATURES</a>
@@ -276,7 +261,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="home-footer__container_content-item col-md-3">
+                <div class="home-footer__container-content-item col-md-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link" href="#">CONTACT US</a>
@@ -293,6 +278,7 @@
                     </ul>
                 </div>
             </div>
+
         </div>
     </footer>
 </main>

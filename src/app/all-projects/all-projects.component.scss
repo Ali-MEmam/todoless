@@ -1,52 +1,29 @@
 @import './../ourVariables.scss';
+
+main {
+  font-family: $mainFont;
+  background-color: $white;
+}
+
 /*===============
 search-add project
 ================*/
 .add-project {
   &__wrapper {
-    border-radius: 40px;
-    -webkit-box-shadow:$boxShadow;
-    -moz-box-shadow: $boxShadow;
-    box-shadow:$boxShadow;
-
     &-search {
       & input {
         border: unset;
         border-bottom: 3px solid #f0f2f8;
         font-size: 20px;
-        color: $orange;
+        color: $blue;
       }
 
       & input::placeholder {
-        font-size: 25px;
-        color: $orange;
+        font-size: 18px;
+        color: $blue;
       }
     }
-     & .col-2{
-      position: absolute;
-      right: 0;
-      padding: 0;
-      margin: 0;
-     }
-    &-add {
-      background-color: #f0f2f8;
-      border-bottom-left-radius: 20px;
-      border-top-left-radius: 20px;
-      -webkit-box-shadow: $boxShadow;
-      -moz-box-shadow: $boxShadow;
-      box-shadow: $boxShadow;
 
-      &-content {
-        background-color: $orange;
-        border-radius: 10px;
-        width: 50px;
-
-        & mat-icon {
-          color: #fff;
-          font-size: 25px;
-        }
-      }
-    }
   }
 
 }
@@ -55,13 +32,6 @@ search-add project
 all projects
 ===============*/
 .all-projects {
-  &__wrapper {
-    border-radius: 40px;
-    -webkit-box-shadow:$boxShadow;
-    -moz-box-shadow: $boxShadow;
-    box-shadow: $boxShadow;
-  }
-
   & a {
     text-decoration: none;
     color: unset
@@ -73,19 +43,16 @@ all projects
     margin: 0 auto;
     margin-top: 50px;
     position: relative;
-    background-color: #f0f2f8;
+    background-color: $pureLight;
     border-radius: 0 6px 6px 6px;
-    -webkit-box-shadow:$boxShadow;
+    -webkit-box-shadow: $boxShadow;
     -moz-box-shadow: $boxShadow;
     box-shadow: $boxShadow;
-
     &-head {
       color: $blue;
       border-bottom: 1px solid #fd611c;
       width: 50%;
     }
-
-
     &:after,
     &:before {
       content: '';
@@ -94,10 +61,10 @@ all projects
       height: 12px;
       border-radius: 0 20px 0 0;
     }
-
+ 
     &:after {
       border-top-left-radius: 20px;
-      background-color: #f0f2f8;
+      background-color: $pureLight;
       top: -12px;
       left: 0px;
     }
@@ -105,20 +72,35 @@ all projects
     &:before {
       border-top-left-radius: 20px;
       border-bottom-left-radius: 20px;
-      background-color: #fff;
+      background-color: $white;
       top: -5px;
       right: 0px;
     }
-
+    
+    &-add {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      background-color: $lightBlue;
+      cursor: pointer;
+      & mat-icon,
+      & p {
+        color: $pureLight;
+      }
+     
+    }
+  
     //hovering
     &:hover {
-      background-color: $blue;
+      background-color: $lightBlue;
     }
 
     &:hover {
 
       &:after {
-        background-color: $blue;
+        background-color: $lightBlue;
       }
 
     }
@@ -136,4 +118,10 @@ all projects
     }
   }
 
+}
+.all-projects__card .create-project{
+  position:relative
+}
+.handler:first-of-type .all-projects__card:after{
+  background-color:#2ca6ef;
 }

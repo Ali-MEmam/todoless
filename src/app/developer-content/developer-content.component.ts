@@ -5,7 +5,7 @@ import { TasksService } from '../tasks.service/tasks.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { isNgTemplate } from '@angular/compiler';
 import { element } from 'protractor';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-developer-content',
@@ -13,6 +13,7 @@ import { element } from 'protractor';
   styleUrls: ['./developer-content.component.scss']
 })
 export class DeveloperContentComponent implements OnInit {
+  
   /*================================================
                      variables
   ===============================================*/
@@ -199,28 +200,7 @@ if (this.workingOn.length === 0 ){
   delayValue: any = 0;
   calculatedTimeArr: any;
   handelBonusDelayTime() {
-    // this.calculatedTimeArr = (this.finishedTaskTime).split(":");
-    // console.log(parseFloat(this.calculatedTimeArr[0]), parseInt(this.calculatedTimeArr[0]));
-    // if (parseFloat(this.calculatedTimeArr[0]) === parseInt(this.calculatedTimeArr[0])) { 
-    //   this.bonusValueHours = parseFloat(this.calculatedTimeArr[0]) + this.bonusValueHours;
-    //   this.bonusValueMinuts = parseFloat(this.calculatedTimeArr[1]) + this.bonusValueMinuts;
-    //   this.bonusValueSeconds = parseFloat(this.calculatedTimeArr[2]) + this.bonusValueSeconds;
-    //   this.bonusValue = this.bonusValueHours + ":" + this.bonusValueMinuts + ":" + this.bonusValueSeconds;
-    // }
-    // else {
-    //   this.delayValue = this.delayValue + this.finishedTaskTime.innerHTML
-    // }
-    // this.calculatedTimeArr = (this.finishedTaskTime).split(":");
-    // console.log(parseFloat(this.calculatedTimeArr[0]), parseInt(this.calculatedTimeArr[0]));
-    // if (parseFloat(this.calculatedTimeArr[0]) === parseInt(this.calculatedTimeArr[0])) {
-    //   this.bonusValueHours = parseFloat(this.calculatedTimeArr[0]) + this.bonusValueHours;
-    //   this.bonusValueMinuts = parseFloat(this.calculatedTimeArr[1]) + this.bonusValueMinuts;
-    //   this.bonusValueSeconds = parseFloat(this.calculatedTimeArr[2]) + this.bonusValueSeconds;
-    //   this.bonusValue = this.bonusValueHours + ":" + this.bonusValueMinuts + ":" + this.bonusValueSeconds;
-    // }
-    // else {
-    //   this.delayValue = this.delayValue + this.finishedTaskTime.innerHTML
-    // }
+    
   }
 
 

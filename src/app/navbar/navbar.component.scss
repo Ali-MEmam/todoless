@@ -1,7 +1,5 @@
-@import './../ourVariables.scss';
-
 .nav{
-    background-color: $white; 
+    background-color: #192965; 
     padding: 1rem;
     &-container{
         display: flex;
@@ -12,7 +10,7 @@
             justify-content: space-evenly;
             &-item{
                 &--link{
-                    color:black;
+                    color:#f0efef;
                 }
             }
         }

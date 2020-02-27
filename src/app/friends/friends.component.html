@@ -1,4 +1,23 @@
+<section class="friends">
+    
+    <app-sidebar></app-sidebar>
 
-<Section *ngFor="let friend of friends">
-    <div> {{friend.name}}</div>
-</Section>
+    <section class="friends-container">
+        <app-account-navbar></app-account-navbar>
+
+        <div class="friends-container__search">
+            <input class="friends-container__search-input" type="text">
+            <div class="friends-container__search-dropdown"></div>
+        </div>
+        <div class="friends-container__wrapper">
+            <div class="friends-container__wrapper-allfriends" *ngFor="let friend of friends">
+                <figure class="friends-container__wrapper-allfriends--img">
+                    <img  class="img-full-radius" src="https://i.imgur.com/zOXKdmt.png">
+                </figure>
+                <div class="friends-container__wrapper-allfriends--name"> {{friend.name}}</div>
+                <div class="friends-container__wrapper-allfriends--title"> {{friend.title}}</div>
+            </div>
+        </div>
+        
+    </section>
+</section>

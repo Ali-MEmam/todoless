@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
 
 /* --------------------------- Get All Users Data --------------------------- */
 
+
   allUsers:users[]
   currentUser:users;
 /* ----------------------- Specific Error Validationg ----------------------- */

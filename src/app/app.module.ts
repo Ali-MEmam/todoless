@@ -29,14 +29,19 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon';
+import {MatBadgeModule} from '@angular/material/badge';
 import { RegAnimationComponent } from './reg-animation/reg-animation.component';
 import { OwnerContentComponent } from './owner-content/owner-content.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FriendsComponent } from './friends/friends.component';
+<<<<<<< HEAD
 import { LoginRegComponent } from './login-reg/login-reg.component';
 import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 
+=======
+import { AccountNavbarComponent } from './account-navbar/account-navbar.component';
+>>>>>>> blue
 
 
 @NgModule({
@@ -66,10 +71,15 @@ import { ProfileComponent } from './profile/profile.component';
     OwnerContentComponent,
     SidebarComponent,
     FriendsComponent,
+<<<<<<< HEAD
 
     LoginRegComponent,
     LoginNavbarComponent,
     ProfileComponent,
+=======
+    AccountNavbarComponent,
+    
+>>>>>>> blue
   ],
   imports: [
     

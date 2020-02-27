@@ -88,17 +88,4 @@ export class RegisterComponent implements OnInit {
     })
     this.phoneIsExist = checker
   }
-  
-  labelUp(event,labelId){
-    labelId.classList.add('labelFocus');
-    
-  }
-  labelDown(event,labelId){
-    if(event.target.value === ""){
-      labelId.classList.remove("labelFocus");
-    }else{
-      labelId.classList.add('labelFocus');
-    }
-  }
-
 }

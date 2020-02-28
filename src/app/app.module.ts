@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // import {ChartsModule} from "ng2-charts"
 import { DragDropModule } from '@angular/cdk/drag-drop';
+
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
@@ -18,11 +19,11 @@ import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import {AllProjectsComponent} from './all-projects/all-projects.component';
-import {AsideDeveloperComponent} from './aside/aside-developer/aside-developer.component';
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
-import {DragTimerComponent} from './drag-timer/drag-timer.component';
+import { DragTimerComponent } from './drag-timer/drag-timer.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
@@ -36,26 +37,21 @@ import { FriendsComponent } from './friends/friends.component';
 import { LoginRegComponent } from './login-reg/login-reg.component';
 import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
 import { ProfileComponent } from './profile/profile.component';
-
-
-
 import {ChartsModule} from "ng2-charts";
 import { AccountNavbarComponent } from './account-navbar/account-navbar.component';
+
+
+
+import { HomeComponent } from './home/home.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
-    AsideDeveloperComponent,
     DeveloperContentComponent,
-    TimerFormatPipe,
-    AdminPanelComponent,    
-    AdminPanelComponent,
-    DeveloperContentComponent,
-    TimerFormatPipe,
     AllProjectsComponent,    
-    DragTimerComponent,
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,   
@@ -67,7 +63,7 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     OwnerContentComponent,
     SidebarComponent,
     FriendsComponent,
-
+    HomeComponent,
     LoginRegComponent,
     LoginNavbarComponent,
     ProfileComponent,
@@ -83,7 +79,6 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSliderModule,
     BrowserAnimationsModule,
   
     MatButtonModule,

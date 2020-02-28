@@ -45,7 +45,7 @@ export class CreateProjectComponent implements OnInit {
       attachment: ['', [Validators.required]],
       invitors: ['',[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
       startDate: ['', [Validators.required]],
-      endDate: ['', [Validators.required]],
+      endDate: ['', [Validators.required]]
     })
 
     // !!!!!!!!!!!!!!--------------- Get projects from firebase ---------------!!!!!!!!!!!!!!!!!
@@ -116,5 +116,10 @@ export class CreateProjectComponent implements OnInit {
       console.log("Not Vaild")
     }
   }
-
+  labelUp(event,element){
+    element.classList.add("up")
+  }
+  labelDown($event,element){
+    element.classList.remove("up")
+  }
 }

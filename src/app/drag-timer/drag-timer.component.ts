@@ -79,8 +79,6 @@ export class DragTimerComponent implements OnInit {
       this.item.startDate = message.startDate;
       this.item.status = message.status;
     })
-
-
   }
 
 
@@ -126,13 +124,14 @@ export class DragTimerComponent implements OnInit {
       console.log("valid");
       console.log(this.taskForm.value);
       this.TasksService.createTasks(this.taskForm.value);
-      this.item.name = this.item.description = 
-      this.item.totalTime =this.item.startDate =this.item.personId =
-      this.item.endDate = "";
+      this.item.name = this.item.descrption = 
+      this.item.time =this.item.startDate =this.item.employeeId =
+      this.item.deadLine = "";
       this.item.status ='';
     }
   }
- 
+
+
 
   title = 'to-do-less';
 

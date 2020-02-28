@@ -9,5 +9,5 @@ export interface projects{
     color?:any;
     startDate?:any;
     endDate?:any;
-    privacy?:any;
+    privacy?:any
 }

@@ -64,6 +64,7 @@ export class AdminPanelComponent implements OnInit {
   //delete-user
   deleteUser(event,item) {
     this.usersService.deleteUser(item);
+    console.log(item);
   }
   
   //edit-user 

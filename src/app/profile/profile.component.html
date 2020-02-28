@@ -1,63 +1,15 @@
 <section class="profile">
-  <div class="container">
+  <div class="container-fluid pl-0">
     <div class="row">
-      <section class="profile__info col-6">
-        <div class="row">
-          <div class="col-3 profile__info-img">
-            <figure>
-              <img src="" alt="">
-            </figure>
-          </div>
-          <div class="col-8 profile__info-details">
-            <div class="profile__info-details__personal">
-              <h2>Nada Yousry</h2>
-              <a href="mailto:mail1@example.com" target="_top">nadayousry@gmail.com</a>
-              <div class="profile-info__details-rating">
-                <mat-icon value='1' (click)='onclick($event)'>star</mat-icon>
-                <mat-icon value='2' (click)='onclick($event)'>star</mat-icon>
-                <mat-icon value='3'(click)='onclick($event)'>star</mat-icon>
-                <mat-icon value='4'(click)='onclick($event)'>star</mat-icon>
-                <mat-icon  value='5'(click)='onclick($event)'>star</mat-icon>
-
-              </div>
-            </div>
-            <div class="profile__info-details__Bio">
-              <h2>Bio : </h2>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos libero iusto illum fugit ab cum
-                perspiciatis, ipsa corporis aut rerum maxime porro officia ut? Corporis aliquam error porro omnis quas.
-              </p>
-            </div>
+      <div class="col-2">
+        <app-sidebar></app-sidebar>
+      </div>
+      <div class="col-10">
+        <div class="container">
+          <div class="profile-info py-3">
           </div>
         </div>
-      </section>
-      <section class="profile__chart col-5 ml-auto">
-        <app-all-projects></app-all-projects>
-      </section>
-    </div>
-    <div class="row comments-parent">
-      <section class="profile__comments " [class]='borderLeft'>
-        <div class="profile__comments-comment  col-12 pb-5" *ngFor='let user of usersComments'>
-          <!-- <h3>{{user.name}}</h3> -->
-              <p>{{user.comment}}</p>
-          <!-- <div class="row">
-            <div class="profile__comments-comment__user-img col-1">
-              <figure>
-                <img [src]="user.img" alt="">
-              </figure>
-            </div>
-            <div class="profile__comments-comment__text col-11">
-              <h3>{{user.name}}</h3>
-              <p>{{user.comment}}</p>
-              
-            </div>
-          </div> -->
-
-        </div>
-        <form [formGroup]='userComment' (ngSubmit)='onSubmit(userComment)'>
-          <input formControlName="comment" placeholder="your comment">
-          <button type="submit" name="submit">send</button>
-        </form>
-      </section>
+      </div>
     </div>
   </div>
 </section>

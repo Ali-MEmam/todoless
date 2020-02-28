@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// import {ChartsModule} from "ng2-charts"
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
@@ -35,21 +36,17 @@ import { FriendsComponent } from './friends/friends.component';
 import { LoginRegComponent } from './login-reg/login-reg.component';
 import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
 import { ProfileComponent } from './profile/profile.component';
+
+
+
 import {ChartsModule} from "ng2-charts";
 import { AccountNavbarComponent } from './account-navbar/account-navbar.component';
-
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
-
     AsideDeveloperComponent,
     DeveloperContentComponent,
     TimerFormatPipe,
@@ -73,11 +70,6 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
 
     LoginRegComponent,
     LoginNavbarComponent,
-    OwnerContentComponent,
-    SidebarComponent,
-    FriendsComponent,
-    LoginRegComponent,
-    LoginNavbarComponent,
     ProfileComponent,
     AccountNavbarComponent,
   ],
@@ -99,7 +91,8 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     MatIconModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule,
+    MatNativeDateModule
+
   ],
   providers: [
     MatDatepickerModule

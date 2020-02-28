@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// import {ChartsModule} from "ng2-charts"
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import {AngularFireModule} from '@angular/fire';
@@ -45,6 +46,8 @@ import { HomeComponent } from './home/home.component';
 
 
 
+import { FriendRequestComponent } from './friend-request/friend-request.component';
+import { AllFriendsComponent } from './all-friends/all-friends.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,13 +70,10 @@ import { HomeComponent } from './home/home.component';
     HomeComponent,
     LoginRegComponent,
     LoginNavbarComponent,
-    OwnerContentComponent,
-    SidebarComponent,
-    FriendsComponent,
-    LoginRegComponent,
-    LoginNavbarComponent,
     ProfileComponent,
     AccountNavbarComponent,
+    FriendRequestComponent,
+    AllFriendsComponent,
   ],
   imports: [
     
@@ -86,13 +86,13 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-  
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule,
+    MatNativeDateModule
+
   ],
   providers: [
     MatDatepickerModule

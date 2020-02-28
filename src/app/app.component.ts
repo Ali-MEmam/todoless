@@ -6,12 +6,10 @@ import { users } from './modals/users'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  ngOnInit() { }
- 
-
   title(title: any) {
     throw new Error("Method not implemented.");
   }
+  filtering = "";
 
   
 }

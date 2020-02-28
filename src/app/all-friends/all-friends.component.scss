@@ -1,0 +1,24 @@
+@import './../ourVariables.scss';
+
+.all-friends {
+  font-family: $mainFont;
+  background-color: $white;
+  min-height: 100vh;
+
+  a {
+    color: grey
+  }
+
+  & .nav-tabs {
+    border-bottom: unset;
+    font-weight: $bold;
+
+    & .nav-link.active {
+      background-color: unset;
+      border-color: $white;
+      border-bottom: 2px solid $lightBlue;
+      color: $lightBlue;
+
+    }
+  }
+}

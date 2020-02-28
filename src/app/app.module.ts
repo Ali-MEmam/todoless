@@ -37,15 +37,13 @@ import { FriendsComponent } from './friends/friends.component';
 import { LoginRegComponent } from './login-reg/login-reg.component';
 import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
 import { ProfileComponent } from './profile/profile.component';
-
-
-
 import {ChartsModule} from "ng2-charts";
 import { AccountNavbarComponent } from './account-navbar/account-navbar.component';
-import { FriendRequestComponent } from './friend-request/friend-request.component';
-import { AllFriendsComponent } from './all-friends/all-friends.component';
+
 import { HomeComponent } from './home/home.component';
 
+import { FriendRequestComponent } from './friend-request/friend-request.component';
+import { AllFriendsComponent } from './all-friends/all-friends.component';
 @NgModule({
   declarations: [
     AppComponent,

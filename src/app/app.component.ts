@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { users } from './modals/users'
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

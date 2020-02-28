@@ -1,6 +1,6 @@
 @import './../ourVariables.scss';
 
-.friends {
+.request {
   font-family: $mainFont;
   background-color: $white;
   min-height: 100vh;
@@ -58,36 +58,5 @@
       }
     }
 
-    &-status {
-      p {
-        color: #dc3545;
-        position: relative;
-
-        &:before {
-          position: absolute;
-          content: "";
-          top: 5px;
-          left: -22px;
-          background-color: #dc3545;
-          width: 10px;
-          height: 10px;
-          border-radius: 50%
-        }
-      }
-
-    }
-
-    &-menu {
-      & mat-icon {
-        color: $blue;
-        font-weight: $bold;
-        cursor: pointer;
-
-        &:before {
-          border-top: unset;
-          border-right: unset;
-        }
-      }
-    }
   }
 }

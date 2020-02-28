@@ -38,6 +38,8 @@ import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import {ChartsModule} from "ng2-charts";
 import { AccountNavbarComponent } from './account-navbar/account-navbar.component';
+import { FriendRequestComponent } from './friend-request/friend-request.component';
+import { AllFriendsComponent } from './all-friends/all-friends.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +71,8 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     LoginNavbarComponent,
     ProfileComponent,
     AccountNavbarComponent,
+    FriendRequestComponent,
+    AllFriendsComponent,
   ],
   imports: [
     
@@ -82,7 +86,6 @@ import { AccountNavbarComponent } from './account-navbar/account-navbar.componen
     ReactiveFormsModule,
     MatSliderModule,
     BrowserAnimationsModule,
-  
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,

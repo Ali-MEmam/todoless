@@ -1,5 +1,4 @@
 <Section class="friends py-3">
-  <!-- <div> {{friend.name}}</div> -->
   <div class="container">
     <div class="friends__content" *ngFor="let friend of friends">
       <div class="friends__content-info">
@@ -7,11 +6,11 @@
           <img class="img-fluid" src="../../assets/imgs/friends/friend.png" alt="" />
         </div>
         <div class="friends__content-info-name">
-          <p>ahmed mohamed</p>
+          <p>{{friend.name}}</p>
         </div>
       </div>
       <div class="friends__content-position">
-        <p>ui developer</p>
+        <p>{{friend.title}}</p>
       </div>
       <div class="friends__content-status">
         <p>offline</p>
@@ -22,9 +21,9 @@
           <mat-icon class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">more_horiz
           </mat-icon>
           <div class="dropdown-menu">
-            <p><a href="#">remove</a></p>
-            <p><a href="#">block</a></p>
-            <p><a href="#">message</a></p>
+            <p><button (click)="deleteFriend($event,friend)">remove</button></p>
+            <p><button (click)="blockFriend($event,friend)">block</button></p>
+            <p><button >Profile</button></p>
           </div>
         </div>
       </div>

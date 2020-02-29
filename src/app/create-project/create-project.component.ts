@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { projects } from '../modals/projects';
 import { ProjectsService } from '../projects.service/projects.service';
 import { users } from '../modals/users';
-import { usersService } from '../users.service/users.service';
+import { usersService } from '../users.service/users.service'
 
 
 @Component({

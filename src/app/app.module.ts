@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// import {ChartsModule} from "ng2-charts"
 import { DragDropModule } from '@angular/cdk/drag-drop';
-
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
@@ -19,11 +17,11 @@ import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import {AllProjectsComponent} from './all-projects/all-projects.component';
+import {AsideDeveloperComponent} from './aside/aside-developer/aside-developer.component';
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
-import { DragTimerComponent } from './drag-timer/drag-timer.component';
+import {DragTimerComponent} from './drag-timer/drag-timer.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
@@ -39,16 +37,12 @@ import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import {ChartsModule} from "ng2-charts";
 import { AccountNavbarComponent } from './account-navbar/account-navbar.component';
-
-
-
-import { HomeComponent } from './home/home.component';
-
-
-
 import { FriendRequestComponent } from './friend-request/friend-request.component';
 import { AllFriendsComponent } from './all-friends/all-friends.component';
-import { AccountComponent } from './account/account.component';
+import { AddFriendComponent } from './add-friend/add-friend.component';
+import { FindFriendComponent } from './find-friend/find-friend.component';
+import { HomeComponent } from './home/home.component';
+import {AccountComponent} from './account/account.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +50,13 @@ import { AccountComponent } from './account/account.component';
     RegisterComponent,
     NavbarComponent,
     DeveloperContentComponent,
+    TimerFormatPipe,
+    AdminPanelComponent,    
+    AdminPanelComponent,
+    DeveloperContentComponent,
+    TimerFormatPipe,
     AllProjectsComponent,    
+    DragTimerComponent,
     AdminPanelComponent,
     DeveloperContentComponent,
     TimerFormatPipe,   
@@ -76,6 +76,8 @@ import { AccountComponent } from './account/account.component';
     FriendRequestComponent,
     AllFriendsComponent,
     AccountComponent,
+    AddFriendComponent,
+    FindFriendComponent,
   ],
   imports: [
     
@@ -87,6 +89,7 @@ import { AccountComponent } from './account/account.component';
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSliderModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatFormFieldModule,

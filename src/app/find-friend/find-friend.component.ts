@@ -26,9 +26,14 @@ export class FindFriendComponent implements OnInit {
   
   addFriend(event,item){
     this.friendsUser.push(item.id);
+<<<<<<< HEAD
     this.usersService.editUser(item);
     // console.log(this.friendsUser);   
     
+=======
+    this.usersService.editUser(item.id);
+    console.log(this.friendsUser);   
+>>>>>>> blue
   }
 
 }

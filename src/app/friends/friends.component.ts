@@ -37,7 +37,11 @@ blockFriends=[];
   ngOnInit(): void {
     this.usersService.getUser().subscribe(items=>{
       console.log(items);
+<<<<<<< HEAD
       // this.friends = items;
+=======
+      this.friends = items;
+>>>>>>> blue
     })
   }
 
@@ -45,8 +49,21 @@ blockFriends=[];
   deleteFriend(event,item){
     // this.usersService.deleteUser(item);
     console.log(item);
+<<<<<<< HEAD
   }
 
   
 
 }
+=======
+  }
+
+  blockFriend(event,item){
+    console.log(item);
+    this.blockFriends.push(item);
+    console.log(this.blockFriends);
+    // this.users[1].blockFriends = this.usersService.createUser(item);
+  }
+
+}
+>>>>>>> blue

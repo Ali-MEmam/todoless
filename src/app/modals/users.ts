@@ -1,5 +1,6 @@
 export interface users{
     id?:string;
+    image?:string;
     name?:string;
     email?:string;
     title?:string;
@@ -12,5 +13,11 @@ export interface users{
         edit?:any
     }];
     tasks?:any;
+<<<<<<< HEAD
 }
 
+=======
+    comments?:any;
+    starts?:any;
+}
+>>>>>>> blue

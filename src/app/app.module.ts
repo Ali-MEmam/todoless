@@ -5,7 +5,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NgModule } from '@angular/core';
 import {ChartsModule} from "ng2-charts";
 import { DragDropModule } from '@angular/cdk/drag-drop';
-
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
@@ -15,7 +14,6 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { pipe, from } from 'rxjs';
 import { SearchPipe } from './search.pipe';
 
 import {MatRadioModule} from '@angular/material/radio';
@@ -23,6 +21,7 @@ import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import {AllProjectsComponent} from './all-projects/all-projects.component';
+<<<<<<< HEAD
 
 
 import { CreateProjectComponent } from './create-project/create-project.component';
@@ -32,6 +31,13 @@ import { DeveloperContentComponent } from './developer-content/developer-content
 import { LoginComponent } from './login/login.component';
 import {DragTimerComponent} from './drag-timer/drag-timer.component';
 
+=======
+import {AsideDeveloperComponent} from './aside/aside-developer/aside-developer.component';
+import { DeveloperContentComponent } from './developer-content/developer-content.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import {DragTimerComponent} from './drag-timer/drag-timer.component';
+>>>>>>> blue
 import { MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -48,16 +54,29 @@ import { LoginRegComponent } from './login-reg/login-reg.component';
 import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AccountNavbarComponent } from './account-navbar/account-navbar.component';
+<<<<<<< HEAD
 
 import { HomeComponent } from './home/home.component';
 
 import { FriendRequestComponent } from './friend-request/friend-request.component';
 import { AllFriendsComponent } from './all-friends/all-friends.component';
 import { FindFriendComponent } from './find-friend/find-friend.component';
+=======
+import { FriendRequestComponent } from './friend-request/friend-request.component';
+import { AllFriendsComponent } from './all-friends/all-friends.component';
+import { AddFriendComponent } from './add-friend/add-friend.component';
+import { FindFriendComponent } from './find-friend/find-friend.component';
+import { HomeComponent } from './home/home.component';
+import {AccountComponent} from './account/account.component';
+>>>>>>> blue
 import { CreateNewProjectComponent } from './create-new-project/create-new-project.component';
 import { ProjectViewComponent } from './project-view/project-view.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
+<<<<<<< HEAD
+=======
+import { StarRatingComponent } from './star-rating/star-rating.component';
+>>>>>>> blue
 
 @NgModule({
   declarations: [
@@ -65,15 +84,20 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
+    AllProjectsComponent,       
     DeveloperContentComponent,
+<<<<<<< HEAD
     // AsideDeveloperComponent,
     AdminPanelComponent,
     TimerFormatPipe,
     AllProjectsComponent,    
+=======
+    AdminPanelComponent,
+    TimerFormatPipe,    
+>>>>>>> blue
     LoginComponent,
     DragTimerComponent,
     ProjectDetailsComponent,
-    CreateProjectComponent,
     RegAnimationComponent,
     EditProjectComponent,
     OwnerContentComponent,
@@ -86,14 +110,24 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
     AccountNavbarComponent,
     FriendRequestComponent,
     AllFriendsComponent,
+<<<<<<< HEAD
     FindFriendComponent,
     LoginRegComponent,
     LoginNavbarComponent,
     ProfileComponent,
+=======
+    AccountComponent,
+    AddFriendComponent,
+    FindFriendComponent,
+>>>>>>> blue
     CreateNewProjectComponent,
     ProjectViewComponent,
     CreateTaskComponent,
     TaskDetailsComponent,
+<<<<<<< HEAD
+=======
+    StarRatingComponent,
+>>>>>>> blue
   ],
   imports: [
     
@@ -107,9 +141,14 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     MatSliderModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
+    MatSliderModule,
+    BrowserAnimationsModule,
+=======
+    ChartsModule,
+>>>>>>> blue
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,

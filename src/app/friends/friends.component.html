@@ -1,5 +1,4 @@
 <Section class="friends py-3">
-  <!-- <div> {{friend.name}}</div> -->
   <div class="container">
     <div class="friends__content" *ngFor="let friend of friends">
       <div class="friends__content-info">
@@ -19,9 +18,19 @@
       <div class="friends__content-menu">
 
         <div class="btn-group dropleft">
+<<<<<<< HEAD
          
             <button class="btn btn-info mx-2" (click)="deleteFriend($event,friend)">unFollow</button>
 
+=======
+          <mat-icon class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">more_horiz
+          </mat-icon>
+          <div class="dropdown-menu">
+            <p><button (click)="deleteFriend($event,friend)">remove</button></p>
+            <p><button (click)="blockFriend($event,friend)">block</button></p>
+            <p><button >Profile</button></p>
+          </div>
+>>>>>>> blue
         </div>
       </div>
     </div>

@@ -1,10 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl , FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { projects } from '../modals/projects';
 import { ProjectsService } from '../projects.service/projects.service';
 import { users } from '../modals/users';
+<<<<<<< HEAD
 import { usersService } from '../users.service/users.service';
+=======
+import { usersService } from '../users.service/users.service'
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
 
+export interface User {
+  name: string;
+}
 
 @Component({
   selector: 'app-create-project',
@@ -28,19 +37,47 @@ export class CreateProjectComponent implements OnInit {
   invitors = [];
 
 
+<<<<<<< HEAD
+=======
+  myControl = new FormControl();
+  options: User[] = [
+    {name: 'Ali Emam'},
+    {name: 'Mai Mohamed'},
+    {name: 'Omnia Ahmed'},
+    {name: 'Nada Yousry'},
+    {name: 'Mohamed Elsaeid'}
+  ];
+  filteredOptions: Observable<User[]>;
+
+
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
   constructor(private ProjectsService: ProjectsService,
     private fb: FormBuilder,
     private usersService: usersService) { }
 
   ngOnInit(): void {
 
+<<<<<<< HEAD
+=======
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => typeof value === 'string' ? value : value.name),
+        map(name => name ? this._filter(name) : this.options.slice())
+      );
+
+
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
     // !!!!!!!!!!!!!!--------------- declare Form AND Validators ---------------!!!!!!!!!!!!!!!!!
 
     this.projectForm = this.fb.group({
       name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
       id: '',
       privacy: ['', [Validators.required]],
+<<<<<<< HEAD
       color: '',
+=======
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
       description: ['', [Validators.required]],
       attachment: ['', [Validators.required]],
       invitors: ['',[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
@@ -51,7 +88,10 @@ export class CreateProjectComponent implements OnInit {
     // !!!!!!!!!!!!!!--------------- Get projects from firebase ---------------!!!!!!!!!!!!!!!!!
 
     this.ProjectsService.getProject().subscribe(items => {
+<<<<<<< HEAD
       console.log(items);
+=======
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
       this.projects = items;
       this.projectsLength = items.length;
     })
@@ -59,15 +99,31 @@ export class CreateProjectComponent implements OnInit {
     // !!!!!!!!!!!!!!--------------- Get Users from firebase ---------------!!!!!!!!!!!!!!!!!
 
     this.usersService.getUser().subscribe(items => {
+<<<<<<< HEAD
       console.log(items);
+=======
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
       this.users = items;
       this.usersLength = items.length;
     })
   }
 
+<<<<<<< HEAD
   // !!!!!!!!!!!!!!--------------- Select Color of project ---------------!!!!!!!!!!!!!!!!!
 
   SelectColor(event) { }
+=======
+
+  displayFn(user: User): string {
+    return user && user.name ? user.name : '';
+  }
+
+  private _filter(name: string): User[] {
+    const filterValue = name.toLowerCase();
+
+    return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+  }
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
 
 
   // !!!!!!!!!!!!!!--------------- Select Id of UserInvited ---------------!!!!!!!!!!!!!!!!!
@@ -116,5 +172,10 @@ export class CreateProjectComponent implements OnInit {
       console.log("Not Vaild")
     }
   }
-
+  labelUp(event,element){
+    element.classList.add("up")
+  }
+  labelDown($event,element){
+    element.classList.remove("up")
+  }
 }

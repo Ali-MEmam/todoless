@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder, Validators} from '@angular/forms';
+<<<<<<< HEAD
 import {users} from './../modals/users';
 import {usersService} from './../users.service/users.service';
 
 
+=======
+
+import {users} from './../modals/users';
+import {usersService} from './../users.service/users.service';
+
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -40,11 +47,14 @@ export class RegisterComponent implements OnInit {
 /*                             Ng OnInit LifeCycle                            */
 /* -------------------------------------------------------------------------- */
 
+<<<<<<< HEAD
   register:FormGroup;
+=======
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
 
   ngOnInit(): void {
     this.register = this.fb.group({
-      companyName:['',[Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
+      name:['',[Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
       email:['',[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
       password:['',[Validators.required, Validators.pattern(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/)]],
       phone:['',[Validators.required, Validators.pattern(/^[0-9]{8,}$/)]],
@@ -66,12 +76,15 @@ export class RegisterComponent implements OnInit {
   createAccount(AccountInfo){
     if(this.register.valid){
       this.UsersService.createUser(this.register.value);
+<<<<<<< HEAD
       companySize:['',Validators.required]
     })
   }
   createAccount(item){
     if(this.register.valid){
       console.log(item.value)
+=======
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
     }else{
       console.log("not valid")
     }
@@ -95,5 +108,20 @@ export class RegisterComponent implements OnInit {
     })
     this.phoneIsExist = checker
   }
+<<<<<<< HEAD
+=======
+  
+  labelUp(event,labelId){
+    labelId.classList.add('labelFocus');
+    
+  }
+  labelDown(event,labelId){
+    if(event.target.value === ""){
+      labelId.classList.remove("labelFocus");
+    }else{
+      labelId.classList.add('labelFocus');
+    }
+  }
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
 
 }

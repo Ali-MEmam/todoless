@@ -3,8 +3,18 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { NgForm, Validators, FormControl } from '@angular/forms';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TasksService } from '../tasks.service/tasks.service';
+<<<<<<< HEAD
 import { tasks } from '../modals/tasks';
 
+=======
+import { usersService } from '../users.service/users.service';
+
+import { tasks } from '../modals/tasks';
+import { users } from '../modals/users';
+export interface User {
+  name: string;
+}
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
 @Component({
   selector: 'app-drag-timer',
   templateUrl: './drag-timer.component.html',
@@ -13,12 +23,23 @@ import { tasks } from '../modals/tasks';
 export class DragTimerComponent implements OnInit {
   item: any = {
     name: '',
+<<<<<<< HEAD
     descrption: '',
     time: '',
     employeeId: '',
     deadLine: '',
     startDate: '',
     status:""
+=======
+    description: '',
+    totalTime: '',
+    personId: '',
+    startDate: '',
+    endDate: '',
+    status:'',
+    assignTo:'',
+    attachment:'',
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
   }
 
   //all arrays and vars
@@ -26,31 +47,67 @@ export class DragTimerComponent implements OnInit {
   itemtoEdit:tasks;
   
   todo: tasks[];
+<<<<<<< HEAD
   taskForm: FormGroup;
 
   constructor(private f: FormBuilder, private TasksService: TasksService) { }
+=======
+
+  workingOn = [
+
+  ];
+
+  finished = [];
+  taskForm: FormGroup;
+  usersLength;
+  filedate: any;
+  fileSrc: string | ArrayBuffer;
+  file: any;
+
+  constructor(private f: FormBuilder, private TasksService: TasksService, private usersService:usersService) { }
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
   // form to add new task
 
 
   ngOnInit(): any {
     this.taskForm = this.f.group({
       name: '',
+<<<<<<< HEAD
       descrption: '',
       time: '',
       employeeId: '',
       deadLine: '',
       startDate:'',
       status:''
+=======
+      description: '',
+      totalTime: '',
+      personId: '',
+      startDate: '',
+      endDate: '', 
+      status:'',
+      assignTo:'',
+      attachment:'',
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
     });
 
     this.TasksService.getTasks().subscribe(item =>{
       this.todo = item;
       console.log(item);
     })
+<<<<<<< HEAD
+=======
+    this.usersService.getUser().subscribe(items => {
+      console.log(items);
+      // this.users = items;
+      this.usersLength = items.length;
+    })
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
 
     this.TasksService.currentId.subscribe((message:any)=>{
       this.item.name = message.name;
       this.item.descrption = message.descrption;
+<<<<<<< HEAD
       this.item.time = message.time;
       this.item.employeeId = message.employeeId;
       this.item.deadLine = message.deadLine;
@@ -65,6 +122,38 @@ export class DragTimerComponent implements OnInit {
   }
 
 
+=======
+      this.item.totalTime = message.totalTime;
+      this.item.personId = message.personId;
+      this.item.endDate = message.endDate;
+      this.item.startDate = message.startDate;
+      this.item.status = message.status;
+    })
+  }
+
+
+  readURL(event: any) {
+    this.filedate = <File>event.target.files[0];
+    console.log(this.filedate);
+    this.preview();
+  }
+
+  preview() {
+    let mimeType = this.filedate.type;
+    if (mimeType.match(/image||text\/*/) == null) {
+      return;
+    }
+
+    let reader = new FileReader();
+    reader.readAsDataURL(this.filedate);
+    reader.onload = event => {
+      this.fileSrc = reader.result;
+      this.file = reader.result;
+      this.taskForm.value.attachment = this.file;
+      // console.log(this.projectForm.value.attachment) ;
+    };
+  }
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
   taskObj;
   
   deleteTask(event,item) {
@@ -79,6 +168,7 @@ export class DragTimerComponent implements OnInit {
   }
 
   onSubmit(form:FormGroup) {
+<<<<<<< HEAD
     this.TasksService.createTasks(this.taskForm.value);
     this.TasksService.getTasks();
     this.item.name = this.item.descrption = 
@@ -112,6 +202,22 @@ export class DragTimerComponent implements OnInit {
     //     employeeId: ''
     // }  
   // }
+=======
+    if (form.valid){
+      this.taskForm.value.attachment = this.file;
+      this.assignTo.push(this.taskForm.value.assignTo);
+      this.taskForm.value.assignTo = this.assignTo;  
+      console.log("valid");
+      console.log(this.taskForm.value);
+      this.TasksService.createTasks(this.taskForm.value);
+      this.item.name = this.item.descrption = 
+      this.item.time =this.item.startDate =this.item.employeeId =
+      this.item.deadLine = "";
+      this.item.status ='';
+    }
+  }
+
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
 
 
   title = 'to-do-less';
@@ -142,6 +248,15 @@ export class DragTimerComponent implements OnInit {
 
 
   }
+<<<<<<< HEAD
+=======
+  assignTo=[];
+  users:users[];
+  selectUser(event, item) {
+    this.assignTo.push(item.id);
+    console.log(this.assignTo)
+  }
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
 
   /*================================================
                       variables
@@ -230,4 +345,8 @@ export class DragTimerComponent implements OnInit {
   /* ===================
   estemate time 
   =================== */
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71

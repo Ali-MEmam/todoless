@@ -1,31 +1,53 @@
+<<<<<<< HEAD
     
     <!-- !!!!!!!!!!!!!!---------------  CREATE PROJECT FORM ---------------!!!!!!!!!!!!!!!!! -->
+=======
+<!-- --------------------------- Create Project ---------------------------- -->
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
 
-<form [formGroup]='projectForm' (ngSubmit)='createProject(projectForm)'>
+<!-- <section  class="createProject">
+    <form class="createProject-container example-form" [formGroup]='projectForm' (ngSubmit)='createProject(projectForm)'> -->
 
+<<<<<<< HEAD
     <!-- !!!!!!!!!!!!!!--------------- Project Name  ---------------!!!!!!!!!!!!!!!!! -->
+=======
+<!-- ----------------------------- Name Input ------------------------------ -->
+<!-- 
+    <mat-form-field class="example-full-width">
+        <mat-label class="createProject-container__wrapper-label">Project Name</mat-label>
+        <input class="createProject-container__wrapper-input" formControlName="name" type="text" >
+    </mat-form-field> -->
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
 
-    <div class="form-container__wrapper">
-        <label>Project Name:</label>
-        <input class="form-container__wrapper-input" formControlName="name" type="text" placeholder="Project Name">
-    </div>
+<!-- ------------------------------ Key Input ------------------------------ -->
 
+<<<<<<< HEAD
     <!-- !!!!!!!!!!!!!!--------------- Project Key  ---------------!!!!!!!!!!!!!!!!! -->
 
     <div class="form-container__wrapper">
         <label>Project Key:</label>
         <input class="form-container__wrapper-input" formControlName="id" type="text" placeholder="Key Number"
+=======
+  <!--   <div class="createProject-container__wrapper">
+        <label class="createProject-container__wrapper-label">Project Key</label>
+        <input class="createProject-container__wrapper-input" formControlName="id" type="text"
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
             value={{projectsLength}} disabled>
-    </div>
+    </div> -->
 
+<<<<<<< HEAD
     <!-- !!!!!!!!!!!!!!--------------- Project Privacy  ---------------!!!!!!!!!!!!!!!!! -->
+=======
+<!-- -------------------------- Privacy Selector --------------------------- -->
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
 
-    <div class="form-container__wrapper">
-        <label>privacy:</label>
+ <!--    <div class="createProject-container__wrapper">
+        <label class="createProject-container__wrapper-label">privacy</label>
         <select formControlName="privacy">
             <option value="private">Private</option>
             <option value="Public">Public</option>
         </select>
+<<<<<<< HEAD
     </div>
 
     <!-- !!!!!!!!!!!!!!--------------- Project Color  ---------------!!!!!!!!!!!!!!!!! -->
@@ -104,3 +126,78 @@
 
     <button type="submit">Create</button>
 </form>
+=======
+    </div> -->
+<!-- --------------------------- Color Selector ---------------------------- -->
+<!-- 
+        <div class="createProject-container__wrapper">
+            <label class="createProject-container__wrapper-label" >Project Color</label>
+            <select formControlName="color">
+                <option value="red" (change)='SelectColor($event)'>Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+            </select>
+        </div>
+ -->
+<!-- ---------------------------- Descripition ----------------------------- -->
+
+       <!--  <div class="createProject-container__wrapper">
+            <label class="createProject-container__wrapper-label">Project Description</label>
+            <textarea formControlName="description"></textarea>
+        </div> -->
+
+<!-- ----------------------------- Attachment ------------------------------ -->
+
+       <!--  <div class="createProject-container__wrapper">
+            <label class="createProject-container__wrapper-label" >Project Attachment</label>
+            <input type="file" id="imageUpload" formControlName='attachment' (change)="readURL($event)" /> -->
+            <!-- <img id="imagePreview" [src]="imageSrc"  #Datavalue /> -->
+            <!-- <input type="text" [value]="Datavalue.src" style="display: none;" /> -->
+       <!--  </div> -->
+
+<!-- ----------------------------- Start Date ------------------------------ -->
+
+       <!--  <div class="createProject-container__wrapper">
+            <label class="createProject-container__wrapper-label" >Project Start</label>
+            <input type="date" formControlName="startDate">
+        </div> -->
+
+<!-- ------------------------------ End Date ------------------------------- -->
+<!-- 
+        <div class="createProject-container__wrapper">
+            <label class="createProject-container__wrapper-label" >Project End</label>
+            <input type="date" formControlName="endDate">
+        </div> -->
+
+<!-- ------------------------------ Assign To ------------------------------ -->
+<!-- 
+        <div class="createProject-container__wrapper">
+            <div class="profiles-container__search-form">
+                <label class="createProject-container__wrapper-label" >Search</label>
+                <input class="createProject-container__wrapper-user" name="filterValue" >
+            </div>
+            <div *ngIf="users?.length > 0 ; else nousers">
+                <ul>
+                    <li *ngFor="let item of users | search:filterValue" style="cursor: pointer;" (click)="selectUser($event,item)">
+                        {{item.name}} , {{item.email}}
+                    </li>
+                </ul>
+            </div>
+            <ng-template #nousers>
+                <h5>There are no items to lists</h5>
+            </ng-template>
+        </div> -->
+
+<!-- ---------------------------- Invite Input ----------------------------- -->
+
+       <!--  <div class="createProject-container__wrapper">
+            <label class="createProject-container__wrapper-label" >Invite by Email</label>
+            <input type="email" formControlName="invitors">
+        </div> -->
+
+<!-- ---------------------------- Submit Button ---------------------------- -->
+<!-- 
+        <button type="submit">Create</button>
+    </form>
+</section> -->
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71

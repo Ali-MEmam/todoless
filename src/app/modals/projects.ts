@@ -1,8 +1,11 @@
 export interface projects{
-    id?:string;
+    id?:any;
+    ownerId?:any;
+    tasksId?:any;
+    invitors?:any;
     name?:string;
     description?:string;
     startDate?:any;
     endDate?:any;
-    tasktsiD?:any
+    privacy?:any
 }

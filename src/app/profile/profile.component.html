@@ -1,12 +1,95 @@
 <section class="profile">
-  <div class="container-fluid pl-0">
+  <div class="container">
+
     <div class="row">
-      <div class="col-12">
-        <div class="container">
-          <div class="profile-info py-3">
+      <section class="profile__info col-12 col-md-12 col-lg-6 ">
+        <div class="row">
+          <div class="col-3 profile__info-img">
+            <form  [formGroup]='userProfile'>
+              <input type="file" id="imageUpload" formControlName='image' (change)="readURL($event)" />
+        </form>
+        <figure class="rounded-circle">
+          <img id="imagePreview" [src]="fileSrc" style="width: 100%; "/>
+        </figure>
+          </div>
+          <div class="col-8 profile__info-details">
+            <div class="profile__info-details__personal">
+              <h2>Nada Yousry</h2>
+              <a href="mailto:mail1@example.com" target="_top">nadayousry@gmail.com</a>
+              <div class="profile-info__details-rating">
+                <div  class="hovering-data" #dataHovering >rating : {{rating}}</div>
+                  <ng-container *ngFor="let star of stars">
+                    <app-star-rating
+                    [starId]="star"
+                    [rating]="avgStars" 
+                    >
+                    </app-star-rating>
+                  </ng-container>
+               </div>
+            </div>
+            <div class="profile__info-details__Bio">
+              <h2>Bio : </h2>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos libero iusto illum fugit ab cum
+                perspiciatis, ipsa corporis aut rerum maxime porro officia ut? Corporis aliquam error porro omnis quas.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+      <section class="profile__chart col-12 col-md-12 col-lg-5  ml-auto">
+        <app-all-projects></app-all-projects>
+      </section>
     </div>
+    <section class="row comments-parent">
+      <div class="profile__comments " #created>
+        <div class="profile__comments-comment  col-12 pb-5 pt-5"  *ngFor='let user of usersComments' >
+          <div class="row">
+            <div class="profile__comments-comment__user-img col-1">
+              <figure>
+                <img [src]="usersComments[0].img" alt="">
+              </figure>
+            </div>
+            <div class="profile__comments-comment__text col-9">
+              <h3>{{user.name}}</h3>
+              <p>{{user.comment}}</p>
+            </div>
+            <div class="profile__comments-comment__text col-2">
+              <div  class="hovering-data" >rating : {{rating}}</div>
+              <ng-container *ngFor="let star of stars">
+                <app-star-rating
+              
+                [starId]="star"
+                [rating]="3" 
+                >
+                </app-star-rating>
+              </ng-container>
+            </div>
+          </div>
+
+        </div>
+      </div>
+        <div class="col-12 comments-parent__formContainer">
+          <form class="comments-parent__formContainer-form" [formGroup]='userComment'  (ngSubmit)='onSubmit(userComment)'>
+            <textarea formControlName="comment"  valid placeholder="Type Your Comment Here ... "></textarea>
+            <section class="rate-and-sumbit">
+              <div  class="hovering-data" #dataHovering >rating : {{rating}}</div>
+                  <ng-container *ngFor="let star of stars">
+                    <app-star-rating
+                    (starEnter)='onStarEnter($event)'
+                    (starLeave)='onStarLeave()'
+                    (starClicked)='onStarClicked($event,dataHovering)'
+                    [starId]="star"
+                    [rating]="hoverState || rating" 
+                    >
+                    </app-star-rating>
+                  </ng-container>
+                  <button [disabled]="userComment.invalid" type="submit" name="submit" (click)="onBtnSubmit(created)">send</button>
+
+            </section>
+          </form>
+        </div>
+      
+    </section>
+
   </div>
 </section>

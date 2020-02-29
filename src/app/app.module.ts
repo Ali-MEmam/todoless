@@ -51,6 +51,7 @@ import { CreateNewProjectComponent } from './create-new-project/create-new-proje
 import { ProjectViewComponent } from './project-view/project-view.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
     ProjectViewComponent,
     CreateTaskComponent,
     TaskDetailsComponent,
+    StarRatingComponent,
   ],
   imports: [
     

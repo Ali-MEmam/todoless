@@ -1,5 +1,6 @@
 export interface users{
     id?:string;
+    image?:string;
     name?:string;
     email?:string;
     password?:any;
@@ -11,4 +12,6 @@ export interface users{
         edit?:any
     }];
     tasks?:any;
+    comments?:any;
+    starts?:any;
 }

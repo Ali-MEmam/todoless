@@ -1,7 +1,7 @@
 <section class="profile">
   <div class="container">
     <div class="row">
-      <section class="profile__info col-6">
+      <section class="profile__info col-12 col-md-12 col-lg-6 ">
         <div class="row">
           <div class="col-3 profile__info-img">
             <figure>
@@ -13,12 +13,17 @@
               <h2>Nada Yousry</h2>
               <a href="mailto:mail1@example.com" target="_top">nadayousry@gmail.com</a>
               <div class="profile-info__details-rating">
-                <mat-icon value='1' (click)='onclick($event)'>star</mat-icon>
-                <mat-icon value='2' (click)='onclick($event)'>star</mat-icon>
-                <mat-icon value='3'(click)='onclick($event)'>star</mat-icon>
-                <mat-icon value='4'(click)='onclick($event)'>star</mat-icon>
-                <mat-icon  value='5'(click)='onclick($event)'>star</mat-icon>
-
+                <ng-container *ngFor="let star of stars">
+                  <app-star-rating  (mousemove)="onMouseMove($event)"
+                  (starEnter)='onStarEnter($event)'
+                  (starLeave)='onStarLeave()'
+                  (starClicked)='onStarClicked($event)'
+                  [starId]="star"
+                   [rating]="hoverState || rating" 
+                  >
+                  </app-star-rating>
+                </ng-container>
+                <div  class="hovering-data"  id="displayRate"   *ngIf="hoverState>0">{{hoverState}}</div>
               </div>
             </div>
             <div class="profile__info-details__Bio">
@@ -30,16 +35,14 @@
           </div>
         </div>
       </section>
-      <section class="profile__chart col-5 ml-auto">
+      <section class="profile__chart col-12 col-md-12 col-lg-5  ml-auto">
         <app-all-projects></app-all-projects>
       </section>
     </div>
-    <div class="row comments-parent">
-      <section class="profile__comments " [class]='borderLeft'>
-        <div class="profile__comments-comment  col-12 pb-5" *ngFor='let user of usersComments'>
-          <!-- <h3>{{user.name}}</h3> -->
-              <p>{{user.comment}}</p>
-          <!-- <div class="row">
+    <section class="row comments-parent">
+      <div class="profile__comments ">
+        <div class="profile__comments-comment  col-12 pb-5 pt-5" *ngFor='let user of usersComments' [style.border-left]="borderLeft">
+          <div class="row">
             <div class="profile__comments-comment__user-img col-1">
               <figure>
                 <img [src]="user.img" alt="">
@@ -50,14 +53,17 @@
               <p>{{user.comment}}</p>
               
             </div>
-          </div> -->
+          </div>
 
         </div>
-        <form [formGroup]='userComment' (ngSubmit)='onSubmit(userComment)'>
-          <input formControlName="comment" placeholder="your comment">
-          <button type="submit" name="submit">send</button>
-        </form>
-      </section>
-    </div>
+      </div>
+        <div class="col-12 comments-parent__formContainer">
+          <form class="comments-parent__formContainer-form" [formGroup]='userComment'  (ngSubmit)='onSubmit(userComment)'>
+            <textarea formControlName="comment" valid placeholder="your comment"></textarea>
+            <button [disabled]="userComment.invalid" type="submit" name="submit">send</button>
+          </form>
+        </div>
+      
+    </section>
   </div>
 </section>

@@ -37,6 +37,7 @@ import { ProfileComponent } from './profile/profile.component';
 import {ChartsModule} from "ng2-charts";
 import { RatingModule } from 'ng-starrating';
 import { BarRatingModule } from "ngx-bar-rating";
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 
 
@@ -74,6 +75,7 @@ import { BarRatingModule } from "ngx-bar-rating";
     LoginRegComponent,
     LoginNavbarComponent,
     ProfileComponent,
+    StarRatingComponent,
   ],
   imports: [
     

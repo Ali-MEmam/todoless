@@ -1,8 +1,10 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
+import {MatDialog} from '@angular/material/dialog';
 import { projects } from '../modals/projects';
 import { ProjectsService } from '../projects.service/projects.service';
+import { CreateNewProjectComponent } from '../create-new-project/create-new-project.component';
 @Component({
     selector: 'app-all-projects',
     templateUrl: './all-projects.component.html',
@@ -14,18 +16,24 @@ export class AllProjectsComponent implements OnInit {
     projects: projects[];
     projectlength: number;
     projectId: any;
-    constructor(private ProjectsService: ProjectsService,) { }
+    constructor(private ProjectsService: ProjectsService, public dialog: MatDialog) { }
     ngOnInit() {
         this.ProjectsService.getProject().subscribe((project: any) => {
             console.log(project)
             this.projects = project
         })
     }
+    
+  delete(event , project){
+    this.ProjectsService.deleteProject(project);
+    console.log(project)
+    }
     //////////////////////////////////
     public pieChartOptions: ChartOptions = {
         responsive: true,
         legend: {
-            position: 'top',
+            position: 'right',
+                        
         },
         plugins: {
             datalabels: {
@@ -42,7 +50,7 @@ export class AllProjectsComponent implements OnInit {
     public pieChartLegend = true;
     public pieChartColors = [
         {
-            backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
+            backgroundColor: ['rgba(247,149,99,1)', 'rgba(0,171,178,1)', 'rgba(216,70,114,1)'],
         },
     ];
     ///////////////////////////////
@@ -51,5 +59,15 @@ export class AllProjectsComponent implements OnInit {
         this.projectId = project.id;
         console.log(this.projectId)
     }
+
+    /* ==================================== creat project popup ================================== */
+  openDialog() {
+    const dialogRef = this.dialog.open(CreateNewProjectComponent);
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 
 }

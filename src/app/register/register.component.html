@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<section class="form">
+    <app-reg-animation></app-reg-animation>
+    <form class="form-container" [formGroup]="register" (ngSubmit)="createAccount(register)">
+        <div class="form-container__wrapper">
+<<<<<<< HEAD
+            <input class="form-container__wrapper-input" (change)="onChangeName()" formControlName="name" type="text"
+                placeholder="Username">
+            <div *ngIf="register.get('name').hasError('pattern')" class="not-valid-name"> name Must be </div>
+=======
+        <input class="form-container__wrapper-input" formControlName="companyName" type="text" placeholder="Company name">
+        <div class="not-valid-name"></div>
+>>>>>>> 2b563011e205b0e0f374ee74112577fd2dac13ab
+=======
+>>>>>>> mohamed
 
 <section class="register">
     <app-login-navbar></app-login-navbar>
@@ -53,6 +70,10 @@
                         [disabled]="nameIsExist || phoneIsExist || register.invalid">Register</button>
                 </div>
             </form>
+<<<<<<< HEAD
+=======
+>>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
+>>>>>>> mohamed
         </div>
     </section>   
 </section>

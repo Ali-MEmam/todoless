@@ -7,6 +7,9 @@ import { isNgTemplate } from '@angular/compiler';
 import { element } from 'protractor';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import * as introJs from 'intro.js/intro.js';     //import tour
+import {MatDialog} from '@angular/material/dialog';
+import { CreateTaskComponent } from '../create-task/create-task.component';
+
 @Component({
   selector: 'app-developer-content',
   templateUrl: './developer-content.component.html',
@@ -39,7 +42,7 @@ export class DeveloperContentComponent implements OnInit {
   };
   workObj = [];
 
-  constructor(private TasksService: TasksService) {
+  constructor(private TasksService: TasksService,public dialog: MatDialog) {
     //constructor tour
     this.introJS.setOptions({
       steps: [
@@ -74,34 +77,30 @@ export class DeveloperContentComponent implements OnInit {
                       drop function
    ===============================================*/
   drop(event: CdkDragDrop<string[]>) {
-    if (this.workingOn.length === 0) {
+    if (this.workingOn.length === 0 ){
+      clearInterval(this.start);
       if (event.previousContainer.id === 'cdk-drop-list-0' && event.container.id === 'cdk-drop-list-1') {
         transferArrayItem(event.previousContainer.data,
           event.container.data,
           event.previousIndex,
           event.currentIndex);
-
+          
         // start hours and minutes initialization
-
-        this.splittedTimer = this.workingOn[0].totalTime.split(':');
+        this.workingOn[0].status = 'workingOn';    
+            this.splittedTimer = this.workingOn[0].totalTime.toString().split(':');
         this.dropCardTime = parseInt(this.splittedTimer[0]);
         this.dropCardMinnutes = parseInt(this.splittedTimer[1]);
         if (!this.splittedTimer[1]) {
           this.dropCardMinnutes = 0
         }
-        this.workingOn[0].status = 'workingOn';
-
-
-        // edit task status on firebase 
-        // this.TasksService.editTaskStatus(this.workingOn[1] , this.workingOn[1].status) 
-        console.log(event.currentIndex);
-
-
+    
         // end hours and minutes initialization
         this.editStatus(this.workingOn[0]);
         this.disabledDrag = "true";
         this.handelBonusDelayTime();
         this.countdown();
+        // edit task status on firebase 
+        // this.TasksService.editTaskStatus(this.workingOn[1] , this.workingOn[1].status) 
       }
     }
     if (event.previousContainer.id === 'cdk-drop-list-1' && event.container.id === 'cdk-drop-list-2') {
@@ -216,5 +215,12 @@ export class DeveloperContentComponent implements OnInit {
   calculatedTimeArr: any;
   handelBonusDelayTime() {
 
+  }
+  openDialog() {
+    const dialogRef = this.dialog.open(CreateTaskComponent);
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

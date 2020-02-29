@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
+import * as firebase from 'firebase/app';
+
 import { Observable } from 'rxjs';
 import { tasks } from '../modals/tasks';
 import { map } from "rxjs/operators";
@@ -50,6 +52,10 @@ export class TasksService {
   //edit-tasks
   editTasks(item:any){
     this.idTranssform.next(item);
+  }
+
+  editTaskStatus(id : string){
+    
   }
 
 }

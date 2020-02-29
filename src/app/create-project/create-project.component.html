@@ -1,34 +1,34 @@
 <!-- --------------------------- Create Project ---------------------------- -->
 
-<section  class="createProject">
-    <form class="createProject-container" [formGroup]='projectForm' (ngSubmit)='createProject(projectForm)'>
+<!-- <section  class="createProject">
+    <form class="createProject-container example-form" [formGroup]='projectForm' (ngSubmit)='createProject(projectForm)'> -->
 
 <!-- ----------------------------- Name Input ------------------------------ -->
-
-    <div class="createProject-container__wrapper">
-        <label class="createProject-container__wrapper-label">Project Name</label>
+<!-- 
+    <mat-form-field class="example-full-width">
+        <mat-label class="createProject-container__wrapper-label">Project Name</mat-label>
         <input class="createProject-container__wrapper-input" formControlName="name" type="text" >
-    </div>
+    </mat-form-field> -->
 
 <!-- ------------------------------ Key Input ------------------------------ -->
 
-    <div class="createProject-container__wrapper">
+  <!--   <div class="createProject-container__wrapper">
         <label class="createProject-container__wrapper-label">Project Key</label>
         <input class="createProject-container__wrapper-input" formControlName="id" type="text"
             value={{projectsLength}} disabled>
-    </div>
+    </div> -->
 
 <!-- -------------------------- Privacy Selector --------------------------- -->
 
-    <div class="createProject-container__wrapper">
+ <!--    <div class="createProject-container__wrapper">
         <label class="createProject-container__wrapper-label">privacy</label>
         <select formControlName="privacy">
             <option value="private">Private</option>
             <option value="Public">Public</option>
         </select>
-    </div>
+    </div> -->
 <!-- --------------------------- Color Selector ---------------------------- -->
-
+<!-- 
         <div class="createProject-container__wrapper">
             <label class="createProject-container__wrapper-label" >Project Color</label>
             <select formControlName="color">
@@ -37,43 +37,42 @@
                 <option value="blue">Blue</option>
             </select>
         </div>
-
+ -->
 <!-- ---------------------------- Descripition ----------------------------- -->
 
-        <div class="createProject-container__wrapper">
+       <!--  <div class="createProject-container__wrapper">
             <label class="createProject-container__wrapper-label">Project Description</label>
             <textarea formControlName="description"></textarea>
-        </div>
+        </div> -->
 
 <!-- ----------------------------- Attachment ------------------------------ -->
 
-        <div class="createProject-container__wrapper">
+       <!--  <div class="createProject-container__wrapper">
             <label class="createProject-container__wrapper-label" >Project Attachment</label>
-            <input type="file" id="imageUpload" formControlName='attachment' (change)="readURL($event)" />
+            <input type="file" id="imageUpload" formControlName='attachment' (change)="readURL($event)" /> -->
             <!-- <img id="imagePreview" [src]="imageSrc"  #Datavalue /> -->
             <!-- <input type="text" [value]="Datavalue.src" style="display: none;" /> -->
-        </div>
+       <!--  </div> -->
 
 <!-- ----------------------------- Start Date ------------------------------ -->
 
-        <div class="createProject-container__wrapper">
+       <!--  <div class="createProject-container__wrapper">
             <label class="createProject-container__wrapper-label" >Project Start</label>
             <input type="date" formControlName="startDate">
-        </div>
+        </div> -->
 
 <!-- ------------------------------ End Date ------------------------------- -->
-
+<!-- 
         <div class="createProject-container__wrapper">
             <label class="createProject-container__wrapper-label" >Project End</label>
             <input type="date" formControlName="endDate">
-        </div>
+        </div> -->
 
 <!-- ------------------------------ Assign To ------------------------------ -->
-
+<!-- 
         <div class="createProject-container__wrapper">
             <div class="profiles-container__search-form">
                 <label class="createProject-container__wrapper-label" >Search</label>
-                <!-- <p>users::{{usersLength}}</p> -->
                 <input class="createProject-container__wrapper-user" name="filterValue" >
             </div>
             <div *ngIf="users?.length > 0 ; else nousers">
@@ -86,17 +85,17 @@
             <ng-template #nousers>
                 <h5>There are no items to lists</h5>
             </ng-template>
-        </div>
+        </div> -->
 
 <!-- ---------------------------- Invite Input ----------------------------- -->
 
-        <div class="createProject-container__wrapper">
+       <!--  <div class="createProject-container__wrapper">
             <label class="createProject-container__wrapper-label" >Invite by Email</label>
             <input type="email" formControlName="invitors">
-        </div>
+        </div> -->
 
 <!-- ---------------------------- Submit Button ---------------------------- -->
-
+<!-- 
         <button type="submit">Create</button>
     </form>
-</section>
+</section> -->

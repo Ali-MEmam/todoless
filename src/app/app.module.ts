@@ -16,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { pipe, from } from 'rxjs';
 import { SearchPipe } from './search.pipe';
-
+import {MatRadioModule} from '@angular/material/radio';
 import { TimerFormatPipe } from './timer-format.pipe';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -43,6 +43,10 @@ import { FriendsComponent } from './friends/friends.component';
 import { LoginRegComponent } from './login-reg/login-reg.component';
 import { LoginNavbarComponent } from './login-navbar/login-navbar.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CreateNewProjectComponent } from './create-new-project/create-new-project.component';
+import { ProjectViewComponent } from './project-view/project-view.component';
+import { CreateTaskComponent } from './create-task/create-task.component';
+import { TaskDetailsComponent } from './task-details/task-details.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +90,10 @@ import { ProfileComponent } from './profile/profile.component';
     LoginRegComponent,
     LoginNavbarComponent,
     ProfileComponent,
+    CreateNewProjectComponent,
+    ProjectViewComponent,
+    CreateTaskComponent,
+    TaskDetailsComponent,
   ],
   imports: [
     
@@ -101,14 +109,15 @@ import { ProfileComponent } from './profile/profile.component';
     ReactiveFormsModule,
     MatSliderModule,
     BrowserAnimationsModule,
-  
+    ChartsModule,
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatAutocompleteModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatRadioModule
   ],
  
   providers: [MatButtonToggleModule],

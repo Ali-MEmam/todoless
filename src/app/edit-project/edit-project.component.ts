@@ -13,6 +13,19 @@ export interface User {
 })
 export class EditProjectComponent implements OnInit {
 
+  project = {
+    id:'',
+    ownerId : '',
+    tasksId :'',
+    invitors :'',
+    name :'TO DO LESS',
+    description : 'this project is very important to us because it is the final project , and we were stucked in it until the UI team went to hell . fa rbna yostr. ',
+    image :'',
+    color :'',
+    startDate : '2/2/2020',
+    endDate :'2/6/2020',
+    privacy :'public'
+  }
   myControl = new FormControl();
   options: User[] = [
     {name: 'Ali Emam'},

@@ -3,39 +3,10 @@
 .container{
     background-color: $white;
     padding: 3rem;
-    .projects-nav{
-        padding-left: 3.4rem;
-        padding-right: 3.4rem;
-        .btn-group{
-            .btn{
-                font-size: 1.5rem;
-                color: #7f8386;
-                font-weight: $medium;
-                border-radius: 0;
-                border: 0 !important;
-            }
-            .btn:active , .btn:focus , .btn:hover{
-                border: 0 !important;
-            }
-            .project-active{
-                color: #32a1f2;
-            }
-            .project-active::after{
-                content:'';
-                display: block;
-                margin: 0 auto;
-                width: 100%;
-                height: .2rem;
-                background-color: #32a1f2;
-                position: relative;
-                top: .7rem;
-            }
-        }
-        .edit-project{
-            background-color: #32a1f2;
-            color: white;
-            border-radius: 0;
-        }
+    .edit-project{
+        /* background-color: #32a1f2;
+        color: white;
+        border-radius: 0; */
     }
     .project-details{
         background-color: $white;

@@ -1,6 +1,7 @@
 import { projects } from './../modals/projects';
-import { Component, OnInit } from '@angular/core';
-// import { rotateInDownLeftAnimation } from 'angular-animations';
+import { Component, OnInit, Input } from '@angular/core';
+import { ChartOptions, ChartType } from 'chart.js';
+import { Label } from 'ng2-charts';
 import { RouterOutlet } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import { EditProjectComponent } from '../edit-project/edit-project.component';
@@ -26,10 +27,11 @@ export class ProjectDetailsComponent implements OnInit {
     image :'',
     color :'',
     startDate : '2/2/2020',
-    endDate :'2/2/2020',
+    endDate :'2/6/2020',
     privacy :'public'
   }
 
+  /* ==================================== edit project popup ================================== */
   constructor(public dialog: MatDialog) { }
   openDialog() {
     const dialogRef = this.dialog.open(EditProjectComponent);
@@ -39,6 +41,31 @@ export class ProjectDetailsComponent implements OnInit {
     });
   }
   
+  /* ======================================= chart========================================== */
+  public pieChartOptions: ChartOptions = {
+    responsive: true,
+    legend: {
+        position: 'right',
+                    
+    },
+    plugins: {
+        datalabels: {
+            formatter: (value, ctx) => {
+                const label = ctx.chart.data.labels[ctx.dataIndex];
+                return label;
+            },
+        },
+    }
+};
+public pieChartLabels: Label[] = ['pending tasks', 'bonus', 'delay'];
+public pieChartData: number[] = [300, 500, 100];
+public pieChartType: ChartType = 'pie';
+public pieChartLegend = true;
+public pieChartColors = [
+    {
+        backgroundColor: ['rgba(247,149,99,1)', 'rgba(0,171,178,1)', 'rgba(216,70,114,1)'],
+    },
+];
   
   ngOnInit(): void {
   }

@@ -19,6 +19,7 @@ export class usersService {
   private idTranssform =new BehaviorSubject("");
   currentId = this.idTranssform.asObservable();
 
+
   constructor(public firestore: AngularFirestore) {
     this.usersCollection = this.firestore.collection('users');
     this.users = this.usersCollection.snapshotChanges().pipe(map(changes => {
@@ -49,8 +50,8 @@ export class usersService {
   //edit-users 
   editUser(item:any){
     this.idTranssform.next(item);
+    this.usersDoc = this.firestore.doc(`users/${item.id}`);
+    console.log(this.usersDoc)
   }
 
 }
-
-

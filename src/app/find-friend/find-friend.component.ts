@@ -2,18 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { users } from '../modals/users';
 import { usersService } from "../users.service/users.service";
 
-
-
 @Component({
-  selector: 'app-friend-request',
-  templateUrl: './friend-request.component.html',
-  styleUrls: ['./friend-request.component.scss']
+  selector: 'app-find-friend',
+  templateUrl: './find-friend.component.html',
+  styleUrls: ['./find-friend.component.scss']
 })
-export class FriendRequestComponent implements OnInit {
+export class FindFriendComponent implements OnInit {
 
   friends:users[];
-  users:users[];
   friendsUser=[];
+  friend;
 
   constructor(private usersService : usersService) { }
 
@@ -21,16 +19,16 @@ export class FriendRequestComponent implements OnInit {
     this.usersService.getUser().subscribe(items=>{
       console.log(items);
       this.friends = items;
+      // this.friend = items.filter(data=>data.id === "3Vm09sm0JH3bVZooPgTe");
+      // console.log(this.friend[0].name);
     })
   }
   
   addFriend(event,item){
-    this.friendsUser.push(item);
-    console.log(this.friendsUser);
-  }
-  
-  rejectFriend(event,item){
-    console.log(item);
+    this.friendsUser.push(item.id);
+    this.usersService.editUser(item);
+    // console.log(this.friendsUser);   
+    
   }
 
 }

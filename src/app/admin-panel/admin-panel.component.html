@@ -16,24 +16,20 @@
                         <label>Name:</label>
                         <input type="text" placeholder="Username" [(ngModel)]="item.name" formControlName="name">
                     </div>
+                    <div class="form__content-title">
+                        <label>title:</label>
+                        <input type="text" placeholder="title" [(ngModel)]="item.title" formControlName="title">
+                    </div>
                     <div class="form__content-email">
                         <label>Email:</label>
                         <input type="email" placeholder="Email" [(ngModel)]="item.email" formControlName="email">
                     </div>
-                    <div class="form__content-role">
-                        <label>Role:</label>
-                        <select id="Role" [(ngModel)]="item.role" formControlName="role">
-                            <option value="CEO">CEO</option>
-                            <option value="Project Manager">Project Manager</option>
-                            <option value="Team Leader">Team Leader</option>
-                            <option value="Employee">Employee</option>
-                        </select>
-                    </div>
-                    <div class="form__content_password">
+                    
+                    <!-- <div class="form__content_password">
                         <label>Password:</label>
                         <input type="text" placeholder="Password" [(ngModel)]="item.password"
                             formControlName="password">
-                    </div>
+                    </div> -->
                     <button type="submit" value="Submit">Save</button>
                 </div>
             </form>

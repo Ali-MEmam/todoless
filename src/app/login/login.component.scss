@@ -23,11 +23,16 @@
                 padding: 10px 30px;
                 font-size: 17px;
                 background-color: $lightBlue;
-                border-radius: $btnBorderRadius;     
+                border-radius: $btnBorderRadius;
                 box-shadow: $boxShadow;
                 margin-top: 25px;
                 border:none;
                 &:hover{
+                // -webkit-border-radius: $btnBorderRadius;
+                // -moz-border-radius: $btnBorderRadius;
+                // -ms-border-radius: $btnBorderRadius;
+                // -o-border-radius: $btnBorderRadius;
+
                     color: $lightBlue;
                     background-color: $white;
                     border: 1px solid $lightBlue;

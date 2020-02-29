@@ -7,11 +7,11 @@
           <img class="img-fluid" src="../../assets/imgs/friends/friend.png" alt="" />
         </div>
         <div class="friends__content-info-name">
-          <p>ahmed mohamed</p>
+          <p>{{friend.name}}</p>
         </div>
       </div>
       <div class="friends__content-position">
-        <p>ui developer</p>
+        <p>{{friend.title}}</p>
       </div>
       <div class="friends__content-status">
         <p>offline</p>
@@ -19,13 +19,9 @@
       <div class="friends__content-menu">
 
         <div class="btn-group dropleft">
-          <mat-icon class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">more_horiz
-          </mat-icon>
-          <div class="dropdown-menu">
-            <p><a href="#">remove</a></p>
-            <p><a href="#">block</a></p>
-            <p><a href="#">message</a></p>
-          </div>
+         
+            <button class="btn btn-info mx-2" (click)="deleteFriend($event,friend)">unFollow</button>
+
         </div>
       </div>
     </div>

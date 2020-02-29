@@ -5,14 +5,16 @@ import { TasksService } from '../tasks.service/tasks.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { isNgTemplate } from '@angular/compiler';
 import { element } from 'protractor';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import * as introJs from 'intro.js/intro.js';     //import tour
 @Component({
   selector: 'app-developer-content',
   templateUrl: './developer-content.component.html',
   styleUrls: ['./developer-content.component.scss']
 })
 export class DeveloperContentComponent implements OnInit {
+
+  introJS = introJs();                     //init tour
   /*================================================
                      variables
   ===============================================*/
@@ -25,113 +27,128 @@ export class DeveloperContentComponent implements OnInit {
   dropCardTime: number;
   result: string;
   splittedTimer: any;
- /*================================================
-                     arrays
-  ===============================================*/
-  todo :tasks [];
-  workingOn :tasks[];
-  finished :tasks[];
-  tasks=[];
-  myObj ={
-    finishedTaskTime:'',
+  /*================================================
+                      arrays
+   ===============================================*/
+  todo: tasks[];
+  workingOn: tasks[];
+  finished: tasks[];
+  tasks = [];
+  myObj = {
+    finishedTaskTime: '',
   };
-  workObj=[];
+  workObj = [];
 
-  constructor(private TasksService: TasksService) { }
+  constructor(private TasksService: TasksService) {
+    //constructor tour
+    this.introJS.setOptions({
+      steps: [
+        { 
+          intro: "Hello to do less"
+        },
+        {
+          element: document.querySelector('#step1'),
+          intro: "pending tasks"
+        },
+        {
+          element: document.querySelectorAll('#step2')[0],
+          intro: "working on tasks",
+          position: 'right'
+        },
+        {
+          element: '#step3',
+          intro: 'finished tasks',
+          position: 'left'
+        },
+        {
+          element: '#step4',
+          intro: 'finished tasks',
+          position: 'left'
+        },
+      ]
+    });
+   }
 
 
- /*================================================
-                     drop function
-  ===============================================*/
+  /*================================================
+                      drop function
+   ===============================================*/
   drop(event: CdkDragDrop<string[]>) {
-if (this.workingOn.length === 0 ){
-  if (event.previousContainer.id === 'cdk-drop-list-0' && event.container.id === 'cdk-drop-list-1') {
-    transferArrayItem(event.previousContainer.data,
-      event.container.data,
-      event.previousIndex,
-      event.currentIndex);
-      
-    // start hours and minutes initialization
-    
-    this.splittedTimer = this.workingOn[0].totalTime.split(':');
-    this.dropCardTime = parseInt(this.splittedTimer[0]);
-    this.dropCardMinnutes = parseInt(this.splittedTimer[1]);
-    if (!this.splittedTimer[1]) {
-      this.dropCardMinnutes = 0
+    if (this.workingOn.length === 0) {
+      if (event.previousContainer.id === 'cdk-drop-list-0' && event.container.id === 'cdk-drop-list-1') {
+        transferArrayItem(event.previousContainer.data,
+          event.container.data,
+          event.previousIndex,
+          event.currentIndex);
+
+        // start hours and minutes initialization
+
+        this.splittedTimer = this.workingOn[0].totalTime.split(':');
+        this.dropCardTime = parseInt(this.splittedTimer[0]);
+        this.dropCardMinnutes = parseInt(this.splittedTimer[1]);
+        if (!this.splittedTimer[1]) {
+          this.dropCardMinnutes = 0
+        }
+        this.workingOn[0].status = 'workingOn';
+
+
+        // edit task status on firebase 
+        // this.TasksService.editTaskStatus(this.workingOn[1] , this.workingOn[1].status) 
+        console.log(event.currentIndex);
+
+
+        // end hours and minutes initialization
+        this.editStatus(this.workingOn[0]);
+        this.disabledDrag = "true";
+        this.handelBonusDelayTime();
+        this.countdown();
+      }
     }
-    this.workingOn[0].status = 'workingOn';
-
-
-    // edit task status on firebase 
-    // this.TasksService.editTaskStatus(this.workingOn[1] , this.workingOn[1].status) 
-    console.log(event.currentIndex);
-
-
-    // end hours and minutes initialization
-    this.editStatus(this.workingOn[0]);
-    this.disabledDrag = "true";
-    this.handelBonusDelayTime();
-    this.countdown();
-  }
-}
     if (event.previousContainer.id === 'cdk-drop-list-1' && event.container.id === 'cdk-drop-list-2') {
       transferArrayItem(event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex);
-        clearInterval(this.start);
-        this.dropCardSeconds = 0;
-        this.dropCardMinnutes = 0;
-        this.disabledDrag = "false";
-        this.finished.forEach((element)=>{
+      clearInterval(this.start);
+      this.dropCardSeconds = 0;
+      this.dropCardMinnutes = 0;
+      this.disabledDrag = "false";
+      this.finished.forEach((element) => {
         element.status = 'finished';
-        });
-        
-        
+      });
+
+
       //.element.nativeElement
-      this.myObj.finishedTaskTime=this.result;
+      this.myObj.finishedTaskTime = this.result;
       this.tasks.push(this.myObj);
       this.editStatus(this.finished[0]);
     }
   }
-  editStatus(item){
+  editStatus(item) {
     this.TasksService.createTasks(item);
     this.TasksService.deleteTasks(item);
-}
-// editFinish(item){
-//   console.log(item)
-//   // this.TasksService.createTasks(item);
-//   // this.TasksService.deleteTasks(item);
-// }
+  }
+  
 
   /* =============================
   on init 
   ============================= */
   ngOnInit(): any {
-    this.TasksService.getTasks().subscribe((items : any) => {
-      this.todo = items.filter(data=>data.status === 'pending');
-      this.workingOn = items.filter(data=>data.status === 'workingOn');
-      this.finished = items.filter(data=>data.status === 'finished');
+    introJs().start();       //tour guide
+
+    this.TasksService.getTasks().subscribe((items: any) => {
+      this.todo = items.filter(data => data.status === 'pending');
+      this.workingOn = items.filter(data => data.status === 'workingOn');
+      this.finished = items.filter(data => data.status === 'finished');
       console.log(items);
       for (let i = 0; i < this.todo.length; i++) {
         this.totalProjectTime = this.todo[i].totalTime + this.totalProjectTime;
       }
     })
-    // this.workingOn = this.TasksService.currentId.subscribe((message: any) =>  return message)
-    
-    // this.TasksService.currentId.subscribe((message: any) => {
-    //   // this.workObj.push(message);
-    //   // console.log(this.workObj);
-    // })
   }
-
-
-
   /*======================
    task count down timer
    ======================*/
-
-
   dropCardSeconds: number = 0;
   dropCardMinnutes: number = 0;
   countdown() {
@@ -171,12 +188,11 @@ if (this.workingOn.length === 0 ){
   /*======================
   pause task time
   ======================*/
-  handlePause() {
 
+  handlePause() {
     if (this.status === 'pause') {
       this.status = 'resume';
       clearInterval(this.start);
-
     }
     else if (this.status === "resume") {
       if (this.result.indexOf('-') == -1) {
@@ -199,8 +215,6 @@ if (this.workingOn.length === 0 ){
   delayValue: any = 0;
   calculatedTimeArr: any;
   handelBonusDelayTime() {
-    
+
   }
-
-
 }

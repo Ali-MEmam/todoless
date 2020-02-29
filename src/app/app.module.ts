@@ -48,6 +48,7 @@ import { HomeComponent } from './home/home.component';
 
 import { FriendRequestComponent } from './friend-request/friend-request.component';
 import { AllFriendsComponent } from './all-friends/all-friends.component';
+import { AccountComponent } from './account/account.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +75,7 @@ import { AllFriendsComponent } from './all-friends/all-friends.component';
     AccountNavbarComponent,
     FriendRequestComponent,
     AllFriendsComponent,
+    AccountComponent,
   ],
   imports: [
     

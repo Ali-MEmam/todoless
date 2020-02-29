@@ -27,6 +27,8 @@
                 box-shadow: $boxShadow;
                 margin-top: 25px;
                 border:none;
+                border: 1px solid $lightBlue;
+
                 &:hover{
                     color: $lightBlue;
                     background-color: $white;

@@ -7,8 +7,6 @@ main{
     font-family: $mainFont;
 
 }
-
-
 p{
     font-family: $mainFont;
     color:$gray;
@@ -51,9 +49,11 @@ p{
                 .nav-link{
                     color:white;
                     font-weight: $medium;
-                    font-family: 'lato';
-                    padding-left: 12px;
-                    padding-right: 12px;
+                    font-family: $mainFont;
+                    // padding-left: 12px;
+                    // padding-right: 12px;
+                    margin-right: 10px;
+
 
                 }
                 .nav-link:hover{
@@ -69,11 +69,14 @@ p{
                         color:$blue;
                         margin-right: 7px;
                         font-weight: $semiBold;
+                        padding: 7px 20px;
                     }
                 .signup{
+                    padding: 7px 20px;
                         background-color:$green;
                         color:white;
                         font-weight: $semiBold;
+                        font-family: $mainFont;
                 }
             }
         }
@@ -100,7 +103,7 @@ p{
                 background-color:$green;
                 color:white;
                 font-weight: $semiBold;
-                padding: 10px;
+                padding: 13px 30px;
             }
         }
     }    
@@ -407,6 +410,7 @@ p{
                           color:$blue;
                           font-size: 15px;
                           font-weight: $medium;
+                          font-family: $mainFont;
                       }
                   }
               }
@@ -647,5 +651,9 @@ p{
                     }
             }
         }
+
+.home-header__nav-list  .nav-link{
+            font-family: $mainFont !important;
+}
 
     }

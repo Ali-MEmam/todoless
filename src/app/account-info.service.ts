@@ -6,9 +6,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AccountInfoService {
   constructor() { }
-  private loginstatuts = new BehaviorSubject(false)
+  private loginstatuts = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')))
   userloged = this.loginstatuts.asObservable()
-  onlogin(){
+  getAccount(){
     
     this.loginstatuts.next(JSON.parse(localStorage.getItem('currentUser')))
     console.log(JSON.parse(localStorage.getItem('currentUser')))

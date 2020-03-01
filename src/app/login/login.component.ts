@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
       if(this.currentUser){
         if(this.currentUser.password === loginInfo.value.password){
           localStorage.setItem('currentUser',JSON.stringify(this.currentUser))
-          this.loged.onlogin()
+          this.loged.getAccount()
           this.router.navigate(['account',this.currentUser.id,'profile'])
         }else{
           this.emailOrUsername = false

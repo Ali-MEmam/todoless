@@ -3,15 +3,13 @@ export interface users{
     image?:string;
     name?:string;
     email?:string;
+    title?:string;
     password?:any;
     phone?:any;
     friends?:any;
-    group?:any;
-    projects?:[{
-        projectId?:any;
-        edit?:any
-    }];
+    friendrequest?:any;
+    projects?:any;
     tasks?:any;
     comments?:any;
-    starts?:any;
+    rate?:any;
 }

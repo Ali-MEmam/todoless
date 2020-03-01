@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'', component:HomeComponent},
   {path:'login', component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'account',component:AccountComponent,children:[
+  {path:'account/:id',component:AccountComponent,children:[
     {path:'friends',component:AllFriendsComponent},
     {path:'projects',component:AllProjectsComponent},
     {path:'profile',component:ProfileComponent},

@@ -3,6 +3,8 @@ import { NgForm, Validators, FormControl } from '@angular/forms';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { usersService } from "../users.service/users.service";
 import { users } from '../modals/users';
+import { Label } from 'ng2-charts';
+import { ChartOptions, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-profile',
@@ -35,7 +37,31 @@ export class ProfileComponent implements OnInit {
     commentStars=[];
     avgStars:number;
 
-
+/* ======================================= chart========================================== */
+public pieChartOptions: ChartOptions = {
+  responsive: true,
+  legend: {
+      position: 'right',
+                  
+  },
+  plugins: {
+      datalabels: {
+          formatter: (value, ctx) => {
+              const label = ctx.chart.data.labels[ctx.dataIndex];
+              return label;
+          },
+      },
+  }
+};
+public pieChartLabels: Label[] = ['pending tasks', 'bonus', 'delay'];
+public pieChartData: number[] = [300, 500, 100];
+public pieChartType: ChartType = 'pie';
+public pieChartLegend = true;
+public pieChartColors = [
+  {
+      backgroundColor: ['rgba(247,149,99,1)', 'rgba(0,171,178,1)', 'rgba(216,70,114,1)'],
+  },
+];
   ngOnInit() {
     this.fileSrc="../../assets/imgs/users/default-user-image-300x300.png";
     this.userComment = this.f.group({

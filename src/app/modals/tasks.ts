@@ -5,7 +5,6 @@ export interface tasks{
     name?:string;
     description?:string;
     status?:string;
-    image?:any;
     attachment?:any;
     startDate?:any;
     endDate?:any;

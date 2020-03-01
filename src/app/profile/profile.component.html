@@ -9,7 +9,7 @@
               <input type="file" id="imageUpload" formControlName='image' (change)="readURL($event)" />
         </form>
         <figure class="rounded-circle">
-          <img id="imagePreview" [src]="fileSrc" style="width: 100%; "/>
+          <img id="imagePreview" [src]="fileSrc" style="width: 100%; height: 100%;"/>
         </figure>
           </div>
           <div class="col-8 profile__info-details">
@@ -37,8 +37,10 @@
         </div>
       </section>
       <section class="profile__chart col-12 col-md-12 col-lg-5  ml-auto">
-        <app-all-projects></app-all-projects>
-      </section>
+        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+        [options]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
+      </canvas>
+        </section>
     </div>
     <section class="row comments-parent">
       <div class="profile__comments " #created>

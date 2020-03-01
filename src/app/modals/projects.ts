@@ -7,5 +7,6 @@ export interface projects{
     description?:string;
     startDate?:any;
     endDate?:any;
-    privacy?:any
+    privacy?:any;
+    attachment?:any;
 }

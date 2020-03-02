@@ -151,35 +151,13 @@ onSubmit(form: FormGroup) {
 
 
 // *************************************** start edit profile data*****************************************//
-onEditClick(event, textArea, bioParagraph, titleTextArea, titleEdit, saveDataBtn) {
-  event.target.style.display = "none";
-  textArea.style.display = 'block';
-  bioParagraph.style.display = 'none';
-  titleTextArea.style.display = 'block';
-  titleEdit.style.display = 'none';
-  saveDataBtn.style.display = 'inline-block';
-}
-// ************* end edit profile data***************//
+
 
 
 
 
 // *************************************** start save profile data*****************************************//
-  onSaveClick(event, textArea, bioParagraph, editDataBtn, titleTextArea, titleEdit) {
-    console.log(this.currentUser)
 
-    event.target.style.display = "none";
-    textArea.style.display = 'none';
-    bioParagraph.style.display = 'block';
-    titleTextArea.style.display = 'none';
-    titleEdit.style.display = 'block';
-    editDataBtn.style.display = "inline-block";
-    this.currentUser.bio = textArea.value;
-    this.currentUser.title = titleTextArea.value;
-    localStorage.setItem("currentUser",JSON.stringify(this.currentUser))
-    this.usersService.updateUser(this.currentUser);
-    this.loged.getAccount()
-}
 // *************************************** end save profile data*****************************************//
 
 
@@ -211,33 +189,5 @@ onStarClicked(starId: number, dataHovering) {
 
 
 // *************************************** end star rating ***************************************//
-
-readURL(event: any) {
-  this.fileData = <File>event.target.files[0];
-  // console.log(this.fileData);
-  this.preview();
-}
-
-preview() {
-  let mimeType = this.fileData.type;
-  if (mimeType.match(/image||text\/*/) == null) {
-    return;
-  }
-
-  let reader = new FileReader();
-  reader.readAsDataURL(this.fileData);
-  reader.onload = event => {
-    this.fileSrc = reader.result;
-    this.file = reader.result;
-    // console.log(this.file)
-    // this.users.value.attachment = this.file;
-    // console.log(this.projectForm.value.attachment) ;
-    this.currentUser.image = this.file;
-    localStorage.setItem("currentUser",JSON.stringify(this.currentUser))
-    this.usersService.updateUser(this.currentUser);
-    this.loged.getAccount()
-  };
-  
-}
 
 }

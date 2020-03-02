@@ -5,6 +5,7 @@ import { tasks } from '../modals/tasks';
 import { TasksService } from '../tasks.service/tasks.service';
 import {MatDialog} from '@angular/material/dialog';
 import { CreateTaskComponent } from '../create-task/create-task.component';
+import { TaskDetailsComponent } from "../task-details/task-details.component"
 
 @Component({
   selector: 'app-developer-content',
@@ -198,7 +199,7 @@ if (this.workingOn.length === 0 ){
   }
 
 
-    /* ==================================== creat project popup ================================== */
+    /* ==================================== creat task popup ================================== */
     openDialog() {
       const dialogRef = this.dialog.open(CreateTaskComponent);
       
@@ -207,4 +208,14 @@ if (this.workingOn.length === 0 ){
       });
     }
 
+    openDialogview(event, item){
+      const dialogRef = this.dialog.open(TaskDetailsComponent);
+      // console.log(item.id);
+      this.TasksService.editTasks(item);
+
+      
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
 }

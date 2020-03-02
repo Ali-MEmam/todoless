@@ -45,7 +45,7 @@
     <input
       type="text"
       matInput
-      [formControl]="myControl"
+      [formControl]="myControl" formControlName="assignTo"
       [matAutocomplete]="auto"
     />
     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">

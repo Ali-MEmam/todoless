@@ -8,9 +8,6 @@ import { usersService } from '../users.service/users.service';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
-export interface User {
-  name: string;
-}
 
 @Component({
   selector: 'app-create-new-project',
@@ -31,16 +28,13 @@ export class CreateNewProjectComponent implements OnInit {
    fileSrc: string | ArrayBuffer;
    file: any;
    invitors = [];
-
-  myControl = new FormControl();
-  options: User[] = [
-    {name: 'Ali Emam'},
-    {name: 'Mai Mohamed'},
-    {name: 'Omnia Ahmed'},
-    {name: 'Nada Yousry'},
-    {name: 'Mohamed Elsaeid'}
+  
+   myControl = new FormControl();
+  assign: users[] = [
+    
   ];
-  filteredOptions: Observable<User[]>;
+  filteredOptions: Observable<users[]>;
+
 
 
   constructor(private ProjectsService: ProjectsService,
@@ -48,50 +42,49 @@ export class CreateNewProjectComponent implements OnInit {
     private usersService: usersService) { }
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this._filter(name) : this.options.slice())
-      );
-
-        // !!!!!!!!!!!!!!--------------- declare Form AND Validators ---------------!!!!!!!!!!!!!!!!!
-
-    this.projectForm = this.fb.group({
-      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
-      privacy: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      attachment: ['', [Validators.required]],
-      invitors: ['',[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],id:'',
-      startDate: ['', [Validators.required]],
-      endDate: ['', [Validators.required]]
-    })
-
-    // !!!!!!!!!!!!!!--------------- Get projects from firebase ---------------!!!!!!!!!!!!!!!!!
-
     this.ProjectsService.getProject().subscribe(items => {
       this.projects = items;
       this.projectsLength = items.length;
       console.log(items)
     })
-
-    // !!!!!!!!!!!!!!--------------- Get Users from firebase ---------------!!!!!!!!!!!!!!!!!
-
-    this.usersService.getUser().subscribe(items => {
-      this.users = items;
-      this.usersLength = items.length;
+    
+    this.projectForm = this.fb.group({
+      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
+      privacy: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      attachment: ['', [Validators.required]],
+      invitors: ['',[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
+      startDate: ['', [Validators.required]],
+      endDate: ['', [Validators.required]]
     })
 
+    this.usersService.getUser().subscribe(items=>{
+      items.map((data: any)=>{
+        this.assign.push(data);
+      })
+      console.log(this.assign) 
+    })  
+
+
+    this.filteredOptions = this.myControl.valueChanges
+    .pipe(
+      startWith(''),
+      map(value => typeof value === 'string' ? value : value.email),
+      map(email => email ? this._filter(email) : this.assign.slice())
+    );
+
 
   }
-  displayFn(user: User): string {
-    return user && user.name ? user.name : '';
+
+
+  displayFn(user: users): string {
+    return user && user.email ? user.email : '';
   }
 
-  private _filter(name: string): User[] {
-    const filterValue = name.toLowerCase();
+  private _filter(email: string): users[] {
+    const filterValue = email.toLowerCase();
 
-    return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+    return this.assign.filter(option => option.email.toLowerCase().indexOf(filterValue) === 0);
   }
 
 
@@ -99,7 +92,7 @@ export class CreateNewProjectComponent implements OnInit {
 
   selectUser(event, item) {
     this.invitors.push(item);
-    // console.log(this.invitors);
+    console.log(item);
   }
 
   // !!!!!!!!!!!!!!--------------- Attachment image or text to string---------------!!!!!!!!!!!!!!!!!
@@ -129,13 +122,11 @@ export class CreateNewProjectComponent implements OnInit {
   // !!!!!!!!!!!!!!--------------- Create Project and send object to firebase ---------------!!!!!!!!!!!!!!!!!
 
   createProject(projectForm: FormGroup) {
-    
     if (projectForm.valid) {
       this.invitors.push(this.projectForm.value.invitors);
       this.projectForm.value.invitors = this.invitors;  
       console.log("valid");
       console.log(this.projectForm.value);
-      
       this.ProjectsService.createProject(this.projectForm.value);
     } else {
       console.log("Not Vaild")

@@ -1,3 +1,4 @@
+import { ProjectsService } from './../projects.service/projects.service';
 import { projects } from './../modals/projects';
 import { Component, OnInit, Input } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
@@ -17,22 +18,11 @@ import { EditProjectComponent } from '../edit-project/edit-project.component';
 export class ProjectDetailsComponent implements OnInit {
 
 
-  project = {
-    id:'',
-    ownerId : '',
-    tasksId :'',
-    invitors :'',
-    name :'TO DO LESS',
-    description : 'this project is very important to us because it is the final project , and we were stucked in it until the UI team went to hell . fa rbna yostr. ',
-    image :'',
-    color :'',
-    startDate : '2/2/2020',
-    endDate :'2/6/2020',
-    privacy :'public'
-  }
+
+  project;
 
   /* ==================================== edit project popup ================================== */
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private ProjectsService:ProjectsService) { }
   openDialog() {
     const dialogRef = this.dialog.open(EditProjectComponent);
     
@@ -45,7 +35,7 @@ export class ProjectDetailsComponent implements OnInit {
   public pieChartOptions: ChartOptions = {
     responsive: true,
     legend: {
-        position: 'right',
+        position: 'right', 
                     
     },
     plugins: {
@@ -68,6 +58,10 @@ public pieChartColors = [
 ];
   
   ngOnInit(): void {
+ this.ProjectsService.currentId.subscribe((message: any) => {
+     console.log(message)
+     this.project = message;
+    })
   }
 
 }

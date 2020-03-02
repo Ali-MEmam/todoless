@@ -13,7 +13,7 @@
                   <h2>{{item.name}}</h2>
                   <p><i>Time:</i> {{item.totalTime}}</p>
                   <div class="developer-content__status-task-icons">
-                    <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+                    <mat-icon aria-hidden="false" aria-label="Example menu icon" (click)="openDialogview($event,item)">menu</mat-icon>
                     <div class="task-owner">
                       <span>m</span>
                     </div>
@@ -39,7 +39,7 @@
                     </div>
                   </div>
                   <div class="developer-content__status-task-icons">
-                    <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+                    <mat-icon aria-hidden="false" aria-label="Example menu icon" (click)="openDialogview($event,item)">menu</mat-icon>
                     <div class="task-owner">
                       <span>m</span>
                     </div>
@@ -60,7 +60,7 @@
                     </div>
                   </div>
                   <div class="developer-content__status-task-icons">
-                    <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+                    <mat-icon aria-hidden="false" aria-label="Example menu icon" (click)="openDialogview($event,item)">menu</mat-icon>
                     <div class="task-owner">
                       <span>m</span>
                     </div>

@@ -40,23 +40,31 @@
     <textarea matInput placeholder="" formControlName="description"></textarea>
   </mat-form-field>
 <!------------------------ Assign  ------------------------>
-  <mat-form-field class="example-full-width">
-    <mat-label>Assignee</mat-label>
-    <input
-      type="text"
-      matInput
-      [formControl]="myControl"
-      [matAutocomplete]="auto"
-    />
-    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-      <mat-option
-        *ngFor="let option of filteredOptions | async"
-        [value]="option" (click)="selectUser($event,option)"
-      >
-        {{ option.name }}
+<mat-form-field class="example-full-width" *ngIf="assign?.length > 0">
+  <mat-label>Assignee</mat-label>
+  <!-- <div > -->
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete  #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)='selectUser($event,option)'>
+        {{option.email}}
       </mat-option>
     </mat-autocomplete>
-  </mat-form-field>
+  <!-- </div> -->
+</mat-form-field>
+
+
+
+  
+  <!-- <mat-form-field>
+    <mat-label>Favorite food</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let item of assign" [value]="item.name">
+        {{item.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field> -->
+  
+  
   <!-- ----------------------------- Invite to -------------------------------->
   <mat-form-field class="example-full-width">
     <mat-label>Invite by Email</mat-label>

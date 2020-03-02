@@ -1,5 +1,6 @@
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import {MatSelectModule} from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -98,6 +99,7 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
   imports: [
     
     BrowserModule,
+    MatSelectModule,
     AppRoutingModule,
     DragDropModule,
     MatDialogModule,

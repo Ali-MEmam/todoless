@@ -1,57 +1,57 @@
+import { users } from './../modals/users';
+import { projects } from './../modals/projects';
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {ProjectsService} from'../projects.service/projects.service';
+import {usersService} from'../users.service/users.service';
+import { DataSource } from '@angular/cdk/collections';
 
-export interface User {
-  name: string;
-}
+
+
 @Component({
   selector: 'app-edit-project',
   templateUrl: './edit-project.component.html',
   styleUrls: ['./edit-project.component.scss']
 })
 export class EditProjectComponent implements OnInit {
+  
+  constructor(private ProjectsService: ProjectsService, private usersService : usersService) { }
 
-  project = {
-    id:'',
-    ownerId : '',
-    tasksId :'',
-    invitors :'',
-    name :'TO DO LESS',
-    description : 'this project is very important to us because it is the final project , and we were stucked in it until the UI team went to hell . fa rbna yostr. ',
-    image :'',
-    color :'',
-    startDate : '2/2/2020',
-    endDate :'2/6/2020',
-    privacy :'public'
-  }
   myControl = new FormControl();
-  options: User[] = [
-    {name: 'Ali Emam'},
-    {name: 'Mai Mohamed'},
-    {name: 'Omnia Ahmed'},
-    {name: 'Nada Yousry'},
-    {name: 'Mohamed Elsaeid'}
-  ];
-  filteredOptions: Observable<User[]>;
+  options: users[];
+  filteredOptions: Observable<users[]>;
+  project:projects;
 
   ngOnInit() {
+
+    this.ProjectsService.currentId.subscribe((message: any) => {
+      this.project = message;
+     })
+
+    this.usersService.getUser().subscribe(items=>{
+      this.options = items;
+      console.log(this.options);
+    })
+
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
         map(value => typeof value === 'string' ? value : value.name),
         map(name => name ? this._filter(name) : this.options.slice())
       );
+
+     
+
   }
 
-  displayFn(user: User): string {
+  displayFn(user: users): string {
     return user && user.name ? user.name : '';
   }
 
-  private _filter(name: string): User[] {
+  private _filter(name: string): users[] {
     const filterValue = name.toLowerCase();
-
     return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
   }
 

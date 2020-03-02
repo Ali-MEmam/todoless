@@ -5,6 +5,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { projects } from '../modals/projects';
 import { ProjectsService } from '../projects.service/projects.service';
 import { CreateNewProjectComponent } from '../create-new-project/create-new-project.component';
+
 @Component({
     selector: 'app-all-projects',
     templateUrl: './all-projects.component.html',
@@ -17,6 +18,7 @@ export class AllProjectsComponent implements OnInit {
     projectlength: number;
     projectId: any;
     constructor(private ProjectsService: ProjectsService, public dialog: MatDialog) { }
+
     ngOnInit() {
         this.ProjectsService.getProject().subscribe((project: any) => {
             console.log(project)
@@ -57,6 +59,7 @@ export class AllProjectsComponent implements OnInit {
     //select project id
     selectProject(event, project) {
         this.projectId = project.id;
+        this.ProjectsService.editProject(project);
         console.log(this.projectId)
     }
 

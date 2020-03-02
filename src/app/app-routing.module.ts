@@ -13,7 +13,8 @@ const routes: Routes = [
   {path:'developerContent',component:DeveloperContentComponent},
   {path:'timer',component:DragTimerComponent},
   {path:'createProject',component:CreateProjectComponent},
-  {path:'projectDetails',component:ProjectDetailsComponent}
+  {path:'projectDetails',component:ProjectDetailsComponent},
+  {path:'projectFlow',component:DeveloperContentComponent}
 ];
 
 @NgModule({

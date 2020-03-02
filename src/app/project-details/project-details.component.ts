@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import { ProjectsService } from './../projects.service/projects.service';
+>>>>>>> blue
 import { projects } from './../modals/projects';
 import { Component, OnInit, Input } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
@@ -17,6 +21,7 @@ import { EditProjectComponent } from '../edit-project/edit-project.component';
 export class ProjectDetailsComponent implements OnInit {
 
 
+<<<<<<< HEAD
   project = {
     id:'',
     ownerId : '',
@@ -33,6 +38,13 @@ export class ProjectDetailsComponent implements OnInit {
 
   /* ==================================== edit project popup ================================== */
   constructor(public dialog: MatDialog) { }
+=======
+
+  project;
+
+  /* ==================================== edit project popup ================================== */
+  constructor(public dialog: MatDialog, private ProjectsService:ProjectsService) { }
+>>>>>>> blue
   openDialog() {
     const dialogRef = this.dialog.open(EditProjectComponent);
     
@@ -45,7 +57,11 @@ export class ProjectDetailsComponent implements OnInit {
   public pieChartOptions: ChartOptions = {
     responsive: true,
     legend: {
+<<<<<<< HEAD
         position: 'right',
+=======
+        position: 'right', 
+>>>>>>> blue
                     
     },
     plugins: {
@@ -68,6 +84,13 @@ public pieChartColors = [
 ];
   
   ngOnInit(): void {
+<<<<<<< HEAD
+=======
+ this.ProjectsService.currentId.subscribe((message: any) => {
+     console.log(message)
+     this.project = message;
+    })
+>>>>>>> blue
   }
 
 }

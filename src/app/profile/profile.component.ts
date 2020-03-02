@@ -14,6 +14,7 @@ import { AccountInfoService } from '../account-info.service';
 })
 export class ProfileComponent implements OnInit {
 
+<<<<<<< HEAD
 
 
 
@@ -142,6 +143,181 @@ this.loged.userloged.subscribe(UserInfo =>{
 
 
   // ************* start star rating ***************//
+=======
+  // *************************************** start  vars ***************************************//
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 Constructor                                */
+/* -------------------------------------------------------------------------- */
+
+  constructor(private f: FormBuilder,
+    private usersService: usersService,
+    private loged:AccountInfoService) { }
+
+/* -------------------------------------------------------------------------- */
+/*                                  Variable                                  */
+/* -------------------------------------------------------------------------- */
+
+  userComment: FormGroup;
+  userProfile: FormGroup;
+  colors;
+  borderLeft;s
+  randomColor;
+  fileData: any;
+  fileSrc: string | ArrayBuffer;
+  file: any;
+  profile: users;
+
+  sum: number;
+  avgStars = 1;
+  userSum = 0;
+  
+
+/* -------------------------------------------------------------------------- */
+/*                                    Chart                                   */
+/* -------------------------------------------------------------------------- */
+
+public pieChartOptions: ChartOptions = {
+  responsive: true,
+  legend: {
+      position: 'right',
+                  
+  },
+  plugins: {
+      datalabels: {
+          formatter: (value, ctx) => {
+              const label = ctx.chart.data.labels[ctx.dataIndex];
+              return label;
+          },
+      },
+  }
+};
+public pieChartLabels: Label[] = ['pending tasks', 'bonus', 'delay'];
+public pieChartData: number[] = [300, 500, 100];
+public pieChartType: ChartType = 'pie';
+public pieChartLegend = true;
+public pieChartColors = [
+  {
+      backgroundColor: ['rgba(247,149,99,1)', 'rgba(0,171,178,1)', 'rgba(216,70,114,1)'],
+  },
+];
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  Comments                                  */
+/* -------------------------------------------------------------------------- */
+
+
+  // currentUserProfile:users;
+  usersComments = [];
+  UserInLocalStorage;
+  currentUser:users;
+/* -------------------------------------------------------------------------- */
+/*                             NgOnInit LifeCycle                             */
+/* -------------------------------------------------------------------------- */
+
+
+
+
+  // *************************************** start form ***************************************//
+  ngOnInit() {
+    this.loged.userloged.subscribe(UserInfo =>{
+      this.currentUser = UserInfo
+    })
+
+
+    this.fileSrc = "../../assets/imgs/users/default-user-image-300x300.png";
+    this.userComment = this.f.group({
+      img: '../assets/imgs/users/default-user-image-300x300.png',
+      name: 'nada',
+      comment: ['', [Validators.required]],
+      rate: 0
+    });
+    this.userProfile = this.f.group({
+    
+      image: '',
+     
+    });
+
+    
+  }
+
+  onSubmit(form: FormGroup) {
+    if (form.valid) {
+      this.sum = 0;
+      this.userComment.value.rate = this.rating //initialize rating on form submit 
+      this.usersComments.push(this.userComment.value);
+     
+      console.log("valid");
+      this.currentUser.comments = this.usersComments;
+
+      //calc avg
+      for (let i = 0; i < this.usersComments.length; i++) {
+        this.sum += this.usersComments[i].rate;
+        this.avgStars = this.sum / this.usersComments.length;
+        this.currentUser.starts = this.avgStars;
+      }
+      console.log(this.currentUser)
+
+    }
+
+
+    // ************* start border coloring ***************//
+
+    this.colors = ['#00ca5d', '#2ca6ef', '#192965'];
+    this.randomColor = Math.floor(Math.random() * 3);
+    // console.log(this.colors[this.randomColor]);
+    this.borderLeft = "3px solid" + this.colors[this.randomColor];
+
+    // ************* end border coloring ***************//
+
+  }
+  // *************************************** end form ***************************************//
+
+
+
+
+
+  // *************************************** start edit profile data*****************************************//
+  onEditClick(event, textArea, bioParagraph, titleTextArea, titleEdit, saveDataBtn) {
+    event.target.style.display = "none";
+    textArea.style.display = 'block';
+    bioParagraph.style.display = 'none';
+    titleTextArea.style.display = 'block';
+    titleEdit.style.display = 'none';
+    saveDataBtn.style.display = 'inline-block';
+  }
+  // ************* end edit profile data***************//
+
+
+
+
+  // *************************************** start save profile data*****************************************//
+    onSaveClick(event, textArea, bioParagraph, editDataBtn, titleTextArea, titleEdit) {
+      console.log(this.currentUser)
+
+      event.target.style.display = "none";
+      textArea.style.display = 'none';
+      bioParagraph.style.display = 'block';
+      titleTextArea.style.display = 'none';
+      titleEdit.style.display = 'block';
+      editDataBtn.style.display = "inline-block";
+      this.currentUser.bio = textArea.value;
+      this.currentUser.title = titleTextArea.value;
+      localStorage.setItem("currentUser",JSON.stringify(this.currentUser))
+      this.usersService.updateUser(this.currentUser);
+      this.loged.getAccount()
+  }
+  // *************************************** end save profile data*****************************************//
+
+
+
+
+
+  // *************************************** start star rating ***************************************//
+>>>>>>> blue
 
   stars = [1, 2, 3, 4, 5];
   rating = 1;
@@ -165,7 +341,11 @@ this.loged.userloged.subscribe(UserInfo =>{
   }
 
 
+<<<<<<< HEAD
   // ************* end star rating ***************//
+=======
+  // *************************************** end star rating ***************************************//
+>>>>>>> blue
 
   readURL(event: any) {
     this.fileData = <File>event.target.files[0];
@@ -187,7 +367,14 @@ this.loged.userloged.subscribe(UserInfo =>{
       // console.log(this.file)
       // this.users.value.attachment = this.file;
       // console.log(this.projectForm.value.attachment) ;
+<<<<<<< HEAD
       this.userProfile.value.image = this.file;
+=======
+      this.currentUser.image = this.file;
+      localStorage.setItem("currentUser",JSON.stringify(this.currentUser))
+      this.usersService.updateUser(this.currentUser);
+      this.loged.getAccount()
+>>>>>>> blue
     };
     
   }

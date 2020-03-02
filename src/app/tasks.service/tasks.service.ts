@@ -54,8 +54,17 @@ export class TasksService {
     this.idTranssform.next(item);
   }
 
+<<<<<<< HEAD
   editTaskStatus(id : string){
     
   }
 
+=======
+  //update-Tasks
+  updateTasks(item:tasks){
+    this.tasksDoc = this.firestore.doc(`tasks/${item.id}`);
+    this.tasksDoc.update(item);
+    console.log(item)
+  }
+>>>>>>> blue
 }

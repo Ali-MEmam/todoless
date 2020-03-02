@@ -39,6 +39,7 @@
         transition: all 0.2s ease-in-out;
         background-color: transparent;
         z-index: 2;
+        position: relative;
 
         &:focus {
           outline: none;

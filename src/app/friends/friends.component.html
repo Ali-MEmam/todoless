@@ -1,9 +1,11 @@
 <Section class="friends py-3">
   <div class="container">
-    <div class="friends__content" *ngFor="let friend of friends">
-      <div class="friends__content-info">
+  <div *ngIf="friends">
+    <div class="friends__content" *ngFor="let friend of friends" >
+      <div class="friends__content-info" (click)="strangProfile($event, friend)" [routerLink]="['/account',currentUser.id,'user',friend.name]" >
         <div class="friends__content-info-img">
-          <img class="img-fluid" src="../../assets/imgs/friends/friend.png" alt="" />
+          <img class="img-fluid"  *ngIf="friend.image" [src]='friend.image' alt="" />
+          <img class="img-fluid" *ngIf="!friend.image" src='../../assets/imgs/friends/friend.png'>
         </div>
         <div class="friends__content-info-name">
           <p>{{friend.name}}</p>
@@ -28,5 +30,6 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </Section>

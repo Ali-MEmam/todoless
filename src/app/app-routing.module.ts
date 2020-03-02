@@ -8,6 +8,10 @@ import { AccountComponent } from './account/account.component';
 import { AllProjectsComponent } from './all-projects/all-projects.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AllFriendsComponent } from './all-friends/all-friends.component';
+<<<<<<< HEAD
+=======
+import { StrangerProfileComponent } from './stranger-profile/stranger-profile.component';
+>>>>>>> blue
 
 
 const routes: Routes = [
@@ -18,6 +22,10 @@ const routes: Routes = [
     {path:'friends',component:AllFriendsComponent},
     {path:'projects',component:AllProjectsComponent},
     {path:'profile',component:ProfileComponent},
+<<<<<<< HEAD
+=======
+    {path:'user/:name',component:StrangerProfileComponent}
+>>>>>>> blue
   ]},
   {path:'timer',component:DragTimerComponent},
 ];

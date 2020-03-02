@@ -4,11 +4,14 @@ a{
     color: $lightBlue;
 }
 
+<<<<<<< HEAD
 mat-icon{
     color: #ffc200;
     margin-top: 1.3rem;
     margin-bottom: 4rem;
 }
+=======
+>>>>>>> blue
 h2{
     margin-bottom: 2px;
     text-transform: capitalize;
@@ -33,6 +36,15 @@ h3{
         box-shadow: 0px 0px 2px 4px white;
         &-details{
         color: $blue;
+<<<<<<< HEAD
+=======
+        &__Bio-textarea{
+            display: none;
+            width: 100%;
+            font-size: 12px;
+            max-height: 100px;
+        }
+>>>>>>> blue
         }
         &-img{
             &__form-input{
@@ -75,7 +87,35 @@ h3{
        
     }
 }
+<<<<<<< HEAD
 
+=======
+.profile__info-details__Bio{
+    h2{
+        display: inline-block;
+        width: 80%;
+    }
+    
+}
+
+.editData{
+    display: inline-block;
+    background-color: transparent;
+    color: $gray;
+    border: none;
+    transition: all 0.2s ease-in-out;
+    mat-icon{
+        margin: 0;
+        margin-left: 5px;
+        padding: 0;
+        font-size: 15px;
+        width: 25%;
+    }
+    &:hover{
+       color: $lightBlue;
+    }
+}
+>>>>>>> blue
 .comments-parent__formContainer{
     &-form{
         display: flex;
@@ -112,14 +152,32 @@ h3{
         color: $white;
         display: block;
         width: 100%;
+<<<<<<< HEAD
     
+=======
+>>>>>>> blue
             &:disabled{
                 background-color: #74c4f3;
             }
         }
     }
 }
+<<<<<<< HEAD
 
+=======
+.saveDataBtn{
+    display: none;
+    font-size: 16px;
+    color: #00ca5d;
+    border-color: #00ca5d;
+    margin-top: 3rem;
+    margin-left: auto;
+    &:hover{
+        background-color: #00ca5d;
+        color: $white;
+    }
+}
+>>>>>>> blue
 figure{
     background-color: #00ca5d;
     height: 100px;
@@ -162,7 +220,11 @@ figure{
         top: 50%;
     }
 }
+<<<<<<< HEAD
 // *******star rating**********//
+=======
+// **star rating***//
+>>>>>>> blue
   .star-rating-filled{
     fill:gold;
 
@@ -196,7 +258,11 @@ figure{
 }
 
 
+<<<<<<< HEAD
 // ********** scroll style ************* //
+=======
+// **** scroll style ***** //
+>>>>>>> blue
 
 ::-webkit-scrollbar {
     width: 6px;
@@ -226,3 +292,9 @@ figure{
     padding: 30px 0 0;
     border-left: 3px solid #2ca6ef;
 }
+<<<<<<< HEAD
+=======
+.profile_info-details_Bio-textarea{
+    display:none
+}
+>>>>>>> blue

@@ -24,11 +24,19 @@
           <li class="d-flex date-details row">
             <div class="col-6">
               <span class="title h3" >Start Date : </span>
+<<<<<<< HEAD
               <span class="data">{{ project.startDate | date:'shortDate' }}</span>
             </div>
             <div class="col-6">
               <span class="title h3">End Date : </span>
               <span class="data">{{ project.endDate }}</span>
+=======
+              <span class="data">{{ project.startDate.seconds *1000 | date:'longDate' }}</span>
+            </div>
+            <div class="col-6">
+              <span class="title h3">End Date : </span>
+              <span class="data">{{ project.endDate.seconds *1000 | date:'longDate' }}</span>
+>>>>>>> blue
             </div>
           </li>
           <li>
@@ -51,6 +59,7 @@
     <p class="h3 pl-4">Attachments</p>
     <div class="container attachments-wrapper d-flex align-items-center">
       <div class="attachmentItem">
+<<<<<<< HEAD
         <a href="../../assets/imgs/edit-project/pdfFile.png" download> 
           <img src="../../assets/imgs/edit-project/pdfFile.png" class="img-fluid" alt="pdf file"> 
         </a> 
@@ -63,6 +72,12 @@
       <div class="attachmentItem">
         <a href="../../assets/imgs/edit-project/pdfFile.png" download> 
           <img src="../../assets/imgs/edit-project/pdfFile.png" class="img-fluid" alt="pdf file"> 
+=======
+        <a href="{{project.attachment}}" download> 
+          <i class="material-icons">
+            cloud_download
+            </i>
+>>>>>>> blue
         </a>
       </div>
     </div>

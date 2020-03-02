@@ -17,6 +17,10 @@ curretUser:any ;
   ngOnInit(): void {
       this.loged.userloged.subscribe(UserInfo =>{
         this.curretUser = UserInfo
+<<<<<<< HEAD
+=======
+        this.id = UserInfo.id
+>>>>>>> blue
       }
       )
     const aside = document.getElementsByClassName("aside")

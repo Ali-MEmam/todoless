@@ -1,4 +1,5 @@
 <h3 class="text-center h2">Edit Project</h3>
+<<<<<<< HEAD
 <form  class="example-form">
   <mat-form-field  class="example-full-width">
     <mat-label>Project Name</mat-label>
@@ -12,22 +13,47 @@
     <mat-form-field>
       <mat-label>Start Date</mat-label>
       <input [value]='project.startDate' matInput [matDatepicker]="picker" />
+=======
+<form  class="example-form" [formGroup]="editform" (ngSubmit)="editProject(editform)">
+  <mat-form-field  class="example-full-width">
+    <mat-label>Project Name</mat-label>
+    <input  matInput [value]='project.name' />
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Project Privacy</mat-label>
+    <input  matInput [value]='project.privacy'/>
+  </mat-form-field>
+  <div class="example-full-width d-flex justify-content-between">
+    <mat-form-field>
+      <mat-label>Start Date : {{project.startDate.seconds *1000 | date:'longDate'}}</mat-label>
+      <input placeholder="" matInput [matDatepicker]="picker" />
+>>>>>>> blue
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <mat-form-field>
+<<<<<<< HEAD
       <mat-label>End Date</mat-label>
       <input [value]='project.endDate' matInput [matDatepicker]="picker1" />
+=======
+      <mat-label>End Date : {{project.endDate.seconds *1000 | date:'longDate'}}</mat-label>
+      <input placeholder="" matInput [matDatepicker]="picker1" />
+>>>>>>> blue
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
     </mat-form-field>
   </div>
   <mat-form-field class="example-full-width">
+<<<<<<< HEAD
     <mat-label>Task Description</mat-label>
+=======
+    <mat-label>Project Description</mat-label>
+>>>>>>> blue
     <textarea [value]='project.description' matInput placeholder=""></textarea>
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
+<<<<<<< HEAD
     <mat-label>Assignee</mat-label>
     <input
       type="text"
@@ -35,6 +61,14 @@
       [formControl]="myControl"
       [matAutocomplete]="auto"
     />
+=======
+    <mat-label>{{ project.invitors[0].email}} + {{project.invitors[1]}} </mat-label>
+    <input 
+      type="text"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto"/>
+>>>>>>> blue
     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
       <mat-option
         *ngFor="let option of filteredOptions | async"

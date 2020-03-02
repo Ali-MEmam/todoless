@@ -13,7 +13,13 @@
 
                     <div class="dropdown">
                         <button id="my-dropdown" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+<<<<<<< HEAD
                         <figure class="navbar-container__content-list--item-img"><img class="img-full" src="https://i.imgur.com/zOXKdmt.png"></figure>
+=======
+                        <figure *ngIf="currentUser.image" class="navbar-container__content-list--item-img"><img class="img-full"  [src]="currentUser.image"></figure>
+                        <figure *ngIf="!currentUser.image" class="navbar-container__content-list--item-img"><img class="img-full"  src='../../assets/imgs/friends/friend.png'></figure>
+
+>>>>>>> blue
                         {{currentUser.name}}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="my-dropdown">

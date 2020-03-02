@@ -5,9 +5,8 @@ export interface projects{
     invitors?:any;
     name?:string;
     description?:string;
-    image?:any;
-    color?:any;
     startDate?:any;
     endDate?:any;
-    privacy?:any
+    privacy?:any;
+    attachment?:any;
 }

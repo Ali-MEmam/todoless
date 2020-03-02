@@ -7,7 +7,9 @@ import { usersService } from '../users.service/users.service';
 
 import { tasks } from '../modals/tasks';
 import { users } from '../modals/users';
-
+export interface User {
+  name: string;
+}
 @Component({
   selector: 'app-drag-timer',
   templateUrl: './drag-timer.component.html',
@@ -66,7 +68,7 @@ export class DragTimerComponent implements OnInit {
     })
     this.usersService.getUser().subscribe(items => {
       console.log(items);
-      this.users = items;
+      // this.users = items;
       this.usersLength = items.length;
     })
 

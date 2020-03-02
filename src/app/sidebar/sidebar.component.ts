@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToggleasideService } from '../toggleaside.service';
+import { AccountInfoService } from '../account-info.service';
+import { userInfo } from 'os';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,9 +10,15 @@ import { ToggleasideService } from '../toggleaside.service';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private sidebarToggler:ToggleasideService) { }
-
+  constructor(private sidebarToggler:ToggleasideService,
+    private loged:AccountInfoService) { }
+id;
+curretUser:any ;
   ngOnInit(): void {
+      this.loged.userloged.subscribe(UserInfo =>{
+        this.curretUser = UserInfo
+      }
+      )
     const aside = document.getElementsByClassName("aside")
     this.sidebarToggler.currentStatus.subscribe(arg =>{
       if(arg){

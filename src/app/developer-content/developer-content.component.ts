@@ -9,6 +9,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import * as introJs from 'intro.js/intro.js';     //import tour
 import {MatDialog} from '@angular/material/dialog';
 import { CreateTaskComponent } from '../create-task/create-task.component';
+import { TaskDetailsComponent } from "../task-details/task-details.component"
 
 @Component({
   selector: 'app-developer-content',
@@ -216,11 +217,24 @@ export class DeveloperContentComponent implements OnInit {
   handelBonusDelayTime() {
 
   }
-  openDialog() {
-    const dialogRef = this.dialog.open(CreateTaskComponent);
-    
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+
+    /* ==================================== creat task popup ================================== */
+    openDialog() {
+      const dialogRef = this.dialog.open(CreateTaskComponent);
+      
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
+
+    openDialogview(event, item){
+      const dialogRef = this.dialog.open(TaskDetailsComponent);
+      // console.log(item.id);
+      this.TasksService.editTasks(item);
+
+      
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
 }

@@ -100,6 +100,7 @@ export class AllProjectsComponent implements OnInit {
 
     selectProject(event, project) {
         this.projectId = project.id;
+        this.ProjectsService.editProject(project);
         console.log(this.projectId)
     }
 

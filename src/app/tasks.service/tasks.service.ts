@@ -60,5 +60,4 @@ export class TasksService {
     this.tasksDoc.update(item);
     console.log(item)
   }
-
 }

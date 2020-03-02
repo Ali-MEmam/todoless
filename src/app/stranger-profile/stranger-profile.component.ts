@@ -6,6 +6,7 @@ import { users } from '../modals/users';
 import { Label } from 'ng2-charts';
 import { ChartOptions, ChartType } from 'chart.js';
 import { AccountInfoService } from '../account-info.service';
+import { VisitProfileService } from '../visit-profile.service';
 
 @Component({
   selector: 'app-stranger-profile',
@@ -24,7 +25,8 @@ export class StrangerProfileComponent implements OnInit {
 
 constructor(private f: FormBuilder,
   private usersService: usersService,
-  private loged:AccountInfoService) { }
+  private loged:AccountInfoService,
+  private strangeProfile:VisitProfileService) { }
 
 /* -------------------------------------------------------------------------- */
 /*                                  Variable                                  */
@@ -44,11 +46,10 @@ sum: number;
 avgStars = 1;
 userSum = 0;
 
-
+visted;
 /* -------------------------------------------------------------------------- */
 /*                                    Chart                                   */
 /* -------------------------------------------------------------------------- */
-
 public pieChartOptions: ChartOptions = {
 responsive: true,
 legend: {
@@ -83,7 +84,7 @@ public pieChartColors = [
 // currentUserProfile:users;
 usersComments = [];
 UserInLocalStorage;
-currentUser:users;
+currentUser;
 /* -------------------------------------------------------------------------- */
 /*                             NgOnInit LifeCycle                             */
 /* -------------------------------------------------------------------------- */
@@ -93,10 +94,12 @@ currentUser:users;
 
 // *************************************** start form ***************************************//
 ngOnInit() {
-  this.loged.userloged.subscribe(UserInfo =>{
-    this.currentUser = UserInfo
-  })
-
+  // this.loged.userloged.subscribe(UserInfo =>{
+  //   this.currentUser = UserInfo
+  // })
+this.strangeProfile.vistedprofile.subscribe(UserInfo =>{
+  this.currentUser = UserInfo
+})
 
   this.fileSrc = "../../assets/imgs/users/default-user-image-300x300.png";
   this.userComment = this.f.group({

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { users } from '../modals/users';
 import { usersService } from "../users.service/users.service";
 import { AccountInfoService } from '../account-info.service';
+import { VisitProfileService } from '../visit-profile.service';
 
 @Component({
   selector: 'app-friends',
@@ -17,7 +18,8 @@ blockFriends=[];
 currentUser;
 
   constructor(private usersService : usersService,
-    private loged:AccountInfoService) { }
+    private loged:AccountInfoService,
+    private visitAccount:VisitProfileService) { }
 
   ngOnInit(): void {
     this.loged.userloged.subscribe(UserInfo =>{
@@ -57,5 +59,7 @@ currentUser;
     console.log(this.blockFriends);
     // this.users[1].blockFriends = this.usersService.createUser(item);
   }
-
+  strangProfile(event,friendObj){
+   this.visitAccount.activeVistor(friendObj)
+  }
 }

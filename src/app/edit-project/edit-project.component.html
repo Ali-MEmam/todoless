@@ -1,5 +1,5 @@
 <h3 class="text-center h2">Edit Project</h3>
-<form  class="example-form">
+<form  class="example-form" [formGroup]="editform" (ngSubmit)="editProject(editform)">
   <mat-form-field  class="example-full-width">
     <mat-label>Project Name</mat-label>
     <input  matInput [value]='project.name' />

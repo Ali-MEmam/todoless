@@ -1,7 +1,7 @@
 import { users } from './../modals/users';
 import { projects } from './../modals/projects';
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {ProjectsService} from'../projects.service/projects.service';
@@ -17,7 +17,10 @@ import { DataSource } from '@angular/cdk/collections';
 })
 export class EditProjectComponent implements OnInit {
   
-  constructor(private ProjectsService: ProjectsService, private usersService : usersService) { }
+  constructor(private ProjectsService: ProjectsService,
+    private fb: FormBuilder,
+     private usersService : usersService) { }
+     editform: FormGroup;
 
   myControl = new FormControl();
   options: users[];
@@ -29,6 +32,15 @@ export class EditProjectComponent implements OnInit {
     this.ProjectsService.currentId.subscribe((message: any) => {
       this.project = message;
      })
+     this.editform = this.fb.group({
+      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
+      privacy: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      attachment: ['', [Validators.required]],
+      invitors: ['',[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
+      startDate: ['', [Validators.required]],
+      endDate: ['', [Validators.required]]
+    })
 
     this.usersService.getUser().subscribe(items=>{
       this.options = items;
@@ -53,6 +65,14 @@ export class EditProjectComponent implements OnInit {
   private _filter(name: string): users[] {
     const filterValue = name.toLowerCase();
     return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+  }
+  editProject(editform:FormGroup){
+    this.ProjectsService.editProject(this.project);
+    this.editform.value.id = this.project.id
+    console.log(this.editform.value)
+
+
+
   }
 
 }

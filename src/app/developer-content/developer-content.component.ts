@@ -2,24 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { tasks } from '../modals/tasks';
 import { TasksService } from '../tasks.service/tasks.service';
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import { FormBuilder, FormGroup } from '@angular/forms';
-
->>>>>>> omnia
-=======
-=======
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { isNgTemplate } from '@angular/compiler';
 import { element } from 'protractor';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import * as introJs from 'intro.js/intro.js';     //import tour
->>>>>>> blue
 import {MatDialog} from '@angular/material/dialog';
 import { CreateTaskComponent } from '../create-task/create-task.component';
->>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
 
 @Component({
   selector: 'app-developer-content',
@@ -27,37 +16,8 @@ import { CreateTaskComponent } from '../create-task/create-task.component';
   styleUrls: ['./developer-content.component.scss']
 })
 export class DeveloperContentComponent implements OnInit {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-  /* =====================================================================================
-                              drag and drop  function 
-  ======================================================================================= */
-
-  todo : tasks[];
-
-=======
-  todo: tasks[];
->>>>>>> omnia
-  workingOn = [];
-  finished = [];
-  constructor(private TasksService: TasksService) { }
-
-
-  drop(event: CdkDragDrop<string[]>) {
-
-    if (event.previousContainer.id === 'cdk-drop-list-0' && event.container.id === 'cdk-drop-list-1') {
-      transferArrayItem(event.previousContainer.data,
-<<<<<<< HEAD
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
-=======
-=======
 
   introJS = introJs();                     //init tour
->>>>>>> blue
   /*================================================
                      variables
   ===============================================*/
@@ -80,53 +40,6 @@ export class DeveloperContentComponent implements OnInit {
   myObj = {
     finishedTaskTime: '',
   };
-<<<<<<< HEAD
-  workObj=[];
->>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
-
-  constructor(private TasksService: TasksService , public dialog: MatDialog) { }
-
-
- /*================================================
-                     drop function
-  ===============================================*/
-<<<<<<< HEAD
-=======
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
-
-      // start hours and minutes initialization
-      this.splittedTimer = this.workingOn[0].time.split(':');
-      this.dropCardTime = parseInt(this.splittedTimer[0]);
-      this.dropCardMinnutes = parseInt(this.splittedTimer[1]);
-      if (!this.splittedTimer[1]) {
-        this.dropCardMinnutes = 0
-      }
-      // end hours and minutes initialization
-
-      this.disabledDrag = "true";
-      this.handelBonusDelayTime();
-      this.countdown()
-=======
-  drop(event: CdkDragDrop<string[]>) {
-if (this.workingOn.length === 0 ){
-  clearInterval(this.start);
-  if (event.previousContainer.id === 'cdk-drop-list-0' && event.container.id === 'cdk-drop-list-1') {
-    transferArrayItem(event.previousContainer.data,
-      event.container.data,
-      event.previousIndex,
-      event.currentIndex);
-      
-    // start hours and minutes initialization
-    this.workingOn[0].status = 'workingOn';    
-        this.splittedTimer = this.workingOn[0].totalTime.toString().split(':');
-    this.dropCardTime = parseInt(this.splittedTimer[0]);
-    this.dropCardMinnutes = parseInt(this.splittedTimer[1]);
-    if (!this.splittedTimer[1]) {
-      this.dropCardMinnutes = 0
->>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
-=======
   workObj = [];
 
   constructor(private TasksService: TasksService,public dialog: MatDialog) {
@@ -189,7 +102,6 @@ if (this.workingOn.length === 0 ){
         // edit task status on firebase 
         // this.TasksService.editTaskStatus(this.workingOn[1] , this.workingOn[1].status) 
       }
->>>>>>> blue
     }
     if (event.previousContainer.id === 'cdk-drop-list-1' && event.container.id === 'cdk-drop-list-2') {
       transferArrayItem(event.previousContainer.data,
@@ -217,21 +129,6 @@ if (this.workingOn.length === 0 ){
   }
   
 
-<<<<<<< HEAD
-  /*================================================
-                      variables
-   ===============================================*/
-  totalProjectTime: number = 0;             //sum of all tasks time
->>>>>>> omnia
-  disabledDrag: string = "false";           //default value for card is draggable
-  desabledDrop: string = "false";           //default value for section is droppable
-  status = 'pause';                         //default status for working on task button
-  start: any;                             //start timer
-  dropCardTime: number;
-  result: string;
-  splittedTimer: any;
-=======
->>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
   /* =============================
   on init 
   ============================= */
@@ -248,67 +145,6 @@ if (this.workingOn.length === 0 ){
       }
     })
   }
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-  dropCardTime:number;
-  result:string;
-/* =============================
-on init 
-============================= */
-
-ngOnInit(): any {
-
-  this.TasksService.getTasks().subscribe(items=>{
-    console.log(items);
-    this.todo = items;
-  })
-
-  // for (let i = 0; i < this.todo.length; i++) {
-  //   this.totalProjectTime = this.todo[i]. + this.totalProjectTime;
-  // }
-
-  this.TasksService.getTasks().subscribe(items =>{
-    console.log(items);
-    this.todo = items;
-  })
-=======
->>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
-
-
-<<<<<<< HEAD
-  dropCardSeconds:number = 0 ;
-  dropCardMinnutes:number = 0 ;
-  countdown(){
-  
-    this.result=this.dropCardTime.toString();
-    
-  this.start= setInterval(()=>{
-    // convert time to string because if it is a number it wont appeare in DOM
-   this.dropCardSeconds--;
-    if(this.dropCardSeconds<0){
-      this.dropCardSeconds=59;
-      this.dropCardMinnutes--;
-    }
-    if(this.dropCardMinnutes<0){
-      this.dropCardMinnutes=59;
-      this.dropCardTime--;
-    }
-    if(this.dropCardTime==0&& this.dropCardMinnutes==0 && this.dropCardSeconds==0){
-      clearInterval(this.start);
-      this.deadline();
-      
-    }
-    
-  },1000);
-}
-=======
-  }
-=======
->>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
-=======
->>>>>>> blue
   /*======================
    task count down timer
    ======================*/
@@ -345,10 +181,6 @@ ngOnInit(): any {
       }
       this.result = '-' + this.dropCardTime.toString() + ":" + this.dropCardMinnutes + ":" + this.dropCardSeconds; // alternative solution instade of pipe
     }, 1000);
-<<<<<<< HEAD
->>>>>>> omnia
-=======
->>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
 
   }
 

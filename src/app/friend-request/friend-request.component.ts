@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { users } from '../modals/users';
 import { usersService } from "../users.service/users.service";
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> blue
 @Component({
   selector: 'app-friend-request',
   templateUrl: './friend-request.component.html',
@@ -26,10 +20,6 @@ export class FriendRequestComponent implements OnInit {
       this.friends = items;
     })
   }
-<<<<<<< HEAD
-  
-=======
->>>>>>> blue
   addFriend(event,item){
     this.friendsUser.push(item);
     console.log(this.friendsUser);

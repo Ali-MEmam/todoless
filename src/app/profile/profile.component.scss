@@ -4,11 +4,6 @@ a{
     color: $lightBlue;
 }
 
-mat-icon{
-    color: #ffc200;
-    margin-top: 1.3rem;
-    margin-bottom: 4rem;
-}
 h2{
     margin-bottom: 2px;
     text-transform: capitalize;
@@ -30,7 +25,20 @@ h3{
         padding: 3rem;
         margin-top: 15rem;
         &-details{
-            color: $blue;
+        color: $blue;
+        &__Bio-textarea{
+            display: none;
+            width: 100%;
+            font-size: 12px;
+            max-height: 100px;
+        }
+        }
+        &-img{
+            &__form-input{
+                background-color: $gray;
+                border: none;
+                display: none;
+            }
         }
     }
     &__info:first-of-type{
@@ -64,6 +72,31 @@ h3{
        
     }
 }
+.profile_info-details_Bio{
+    h2{
+        display: inline-block;
+        width: 80%;
+    }
+    
+}
+
+.editData{
+    display: inline-block;
+    background-color: transparent;
+    color: $gray;
+    border: none;
+    transition: all 0.2s ease-in-out;
+    mat-icon{
+        margin: 0;
+        margin-left: 5px;
+        padding: 0;
+        font-size: 15px;
+        width: 25%;
+    }
+    &:hover{
+       color: $lightBlue;
+    }
+}
 .comments-parent__formContainer{
     &-form{
         display: flex;
@@ -95,14 +128,24 @@ h3{
         color: $white;
         display: block;
         width: 100%;
-    
             &:disabled{
                 background-color: #74c4f3;
             }
         }
     }
 }
-
+.saveDataBtn{
+    display: none;
+    font-size: 16px;
+    color: #00ca5d;
+    border-color: #00ca5d;
+    margin-top: 3rem;
+    margin-left: auto;
+    &:hover{
+        background-color: #00ca5d;
+        color: $white;
+    }
+}
 figure{
     background-color: #00ca5d;
     height: 100px;
@@ -110,11 +153,42 @@ figure{
     border-radius: 50%;
     vertical-align: middle;
     overflow: hidden;
+    position: relative;
+    
+.attach-file{
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    font-size: 12px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 10px;
+    top: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    mat-icon{
+        color: white;
+        margin: 0;
+        padding: 0;
+        font-size: 15px;
+        width: 25%;
+    }
+    span{
+        display: block;
+        width: 85%;
+    }
+}
     img{
         width: 100%;
     }
+    &:hover > form .attach-file{
+        top: 50%;
+    }
 }
-// *******star rating**********//
+// **star rating***//
   .star-rating-filled{
     fill:gold;
 
@@ -124,6 +198,11 @@ figure{
 }
 .col-12{
     background-color: $white;
+}
+.profile-info__details-rating{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .hovering-data{
     border: 1px solid $gray;
@@ -143,7 +222,7 @@ figure{
 }
 
 
-// ********** scroll style ************* //
+// **** scroll style ***** //
 
 ::-webkit-scrollbar {
     width: 6px;

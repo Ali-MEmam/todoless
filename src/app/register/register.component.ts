@@ -1,22 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder, Validators} from '@angular/forms';
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-import {users} from './../modals/users';
-import {usersService} from './../users.service/users.service';
-
-
-=======
->>>>>>> mohamed
 
 import {users} from './../modals/users';
 import {usersService} from './../users.service/users.service';
 
-<<<<<<< HEAD
-=======
->>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
->>>>>>> mohamed
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -53,13 +40,6 @@ export class RegisterComponent implements OnInit {
 /*                             Ng OnInit LifeCycle                            */
 /* -------------------------------------------------------------------------- */
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-  register:FormGroup;
-=======
->>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
->>>>>>> mohamed
 
   ngOnInit(): void {
     this.register = this.fb.group({
@@ -85,18 +65,6 @@ export class RegisterComponent implements OnInit {
   createAccount(AccountInfo){
     if(this.register.valid){
       this.UsersService.createUser(this.register.value);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-      companySize:['',Validators.required]
-    })
-  }
-  createAccount(item){
-    if(this.register.valid){
-      console.log(item.value)
-=======
->>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
->>>>>>> mohamed
     }else{
       console.log("not valid")
     }
@@ -120,11 +88,6 @@ export class RegisterComponent implements OnInit {
     })
     this.phoneIsExist = checker
   }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> mohamed
   
   labelUp(event,labelId){
     labelId.classList.add('labelFocus');
@@ -137,9 +100,5 @@ export class RegisterComponent implements OnInit {
       labelId.classList.add('labelFocus');
     }
   }
-<<<<<<< HEAD
-=======
->>>>>>> 0c2825a7a9a0d7acc6ae34ba0b9700d8bf1eef71
->>>>>>> mohamed
 
 }

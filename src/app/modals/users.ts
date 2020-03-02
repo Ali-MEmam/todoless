@@ -13,11 +13,7 @@ export interface users{
         edit?:any
     }];
     tasks?:any;
-<<<<<<< HEAD
-}
-
-=======
     comments?:any;
     starts?:any;
+    bio?:any;
 }
->>>>>>> blue

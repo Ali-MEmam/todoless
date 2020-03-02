@@ -11,84 +11,129 @@ import { users } from '../modals/users';
 })
 export class ProfileComponent implements OnInit {
 
-
-  // ************* start form ***************//
-  usersComments = [
-    {
-      img: '../assets/imgs/users/default-user-image-300x300.png',
-      name: 'nada',
-      comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, mollitiaLorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, mollitiaLorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, mollitia',
-    }
-  ];
-
+  // *************************************** start  vars ***************************************//
   constructor(private f: FormBuilder,
-    private usersService:usersService) { }
-    userComment: FormGroup;
-    userProfile: FormGroup;
-    colors;
-    borderLeft;
-    randomColor;
-    fileData: any;
-    fileSrc: string | ArrayBuffer;
-    file: any;
-    profile:users;  
-    commentStars=[];
-    avgStars:number;
+    private usersService: usersService) { }
+  userComment: FormGroup;
+  userProfile: FormGroup;
+  colors;
+  borderLeft;
+  randomColor;
+  fileData: any;
+  fileSrc: string | ArrayBuffer;
+  file: any;
+  profile: users;
+
+  sum: number;
+  avgStars = 1;
+  userSum = 0;
+
+  usersComments = [];
+  currentUserProfile:users;
+  
+
+  // *************************************** end  vars ***************************************//
 
 
+
+
+
+  // *************************************** start form ***************************************//
   ngOnInit() {
-    this.fileSrc="../../assets/imgs/users/default-user-image-300x300.png";
+    this.usersService.getUser().subscribe(items => {
+      console.log(items);
+      this.currentUserProfile = items[2];
+      console.log(this.currentUserProfile)
+
+    })
+    
+    this.fileSrc = "../../assets/imgs/users/default-user-image-300x300.png";
     this.userComment = this.f.group({
       img: '../assets/imgs/users/default-user-image-300x300.png',
       name: 'nada',
       comment: ['', [Validators.required]],
-      rate:''
+      rate: 0
     });
-    this.userProfile=this.f.group({
-      image:'',
-      starts:'',
-      comments:''
+    this.userProfile = this.f.group({
+    
+      image: '',
+     
     });
+
+    
   }
 
-sum=0;
   onSubmit(form: FormGroup) {
     if (form.valid) {
-      this.userComment.value.rate  = this.rating
+      this.sum = 0;
+      this.userComment.value.rate = this.rating //initialize rating on form submit 
       this.usersComments.push(this.userComment.value);
-      this.userProfile.value.comments = this.usersComments;
-      // this.userProfile.value.starts = this.rating;
-      this.commentStars.push(this.rating);
-      console.log(this.commentStars);
-      for(let i of this.commentStars){
-        this.sum=this.sum+this.commentStars[i];
-        console.log(this.sum);
-        
-        this.avgStars=this.sum/this.commentStars.length;
-      }
-      console.log(this.avgStars);
-      console.log(this.userProfile.value);
+     
       console.log("valid");
-       
+      this.currentUserProfile.comments = this.usersComments;
+
+      //calc avg
+      for (let i = 0; i < this.usersComments.length; i++) {
+        this.sum += this.usersComments[i].rate;
+        this.avgStars = this.sum / this.usersComments.length;
+        this.currentUserProfile.starts = this.avgStars;
+      }
+      console.log(this.currentUserProfile)
+
     }
+
+
     // ************* start border coloring ***************//
 
     this.colors = ['#00ca5d', '#2ca6ef', '#192965'];
     this.randomColor = Math.floor(Math.random() * 3);
-    console.log(this.colors[this.randomColor]);
+    // console.log(this.colors[this.randomColor]);
     this.borderLeft = "3px solid" + this.colors[this.randomColor];
+
     // ************* end border coloring ***************//
 
+  }
+  // *************************************** end form ***************************************//
+
+
+
+
+
+  // *************************************** start edit profile data*****************************************//
+  onEditClick(event, textArea, bioParagraph, titleTextArea, titleEdit, saveDataBtn) {
+    event.target.style.display = "none";
+    textArea.style.display = 'block';
+    bioParagraph.style.display = 'none';
+    titleTextArea.style.display = 'block';
+    titleEdit.style.display = 'none';
+    saveDataBtn.style.display = 'inline-block';
+  }
+  // ************* end edit profile data***************//
+
+
+
+
+  // *************************************** start save profile data*****************************************//
+    onSaveClick(event, textArea, bioParagraph, editDataBtn, titleTextArea, titleEdit) {
+      event.target.style.display = "none";
+      textArea.style.display = 'none';
+      bioParagraph.style.display = 'block';
+      titleTextArea.style.display = 'none';
+      titleEdit.style.display = 'block';
+      editDataBtn.style.display = "inline-block";
+      this.currentUserProfile.bio = textArea.value;
+      this.currentUserProfile.title = titleTextArea.value;
+      this.currentUserProfile.image = this.file;
+      console.log(this.currentUserProfile)
 
   }
-  // ************* end form ***************//
-  onBtnSubmit(created){
-    console.log({created},created.childNodes[1]);
-    
-  }
+  // *************************************** end save profile data*****************************************//
 
 
-  // ************* start star rating ***************//
+
+
+
+  // *************************************** start star rating ***************************************//
 
   stars = [1, 2, 3, 4, 5];
   rating = 1;
@@ -102,18 +147,25 @@ sum=0;
   }
   onStarClicked(starId: number, dataHovering) {
     this.rating = starId;
-    dataHovering.style.top='95%';
-    setTimeout(()=>{  
-    dataHovering.style.top='100%';
-    },1000)
-    console.log(dataHovering);
+    dataHovering.style.top = '95%';
+    setTimeout(() => {
+      dataHovering.style.top = '100%';
+    }, 1000)
+    // console.log(dataHovering);
+
 
   }
-  // ************* end star rating ***************//
+
+
+
+ 
+
+
+  // *************************************** end star rating ***************************************//
 
   readURL(event: any) {
     this.fileData = <File>event.target.files[0];
-    console.log(this.fileData);
+    // console.log(this.fileData);
     this.preview();
   }
 
@@ -128,10 +180,11 @@ sum=0;
     reader.onload = event => {
       this.fileSrc = reader.result;
       this.file = reader.result;
-      console.log(this.file)
+      // console.log(this.file)
       // this.users.value.attachment = this.file;
       // console.log(this.projectForm.value.attachment) ;
-      this.userProfile.value.image=this.file;
+      this.userProfile.value.image = this.file;
+
     };
   }
 }

@@ -52,9 +52,16 @@ export class usersService {
 
   //edit-users 
   editUser(item:any){
-    this.idTranssform.next(item);
+    this.idTranssform.next(item);  
+  }
+
+  //update-users
+  updateUser(item:users){
+    console.log(item);
+    console.log(item.id)
+    this.usersDoc = this.firestore.doc(`users/${item.id}`);
+    this.usersDoc.update(item);
+    console.log(item)
   }
 
 }
-
-

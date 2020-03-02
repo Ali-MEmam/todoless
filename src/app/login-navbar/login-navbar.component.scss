@@ -6,13 +6,13 @@
     background-color:#ffffff;
     &-container{
         &__brand{
-            color: $lightBlue;
+            color:$lightBlue;
             font-weight: $bold;
             font-size: 35px;
             margin-right: 5rem;
             span{
                 font-weight: $regular;
-                color: $orange;
+                color: $green;
             }
         }
         &__collapse-links{
@@ -26,20 +26,20 @@
             transition: all 0.2s ease-in-out;
             padding: 15px;
             &:hover{
-                color:$orange;
+                color:$green;
             }
         }
         a.nav-link.register{
             color:$white;
-            background-color: $orange;
+            background-color: $green;
             border-radius: 15px 0px 0px 15px;
             padding: 1.5rem 2rem 1.5rem 2rem;
             position: absolute;
             right: -10px;
             margin: 0;
             &:hover{
-                color:$orange;
-                border: 2px solid $orange;
+                color:$green;
+                border: 2px solid $green;
                 background-color: $white;
                 padding: 1.5rem 7rem 1.5rem 2rem;
 
@@ -62,7 +62,7 @@
         }
         .nav-link.register{
             color:$white;
-            background-color: $orange;
+            background-color: $green;
             border-radius:0;
             padding: 0;
             position: relative;

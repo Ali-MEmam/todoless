@@ -7,9 +7,10 @@ export interface users{
     password?:any;
     phone?:any;
     friends?:any;
-    friendrequest?:any;
+    friendsRequest?:any;
     projects?:any;
     tasks?:any;
     comments?:any;
-    rate?:any;
+    starts?:any;
+    bio?:any;
 }

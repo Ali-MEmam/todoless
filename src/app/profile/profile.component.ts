@@ -14,6 +14,8 @@ import { AccountInfoService } from '../account-info.service';
 })
 export class ProfileComponent implements OnInit {
 
+  // *************************************** start  vars ***************************************//
+
 
 
 /* -------------------------------------------------------------------------- */
@@ -37,11 +39,11 @@ export class ProfileComponent implements OnInit {
   fileSrc: string | ArrayBuffer;
   file: any;
   profile: users;
-  UserInLocalStorage;
-  currentUser;
+
   sum: number;
   avgStars = 1;
   userSum = 0;
+  
 
 /* -------------------------------------------------------------------------- */
 /*                                    Chart                                   */
@@ -77,22 +79,25 @@ public pieChartColors = [
 /*                                  Comments                                  */
 /* -------------------------------------------------------------------------- */
 
-  usersComments = [];
-  currentUserProfile = {
-    name: 'Nada Yousry',
-    title: 'Front-End Developer',
-    image: '',
-    starts: '',
-    email: 'nadayousry@gmail.com',
-    comments: '',
-    bio: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos libero iusto illum fugit ab cumperspiciatis ipsa corporis aut rerum maxime porro officia ut? Corporis aliquam error porro omnis quas.'
-  }
 
+  // currentUserProfile:users;
+  usersComments = [];
+  UserInLocalStorage;
+  currentUser:users;
 /* -------------------------------------------------------------------------- */
 /*                             NgOnInit LifeCycle                             */
 /* -------------------------------------------------------------------------- */
 
+
+
+
+  // *************************************** start form ***************************************//
   ngOnInit() {
+    this.loged.userloged.subscribe(UserInfo =>{
+      this.currentUser = UserInfo
+    })
+
+
     this.fileSrc = "../../assets/imgs/users/default-user-image-300x300.png";
     this.userComment = this.f.group({
       img: '../assets/imgs/users/default-user-image-300x300.png',
@@ -101,22 +106,12 @@ public pieChartColors = [
       rate: 0
     });
     this.userProfile = this.f.group({
-      name: 'Nada Yousry',
-      title: 'Front-End Developer',
+    
       image: '',
-      starts: '',
-      email: '',
-      bio: '',
-      comments: '',
+     
     });
 
-/* -------------------------------------------------------------------------- */
-/*                                Current User                                */
-/* -------------------------------------------------------------------------- */
-this.loged.userloged.subscribe(UserInfo =>{
-  this.currentUser = UserInfo
-}
-)
+    
   }
 
   onSubmit(form: FormGroup) {
@@ -124,17 +119,20 @@ this.loged.userloged.subscribe(UserInfo =>{
       this.sum = 0;
       this.userComment.value.rate = this.rating //initialize rating on form submit 
       this.usersComments.push(this.userComment.value);
-      console.log(this.userComment.value);
-      console.log(this.usersComments);
+     
       console.log("valid");
+      this.currentUser.comments = this.usersComments;
+
       //calc avg
       for (let i = 0; i < this.usersComments.length; i++) {
         this.sum += this.usersComments[i].rate;
         this.avgStars = this.sum / this.usersComments.length;
-        
+        this.currentUser.starts = this.avgStars;
       }
-      console.log(this.avgStars);
+      console.log(this.currentUser)
+
     }
+
 
     // ************* start border coloring ***************//
 
@@ -145,7 +143,6 @@ this.loged.userloged.subscribe(UserInfo =>{
 
     // ************* end border coloring ***************//
 
-
   }
   // *************************************** end form ***************************************//
 
@@ -154,35 +151,34 @@ this.loged.userloged.subscribe(UserInfo =>{
 
 
   // *************************************** start edit profile data*****************************************//
-  onEditClick(event, textArea, bioParagraph, saveDataBtn) {
+  onEditClick(event, textArea, bioParagraph, titleTextArea, titleEdit, saveDataBtn) {
     event.target.style.display = "none";
     textArea.style.display = 'block';
     bioParagraph.style.display = 'none';
-    saveDataBtn.style.display = 'inline-block';
-
-  }
-  // *************************************** end edit profile data*****************************************//
-
-  onEditTitleClick(event, titleTextArea, titleEdit,saveDataBtn) {
-    event.target.style.display = "none";
     titleTextArea.style.display = 'block';
     titleEdit.style.display = 'none';
-    saveDataBtn.style.display = "inline-block";
-
+    saveDataBtn.style.display = 'inline-block';
   }
+  // ************* end edit profile data***************//
+
+
 
 
   // *************************************** start save profile data*****************************************//
-  onSaveClick(event, textArea, bioParagraph, editDataBtn, titleTextArea, titleEdit,titleEditDataBtn) {
-    event.target.style.display = "none";
-    textArea.style.display = 'none';
-    bioParagraph.style.display = 'block';
-    titleTextArea.style.display = 'none';
-    titleEdit.style.display = 'block';
-    editDataBtn.style.display = "inline-block";
-    titleEditDataBtn.style.display = "inline-block";
-    this.currentUserProfile.bio = textArea.value;
-    this.currentUserProfile.title = titleTextArea.value;
+    onSaveClick(event, textArea, bioParagraph, editDataBtn, titleTextArea, titleEdit) {
+      console.log(this.currentUser)
+
+      event.target.style.display = "none";
+      textArea.style.display = 'none';
+      bioParagraph.style.display = 'block';
+      titleTextArea.style.display = 'none';
+      titleEdit.style.display = 'block';
+      editDataBtn.style.display = "inline-block";
+      this.currentUser.bio = textArea.value;
+      this.currentUser.title = titleTextArea.value;
+      localStorage.setItem("currentUser",JSON.stringify(this.currentUser))
+      this.usersService.updateUser(this.currentUser);
+      this.loged.getAccount()
   }
   // *************************************** end save profile data*****************************************//
 
@@ -190,9 +186,7 @@ this.loged.userloged.subscribe(UserInfo =>{
 
 
 
-/* -------------------------------------------------------------------------- */
-/*                                    Rate                                    */
-/* -------------------------------------------------------------------------- */
+  // *************************************** start star rating ***************************************//
 
   stars = [1, 2, 3, 4, 5];
   rating = 1;
@@ -238,7 +232,10 @@ this.loged.userloged.subscribe(UserInfo =>{
       // console.log(this.file)
       // this.users.value.attachment = this.file;
       // console.log(this.projectForm.value.attachment) ;
-      this.userProfile.value.image = this.file;
+      this.currentUser.image = this.file;
+      localStorage.setItem("currentUser",JSON.stringify(this.currentUser))
+      this.usersService.updateUser(this.currentUser);
+      this.loged.getAccount()
     };
     
   }

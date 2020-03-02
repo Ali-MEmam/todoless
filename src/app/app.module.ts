@@ -52,6 +52,7 @@ import { ProjectViewComponent } from './project-view/project-view.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
+import { StrangerProfileComponent } from './stranger-profile/stranger-profile.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
     CreateTaskComponent,
     TaskDetailsComponent,
     StarRatingComponent,
+    StrangerProfileComponent,
   ],
   imports: [
     

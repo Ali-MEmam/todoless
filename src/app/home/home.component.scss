@@ -14,7 +14,7 @@ p{
 }
 
 .about-background-image{
-    background-image: url("../../assets/img/right-green.png"),url("../../assets/img/left-blue.png");
+    background-image: url("../../assets/imgs/home/right-green.png"),url("../../assets/imgs/home/left-blue.png");
     background-repeat: no-repeat, no-repeat;
     background-position: right, left;
     background-position-y: 30%, 90%;
@@ -25,7 +25,7 @@ p{
 .home{
     background-color: #ffffff;
     &-header{
-        background-image: url('../../assets/img/hero.png');
+        background-image: url('../../assets/imgs/home/hero.png');
         background-position: top right;
         background-size: contain;
         background-repeat: no-repeat;
@@ -256,7 +256,7 @@ p{
     // --------------------Start Team-----------------
 
         &-team{
-            background-image: url("../../assets/img/left-green.png");
+            background-image: url("../../assets/imgs/home/left-green.png");
             background-repeat: no-repeat;
             background-position-y: bottom;
             background-position-x: -85px;

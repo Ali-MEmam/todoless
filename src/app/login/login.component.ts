@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   allUsers:users[]
   currentUser:users;
+  currentUserId;
 /* ----------------------- Specific Error Validationg ----------------------- */
 
   login:FormGroup;
@@ -43,7 +44,6 @@ export class LoginComponent implements OnInit {
     this.userData.getUser().subscribe(users => {
       this.allUsers = users;
       console.log(this.allUsers)
-
     })
 
     this.login = this.fb.group({
@@ -51,7 +51,6 @@ export class LoginComponent implements OnInit {
       password:['',[Validators.required]]
     })
   }
-
 
 /* ------------------------------- login info ------------------------------- */
 
@@ -64,7 +63,8 @@ export class LoginComponent implements OnInit {
         if(this.currentUser.password === loginInfo.value.password){
           localStorage.setItem('currentUser',JSON.stringify(this.currentUser))
           this.loged.getAccount()
-          this.router.navigate(['account',this.currentUser.id,'profile'])
+          
+          this.router.navigate(['account',JSON.parse(localStorage.getItem('currentUser')).id,'profile'])
         }else{
           this.emailOrUsername = false
           this.password = true

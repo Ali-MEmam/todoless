@@ -1,6 +1,5 @@
 <section class="profile">
   <div class="container">
-
     <div class="row">
       <section class="profile__info col-12 col-md-12 col-lg-6 ">
         <div class="row">
@@ -18,7 +17,9 @@
           <div class="col-9 profile__info-details">
             <div class="profile__info-details__personal">
               <h3>{{currentUser.name}}</h3>
-              <p>{{currentUser.title}}</p>
+              <button class="editData title" #titleEditDataBtn (click)="onEditTitleClick($event,titleTextArea ,titleEdit,saveDataBtn)">Edit<mat-icon>edit</mat-icon></button>
+              <p #titleEdit>{{currentUser.title}}</p>
+              <textarea #titleTextArea class="profile__info-details__Bio-textarea">{{currentUserProfile.title}}</textarea>
               <div class="row">
                 <a class ="col-6" href="mailto:mail1@example.com" target="_top">{{currentUser.email}}</a>
                 <div class="profile-info__details-rating col-6">
@@ -31,10 +32,11 @@
 
             </div>
             <div class="profile__info-details__Bio">
-              <h2>Bio : </h2>
-              <p>{{currentUser.bio}}
-              </p>
+              <h2>Bio : </h2><button class="editData" #editDataBtn (click)="onEditClick($event,textArea ,bioParagraph,saveDataBtn)">Edit<mat-icon>edit</mat-icon></button>
+              <p #bioParagraph>{{currentUser.bio}}</p>
+              <textarea #textArea class="profile__info-details__Bio-textarea">{{currentUser.bio}}</textarea>
             </div>
+            <button #saveDataBtn class="saveDataBtn btn btn-outline-success" (click)="onSaveClick($event,textArea ,bioParagraph,editDataBtn, titleTextArea, titleEdit,titleEditDataBtn)">Save</button>
           </div>
         </div>
       </section>

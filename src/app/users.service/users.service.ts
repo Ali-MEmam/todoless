@@ -19,6 +19,10 @@ export class usersService {
   private idTranssform =new BehaviorSubject("");
   currentId = this.idTranssform.asObservable();
 
+/* -------------------------------------------------------------------------- */
+/*                                 Constructor                                */
+/* -------------------------------------------------------------------------- */
+
   constructor(public firestore: AngularFirestore) {
     this.usersCollection = this.firestore.collection('users');
     this.users = this.usersCollection.snapshotChanges().pipe(map(changes => {

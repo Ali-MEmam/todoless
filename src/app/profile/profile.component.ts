@@ -37,9 +37,10 @@ export class ProfileComponent implements OnInit {
   fileSrc: string | ArrayBuffer;
   file: any;
   profile: users;
+  UserInLocalStorage;
   currentUser;
   sum: number;
-  avgStars = 0;
+  avgStars = 1;
   userSum = 0;
 
 /* -------------------------------------------------------------------------- */
@@ -77,20 +78,14 @@ public pieChartColors = [
 /* -------------------------------------------------------------------------- */
 
   usersComments = [];
-  editUserProfile = [
-    {
-      img: '',
-      name: '',
-      Bio: ''
-    }
-  ];
   currentUserProfile = {
     name: 'Nada Yousry',
     title: 'Front-End Developer',
     image: '',
     starts: '',
     email: 'nadayousry@gmail.com',
-    comments: ''
+    comments: '',
+    bio: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos libero iusto illum fugit ab cumperspiciatis ipsa corporis aut rerum maxime porro officia ut? Corporis aliquam error porro omnis quas.'
   }
 
 /* -------------------------------------------------------------------------- */
@@ -111,6 +106,7 @@ public pieChartColors = [
       image: '',
       starts: '',
       email: '',
+      bio: '',
       comments: '',
     });
 
@@ -135,9 +131,9 @@ this.loged.userloged.subscribe(UserInfo =>{
       for (let i = 0; i < this.usersComments.length; i++) {
         this.sum += this.usersComments[i].rate;
         this.avgStars = this.sum / this.usersComments.length;
-        console.log(this.usersComments[i].rate);
+        
       }
-
+      console.log(this.avgStars);
     }
 
     // ************* start border coloring ***************//
@@ -151,7 +147,47 @@ this.loged.userloged.subscribe(UserInfo =>{
 
 
   }
-  // ************* end form ***************//
+  // *************************************** end form ***************************************//
+
+
+
+
+
+  // *************************************** start edit profile data*****************************************//
+  onEditClick(event, textArea, bioParagraph, saveDataBtn) {
+    event.target.style.display = "none";
+    textArea.style.display = 'block';
+    bioParagraph.style.display = 'none';
+    saveDataBtn.style.display = 'inline-block';
+
+  }
+  // *************************************** end edit profile data*****************************************//
+
+  onEditTitleClick(event, titleTextArea, titleEdit,saveDataBtn) {
+    event.target.style.display = "none";
+    titleTextArea.style.display = 'block';
+    titleEdit.style.display = 'none';
+    saveDataBtn.style.display = "inline-block";
+
+  }
+
+
+  // *************************************** start save profile data*****************************************//
+  onSaveClick(event, textArea, bioParagraph, editDataBtn, titleTextArea, titleEdit,titleEditDataBtn) {
+    event.target.style.display = "none";
+    textArea.style.display = 'none';
+    bioParagraph.style.display = 'block';
+    titleTextArea.style.display = 'none';
+    titleEdit.style.display = 'block';
+    editDataBtn.style.display = "inline-block";
+    titleEditDataBtn.style.display = "inline-block";
+    this.currentUserProfile.bio = textArea.value;
+    this.currentUserProfile.title = titleTextArea.value;
+  }
+  // *************************************** end save profile data*****************************************//
+
+
+
 
 
 /* -------------------------------------------------------------------------- */
@@ -180,7 +216,7 @@ this.loged.userloged.subscribe(UserInfo =>{
   }
 
 
-  // ************* end star rating ***************//
+  // *************************************** end star rating ***************************************//
 
   readURL(event: any) {
     this.fileData = <File>event.target.files[0];

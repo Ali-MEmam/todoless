@@ -102,7 +102,8 @@ export class AllProjectsComponent implements OnInit {
 
     selectProject(event, project) {
         this.currentProject = project;
-        this.projectView.displayProject(project)
+        localStorage.setItem("currentProject",JSON.stringify(this.currentProject))
+        this.projectView.displayProject()
         this.ProjectsService.editProject(project);
         // console.log(this.projectId)
     }

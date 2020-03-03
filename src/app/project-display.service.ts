@@ -5,10 +5,10 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ProjectDisplayService {
-private projectSource = new BehaviorSubject('')
+private projectSource = new BehaviorSubject(JSON.parse(localStorage.getItem('currentProject')))
 currentProject = this.projectSource.asObservable()
   constructor() { }
-  displayProject(project){
-    this.projectSource.next(project)
+  displayProject(){
+    this.projectSource.next(JSON.parse(localStorage.getItem('currentProject')))
   }
 }

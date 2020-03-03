@@ -13,6 +13,5 @@ export class AccountInfoService {
   userloged = this.loginstatuts.asObservable()
   getAccount(){
     this.loginstatuts.next(JSON.parse(localStorage.getItem('currentUser')))
-    console.log(JSON.parse(localStorage.getItem('currentUser')))
   }
 }

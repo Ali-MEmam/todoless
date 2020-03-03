@@ -8,6 +8,7 @@ import {ProjectsService} from'../projects.service/projects.service';
 import {usersService} from'../users.service/users.service';
 import { DataSource } from '@angular/cdk/collections';
 import { ProjectDisplayService } from '../project-display.service';
+import { AccountInfoService } from '../account-info.service';
 
 
 
@@ -31,7 +32,8 @@ export class EditProjectComponent implements OnInit {
   constructor(private ProjectsService: ProjectsService,
     private fb: FormBuilder,
      private usersService : usersService,
-     private currentProject:ProjectDisplayService) { }
+     private currentProject:ProjectDisplayService,
+     private loged:AccountInfoService) { }
 
   ngOnInit() {
 
@@ -45,8 +47,8 @@ export class EditProjectComponent implements OnInit {
       name: [this.project.name, [Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
       privacy: [this.project.privacy, [Validators.required]],
       description: [this.project.description, [Validators.required]],
-      attachment: ['', [Validators.required]],
-      invitors: [this.project.invitors,[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
+      attachment: '',
+      invitors: [this.project.invitors,[ Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
       startDate: [this.project.startDate, [Validators.required]],
       endDate: [this.project.endDate, [Validators.required]]
     })
@@ -92,7 +94,10 @@ export class EditProjectComponent implements OnInit {
       this.editform.value.invitors = this.invitors;  */ 
       console.log("valid");
       console.log(this.editform.value);
+      localStorage.setItem('currentProject',JSON.stringify(this.editform.value))
       this.ProjectsService.createProject(this.editform.value);
+      console.log(this.editform.value)
+      this.loged.getAccount()
     } else {
       console.log("Not Vaild")
     }

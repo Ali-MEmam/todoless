@@ -169,7 +169,7 @@ onSubmit(form: FormGroup) {
 // *************************************** start star rating ***************************************//
 
 stars = [1, 2, 3, 4, 5];
-rating = 1;
+rating = 0;
 hoverState = 0;
 displayRate;
 onStarEnter(starId: number) {

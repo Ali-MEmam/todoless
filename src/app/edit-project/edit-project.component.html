@@ -36,16 +36,7 @@
     <input 
       type="text"
       matInput
-      [value]="project.invitors[0].email +' , ' + project.invitors[1]"
-      [matAutocomplete]="auto"/>
-    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-      <mat-option
-        *ngFor="let option of filteredOptions | async"
-        [value]="option"
-      >
-        {{ option.name }}
-      </mat-option>
-    </mat-autocomplete>
+      />
   </mat-form-field>
   <button mat-button class="save-edit btn-info">Save</button>
 </form >

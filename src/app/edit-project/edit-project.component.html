@@ -1,9 +1,13 @@
+<button [matDialogClose] class="close_modal btn"><mat-icon>clear</mat-icon></button>
 <h3 class="text-center h2">Edit Project</h3>
 <form  class="example-form" [formGroup]="editform" (ngSubmit)="editProject(editform)">
+  <!-- ----------------------------- Name Input -------------------------------->
   <mat-form-field  class="example-full-width">
     <mat-label>Project Name</mat-label>
-    <input  matInput [value]='project.name' />
+    <input  matInput [value]='project.name' formControlName="name" />
   </mat-form-field>
+
+  <!------------------------ project privacy  ------------------------>
   <mat-form-field class="example-full-width">
     <mat-label>Project Privacy</mat-label>
     <input  matInput [value]='project.privacy'/>
@@ -28,11 +32,11 @@
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <mat-label>{{ project.invitors[0].email}} + {{project.invitors[1]}} </mat-label>
+    <mat-label>Invitors</mat-label>
     <input 
       type="text"
       matInput
-      [formControl]="myControl"
+      [value]="project.invitors[0].email +' , ' + project.invitors[1]"
       [matAutocomplete]="auto"/>
     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
       <mat-option

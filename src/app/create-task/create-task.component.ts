@@ -49,14 +49,8 @@ file: any;
 
 
 myControl = new FormControl();
-options: User[] = [
- {name: 'Ali Emam'},
- {name: 'Mai Mohamed'},
- {name: 'Omnia Ahmed'},
- {name: 'Nada Yousry'},
- {name: 'Mohamed Elsaeid'}
-];
-filteredOptions: Observable<User[]>;
+assign: users[] = [];
+filteredOptions: Observable<users[]>;
   constructor(private f: FormBuilder, private TasksService: TasksService, private usersService:usersService) { }
 
   onSubmit(form:FormGroup) {
@@ -96,7 +90,7 @@ filteredOptions: Observable<User[]>;
 
   ngOnInit(): void {
     this.taskForm = this.f.group({
-      name: '',
+      name: ['',[Validators.required]],
       description: '',
       totalTime: '',
       personId: '',
@@ -109,30 +103,34 @@ filteredOptions: Observable<User[]>;
 
     // !!!!!!!!!!!!!!--------------- Get Users from firebase ---------------!!!!!!!!!!!!!!!!!
 
-    this.usersService.getUser().subscribe(items => {
-      this.users = items;
-      this.usersLength = items.length;
-    })
+    this.usersService.getUser().subscribe(items=>{
+      items.map((data: any)=>{
+        this.assign.push(data);
+      })
+      console.log(this.assign) 
+    })  
 
+    this.filteredOptions = this.myControl.valueChanges
+    .pipe(
+      startWith(''),
+      map(value => typeof value === 'string' ? value : value.email),
+      map(email => email ? this._filter(email) : this.assign.slice())
+    );
 
   }
-  displayFn(user: User): string {
-    return user && user.name ? user.name : '';
+  displayFn(user: users): string {
+    return user && user.email ? user.email : '';
   }
 
-  private _filter(name: string): User[] {
-    const filterValue = name.toLowerCase();
+  private _filter(email: string): users[] {
+    const filterValue = email.toLowerCase();
 
-    return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+    return this.assign.filter(option => option.email.toLowerCase().indexOf(filterValue) === 0);
   }
 
 
   // !!!!!!!!!!!!!!--------------- Select Id of UserInvited ---------------!!!!!!!!!!!!!!!!!
 
- /*  selectUser(event, item) {
-    this.invitors.push(item);
-    // console.log(this.invitors);
-  } */
 
   // !!!!!!!!!!!!!!--------------- Attachment image or text to string---------------!!!!!!!!!!!!!!!!!
 

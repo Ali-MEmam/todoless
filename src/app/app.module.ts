@@ -1,6 +1,5 @@
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import {MatSelectModule} from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -29,7 +28,6 @@ import { DeveloperContentComponent } from './developer-content/developer-content
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import {DragTimerComponent} from './drag-timer/drag-timer.component';
-
 import { MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -55,31 +53,13 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
-
     AsideDeveloperComponent,
-    DeveloperContentComponent,
-    TimerFormatPipe,
-    AdminPanelComponent,
     AllProjectsComponent,    
-    DragTimerComponent,
-    AdminPanelComponent,
+    DragTimerComponent,   
     DeveloperContentComponent,
-    TimerFormatPipe,   
-
     AdminPanelComponent,
-
-    DeveloperContentComponent,
-    TimerFormatPipe,
-    AdminPanelComponent,
-    LoginComponent,
-    DragTimerComponent, CreateProjectComponent,
-    DragTimerComponent, CreateProjectComponent, RegAnimationComponent,
-
-    DragTimerComponent, CreateProjectComponent, RegAnimationComponent,
-
     TimerFormatPipe,    
     LoginComponent,
-    DragTimerComponent,
     ProjectDetailsComponent,
     CreateProjectComponent,
     RegAnimationComponent,
@@ -87,7 +67,6 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
     OwnerContentComponent,
     SidebarComponent,
     FriendsComponent,
-
     LoginRegComponent,
     LoginNavbarComponent,
     ProfileComponent,
@@ -97,9 +76,7 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
     TaskDetailsComponent,
   ],
   imports: [
-    
     BrowserModule,
-    MatSelectModule,
     AppRoutingModule,
     DragDropModule,
     MatDialogModule,

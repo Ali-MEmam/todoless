@@ -1,6 +1,5 @@
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import {MatSelectModule} from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -61,12 +60,13 @@ import { StrangerProfileComponent } from './stranger-profile/stranger-profile.co
     SearchPipe,
     RegisterComponent,
     NavbarComponent,
-    AllProjectsComponent,       
+    AsideDeveloperComponent,
+    AllProjectsComponent,    
+    DragTimerComponent,   
     DeveloperContentComponent,
     AdminPanelComponent,
     TimerFormatPipe,    
     LoginComponent,
-    DragTimerComponent,
     ProjectDetailsComponent,
     RegAnimationComponent,
     EditProjectComponent,
@@ -91,9 +91,7 @@ import { StrangerProfileComponent } from './stranger-profile/stranger-profile.co
     StrangerProfileComponent,
   ],
   imports: [
-    
     BrowserModule,
-    MatSelectModule,
     AppRoutingModule,
     DragDropModule,
     MatDialogModule,

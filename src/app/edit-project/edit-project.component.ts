@@ -17,15 +17,19 @@ import { DataSource } from '@angular/cdk/collections';
 })
 export class EditProjectComponent implements OnInit {
   
-  constructor(private ProjectsService: ProjectsService,
-    private fb: FormBuilder,
-     private usersService : usersService) { }
+  
      editform: FormGroup;
-
+     projects: projects[];
+     users: users[];
   myControl = new FormControl();
   options: users[];
   filteredOptions: Observable<users[]>;
   project:projects;
+  assign: users[] = [];
+
+  constructor(private ProjectsService: ProjectsService,
+    private fb: FormBuilder,
+     private usersService : usersService) { }
 
   ngOnInit() {
 
@@ -33,14 +37,21 @@ export class EditProjectComponent implements OnInit {
       this.project = message;
      })
      this.editform = this.fb.group({
-      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
-      privacy: ['', [Validators.required]],
-      description: ['', [Validators.required]],
+      name: [this.project.name, [Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
+      privacy: [this.project.privacy, [Validators.required]],
+      description: [this.project.description, [Validators.required]],
       attachment: ['', [Validators.required]],
-      invitors: ['',[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
-      startDate: ['', [Validators.required]],
-      endDate: ['', [Validators.required]]
+      invitors: [this.project.invitors,[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
+      startDate: [this.project.startDate, [Validators.required]],
+      endDate: [this.project.endDate, [Validators.required]]
     })
+
+    this.usersService.getUser().subscribe(items=>{
+      items.map((data: any)=>{
+        this.assign.push(data);
+      })
+      console.log(this.assign) 
+    })  
 
     this.usersService.getUser().subscribe(items=>{
       this.options = items;
@@ -66,11 +77,20 @@ export class EditProjectComponent implements OnInit {
     const filterValue = name.toLowerCase();
     return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
   }
-  editProject(editform:FormGroup){
-    this.ProjectsService.editProject(this.project);
+  editProject(editform: FormGroup){
+    /* this.ProjectsService.editProject(this.editform);
     this.editform.value.id = this.project.id
+    console.log(this.editform.value) */
     console.log(this.editform.value)
-
+    if (editform.valid) {
+      /* this.invitors.push(this.editform.value.invitors);
+      this.editform.value.invitors = this.invitors;  */ 
+      console.log("valid");
+      console.log(this.editform.value);
+      this.ProjectsService.createProject(this.editform.value);
+    } else {
+      console.log("Not Vaild")
+    }
 
 
   }

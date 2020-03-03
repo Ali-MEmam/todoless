@@ -21,7 +21,6 @@ export class CreateNewProjectComponent implements OnInit {
    projectForm: FormGroup;
    projects: projects[];
    users: users[];
-   projectsLength;
    filterValue = "";
    usersLength;
    fileData: any;
@@ -30,9 +29,7 @@ export class CreateNewProjectComponent implements OnInit {
    invitors = [];
   
    myControl = new FormControl();
-  assign: users[] = [
-    
-  ];
+  assign: users[] = [];
   filteredOptions: Observable<users[]>;
 
 
@@ -44,18 +41,17 @@ export class CreateNewProjectComponent implements OnInit {
   ngOnInit() {
     this.ProjectsService.getProject().subscribe(items => {
       this.projects = items;
-      this.projectsLength = items.length;
       console.log(items)
     })
     
     this.projectForm = this.fb.group({
       name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
-      privacy: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      attachment: ['', [Validators.required]],
-      invitors: ['',[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
-      startDate: ['', [Validators.required]],
-      endDate: ['', [Validators.required]]
+      privacy: '',
+      description: '',
+      attachment: '',
+      invitors: ['',[Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
+      startDate: '',
+      endDate: ''
     })
 
     this.usersService.getUser().subscribe(items=>{

@@ -6,6 +6,7 @@ import { Label } from 'ng2-charts';
 import { RouterOutlet } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import { EditProjectComponent } from '../edit-project/edit-project.component';
+import { ProjectDisplayService } from '../project-display.service';
 
 @Component({
   selector: 'app-project-details',
@@ -22,7 +23,8 @@ export class ProjectDetailsComponent implements OnInit {
   project;
 
   /* ==================================== edit project popup ================================== */
-  constructor(public dialog: MatDialog, private ProjectsService:ProjectsService) { }
+  constructor(public dialog: MatDialog, private ProjectsService:ProjectsService,
+    private projectView:ProjectDisplayService) { }
   openDialog() {
     const dialogRef = this.dialog.open(EditProjectComponent);
     
@@ -58,9 +60,12 @@ public pieChartColors = [
 ];
   
   ngOnInit(): void {
- this.ProjectsService.currentId.subscribe((message: any) => {
-     console.log(message)
-     this.project = message;
+    // this.ProjectsService.currentId.subscribe((message: any) => {
+    //  console.log(message)
+    //  this.project = message;
+    // })
+    this.projectView.currentProject.subscribe(arg =>{
+      this.project = arg
     })
   }
 

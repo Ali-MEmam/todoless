@@ -6,6 +6,7 @@ import { projects } from '../modals/projects';
 import { ProjectsService } from '../projects.service/projects.service';
 import { CreateNewProjectComponent } from '../create-new-project/create-new-project.component';
 import { AccountInfoService } from '../account-info.service';
+import { ProjectDisplayService } from '../project-display.service';
 @Component({
     selector: 'app-all-projects',
     templateUrl: './all-projects.component.html',
@@ -22,13 +23,14 @@ export class AllProjectsComponent implements OnInit {
     projectId: any;
     currentUser;
     userProject:projects[];
-
+    currentProject;
 /* -------------------------------------------------------------------------- */
 /*                                 constructor                                */
 /* -------------------------------------------------------------------------- */
 
     constructor(private ProjectsService: ProjectsService, public dialog: MatDialog,
-        private loged:AccountInfoService) { }
+        private loged:AccountInfoService,
+        private projectView:ProjectDisplayService) { }
 
 /* -------------------------------------------------------------------------- */
 /*                             ngOnInit life Cycle                            */
@@ -99,9 +101,10 @@ export class AllProjectsComponent implements OnInit {
 /* -------------------------------------------------------------------------- */
 
     selectProject(event, project) {
-        this.projectId = project.id;
+        this.currentProject = project;
+        this.projectView.displayProject(project)
         this.ProjectsService.editProject(project);
-        console.log(this.projectId)
+        // console.log(this.projectId)
     }
 
 /* -------------------------------------------------------------------------- */

@@ -114,7 +114,6 @@ this.strangeProfile.vistedprofile.subscribe(UserInfo =>{
    
   });
 
-  
 }
 
 onSubmit(form: FormGroup) {

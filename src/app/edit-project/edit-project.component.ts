@@ -7,6 +7,7 @@ import {map, startWith} from 'rxjs/operators';
 import {ProjectsService} from'../projects.service/projects.service';
 import {usersService} from'../users.service/users.service';
 import { DataSource } from '@angular/cdk/collections';
+import { ProjectDisplayService } from '../project-display.service';
 
 
 
@@ -29,12 +30,16 @@ export class EditProjectComponent implements OnInit {
 
   constructor(private ProjectsService: ProjectsService,
     private fb: FormBuilder,
-     private usersService : usersService) { }
+     private usersService : usersService,
+     private currentProject:ProjectDisplayService) { }
 
   ngOnInit() {
 
-    this.ProjectsService.currentId.subscribe((message: any) => {
-      this.project = message;
+    // this.ProjectsService.currentId.subscribe((message: any) => {
+    //   this.project = message;
+    //  })
+     this.currentProject.currentProject.subscribe(arg =>{
+      this.project = arg
      })
      this.editform = this.fb.group({
       name: [this.project.name, [Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],

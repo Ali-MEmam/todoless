@@ -42,13 +42,13 @@
             <div class="row contentBox" *ngFor='let user of usersComments'>
               <div class="profile__comments-comment__user-img col-1">
                 <figure>
-                  <img [src]="usersComments[0].img" alt="">
+                  <img [src]="currentUser.img" alt="">
                 </figure>
               </div>
               <div class="profile__comments-comment__text col-9">
-                <h4>{{user.name}}</h4>
-                <p>{{user.title}}</p>
-                <p>{{user.comment}}</p>
+                <h4>{{currentUser.name}}</h4>
+                <p>{{currentUser.title}}</p>
+                <p>{{currentUser.comment}}</p>
               </div>
               <div class="profile__comments-comment__text col-2">
                 <div class="hovering-data">rating : {{rating}}</div>

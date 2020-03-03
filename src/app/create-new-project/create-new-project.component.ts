@@ -7,6 +7,7 @@ import { users } from '../modals/users';
 import { usersService } from '../users.service/users.service';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { AccountInfoService } from '../account-info.service';
 
 
 @Component({
@@ -31,19 +32,22 @@ export class CreateNewProjectComponent implements OnInit {
    myControl = new FormControl();
   assign: users[] = [];
   filteredOptions: Observable<users[]>;
-
+  currentUser;
 
 
   constructor(private ProjectsService: ProjectsService,
     private fb: FormBuilder,
-    private usersService: usersService) { }
+    private usersService: usersService,
+    private loged:AccountInfoService) { }
 
   ngOnInit() {
     this.ProjectsService.getProject().subscribe(items => {
       this.projects = items;
       console.log(items)
     })
-    
+    this.loged.userloged.subscribe(arg =>{
+      this.currentUser = arg
+    })
     this.projectForm = this.fb.group({
       name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
       privacy: '',
@@ -87,7 +91,7 @@ export class CreateNewProjectComponent implements OnInit {
   // !!!!!!!!!!!!!!--------------- Select Id of UserInvited ---------------!!!!!!!!!!!!!!!!!
 
   selectUser(event, item) {
-    this.invitors.push(item);
+    this.invitors.push(item.email);
     console.log(item);
   }
 
@@ -120,10 +124,17 @@ export class CreateNewProjectComponent implements OnInit {
   createProject(projectForm: FormGroup) {
     if (projectForm.valid) {
       this.invitors.push(this.projectForm.value.invitors);
+      this.invitors.push(this.currentUser.email)
+
       this.projectForm.value.invitors = this.invitors;  
       console.log("valid");
       console.log(this.projectForm.value);
       this.ProjectsService.createProject(this.projectForm.value);
+      // for(var i = 0 ; i < this.projects.length ; i++){
+      //   if(this.projects[i].name === this.projectForm.value.name){
+      //     console.log(this.projects[i].id)
+      //   }
+      // }
     } else {
       console.log("Not Vaild")
     }

@@ -7,8 +7,7 @@
         <div class="container">
           <div class="row" cdkDropListGroup>
             <div class="col developer-content__status">
-              <h2 class="text-center developer-content__status-head"
-              data-step="1" data-intro="pending tasks" data-position='right'>Pending</h2>
+              <h2 class="text-center developer-content__status-head">Pending</h2>
               <div class="developer-content__status-list" cdkDropList [cdkDropListData]="todo"
                 (cdkDropListDropped)="drop($event)" cdkDropList="disable">
                 <div class=" developer-content__status-task" *ngFor="let item of todo" cdkDrag
@@ -30,8 +29,7 @@
               </div>
             </div>
             <div class=" col developer-content__status">
-              <h2 class="text-center  developer-content__status-head"
-              data-step="2" data-intro="working on tasks" data-position='right'>working On</h2>
+              <h2 class="text-center  developer-content__status-head">working On</h2>
               <div class="parent-status" cdkDropList [cdkDropListData]="workingOn" class="example-list"
                 (cdkDropListDropped)="drop($event)">
                 <div class=" developer-content__status-task" *ngFor="let item of workingOn" cdkDrag>
@@ -52,8 +50,7 @@
               </div>
             </div>
             <div class="col developer-content__status">
-              <h2 class="text-center  developer-content__status-head "
-              data-step="3" data-intro="finished tasks" data-position='right'>Finished</h2>
+              <h2 class="text-center  developer-content__status-head ">Finished</h2>
               <div class="developer-content__status-list" cdkDropList [cdkDropListData]="finished" class="example-list"
                 (cdkDropListDropped)="drop($event)">
                 <div class=" developer-content__status-task " *ngFor="let item of finished" cdkDrag>

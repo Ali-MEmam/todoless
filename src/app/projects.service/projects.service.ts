@@ -36,6 +36,7 @@ export class ProjectsService {
     return this.firestore.collection('projects').add(item);
   }
 
+
   //get-projects
   getProject() {
     return this.firestore.collection('projects').valueChanges({idField:'id'});
@@ -50,13 +51,14 @@ export class ProjectsService {
   //edit-projects
   editProject(item:any){
     this.idTranssform.next(item);
+    // console.log(item)
   }
 
   //update-Projcts
   updateProject(item:projects){
     this.projectsDoc = this.firestore.doc(`projects/${item.id}`);
     this.projectsDoc.update(item);
-    console.log(item)
+    // console.log(item)
   }
 }
 

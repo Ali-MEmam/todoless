@@ -43,8 +43,8 @@ export class AllProjectsComponent implements OnInit {
         this.ProjectsService.getProject().subscribe((project: any) => {
             let userProjects = [];
             for(let i = 0 ; i < project.length ; i++){
-                for(let j = 0 ; j < this.currentUser.project.length ; j++){
-                    if(project[i].id === this.currentUser.project[j]){
+                for(let j = 0 ; j < project[i].invitors.length ; j++){
+                    if(project[i].invitors[j] === this.currentUser.email){
                         console.log(project[i])
                         userProjects.push(project[i])
                     }
@@ -53,7 +53,7 @@ export class AllProjectsComponent implements OnInit {
             this.userProject = userProjects
             this.projects = project;
             console.log(this.projects)
-            console.log(this.userProject)
+            // console.log(this.userProject)
         })
      
     }

@@ -46,6 +46,8 @@ usersLength;
 filedate: any;
 fileSrc: string | ArrayBuffer;
 file: any;
+assignTo=[];
+users:users[];
 
 
 myControl = new FormControl();
@@ -55,22 +57,17 @@ filteredOptions: Observable<users[]>;
 
   onSubmit(form:FormGroup) {
     if (form.valid){
-      this.taskForm.value.attachment = this.file;
+      // this.taskForm.value.attachment = this.file;
       this.assignTo.push(this.taskForm.value.assignTo);
       this.taskForm.value.assignTo = this.assignTo;  
       this.taskForm.value.status = 'pending'
       console.log("valid");
       console.log(this.taskForm.value);
       this.TasksService.createTasks(this.taskForm.value);
-      /* this.item.name = this.item.descrption = 
-      this.item.time =this.item.startDate =this.item.employeeId =
-      this.item.deadLine = ""; 
-      this.item.status ='';*/
     }
   }
 
-  assignTo=[];
-  users:users[];
+ 
   selectUser(event, item) {
     this.assignTo.push(item.id);
     console.log(this.assignTo)

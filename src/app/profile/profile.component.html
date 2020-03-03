@@ -1,15 +1,15 @@
 <section class="profile">
   <div class="container">
-
     <div class="row">
       <section class="profile__info col-12 col-md-12 col-lg-6 ">
         <div class="row">
           <div class="col-3 profile__info-img">
             <figure class="rounded-circle">
-              <img id="imagePreview" [src]="fileSrc" style="width: 100%; " />
-              <form [formGroup]='userProfile' class=" profile_info-img_form">
+              <img class="img-full" *ngIf="!currentUser.image" src='../../assets/imgs/friends/friend.png' style="width: 100%; height: 100%;">
+              <img id="imagePreview" *ngIf="currentUser.image" [src]="currentUser.image" style="width: 100%; height: 100%;" />
+              <form [formGroup]='userProfile' class=" profile__info-img__form">
                 <label class="attach-file">
-                  <input class=" profile_info-img_form-input" type="file" id="imageUpload" formControlName='image' (change)="readURL($event)" />
+                  <input class=" profile__info-img__form-input" type="file" id="imageUpload" formControlName='image' (change)="readURL($event)" />
                   <mat-icon>camera_alt</mat-icon><span>Upload Img</span>
                 </label>
               </form>
@@ -18,11 +18,11 @@
           <div class="col-9 profile__info-details">
             <button class="editData" #editDataBtn (click)="onEditClick($event,textArea ,bioParagraph,titleTextArea ,titleEdit,saveDataBtn)">Edit<mat-icon>edit</mat-icon></button>
             <div class="profile_info-details_personal">
-              <h3>{{currentUserProfile.name}}</h3>
-              <p #titleEdit>{{currentUserProfile.title}}</p>
-              <textarea #titleTextArea class="profile_info-details_Bio-textarea">{{currentUserProfile.title}}</textarea>
+              <h3>{{currentUser.name}}</h3>
+              <p #titleEdit>{{currentUser.title}}</p>
+              <textarea #titleTextArea class="profile_info-details_Bio-textarea">{{currentUser.title}}</textarea>
               <div class="row">
-                <a class ="col-6" href="mailto:mail1@example.com" target="_top">{{currentUserProfile.email}}</a>
+                <a class ="col-6" href="mailto:mail1@example.com" target="_top">{{currentUser.email}}</a>
                 <div class="profile-info__details-rating col-6">
                   <ng-container *ngFor="let star of stars">
                     <app-star-rating [starId]="star" [rating]="avgStars">
@@ -34,32 +34,34 @@
             </div>
             <div class="profile_info-details_Bio">
               <h2>Bio : </h2>
-              <p #bioParagraph>{{currentUserProfile.bio}}</p>
-              <textarea #textArea class="profile_info-details_Bio-textarea">{{currentUserProfile.bio}}</textarea>
+              <p #bioParagraph>{{currentUser.bio}}</p>
+              <textarea #textArea class="profile_info-details_Bio-textarea">{{currentUser.bio}}</textarea>
             </div>
             <button #saveDataBtn class="saveDataBtn btn btn-outline-success" (click)="onSaveClick($event, textArea, bioParagraph, editDataBtn, titleTextArea, titleEdit)">Save</button>
           </div>
         </div>
       </section>
       <section class="profile__chart col-12 col-md-12 col-lg-5  ml-auto">
-        <!-- <app-all-projects></app-all-projects> -->
-      </section>
+        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+        [options]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
+      </canvas>
+        </section>
     </div>
     <section class="row comments-parent">
       <div class="profile__comments col-12 " #created>
         <div class="profile__comments-comment  col-12 pb-5 pt-5">
-          <div class="row" *ngFor='let user of usersComments'>
-            <div class="profile_comments-comment_user-img col-1">
+          <div class="row contentBox" *ngFor='let user of usersComments'>
+            <div class="profile__comments-comment__user-img col-1">
               <figure>
                 <img [src]="usersComments[0].img" alt="">
               </figure>
             </div>
-            <div class="profile_comments-comment_text col-9">
+            <div class="profile__comments-comment__text col-9">
               <h4>{{user.name}}</h4>
               <p>{{user.title}}</p>
               <p>{{user.comment}}</p>
             </div>
-            <div class="profile_comments-comment_text col-2">
+            <div class="profile__comments-comment__text col-2">
               <div class="hovering-data">rating : {{rating}}</div>
               <ng-container *ngFor="let star of stars">
                 <app-star-rating [starId]="star" [rating]="user.rate">
@@ -70,7 +72,7 @@
 
         </div>
       </div>
-      <div class="col-12 comments-parent__formContainer">
+      <!-- <div class="col-12 comments-parent__formContainer">
         <form class="comments-parent__formContainer-form" [formGroup]='userComment' (ngSubmit)='onSubmit(userComment)'>
           <textarea formControlName="comment" valid placeholder="Type Your Comment Here ... "></textarea>
           <section class="rate-and-sumbit">
@@ -80,11 +82,11 @@
                 (starClicked)='onStarClicked($event,dataHovering)' [starId]="star" [rating]="hoverState || rating">
               </app-star-rating>
             </ng-container>
-            <button [disabled]="userComment.invalid" type="submit" name="submit">send</button>
+            <button [disabled]="userComment.invalid" type="submit" class="btn-send" name="submit">send</button>
 
           </section>
         </form>
-      </div>
+      </div> -->
 
     </section>
 

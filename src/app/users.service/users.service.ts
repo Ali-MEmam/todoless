@@ -19,6 +19,9 @@ export class usersService {
   private idTranssform =new BehaviorSubject("");
   currentId = this.idTranssform.asObservable();
 
+/* -------------------------------------------------------------------------- */
+/*                                 Constructor                                */
+/* -------------------------------------------------------------------------- */
 
   constructor(public firestore: AngularFirestore) {
     this.usersCollection = this.firestore.collection('users');
@@ -54,6 +57,8 @@ export class usersService {
 
   //update-users
   updateUser(item:users){
+    console.log(item);
+    console.log(item.id)
     this.usersDoc = this.firestore.doc(`users/${item.id}`);
     this.usersDoc.update(item);
     console.log(item)

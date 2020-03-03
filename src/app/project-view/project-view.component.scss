@@ -1,5 +1,6 @@
 @import '../ourVariables.scss';
 .container{
+    margin-top: 40px;
     .projects-nav{
         padding-left: 3.4rem;
         padding-right: 3.4rem;
@@ -30,4 +31,26 @@
         }
         
     }
+}
+.btn-group:active,.btn-group:focus{
+    outline: none;
+    box-shadow: none
+
+}
+
+.project-details-btn:active,.project-details-btn:focus
+{
+    outline: none !important;
+    box-shadow: none
+
+}
+.project-flow-btn:active,.project-flow-btn:focus
+{
+    outline: none !important;
+    box-shadow: none
+
+}
+.project-active:focus{
+    outline: none !important;
+    box-shadow: none
 }

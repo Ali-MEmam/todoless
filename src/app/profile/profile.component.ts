@@ -3,6 +3,9 @@ import { NgForm, Validators, FormControl } from '@angular/forms';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { usersService } from "../users.service/users.service";
 import { users } from '../modals/users';
+import { Label } from 'ng2-charts';
+import { ChartOptions, ChartType } from 'chart.js';
+import { AccountInfoService } from '../account-info.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,12 +15,25 @@ import { users } from '../modals/users';
 export class ProfileComponent implements OnInit {
 
   // *************************************** start  vars ***************************************//
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 Constructor                                */
+/* -------------------------------------------------------------------------- */
+
   constructor(private f: FormBuilder,
-    private usersService: usersService) { }
+    private usersService: usersService,
+    private loged:AccountInfoService) { }
+
+/* -------------------------------------------------------------------------- */
+/*                                  Variable                                  */
+/* -------------------------------------------------------------------------- */
+
   userComment: FormGroup;
   userProfile: FormGroup;
   colors;
-  borderLeft;
+  borderLeft;s
   randomColor;
   fileData: any;
   fileSrc: string | ArrayBuffer;
@@ -27,26 +43,61 @@ export class ProfileComponent implements OnInit {
   sum: number;
   avgStars = 1;
   userSum = 0;
-
-  usersComments = [];
-  currentUserProfile:users;
   
 
-  // *************************************** end  vars ***************************************//
+/* -------------------------------------------------------------------------- */
+/*                                    Chart                                   */
+/* -------------------------------------------------------------------------- */
 
+public pieChartOptions: ChartOptions = {
+  responsive: true,
+  legend: {
+      position: 'right',
+                  
+  },
+  plugins: {
+      datalabels: {
+          formatter: (value, ctx) => {
+              const label = ctx.chart.data.labels[ctx.dataIndex];
+              return label;
+          },
+      },
+  }
+};
+public pieChartLabels: Label[] = ['pending tasks', 'bonus', 'delay'];
+public pieChartData: number[] = [300, 500, 100];
+public pieChartType: ChartType = 'pie';
+public pieChartLegend = true;
+public pieChartColors = [
+  {
+      backgroundColor: ['rgba(247,149,99,1)', 'rgba(0,171,178,1)', 'rgba(216,70,114,1)'],
+  },
+];
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  Comments                                  */
+/* -------------------------------------------------------------------------- */
+
+
+  // currentUserProfile:users;
+  usersComments = [];
+  UserInLocalStorage;
+  currentUser:users;
+/* -------------------------------------------------------------------------- */
+/*                             NgOnInit LifeCycle                             */
+/* -------------------------------------------------------------------------- */
 
 
 
 
   // *************************************** start form ***************************************//
   ngOnInit() {
-    this.usersService.getUser().subscribe(items => {
-      console.log(items);
-      this.currentUserProfile = items[2];
-      console.log(this.currentUserProfile)
-
+    this.loged.userloged.subscribe(UserInfo =>{
+      this.currentUser = UserInfo
     })
-    
+
+
     this.fileSrc = "../../assets/imgs/users/default-user-image-300x300.png";
     this.userComment = this.f.group({
       img: '../assets/imgs/users/default-user-image-300x300.png',
@@ -70,15 +121,15 @@ export class ProfileComponent implements OnInit {
       this.usersComments.push(this.userComment.value);
      
       console.log("valid");
-      this.currentUserProfile.comments = this.usersComments;
+      this.currentUser.comments = this.usersComments;
 
       //calc avg
       for (let i = 0; i < this.usersComments.length; i++) {
         this.sum += this.usersComments[i].rate;
         this.avgStars = this.sum / this.usersComments.length;
-        this.currentUserProfile.starts = this.avgStars;
+        this.currentUser.starts = this.avgStars;
       }
-      console.log(this.currentUserProfile)
+      console.log(this.currentUser)
 
     }
 
@@ -115,17 +166,19 @@ export class ProfileComponent implements OnInit {
 
   // *************************************** start save profile data*****************************************//
     onSaveClick(event, textArea, bioParagraph, editDataBtn, titleTextArea, titleEdit) {
+      console.log(this.currentUser)
+
       event.target.style.display = "none";
       textArea.style.display = 'none';
       bioParagraph.style.display = 'block';
       titleTextArea.style.display = 'none';
       titleEdit.style.display = 'block';
       editDataBtn.style.display = "inline-block";
-      this.currentUserProfile.bio = textArea.value;
-      this.currentUserProfile.title = titleTextArea.value;
-      this.currentUserProfile.image = this.file;
-      console.log(this.currentUserProfile)
-
+      this.currentUser.bio = textArea.value;
+      this.currentUser.title = titleTextArea.value;
+      localStorage.setItem("currentUser",JSON.stringify(this.currentUser))
+      this.usersService.updateUser(this.currentUser);
+      this.loged.getAccount()
   }
   // *************************************** end save profile data*****************************************//
 
@@ -157,10 +210,6 @@ export class ProfileComponent implements OnInit {
   }
 
 
-
- 
-
-
   // *************************************** end star rating ***************************************//
 
   readURL(event: any) {
@@ -183,8 +232,12 @@ export class ProfileComponent implements OnInit {
       // console.log(this.file)
       // this.users.value.attachment = this.file;
       // console.log(this.projectForm.value.attachment) ;
-      this.userProfile.value.image = this.file;
-
+      this.currentUser.image = this.file;
+      localStorage.setItem("currentUser",JSON.stringify(this.currentUser))
+      this.usersService.updateUser(this.currentUser);
+      this.loged.getAccount()
     };
+    
   }
+  
 }

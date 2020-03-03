@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormGroup, Validators} from '@angular/forms';
 import {usersService} from './../users.service/users.service';
 import { users } from '../modals/users';
+import { Router } from '@angular/router';
+import { AccountInfoService } from '../account-info.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,17 +15,22 @@ export class LoginComponent implements OnInit {
 
   allUsers:users[]
   currentUser:users;
+  currentUserId;
 /* ----------------------- Specific Error Validationg ----------------------- */
 
   login:FormGroup;
   hide = true;
+  emailOrUsername:boolean;
+  password:boolean;
 /* -------------------------------------------------------------------------- */
 /*                                 Constructor                                */
 /* -------------------------------------------------------------------------- */
 
 
   constructor(private fb:FormBuilder,
-    private userData:usersService) { }
+    private userData:usersService,
+    private router:Router,
+    private loged:AccountInfoService) { }
 
 
 /* -------------------------------------------------------------------------- */
@@ -35,9 +42,9 @@ export class LoginComponent implements OnInit {
 /* -------------------- Looking for anychange in userData ------------------- */
 
     this.userData.getUser().subscribe(users => {
-      this.allUsers = users
+      this.allUsers = users;
+      console.log(this.allUsers)
     })
-
 
     this.login = this.fb.group({
       emailOrUsername:['',[Validators.required]],
@@ -45,9 +52,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
-
 /* ------------------------------- login info ------------------------------- */
-
 
   onLogin(loginInfo){
     if(this.login.valid){
@@ -56,11 +61,16 @@ export class LoginComponent implements OnInit {
       })
       if(this.currentUser){
         if(this.currentUser.password === loginInfo.value.password){
-          console.log("logined")
+          localStorage.setItem('currentUser',JSON.stringify(this.currentUser))
+          this.loged.getAccount()
+          this.router.navigate(['account',JSON.parse(localStorage.getItem('currentUser')).id,'profile'])
         }else{
+          this.emailOrUsername = false
+          this.password = true
           console.log("wrong password")
         }
       }else{
+        this.emailOrUsername = true
         console.log("This account doesn't exist")
       }
     }

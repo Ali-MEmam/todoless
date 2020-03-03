@@ -1,5 +1,6 @@
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import {MatSelectModule} from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -52,6 +53,7 @@ import { ProjectViewComponent } from './project-view/project-view.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
+import { StrangerProfileComponent } from './stranger-profile/stranger-profile.component';
 
 @NgModule({
   declarations: [
@@ -86,10 +88,12 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
     CreateTaskComponent,
     TaskDetailsComponent,
     StarRatingComponent,
+    StrangerProfileComponent,
   ],
   imports: [
     
     BrowserModule,
+    MatSelectModule,
     AppRoutingModule,
     DragDropModule,
     MatDialogModule,

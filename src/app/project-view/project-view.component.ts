@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountInfoService } from '../account-info.service';
+import { ProjectDisplayService } from '../project-display.service';
 
 @Component({
   selector: 'app-project-view',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectViewComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private loged:AccountInfoService,
+    private currentProjects:ProjectDisplayService) { }
+currentUser;
+currentproject;
   ngOnInit(): void {
+    this.loged.userloged.subscribe(arg=>{
+      this.currentUser = arg
+    })
+    this.currentProjects.currentProject.subscribe(arg =>{
+      this.currentproject = arg
+    })
   }
 
 }

@@ -8,10 +8,7 @@ export interface users{
     phone?:any;
     friends?:any;
     friendsRequest?:any;
-    projects?:[{
-        projectId?:any;
-        edit?:any
-    }];
+    projects?:any;
     tasks?:any;
     comments?:any;
     starts?:any;

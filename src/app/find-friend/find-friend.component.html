@@ -1,16 +1,16 @@
 <section class="request py-3">
  <div class="container">
-   <div class="request__content" *ngFor="let friend of friends">
+   <div class="request__content" *ngFor="let user of people">
      <div class="request__content-info">
        <div class="request__content-info-img">
          <img class="img-fluid" src="../../assets/imgs/friends/friend.png" alt="" />
        </div>
        <div class="request__content-info-name">
-         <p>{{friend.name}}</p>
+         <p>{{user.name}}</p>
        </div>
      </div>
      <div class="request__content-position">
-       <p>{{friend.title}}</p>
+       <p>{{user.title}}</p>
      </div>
      <div class="request__content-state">
        <button class="btn btn-info mx-2" (click)="addFriend($event,friend)">Add Friend</button>

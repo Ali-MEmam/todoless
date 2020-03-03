@@ -6,9 +6,7 @@
     </div>
   </section> -->
   <div class="row d-flex justify-content-end pr-4">
-    <button mat-button (click)="openDialog()" class="edit-project">
-      <mat-icon>create</mat-icon> Edit Project
-    </button>
+    <button mat-button (click)="openDialog()" class="edit-project"><mat-icon>create</mat-icon> Edit Project</button>
   </div>
 
   <section class="row project-details justify-content-between mb-5">
@@ -25,27 +23,27 @@
           </li>
           <li class="d-flex date-details row">
             <div class="col-6">
-              <span class="title h3">Start Date : </span>
-              <span class="data">{{ project.startDate | date:'shortDate' }}</span>
+              <span class="title h3" >Start Date : </span>
+              <span class="data">{{ project.startDate.seconds *1000 | date:'longDate' }}</span>
             </div>
             <div class="col-6">
               <span class="title h3">End Date : </span>
-              <span class="data">{{ project.endDate }}</span>
+              <span class="data">{{ project.endDate.seconds *1000 | date:'longDate' }}</span>
             </div>
           </li>
           <li>
             <span class="title h3 project-descrip-title">Project Description :</span>
             <blockquote>{{ project.description }}</blockquote>
           </li>
-
+          
         </ul>
       </div>
     </div>
     <div class="col-md-6">
       <div class="container">
-        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
-          [options]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
-        </canvas>
+          <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+            [options]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
+          </canvas>
       </div>
     </div>
   </section>
@@ -53,18 +51,10 @@
     <p class="h3 pl-4">Attachments</p>
     <div class="container attachments-wrapper d-flex align-items-center">
       <div class="attachmentItem">
-        <a href="../../assets/imgs/edit-project/pdfFile.png" download>
-          <img src="../../assets/imgs/edit-project/pdfFile.png" class="img-fluid" alt="pdf file">
-        </a>
-      </div>
-      <div class="attachmentItem">
-        <a href="../../assets/imgs/edit-project/Screenshot.png" download>
-          <img src="../../assets/imgs/edit-project/Screenshot.png" class="img-fluid" alt="code">
-        </a>
-      </div>
-      <div class="attachmentItem">
-        <a href="../../assets/imgs/edit-project/pdfFile.png" download>
-          <img src="../../assets/imgs/edit-project/pdfFile.png" class="img-fluid" alt="pdf file">
+        <a href="{{project.attachment}}" download> 
+          <i class="material-icons">
+            cloud_download
+            </i>
         </a>
       </div>
     </div>

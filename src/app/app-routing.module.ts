@@ -8,16 +8,26 @@ import { AccountComponent } from './account/account.component';
 import { AllProjectsComponent } from './all-projects/all-projects.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AllFriendsComponent } from './all-friends/all-friends.component';
+import { StrangerProfileComponent } from './stranger-profile/stranger-profile.component';
+import { ProjectViewComponent } from './project-view/project-view.component';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { DeveloperContentComponent } from './developer-content/developer-content.component';
 
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
   {path:'login', component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'account',component:AccountComponent,children:[
+  {path:'account/:id',component:AccountComponent,children:[
     {path:'friends',component:AllFriendsComponent},
     {path:'projects',component:AllProjectsComponent},
+    {path:'projects/:projectName',component:ProjectViewComponent,children:[
+        {path:'Details',component:ProjectDetailsComponent},
+        {path:'Flow',component:DeveloperContentComponent}
+      
+    ]},
     {path:'profile',component:ProfileComponent},
+    {path:'user/:name',component:StrangerProfileComponent}
   ]},
   {path:'timer',component:DragTimerComponent},
 ];

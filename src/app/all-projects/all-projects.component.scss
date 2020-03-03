@@ -43,7 +43,7 @@ all projects
     margin: 0 auto;
     margin-top: 50px;
     position: relative;
-    background-color: $white;
+    background-color: $pureLight;
     border-radius: 0 6px 6px 6px;
     -webkit-box-shadow: $boxShadow;
     -moz-box-shadow: $boxShadow;
@@ -59,7 +59,7 @@ all projects
       cursor: pointer;
       & mat-icon,
       & p {
-        color: $white;
+        color: $pureLight;
       }
 
       &:after {
@@ -83,7 +83,7 @@ all projects
 
     &:after {
       border-top-left-radius: 20px;
-      background-color: $white;
+      background-color: $pureLight;
       top: -12px;
       left: 0px;
     }
@@ -121,5 +121,9 @@ all projects
       }
     }
   }
+
+}
+.createNow:first-of-type::after{
+  background-color: $lightBlue;
 
 }

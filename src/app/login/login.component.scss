@@ -23,18 +23,13 @@
                 padding: 10px 30px;
                 font-size: 17px;
                 background-color: $lightBlue;
-                border-radius: $btnBorderRadius;
+                border-radius: $btnBorderRadius;     
                 box-shadow: $boxShadow;
                 margin-top: 25px;
                 border:none;
                 border: 1px solid $lightBlue;
 
                 &:hover{
-                // -webkit-border-radius: $btnBorderRadius;
-                // -moz-border-radius: $btnBorderRadius;
-                // -ms-border-radius: $btnBorderRadius;
-                // -o-border-radius: $btnBorderRadius;
-
                     color: $lightBlue;
                     background-color: $white;
                     border: 1px solid $lightBlue;
@@ -125,3 +120,20 @@
         }
     }
 } 
+.wrongData{
+    position: absolute;
+    right: 40px;
+    top: 0;
+    color: red;
+    font-size: 10px;
+}
+.wrongPassword{
+    position: absolute;
+    right: 20px;
+    top: 0;
+    color: red;
+    font-size: 10px;
+}
+.button-hide{
+    cursor: pointer;
+}

@@ -3,8 +3,11 @@
     <app-login-navbar></app-login-navbar>
     <section class="form container">
         <div class="row">
-            <!-- <app-reg-animation></app-reg-animation> -->
-            <form class="form-container col-lg-6 col-md-6 col-12 ml-auto" [formGroup]="register" (ngSubmit)="createAccount(register)">
+     
+            <form class="form-container col-lg-6 col-md-6 col-12 ml-auto"
+             [formGroup]="register" (ngSubmit)="createAccount(register)"
+             data-step="2" data-intro="Register form" data-position='right'
+             >
         <!-- ----------------------------- Name Input ------------------------------ -->
                 <div class="form-container__wrapper">
                     <div class="form-container__wrapper-input__field">

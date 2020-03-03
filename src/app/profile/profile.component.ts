@@ -14,136 +14,6 @@ import { AccountInfoService } from '../account-info.service';
 })
 export class ProfileComponent implements OnInit {
 
-<<<<<<< HEAD
-
-
-
-
-  // **************************** start  vars ******************************//
-  constructor(private f: FormBuilder,
-    private usersService: usersService,
-    private loged:AccountInfoService) { }
-  userComment: FormGroup;
-  userProfile: FormGroup;
-  colors;
-  borderLeft;s
-  randomColor;
-  fileData: any;
-  fileSrc: string | ArrayBuffer;
-  file: any;
-  profile: users;
-currentUser;
-  sum: number;
-  avgStars = 0;
-  userSum = 0;
-
-  // ************* end  vars ***************//
-
-
-/* ======================================= chart========================================== */
-public pieChartOptions: ChartOptions = {
-  responsive: true,
-  legend: {
-      position: 'right',
-                  
-  },
-  plugins: {
-      datalabels: {
-          formatter: (value, ctx) => {
-              const label = ctx.chart.data.labels[ctx.dataIndex];
-              return label;
-          },
-      },
-  }
-};
-public pieChartLabels: Label[] = ['pending tasks', 'bonus', 'delay'];
-public pieChartData: number[] = [300, 500, 100];
-public pieChartType: ChartType = 'pie';
-public pieChartLegend = true;
-public pieChartColors = [
-  {
-      backgroundColor: ['rgba(247,149,99,1)', 'rgba(0,171,178,1)', 'rgba(216,70,114,1)'],
-  },
-];
-
-
-
-  // ************* start form ***************//
-  usersComments = [];
-  editUserProfile = [
-    {
-      img: '',
-      name: '',
-      Bio: ''
-    }
-  ];
-  currentUserProfile = {
-    name: 'Nada Yousry',
-    title: 'Front-End Developer',
-    image: '',
-    starts: '',
-    email: 'nadayousry@gmail.com',
-    comments: ''
-  }
-  ngOnInit() {
-    this.fileSrc = "../../assets/imgs/users/default-user-image-300x300.png";
-    this.userComment = this.f.group({
-      img: '../assets/imgs/users/default-user-image-300x300.png',
-      name: 'nada',
-      comment: ['', [Validators.required]],
-      rate: 0
-    });
-    this.userProfile = this.f.group({
-      name: 'Nada Yousry',
-      title: 'Front-End Developer',
-      image: '',
-      starts: '',
-      email: '',
-      comments: '',
-    });
-
-/* -------------------------------------------------------------------------- */
-/*                                Current User                                */
-/* -------------------------------------------------------------------------- */
-this.loged.userloged.subscribe(UserInfo =>{
-  this.currentUser = UserInfo
-}
-)
-  }
-
-  onSubmit(form: FormGroup) {
-    if (form.valid) {
-      this.sum = 0;
-      this.userComment.value.rate = this.rating //initialize rating on form submit 
-      this.usersComments.push(this.userComment.value);
-      console.log(this.userComment.value);
-      console.log(this.usersComments);
-      console.log("valid");
-      //calc avg
-      for (let i = 0; i < this.usersComments.length; i++) {
-        this.sum += this.usersComments[i].rate;
-        this.avgStars = this.sum / this.usersComments.length;
-        console.log(this.usersComments[i].rate);
-      }
-
-    }
-
-    // ************* start border coloring ***************//
-
-    this.colors = ['#00ca5d', '#2ca6ef', '#192965'];
-    this.randomColor = Math.floor(Math.random() * 3);
-    // console.log(this.colors[this.randomColor]);
-    this.borderLeft = "3px solid" + this.colors[this.randomColor];
-
-    // ************* end border coloring ***************//
-
-
-  }
-  // ************* end form ***************//
-
-
-  // ************* start star rating ***************//
-=======
   // *************************************** start  vars ***************************************//
 
 
@@ -317,7 +187,6 @@ public pieChartColors = [
 
 
   // *************************************** start star rating ***************************************//
->>>>>>> blue
 
   stars = [1, 2, 3, 4, 5];
   rating = 1;
@@ -341,11 +210,7 @@ public pieChartColors = [
   }
 
 
-<<<<<<< HEAD
-  // ************* end star rating ***************//
-=======
   // *************************************** end star rating ***************************************//
->>>>>>> blue
 
   readURL(event: any) {
     this.fileData = <File>event.target.files[0];
@@ -367,14 +232,10 @@ public pieChartColors = [
       // console.log(this.file)
       // this.users.value.attachment = this.file;
       // console.log(this.projectForm.value.attachment) ;
-<<<<<<< HEAD
-      this.userProfile.value.image = this.file;
-=======
       this.currentUser.image = this.file;
       localStorage.setItem("currentUser",JSON.stringify(this.currentUser))
       this.usersService.updateUser(this.currentUser);
       this.loged.getAccount()
->>>>>>> blue
     };
     
   }

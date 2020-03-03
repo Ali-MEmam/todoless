@@ -68,17 +68,10 @@ filteredOptions: Observable<User[]>;
       console.log("valid");
       console.log(this.taskForm.value);
       this.TasksService.createTasks(this.taskForm.value);
-<<<<<<< HEAD
-      this.item.name = this.item.descrption = 
-      this.item.time =this.item.startDate =this.item.employeeId =
-      this.item.deadLine = "";
-      this.item.status ='';
-=======
       /* this.item.name = this.item.descrption = 
       this.item.time =this.item.startDate =this.item.employeeId =
       this.item.deadLine = ""; 
       this.item.status ='';*/
->>>>>>> blue
     }
   }
 

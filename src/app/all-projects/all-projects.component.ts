@@ -5,10 +5,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { projects } from '../modals/projects';
 import { ProjectsService } from '../projects.service/projects.service';
 import { CreateNewProjectComponent } from '../create-new-project/create-new-project.component';
-<<<<<<< HEAD
-=======
 import { AccountInfoService } from '../account-info.service';
->>>>>>> blue
 @Component({
     selector: 'app-all-projects',
     templateUrl: './all-projects.component.html',
@@ -23,9 +20,6 @@ export class AllProjectsComponent implements OnInit {
     projects: projects[];
     projectlength: number;
     projectId: any;
-<<<<<<< HEAD
-    constructor(private ProjectsService: ProjectsService, public dialog: MatDialog) { }
-=======
     currentUser;
     userProject:projects[];
 
@@ -40,7 +34,6 @@ export class AllProjectsComponent implements OnInit {
 /*                             ngOnInit life Cycle                            */
 /* -------------------------------------------------------------------------- */
 
->>>>>>> blue
     ngOnInit() {
         this.loged.userloged.subscribe(user =>
             this.currentUser = user)
@@ -71,20 +64,11 @@ export class AllProjectsComponent implements OnInit {
     this.ProjectsService.deleteProject(project);
     console.log(project)
     }
-<<<<<<< HEAD
-    
-  delete(event , project){
-    this.ProjectsService.deleteProject(project);
-    console.log(project)
-    }
-    //////////////////////////////////
-=======
 
 /* -------------------------------------------------------------------------- */
 /*                                    Chart                                   */
 /* -------------------------------------------------------------------------- */
 
->>>>>>> blue
     public pieChartOptions: ChartOptions = {
         responsive: true,
         legend: {
@@ -120,14 +104,10 @@ export class AllProjectsComponent implements OnInit {
         console.log(this.projectId)
     }
 
-<<<<<<< HEAD
-    /* ==================================== creat project popup ================================== */
-=======
 /* -------------------------------------------------------------------------- */
 /*                            Create Project PopUp                            */
 /* -------------------------------------------------------------------------- */
 
->>>>>>> blue
   openDialog() {
     const dialogRef = this.dialog.open(CreateNewProjectComponent);
     

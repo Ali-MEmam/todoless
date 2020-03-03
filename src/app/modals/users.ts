@@ -7,14 +7,6 @@ export interface users{
     password?:any;
     phone?:any;
     friends?:any;
-<<<<<<< HEAD
-    friendrequest?:any;
-    projects?:any;
-    tasks?:any;
-    comments?:any;
-    rate?:any;
-}
-=======
     friendsRequest?:any;
     projects?:any;
     tasks?:any;
@@ -22,4 +14,3 @@ export interface users{
     starts?:any;
     bio?:any;
 }
->>>>>>> blue

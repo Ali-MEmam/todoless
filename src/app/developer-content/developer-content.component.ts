@@ -6,13 +6,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { isNgTemplate } from '@angular/compiler';
 import { element } from 'protractor';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import * as introJs from 'intro.js/intro.js';     //import tour
+
 import {MatDialog} from '@angular/material/dialog';
 import { CreateTaskComponent } from '../create-task/create-task.component';
-<<<<<<< HEAD
-=======
 import { TaskDetailsComponent } from "../task-details/task-details.component"
->>>>>>> blue
 
 @Component({
   selector: 'app-developer-content',
@@ -21,7 +18,7 @@ import { TaskDetailsComponent } from "../task-details/task-details.component"
 })
 export class DeveloperContentComponent implements OnInit {
 
-  introJS = introJs();                     //init tour
+
   /*================================================
                      variables
   ===============================================*/
@@ -47,33 +44,7 @@ export class DeveloperContentComponent implements OnInit {
   workObj = [];
 
   constructor(private TasksService: TasksService,public dialog: MatDialog) {
-    //constructor tour
-    this.introJS.setOptions({
-      steps: [
-        { 
-          intro: "Hello to do less"
-        },
-        {
-          element: document.querySelector('#step1'),
-          intro: "pending tasks"
-        },
-        {
-          element: document.querySelectorAll('#step2')[0],
-          intro: "working on tasks",
-          position: 'right'
-        },
-        {
-          element: '#step3',
-          intro: 'finished tasks',
-          position: 'left'
-        },
-        {
-          element: '#step4',
-          intro: 'finished tasks',
-          position: 'left'
-        },
-      ]
-    });
+   
    }
 
 
@@ -137,7 +108,7 @@ export class DeveloperContentComponent implements OnInit {
   on init 
   ============================= */
   ngOnInit(): any {
-    introJs().start();       //tour guide
+   
 
     this.TasksService.getTasks().subscribe((items: any) => {
       this.todo = items.filter(data => data.status === 'pending');
@@ -220,15 +191,6 @@ export class DeveloperContentComponent implements OnInit {
   handelBonusDelayTime() {
 
   }
-<<<<<<< HEAD
-  openDialog() {
-    const dialogRef = this.dialog.open(CreateTaskComponent);
-    
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-=======
 
     /* ==================================== creat task popup ================================== */
     openDialog() {
@@ -249,5 +211,4 @@ export class DeveloperContentComponent implements OnInit {
         console.log(`Dialog result: ${result}`);
       });
     }
->>>>>>> blue
 }

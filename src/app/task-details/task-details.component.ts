@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-=======
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { TasksService } from '../tasks.service/tasks.service';
 import { tasks } from './../modals/tasks';
 
->>>>>>> blue
 
 @Component({
   selector: 'app-task-details',
@@ -15,13 +12,6 @@ import { tasks } from './../modals/tasks';
 })
 export class TaskDetailsComponent implements OnInit {
 
-<<<<<<< HEAD
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-=======
   task:tasks;
 
   constructor(private TasksService :TasksService ) { }
@@ -40,5 +30,4 @@ export class TaskDetailsComponent implements OnInit {
 
 
 
->>>>>>> blue
 }

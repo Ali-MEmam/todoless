@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-
- <section class="adminprofile">
-=======
 <section class="adminprofile">
->>>>>>> blue
     <div class="adminprofile-container">
         <main class="adminprofile-container__body">
             <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
@@ -29,25 +24,6 @@
                 <div class="adminprofile-container__side-search">
                     <ul class="adminprofile-container__side__search-list">
                         <section class="profiles">
-<<<<<<< HEAD
-                            <div class="profiles-container">
-                                <div class="profiles-container__search-form">button>
-                                    <label>users::{{itemLength}}</label>
-                                    <input [(ngModel)]="filterValue" placeholder="Search">
-                                </div>
-                                <div class="profiles-container__list" *ngIf="users?.length > 0 ; else noemployees">
-                                    <ul>
-                                        <li *ngFor="let item of users | search:filterValue">
-                                            {{item.name}} :{{item.role}}: {{item.email}}
-                                            <button type="button" (click)="deleteUser($event,item)">X</button>
-                                            <button type="button" (click)="editUser($event,item)">E</button>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <ng-template #noemployees>
-                                    <h5>There are no items to lists</h5>
-                                </ng-template>
-=======
 
                             <div class="profiles-container__search-form">
                                 <label>users::{{itemLength}}</label>
@@ -69,7 +45,6 @@
                                         <button type="button" (click)="editUser($event,item)">E</button>
                                     </li>
                                 </ul>
->>>>>>> blue
                             </div>
                             <ng-template #noemployees>
                                 <h5>There are no items to lists</h5>
@@ -80,8 +55,4 @@
             </aside>
         </main>
     </div>
-<<<<<<< HEAD
 </section>
-=======
-</section>
->>>>>>> blue

@@ -30,7 +30,6 @@
                   </ng-container>
                 </div>
               </div>
-
             </div>
             <div class="profile_info-details_Bio">
               <h2>Bio : </h2>
@@ -41,10 +40,16 @@
           </div>
         </div>
       </section>
-      <section class="profile__chart col-12 col-md-12 col-lg-5  ml-auto">
-        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+      <section class="profile__chart col-12 col-md-12 col-lg-5  ml-auto bg-white py-5">
+        <!-- <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
         [options]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
-      </canvas>
+      </canvas> -->
+            <div style="display: block">
+              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+            </div>
+            <!-- <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button> -->
         </section>
     </div>
     <section class="row comments-parent">

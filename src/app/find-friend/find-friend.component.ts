@@ -22,7 +22,6 @@ export class FindFriendComponent implements OnInit {
     this.loged.userloged.subscribe(UserInfo =>{
       this.currentUser = UserInfo
     })
-    
     this.usersService.getUser().subscribe(users=>{
       let currentFriends = [];
       let find = [];
@@ -46,17 +45,27 @@ export class FindFriendComponent implements OnInit {
 
       this.friends = currentFriends;
       this.people = [...new Set(find)] ;
-      console.log(this.friends)
-      console.log(this.people)
 
     }
     )
   }
   
   addFriend(event,item){
-    this.friendsUser.push(item.id);
-    this.usersService.editUser(item.id);
-    console.log(this.friendsUser);   
+    // this.friendsUser.push(item.id);
+    // this.usersService.editUser(item.id);
+    // console.log(this.friendsUser); 
+
+
+    // let itemIndex = this.people.indexOf(item.id);
+    // this.people.splice(itemIndex , 1);
+    // localStorage.setItem("currentUser",JSON.stringify(this.currentUser));
+    // this.loged.getAccount();
+    // this.usersService.updateUser(this.currentUser);
+if (event.target.innerHTML == 'Add Friend') {
+  item.friendrequest.push(this.currentUser.id);
+  this.loged.getAccount();
+  event.target.innerHTML = 'Sent';
+}
   }
 
 }

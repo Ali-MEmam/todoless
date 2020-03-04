@@ -53,6 +53,7 @@ import { CreateTaskComponent } from './create-task/create-task.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { StrangerProfileComponent } from './stranger-profile/stranger-profile.component';
+import { SupportComponent } from './support/support.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { StrangerProfileComponent } from './stranger-profile/stranger-profile.co
     TaskDetailsComponent,
     StarRatingComponent,
     StrangerProfileComponent,
+    SupportComponent,
   ],
   imports: [
     BrowserModule,

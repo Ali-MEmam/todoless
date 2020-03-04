@@ -139,6 +139,11 @@ export class CreateNewProjectComponent implements OnInit {
       console.log("Not Vaild")
     }
   }
+
+/* -------------------------------------------------------------------------- */
+/*                               label Animation                              */
+/* -------------------------------------------------------------------------- */
+
   labelUp(event,element){
     element.classList.add("up")
   }

@@ -12,6 +12,7 @@ import { StrangerProfileComponent } from './stranger-profile/stranger-profile.co
 import { ProjectViewComponent } from './project-view/project-view.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { DeveloperContentComponent } from './developer-content/developer-content.component';
+import { SupportComponent } from './support/support.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'account/:id',component:AccountComponent,children:[
     {path:'friends',component:AllFriendsComponent},
+    {path:'support',component:SupportComponent},
     {path:'projects',component:AllProjectsComponent},
     {path:'projects/:projectName',component:ProjectViewComponent,children:[
         {path:'Details',component:ProjectDetailsComponent},

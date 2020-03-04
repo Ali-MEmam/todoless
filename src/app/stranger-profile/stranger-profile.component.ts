@@ -97,10 +97,14 @@ ngOnInit() {
   // this.loged.userloged.subscribe(UserInfo =>{
   //   this.currentUser = UserInfo
   // })
+
+/* -------------------------------------------------------------------------- */
+/*                            watch visited profile                           */
+/* -------------------------------------------------------------------------- */
+
 this.strangeProfile.vistedprofile.subscribe(UserInfo =>{
   this.currentUser = UserInfo
 })
-
   this.fileSrc = "../../assets/imgs/users/default-user-image-300x300.png";
   this.userComment = this.f.group({
     img: '../assets/imgs/users/default-user-image-300x300.png',
@@ -121,9 +125,9 @@ onSubmit(form: FormGroup) {
     this.sum = 0;
     this.userComment.value.rate = this.rating //initialize rating on form submit 
     this.usersComments.push(this.userComment.value);
-   
     console.log("valid");
     this.currentUser.comments = this.usersComments;
+    console.log(this.currentUser)
 
     //calc avg
     for (let i = 0; i < this.usersComments.length; i++) {
@@ -131,8 +135,6 @@ onSubmit(form: FormGroup) {
       this.avgStars = this.sum / this.usersComments.length;
       this.currentUser.starts = this.avgStars;
     }
-    console.log(this.currentUser)
-
   }
 
 
@@ -147,22 +149,6 @@ onSubmit(form: FormGroup) {
 
 }
 // *************************************** end form ***************************************//
-
-
-
-
-
-// *************************************** start edit profile data*****************************************//
-
-
-
-
-
-// *************************************** start save profile data*****************************************//
-
-// *************************************** end save profile data*****************************************//
-
-
 
 
 

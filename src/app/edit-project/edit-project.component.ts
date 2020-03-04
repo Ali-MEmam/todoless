@@ -29,11 +29,19 @@ export class EditProjectComponent implements OnInit {
   project:projects;
   assign: users[] = [];
 
+/* -------------------------------------------------------------------------- */
+/*                                 constructor                                */
+/* -------------------------------------------------------------------------- */
+
   constructor(private ProjectsService: ProjectsService,
     private fb: FormBuilder,
      private usersService : usersService,
      private currentProject:ProjectDisplayService,
      private loged:AccountInfoService) { }
+
+/* -------------------------------------------------------------------------- */
+/*                              ngOInit lifeCycle                             */
+/* -------------------------------------------------------------------------- */
 
   ngOnInit() {
 
@@ -43,6 +51,11 @@ export class EditProjectComponent implements OnInit {
      this.currentProject.currentProject.subscribe(arg =>{
       this.project = arg
      })
+
+/* -------------------------------------------------------------------------- */
+/*                               Edit Form Group                              */
+/* -------------------------------------------------------------------------- */
+
      this.editform = this.fb.group({
       name: [this.project.name, [Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
       privacy: [this.project.privacy, [Validators.required]],
@@ -50,8 +63,13 @@ export class EditProjectComponent implements OnInit {
       attachment: '',
       invitors: [this.project.invitors,[ Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
       startDate: [this.project.startDate, [Validators.required]],
-      endDate: [this.project.endDate, [Validators.required]]
+      endDate: [this.project.endDate, [Validators.required]],
+      id:''
     })
+
+/* -------------------------------------------------------------------------- */
+/*                             assign to dropdown                             */
+/* -------------------------------------------------------------------------- */
 
     this.usersService.getUser().subscribe(items=>{
       items.map((data: any)=>{
@@ -59,6 +77,10 @@ export class EditProjectComponent implements OnInit {
       })
       console.log(this.assign) 
     })  
+
+/* -------------------------------------------------------------------------- */
+/*                        get all Users from Databasea                        */
+/* -------------------------------------------------------------------------- */
 
     this.usersService.getUser().subscribe(items=>{
       this.options = items;
@@ -84,10 +106,15 @@ export class EditProjectComponent implements OnInit {
     const filterValue = name.toLowerCase();
     return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
   }
+
+/* -------------------------------------------------------------------------- */
+/*                               To Edit Project                              */
+/* -------------------------------------------------------------------------- */
+
   editProject(editform: FormGroup){
     /* this.ProjectsService.editProject(this.editform);
-    this.editform.value.id = this.project.id
     console.log(this.editform.value) */
+    this.editform.value.id = this.project.id
     console.log(this.editform.value)
     if (editform.valid) {
       /* this.invitors.push(this.editform.value.invitors);
@@ -95,7 +122,8 @@ export class EditProjectComponent implements OnInit {
       console.log("valid");
       console.log(this.editform.value);
       localStorage.setItem('currentProject',JSON.stringify(this.editform.value))
-      this.ProjectsService.createProject(this.editform.value);
+      this.ProjectsService.updateProject(this.editform.value)
+      // this.ProjectsService.createProject(this.editform.value);
       console.log(this.editform.value)
       this.loged.getAccount()
     } else {

@@ -54,6 +54,7 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { StrangerProfileComponent } from './stranger-profile/stranger-profile.component';
 import { SupportComponent } from './support/support.component';
+import { RegNavbarComponent } from './reg-navbar/reg-navbar.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import { SupportComponent } from './support/support.component';
     StarRatingComponent,
     StrangerProfileComponent,
     SupportComponent,
+    RegNavbarComponent,
   ],
   imports: [
     BrowserModule,

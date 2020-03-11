@@ -22,15 +22,11 @@ export class FindFriendComponent implements OnInit {
     this.loged.userloged.subscribe(UserInfo =>{
       this.currentUser = UserInfo
     })
-    
     this.usersService.getUser().subscribe(users=>{
       let currentFriends = [];
       let find = [];
-      console.log(users)
       for(var i = 0 ; i < users.length ; i++){
         let flag = true;
-        console.log(this.currentUser.friend)
-
         if(this.currentUser.friends){
           for(var j = 0 ; j < this.currentUser.friends.length ; j++){
             if(users[i].id === this.currentUser.friends[j]){
@@ -39,24 +35,40 @@ export class FindFriendComponent implements OnInit {
             }
           }
       }
+      if(users[i].id !== this.currentUser.id){
         if(flag){
           find.push(users[i])
         }
       }
-
+      }
       this.friends = currentFriends;
-      this.people = [...new Set(find)] ;
-      console.log(this.friends)
-      console.log(this.people)
-
+      this.people = [...new Set(find)];
     }
     )
   }
   
   addFriend(event,item){
-    this.friendsUser.push(item.id);
-    this.usersService.editUser(item.id);
-    console.log(this.friendsUser);   
+    // this.friendsUser.push(item.id);
+    // this.usersService.editUser(item.id);
+    // console.log(this.friendsUser); 
+    // let itemIndex = this.people.indexOf(item.id);
+    // this.people.splice(itemIndex , 1);
+    // localStorage.setItem("currentUser",JSON.stringify(this.currentUser));
+    // this.loged.getAccount();
+    // this.usersService.updateUser(this.currentUser);
+    console.log(item)
+if (event.target.innerHTML == 'Add Friend') {
+  if(item.friendrequest){
+    item.friendrequest.push(this.currentUser.id);
+  }else{
+    item.friendrequest = []
+    item.friendrequest.push(this.currentUser.id);
+  }
+  this.usersService.updateUser(item)
+  this.loged.getAccount();
+  event.target.innerHTML = 'Sent';
+  event.target.disabled = true
+}
   }
 
 }

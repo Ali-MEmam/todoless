@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { usersService } from "../users.service/users.service";
 import { users } from '../modals/users';
 import { Label } from 'ng2-charts';
-import { ChartOptions, ChartType } from 'chart.js';
+import { ChartOptions, ChartType ,ChartDataSets } from 'chart.js';
 import { AccountInfoService } from '../account-info.service';
 
 @Component({
@@ -49,7 +49,7 @@ export class ProfileComponent implements OnInit {
 /*                                    Chart                                   */
 /* -------------------------------------------------------------------------- */
 
-public pieChartOptions: ChartOptions = {
+/* public pieChartOptions: ChartOptions = {
   responsive: true,
   legend: {
       position: 'right',
@@ -72,7 +72,40 @@ public pieChartColors = [
   {
       backgroundColor: ['rgba(247,149,99,1)', 'rgba(0,171,178,1)', 'rgba(216,70,114,1)'],
   },
+]; */
+
+
+
+public barChartOptions: ChartOptions = {
+  responsive: true,
+  // We use these empty structures as placeholders for dynamic theming.
+  scales: { xAxes: [{}], yAxes: [{}] },
+};
+public barChartLabels: Label[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+public barChartType: ChartType = 'line';
+public barChartLegend = true;
+
+public barChartData: ChartDataSets[] = [
+  { data: [65, 59, 80, 81, 56, 55, 40], label: 'Delay' },
+  { data: [28, 48, 40, 19, 86, 27, 90], label: 'Bonus' }
 ];
+
+
+// events
+public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  console.log(event, active);
+}
+
+public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  console.log(event, active);
+}
+
+/* public randomize(): void {
+  this.barChartType = this.barChartType === 'bar' ? 'line' : 'bar';
+} */
+
+
+
 
 
 /* -------------------------------------------------------------------------- */

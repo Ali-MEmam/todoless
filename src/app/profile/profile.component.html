@@ -1,6 +1,10 @@
+<!-- ----------------------------------------------------------------------- -->
+<!--                          Profile Page Section                           -->
+<!-- ----------------------------------------------------------------------- -->
 <section class="profile">
   <div class="container">
     <div class="row">
+<!-- ---------------------------- profile Info ----------------------------- -->
       <section class="profile__info col-12 col-md-12 col-lg-6 ">
         <div class="row">
           <div class="col-3 profile__info-img">
@@ -16,6 +20,7 @@
             </figure>
           </div>
           <div class="col-9 profile__info-details">
+<!-- ---------------------------- profile Edit ----------------------------- -->
             <button class="editData" #editDataBtn (click)="onEditClick($event,textArea ,bioParagraph,titleTextArea ,titleEdit,saveDataBtn)">Edit<mat-icon>edit</mat-icon></button>
             <div class="profile_info-details_personal">
               <h3>{{currentUser.name}}</h3>
@@ -30,7 +35,6 @@
                   </ng-container>
                 </div>
               </div>
-
             </div>
             <div class="profile_info-details_Bio">
               <h2>Bio : </h2>
@@ -41,10 +45,12 @@
           </div>
         </div>
       </section>
-      <section class="profile__chart col-12 col-md-12 col-lg-5  ml-auto">
-        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
-        [options]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
-      </canvas>
+      <section class="profile__chart col-12 col-md-12 col-lg-5  ml-auto bg-white py-5">
+            <div style="display: block">
+              <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+            </div>
         </section>
     </div>
     <section class="row comments-parent">

@@ -7,7 +7,7 @@
                     <mat-icon matBadgePosition="above" matBadgeSize="small" matBadge="3" matBadgeColor="warn"class="notification">notifications_none</mat-icon>
                 </li>
                 <li class="navbar-container__content-list--item">
-                    <mat-icon class="connections">people_outline</mat-icon>
+                    <mat-icon class="connections">forum</mat-icon>
                 </li>
                 <li class="navbar-container__content-list--item">
 
@@ -19,9 +19,7 @@
                         {{currentUser.name}}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="my-dropdown">
-                            <a class="dropdown-item active" href="#">Yoo</a>
-                            <a class="dropdown-item active" href="#">Yoo</a>
-                            <a class="dropdown-item active" href="#">Yoo</a>
+                            <a class="dropdown-item active" href="#" (click)="logout()">Logout</a>
 
                         </div>
                     </div>

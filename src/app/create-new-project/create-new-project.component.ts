@@ -129,6 +129,7 @@ export class CreateNewProjectComponent implements OnInit {
       this.projectForm.value.invitors = this.invitors;  
       console.log("valid");
       console.log(this.projectForm.value);
+      
       this.ProjectsService.createProject(this.projectForm.value);
       // for(var i = 0 ; i < this.projects.length ; i++){
       //   if(this.projects[i].name === this.projectForm.value.name){

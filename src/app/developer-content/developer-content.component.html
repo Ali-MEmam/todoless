@@ -1,11 +1,13 @@
-
-
+<!-- ----------------------------------------------------------------------- -->
+<!--                           Drag & Drop Section                           -->
+<!-- ----------------------------------------------------------------------- -->
 <section class="developer-content ">
   <div class="container-fluid pl-0">
     <div class="row">
       <div class="col-12 pt-4 pb-2">
         <div class="container">
           <div class="row" cdkDropListGroup>
+<!-- ---------------------------- Pending field ---------------------------- -->
             <div class="col developer-content__status">
               <h2 class="text-center developer-content__status-head">Pending</h2>
               <div class="developer-content__status-list" cdkDropList [cdkDropListData]="todo"
@@ -28,6 +30,7 @@
                 </div>
               </div>
             </div>
+<!-- -------------------------- Working On Field --------------------------- -->
             <div class=" col developer-content__status">
               <h2 class="text-center  developer-content__status-head">working On</h2>
               <div class="parent-status" cdkDropList [cdkDropListData]="workingOn" class="example-list"
@@ -50,6 +53,7 @@
               </div>
             </div>
             <div class="col developer-content__status">
+<!-- --------------------------- Finished Filed ---------------------------- -->
               <h2 class="text-center  developer-content__status-head ">Finished</h2>
               <div class="developer-content__status-list" cdkDropList [cdkDropListData]="finished" class="example-list"
                 (cdkDropListDropped)="drop($event)">
@@ -75,4 +79,4 @@
       </div>
     </div>
   </div>
- </section>
+</section>

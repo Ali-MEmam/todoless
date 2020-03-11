@@ -1,5 +1,7 @@
 @import './../ourVariables.scss';
-
+.logo-link{
+  text-decoration: none;
+}
 .aside{
   display: flex;
   height: 100%;

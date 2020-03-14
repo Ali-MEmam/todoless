@@ -23,6 +23,8 @@ export class FindFriendComponent implements OnInit {
       this.currentUser = UserInfo
     })
     this.usersService.getUser().subscribe(users=>{
+      this.loged.getAccount();
+
       let currentFriends = [];
       let find = [];
       for(var i = 0 ; i < users.length ; i++){
@@ -35,6 +37,22 @@ export class FindFriendComponent implements OnInit {
             }
           }
       }
+      if(this.currentUser.friendrequest){
+        for(var j = 0 ; j < this.currentUser.friendrequest.length ; j++){
+          if(users[i].id === this.currentUser.friendrequest[j]){
+              currentFriends.push(users[i])
+              flag = false;
+          }
+        }
+    }
+    if(this.currentUser.pendingRequest){
+      for(var j = 0 ; j < this.currentUser.pendingRequest.length ; j++){
+        if(users[i].id === this.currentUser.pendingRequest[j]){
+            currentFriends.push(users[i])
+            flag = false;
+        }
+      }
+  }
       if(users[i].id !== this.currentUser.id){
         if(flag){
           find.push(users[i])
@@ -56,19 +74,24 @@ export class FindFriendComponent implements OnInit {
     // localStorage.setItem("currentUser",JSON.stringify(this.currentUser));
     // this.loged.getAccount();
     // this.usersService.updateUser(this.currentUser);
-    console.log(item)
-if (event.target.innerHTML == 'Add Friend') {
-  if(item.friendrequest){
-    item.friendrequest.push(this.currentUser.id);
-  }else{
-    item.friendrequest = []
-    item.friendrequest.push(this.currentUser.id);
-  }
-  this.usersService.updateUser(item)
-  this.loged.getAccount();
-  event.target.innerHTML = 'Sent';
-  event.target.disabled = true
-}
+      if(item.friendrequest){
+        item.friendrequest.push(this.currentUser.id);
+      }else{
+        item.friendrequest = []
+        item.friendrequest.push(this.currentUser.id);
+      }
+      if(this.currentUser.pendingRequest){
+        this.currentUser.pendingRequest.push(item.id)
+      }else{
+        this.currentUser.pendingRequest = [];
+        this.currentUser.pendingRequest.push(item.id)
+      }
+      localStorage.setItem("currentUser",JSON.stringify(this.currentUser));
+      this.loged.getAccount();
+      this.usersService.updateUser(this.currentUser)
+      this.usersService.updateUser(item)
+      event.target.parentNode.parentNode.style.display = "none"
+
   }
 
 }

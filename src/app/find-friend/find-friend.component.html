@@ -3,7 +3,8 @@
    <div class="request__content" *ngFor="let user of people">
      <div class="request__content-info">
        <div class="request__content-info-img">
-         <img class="img-fluid" src="../../assets/imgs/friends/friend.png" alt="" />
+        <img class="img-fluid"  *ngIf="user.image" [src]='user.image' alt="" />
+        <img class="img-fluid" *ngIf="!user.image" src='../../assets/imgs/friends/friend.png'>
        </div>
        <div class="request__content-info-name">
          <p>{{user.name}}</p>

@@ -26,7 +26,7 @@ export class StrangerProfileComponent implements OnInit {
 constructor(private f: FormBuilder,
   private usersService: usersService,
   private loged:AccountInfoService,
-  private strangeProfile:VisitProfileService) { }
+  private StrangeProfileService:VisitProfileService) { }
 
 /* -------------------------------------------------------------------------- */
 /*                                  Variable                                  */
@@ -43,7 +43,7 @@ file: any;
 profile: users;
 
 sum: number;
-avgStars = 1;
+avgStars = 0;
 userSum = 0;
 
 visted;
@@ -81,9 +81,10 @@ public pieChartColors = [
 /* -------------------------------------------------------------------------- */
 
 
-// currentUserProfile:users;
+// strangeProfileProfile:users;
 usersComments = [];
 UserInLocalStorage;
+strangeProfile;
 currentUser;
 /* -------------------------------------------------------------------------- */
 /*                             NgOnInit LifeCycle                             */
@@ -94,21 +95,24 @@ currentUser;
 
 // *************************************** start form ***************************************//
 ngOnInit() {
-  // this.loged.userloged.subscribe(UserInfo =>{
-  //   this.currentUser = UserInfo
-  // })
+  this.loged.userloged.subscribe(UserInfo =>{
+    this.currentUser = UserInfo
+  })
 
 /* -------------------------------------------------------------------------- */
 /*                            watch visited profile                           */
 /* -------------------------------------------------------------------------- */
 
-this.strangeProfile.vistedprofile.subscribe(UserInfo =>{
-  this.currentUser = UserInfo
+this.StrangeProfileService.vistedprofile.subscribe(UserInfo =>{
+  this.strangeProfile = UserInfo
+  if(this.strangeProfile.comments){
+    this.usersComments = this.strangeProfile.comments
+  }
 })
   this.fileSrc = "../../assets/imgs/users/default-user-image-300x300.png";
   this.userComment = this.f.group({
-    img: '../assets/imgs/users/default-user-image-300x300.png',
-    name: 'nada',
+    img: this.currentUser.image,
+    name: this.currentUser.name,
     comment: ['', [Validators.required]],
     rate: 0
   });
@@ -126,15 +130,18 @@ onSubmit(form: FormGroup) {
     this.userComment.value.rate = this.rating //initialize rating on form submit 
     this.usersComments.push(this.userComment.value);
     console.log("valid");
-    this.currentUser.comments = this.usersComments;
-    console.log(this.currentUser)
+    this.strangeProfile.comments = this.usersComments;
+    console.log(this.strangeProfile)
 
     //calc avg
     for (let i = 0; i < this.usersComments.length; i++) {
       this.sum += this.usersComments[i].rate;
       this.avgStars = this.sum / this.usersComments.length;
-      this.currentUser.starts = this.avgStars;
+      this.strangeProfile.starts = this.avgStars;
     }
+    localStorage.setItem("friend",JSON.stringify(this.strangeProfile))
+    this.StrangeProfileService.activeVistor()
+    this.usersService.updateUser(this.strangeProfile)
   }
 
 
@@ -171,8 +178,6 @@ onStarClicked(starId: number, dataHovering) {
     dataHovering.style.top = '100%';
   }, 1000)
   // console.log(dataHovering);
-
-
 }
 
 

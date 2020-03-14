@@ -5,11 +5,14 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class VisitProfileService {
-  private profileSoruce = new BehaviorSubject('')
+  
+  private profileSoruce = new BehaviorSubject(JSON.parse(localStorage.getItem("friend")))
   vistedprofile = this.profileSoruce.asObservable()
   constructor() { }
-  activeVistor(obj){
-    this.profileSoruce.next(obj)
-    console.log(obj)
+
+  activeVistor(){
+    // this.profileSoruce.next(obj)
+    // console.log(obj)
+    this.profileSoruce.next(JSON.parse(localStorage.getItem("friend")))
   }
 }

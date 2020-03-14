@@ -49,33 +49,6 @@ export class ProfileComponent implements OnInit {
 /*                                    Chart                                   */
 /* -------------------------------------------------------------------------- */
 
-/* public pieChartOptions: ChartOptions = {
-  responsive: true,
-  legend: {
-      position: 'right',
-                  
-  },
-  plugins: {
-      datalabels: {
-          formatter: (value, ctx) => {
-              const label = ctx.chart.data.labels[ctx.dataIndex];
-              return label;
-          },
-      },
-  }
-};
-public pieChartLabels: Label[] = ['pending tasks', 'bonus', 'delay'];
-public pieChartData: number[] = [300, 500, 100];
-public pieChartType: ChartType = 'pie';
-public pieChartLegend = true;
-public pieChartColors = [
-  {
-      backgroundColor: ['rgba(247,149,99,1)', 'rgba(0,171,178,1)', 'rgba(216,70,114,1)'],
-  },
-]; */
-
-
-
 public barChartOptions: ChartOptions = {
   responsive: true,
   // We use these empty structures as placeholders for dynamic theming.
@@ -128,6 +101,9 @@ public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): voi
   ngOnInit() {
     this.loged.userloged.subscribe(UserInfo =>{
       this.currentUser = UserInfo
+      if(this.currentUser.comments){
+        this.usersComments = this.currentUser.comments
+      }
     })
 
 
@@ -222,7 +198,7 @@ public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): voi
   // *************************************** start star rating ***************************************//
 
   stars = [1, 2, 3, 4, 5];
-  rating = 1;
+  rating = 0;
   hoverState = 0;
   displayRate;
   onStarEnter(starId: number) {

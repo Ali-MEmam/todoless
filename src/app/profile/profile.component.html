@@ -30,8 +30,9 @@
                 <a class ="col-6" href="mailto:mail1@example.com" target="_top">{{currentUser.email}}</a>
                 <div class="profile-info__details-rating col-6">
                   <ng-container *ngFor="let star of stars">
-                    <app-star-rating [starId]="star" [rating]="avgStars">
-                    </app-star-rating>
+                    <app-star-rating *ngIf="currentUser.starts" [starId]="star" [rating]="currentUser.starts"></app-star-rating>
+                    <app-star-rating *ngIf="!currentUser.starts" [starId]="star" [rating]="rating">
+                  </app-star-rating>
                   </ng-container>
                 </div>
               </div>
@@ -59,7 +60,8 @@
           <div class="row contentBox" *ngFor='let user of usersComments'>
             <div class="profile__comments-comment__user-img col-1">
               <figure>
-                <img [src]="usersComments[0].img" alt="">
+                <img class="img-fluid"  *ngIf="user.img" [src]="user.img" alt="" />
+                <img class="img-fluid" *ngIf="!user.img" src='../../assets/imgs/friends/friend.png'>
               </figure>
             </div>
             <div class="profile__comments-comment__text col-9">
@@ -68,7 +70,7 @@
               <p>{{user.comment}}</p>
             </div>
             <div class="profile__comments-comment__text col-2">
-              <div class="hovering-data">rating : {{rating}}</div>
+              <div class="hovering-data">rating : {{user.rate}}</div>
               <ng-container *ngFor="let star of stars">
                 <app-star-rating [starId]="star" [rating]="user.rate">
                 </app-star-rating>

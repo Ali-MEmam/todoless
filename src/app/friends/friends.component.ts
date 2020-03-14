@@ -103,6 +103,8 @@ currentUser;
     // this.users[1].blockFriends = this.usersService.createUser(user);
   }
   strangProfile(event,friendObj){
-   this.visitAccount.activeVistor(friendObj)
+  //  this.visitAccount.activeVistor(friendObj)
+   localStorage.setItem("friend",JSON.stringify(friendObj))
+   this.visitAccount.activeVistor()
   }
 }

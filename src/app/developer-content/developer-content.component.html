@@ -15,7 +15,7 @@
                 <div class=" developer-content__status-task" *ngFor="let item of todo" cdkDrag
                   cdkDragDisabled="{{disabledDrag}}">
                   <h2>{{item.name}}</h2>
-                  <p><i>Time:</i> {{item.totalTime}}</p>
+                  <p><i>Time: {{item.totalTime}} h</i></p>
                   <div class="developer-content__status-task-icons">
                     <mat-icon aria-hidden="false" aria-label="Example menu icon" (click)="openDialogview($event,item)">menu</mat-icon>
                     <div class="task-owner">
@@ -39,7 +39,7 @@
                   <div>
                     <h2>{{item.name}}</h2>
                     <div class="pause">
-                      <p><i>Time:</i> {{result}}</p>
+                      <p>Time: {{result}} h</p>
                       <button (click)="handlePause()" class="btn btn-danger">{{status}}</button>
                     </div>
                   </div>
@@ -61,7 +61,7 @@
                   <div>
                     <h2>{{item.name}}</h2>
                     <div class="pause">
-                      <p><i>Time:</i> {{item.totalTime}}</p>
+                      <p><i>Time: {{item.totalTime}} h</i></p>
                       <p class="bonus"><i>bonus</i> {{finishedTaskTime}} </p>
                     </div>
                   </div>

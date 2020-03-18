@@ -65,7 +65,7 @@ export class DeveloperContentComponent implements OnInit {
           
         // start hours and minutes initialization
         this.workingOn[0].status = 'workingOn';    
-            this.splittedTimer = this.workingOn[0].totalTime.toString().split(':');
+        this.splittedTimer = this.workingOn[0].totalTime.toString().split(':');
         this.dropCardTime = parseInt(this.splittedTimer[0]);
         this.dropCardMinnutes = parseInt(this.splittedTimer[1]);
         if (!this.splittedTimer[1]) {
@@ -102,8 +102,7 @@ export class DeveloperContentComponent implements OnInit {
     }
   }
   editStatus(item) {
-    this.TasksService.createTasks(item);
-    this.TasksService.deleteTasks(item);
+    this.TasksService.updateTasks(item);
   }
   
 
@@ -112,7 +111,6 @@ export class DeveloperContentComponent implements OnInit {
   ============================= */
   ngOnInit(): any {
     
-
     this.TasksService.getTasks().subscribe((items: any) => {
       this.todo = items.filter(data => data.status === 'pending');
       this.workingOn = items.filter(data => data.status === 'workingOn');

@@ -1,32 +1,79 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
+import {MatDialog} from '@angular/material/dialog';
 import { projects } from '../modals/projects';
 import { ProjectsService } from '../projects.service/projects.service';
+import { CreateNewProjectComponent } from '../create-new-project/create-new-project.component';
+import { AccountInfoService } from '../account-info.service';
 @Component({
     selector: 'app-all-projects',
     templateUrl: './all-projects.component.html',
     styleUrls: ['./all-projects.component.scss']
 })
 export class AllProjectsComponent implements OnInit {
-    ///////////////////////////////////
-    //projects
+
+/* -------------------------------------------------------------------------- */
+/*                             Projects Variables                             */
+/* -------------------------------------------------------------------------- */
+
     projects: projects[];
     projectlength: number;
     projectId: any;
-    constructor(private ProjectsService: ProjectsService,) { }
+    currentUser;
+    userProject:projects[];
+
+/* -------------------------------------------------------------------------- */
+/*                                 constructor                                */
+/* -------------------------------------------------------------------------- */
+
+    constructor(private ProjectsService: ProjectsService, public dialog: MatDialog,
+        private loged:AccountInfoService) { }
+
+/* -------------------------------------------------------------------------- */
+/*                             ngOnInit life Cycle                            */
+/* -------------------------------------------------------------------------- */
+
     ngOnInit() {
+        this.loged.userloged.subscribe(user =>
+            this.currentUser = user)
+            console.log(this.currentUser)
         this.ProjectsService.getProject().subscribe((project: any) => {
-            console.log(project)
-            this.projects = project
+            let userProjects = [];
+            for(let i = 0 ; i < project.length ; i++){
+                for(let j = 0 ; j < this.currentUser.project.length ; j++){
+                    if(project[i].id === this.currentUser.project[j]){
+                        console.log(project[i])
+                        userProjects.push(project[i])
+                    }
+                }
+            }          
+            this.userProject = userProjects
+            this.projects = project;
+            console.log(this.projects)
+            console.log(this.userProject)
         })
+     
     }
-    //////////////////////////////////
+
+/* -------------------------------------------------------------------------- */
+/*                               Delete Project                               */
+/* -------------------------------------------------------------------------- */
+
+  delete(event , project){
+    this.ProjectsService.deleteProject(project);
+    console.log(project)
+    }
+
+/* -------------------------------------------------------------------------- */
+/*                                    Chart                                   */
+/* -------------------------------------------------------------------------- */
+
     public pieChartOptions: ChartOptions = {
         responsive: true,
         legend: {
             position: 'right',
-            
+                        
         },
         plugins: {
             datalabels: {
@@ -43,15 +90,31 @@ export class AllProjectsComponent implements OnInit {
     public pieChartLegend = true;
     public pieChartColors = [
         {
-            backgroundColor: ['#d62676', '#00ca5d', '#2ca6ef'],
-
+            backgroundColor: ['rgba(247,149,99,1)', 'rgba(0,171,178,1)', 'rgba(216,70,114,1)'],
         },
     ];
-    ///////////////////////////////
-    //select project id
+
+/* -------------------------------------------------------------------------- */
+/*                                 Project ID                                 */
+/* -------------------------------------------------------------------------- */
+
     selectProject(event, project) {
         this.projectId = project.id;
+        this.ProjectsService.editProject(project);
         console.log(this.projectId)
     }
+
+/* -------------------------------------------------------------------------- */
+/*                            Create Project PopUp                            */
+/* -------------------------------------------------------------------------- */
+
+  openDialog() {
+    const dialogRef = this.dialog.open(CreateNewProjectComponent);
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 
 }

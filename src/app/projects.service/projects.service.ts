@@ -51,7 +51,13 @@ export class ProjectsService {
   editProject(item:any){
     this.idTranssform.next(item);
   }
-  
+
+  //update-Projcts
+  updateProject(item:projects){
+    this.projectsDoc = this.firestore.doc(`projects/${item.id}`);
+    this.projectsDoc.update(item);
+    console.log(item)
+  }
 }
 
 

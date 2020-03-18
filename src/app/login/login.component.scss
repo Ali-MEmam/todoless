@@ -27,6 +27,8 @@
                 box-shadow: $boxShadow;
                 margin-top: 25px;
                 border:none;
+                border: 1px solid $lightBlue;
+
                 &:hover{
                     color: $lightBlue;
                     background-color: $white;
@@ -86,6 +88,8 @@
   }
 
 
+
+
 //************  responsive  **************//
 
 @media only screen and (max-width :780px){
@@ -116,3 +120,20 @@
         }
     }
 } 
+.wrongData{
+    position: absolute;
+    right: 40px;
+    top: 0;
+    color: red;
+    font-size: 10px;
+}
+.wrongPassword{
+    position: absolute;
+    right: 20px;
+    top: 0;
+    color: red;
+    font-size: 10px;
+}
+.button-hide{
+    cursor: pointer;
+}

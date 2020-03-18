@@ -2,53 +2,40 @@
 
 .developer-content {
   font-family: $mainFont;
+  background-color: $white;
 
   ::-webkit-scrollbar {
-    width: 10px;
-
+    width: 5px;
   }
 
   ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px $lightBlue;
-    border-radius: 10px;
-
+    border-radius: 5px;
+    border: 1px solid #d9dfe2;
   }
 
   ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    box-shadow: inset 0 0 6px $lightBlue;
-    background-color: $white
+    border-radius: 5px;
+    background-color: #eae5e5;
   }
 
   &__status {
-    -webkit-box-shadow: $boxShadow;
-    -moz-box-shadow: $boxShadow;
-    box-shadow: $boxShadow;
-    border: 1px solid $lightBlue;
-    border-radius: 20px;
     width: 100px;
     margin: 0 20px;
 
     &-list {
-      height: 70vh;
+      max-height: 70vh;
       overflow-y: auto;
-      margin: -15px;
     }
 
     & .example-list {
       min-height: 77vh;
-      background: white;
-      border-radius: 4px;
       overflow: hidden;
       display: block;
-      margin: -15px;
     }
 
     &-head {
-      border: 1px solid $lightBlue;
-      color: $blue;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
+      background-color: $lightBlue;
+      color: $white;
       text-transform: capitalize;
       font-size: 15px;
     }
@@ -57,9 +44,9 @@
       padding: 5px 10px;
       cursor: move;
       box-shadow: $boxShadow;
-      border-radius: 10px;
+      border-left: 2px solid $lightBlue;
       margin: 13px 3px;
-      background-color: $white;
+      background-color: $pureLight;
 
       & h2 {
         margin: unset;
@@ -104,28 +91,24 @@
     }
 
     &-footer {
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      margin-top: 30px;
-      border: 1px solid $lightBlue;
+      background-color: #e2e1e1;
 
       &-add {
         width: 40px;
         height: 40px;
         margin: auto;
         display: flex;
+        -webkit-box-align: center;
         align-items: center;
+        -webkit-box-pack: center;
         justify-content: center;
-        border: 3px solid $lightBlue;
         margin: 4px auto;
-        background-color: $blue;
-        position: relative;
         bottom: 12px;
         border-radius: 5px;
         cursor: pointer;
 
         & mat-icon {
-          color: $white;
+          color: $lightBlue;
         }
       }
 

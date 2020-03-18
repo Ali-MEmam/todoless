@@ -19,11 +19,12 @@ h3{
 .profile{
     background-color: #f7f7f7;
     height: 100vh;
-    
     &__info{
-        background-color: $white;
         padding: 3rem;
         margin-top: 15rem;
+        margin-left: 12px;
+        background-color: white;
+        box-shadow: 0px 0px 2px 4px white;
         &-details{
         color: $blue;
         &__Bio-textarea{
@@ -44,11 +45,13 @@ h3{
     &__info:first-of-type{
         padding: 3rem;
         margin-top: 15rem;
+        background-color: #ffffff;
     }
     &__chart{
-        background-color: $white;
+        background-color: #ffffff;
         margin-top: 15rem;
         padding: 3rem;
+        
     }
     &__comments{
         background-color: white;
@@ -102,22 +105,27 @@ h3{
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
         textarea {
             width: 80%;
-            padding: 10px 20px;
+            // padding: 10px 20px;
             font-size: 12px;
-            border: 1px solid #eeeeee;
+            // border: 1px solid #eeeeee;
             max-height: 75px;
             margin-top: 30px;
             margin-bottom: 30px;
             resize: none;
             border: none;
-            box-shadow: 0px 0px 3px 0px #e8e8e8e8;        
+            // box-shadow: 0px 0px 3px 0px #e8e8e8e8;        
             &:focus{
                 outline: none;
             }
         }
         button{
+            border-radius: 0px !important;
+
         margin-left: auto;
         padding: 10px 30px;
         font-size: 17px;
@@ -143,7 +151,7 @@ h3{
     margin-left: auto;
     &:hover{
         background-color: #00ca5d;
-        
+        color: $white;
     }
 }
 figure{
@@ -188,7 +196,7 @@ figure{
         top: 50%;
     }
 }
-// *******star rating**********//
+// **star rating***//
   .star-rating-filled{
     fill:gold;
 
@@ -222,7 +230,7 @@ figure{
 }
 
 
-// ********** scroll style ************* //
+// **** scroll style ***** //
 
 ::-webkit-scrollbar {
     width: 6px;
@@ -245,3 +253,13 @@ figure{
   .rate-and-sumbit{
     margin-left: 40px;
   }
+.contentBox{
+    border-bottom: 1px solid #2121211a;
+    margin-bottom: 13px;
+    background-color: white;
+    padding: 30px 0 0;
+    border-left: 3px solid #2ca6ef;
+}
+.profile_info-details_Bio-textarea{
+    display:none
+}

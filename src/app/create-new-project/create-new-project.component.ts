@@ -1,46 +1,56 @@
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {FormControl , FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { projects } from '../modals/projects';
 import { ProjectsService } from '../projects.service/projects.service';
 import { users } from '../modals/users';
-import { usersService } from '../users.service/users.service'
+import { usersService } from '../users.service/users.service';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 
 @Component({
-  selector: 'app-create-project',
-  templateUrl: './create-project.component.html',
-  styleUrls: ['./create-project.component.scss']
+  selector: 'app-create-new-project',
+  templateUrl: './create-new-project.component.html',
+  styleUrls: ['./create-new-project.component.scss']
 })
+export class CreateNewProjectComponent implements OnInit {
 
-export class CreateProjectComponent implements OnInit {
+   // !!!!!!!!!!!!!!--------------- Declartion && Intialization ---------------!!!!!!!!!!!!!!!!!
 
-  // !!!!!!!!!!!!!!--------------- Declartion && Intialization ---------------!!!!!!!!!!!!!!!!!
+   projectForm: FormGroup;
+   projects: projects[];
+   users: users[];
+   projectsLength;
+   filterValue = "";
+   usersLength;
+   fileData: any;
+   fileSrc: string | ArrayBuffer;
+   file: any;
+   invitors = [];
+  
+   myControl = new FormControl();
+  assign: users[] = [
+    
+  ];
+  filteredOptions: Observable<users[]>;
 
-  projectForm: FormGroup;
-  projects: projects[];
-  users: users[];
-  projectsLength;
-  filterValue = "";
-  usersLength;
-  fileData: any;
-  fileSrc: string | ArrayBuffer;
-  file: any;
-  invitors = [];
 
 
   constructor(private ProjectsService: ProjectsService,
     private fb: FormBuilder,
     private usersService: usersService) { }
 
-  ngOnInit(): void {
-
-    // !!!!!!!!!!!!!!--------------- declare Form AND Validators ---------------!!!!!!!!!!!!!!!!!
-
+  ngOnInit() {
+    this.ProjectsService.getProject().subscribe(items => {
+      this.projects = items;
+      this.projectsLength = items.length;
+      console.log(items)
+    })
+    
     this.projectForm = this.fb.group({
       name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
-      id: '',
       privacy: ['', [Validators.required]],
-      color: '',
       description: ['', [Validators.required]],
       attachment: ['', [Validators.required]],
       invitors: ['',[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
@@ -48,33 +58,41 @@ export class CreateProjectComponent implements OnInit {
       endDate: ['', [Validators.required]]
     })
 
-    // !!!!!!!!!!!!!!--------------- Get projects from firebase ---------------!!!!!!!!!!!!!!!!!
+    this.usersService.getUser().subscribe(items=>{
+      items.map((data: any)=>{
+        this.assign.push(data);
+      })
+      console.log(this.assign) 
+    })  
 
-    this.ProjectsService.getProject().subscribe(items => {
-      console.log(items);
-      this.projects = items;
-      this.projectsLength = items.length;
-    })
 
-    // !!!!!!!!!!!!!!--------------- Get Users from firebase ---------------!!!!!!!!!!!!!!!!!
+    this.filteredOptions = this.myControl.valueChanges
+    .pipe(
+      startWith(''),
+      map(value => typeof value === 'string' ? value : value.email),
+      map(email => email ? this._filter(email) : this.assign.slice())
+    );
 
-    this.usersService.getUser().subscribe(items => {
-      console.log(items);
-      this.users = items;
-      this.usersLength = items.length;
-    })
+
   }
 
-  // !!!!!!!!!!!!!!--------------- Select Color of project ---------------!!!!!!!!!!!!!!!!!
 
-  SelectColor(event) { }
+  displayFn(user: users): string {
+    return user && user.email ? user.email : '';
+  }
+
+  private _filter(email: string): users[] {
+    const filterValue = email.toLowerCase();
+
+    return this.assign.filter(option => option.email.toLowerCase().indexOf(filterValue) === 0);
+  }
 
 
   // !!!!!!!!!!!!!!--------------- Select Id of UserInvited ---------------!!!!!!!!!!!!!!!!!
 
   selectUser(event, item) {
-    this.invitors.push(item.id);
-    console.log(this.invitors)
+    this.invitors.push(item);
+    console.log(item);
   }
 
   // !!!!!!!!!!!!!!--------------- Attachment image or text to string---------------!!!!!!!!!!!!!!!!!
@@ -105,8 +123,6 @@ export class CreateProjectComponent implements OnInit {
 
   createProject(projectForm: FormGroup) {
     if (projectForm.valid) {
-      this.projectForm.value.id = this.projectsLength;
-      this.projectForm.value.attachment = this.file;
       this.invitors.push(this.projectForm.value.invitors);
       this.projectForm.value.invitors = this.invitors;  
       console.log("valid");

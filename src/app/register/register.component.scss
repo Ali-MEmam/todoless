@@ -1,4 +1,4 @@
-@import './../ourVariables.scss';
+@import '../ourVariables.scss';
 .register{
   background-image: url('../../assets/imgs/register/signinBg.jpg');
   background-size: cover;
@@ -14,7 +14,6 @@
       padding: 10px 30px;
       font-size: 17px;
       background-color: $lightBlue;
-      border-radius: $btnBorderRadius;     
       // border-radius: $btnBorderRadius;     
       border-radius: 20px; 
       box-shadow: $boxShadow;
@@ -40,6 +39,7 @@
         transition: all 0.2s ease-in-out;
         background-color: transparent;
         z-index: 2;
+        position: relative;
 
         &:focus {
           outline: none;
@@ -113,7 +113,7 @@ app-reg-animation {
 }
 
 
-//************  responsive  **************//
+//****  responsive  ******//
 
 
 @media only screen and (max-width: 770px) {

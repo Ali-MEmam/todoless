@@ -10,9 +10,8 @@ import { users } from "../modals/users";
 })
 export class AdminPanelComponent implements OnInit {
   item: any = {
-    password: '',
-    role: '',
     email: '',
+    title:"",
     name: ''
   }
   
@@ -21,6 +20,7 @@ export class AdminPanelComponent implements OnInit {
   itemtoEdit:users;
   filterValue = "";
   itemLength;
+  edituser;
 
   myForm: FormGroup;
 
@@ -29,12 +29,7 @@ export class AdminPanelComponent implements OnInit {
 
   ngOnInit(): any {
    
-    this.myForm = this.fb.group({
-      name:['',[Validators.required, Validators.pattern(/^[a-zA-Z]{3,}/)]],
-      email:['',[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
-      password:['',[Validators.required, Validators.pattern(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/)]],
-      role:['',Validators.required]
-    })
+    
 
     
     this.usersService.getUser().subscribe(items=>{
@@ -44,34 +39,41 @@ export class AdminPanelComponent implements OnInit {
     })
     
     this.usersService.currentId.subscribe((message: any) => {
-      this.item.name = message.name;
-      // this.item.role = message.role;
-      this.item.password = message.password;
-      this.item.email = message.email;
+      this.edituser = message;
+      console.log(this.edituser)
+      this.myForm = this.fb.group({
+        name:[this.edituser.name,[Validators.required]],
+        title:[this.edituser.title,[Validators.required]],
+        email:[this.edituser.email,[Validators.required, Validators.pattern(/^\w.+@[a-zA-Z]+.com$/)]],
+      })
     })
   }
 
   //function-subbmit-to-create-user-object
-  onSubmit(form: FormGroup) {
-    if (form.valid) {      
+  onSubmit(myForm: FormGroup) {
+    if (myForm.valid) {      
       console.log("valid")  
-      this.usersService.createUser(this.item);
-      this.item.name = this.item.email = this.item.password = this.item.role = "";
-    }
+      this.usersService.createUser(this.myForm.value);
+  }
+}
+
+//edit Data of object
+  editdata(event,item){
+    item = this.myForm.value
+    item.id = this.edituser.id
+    console.log(item)
+    this.usersService.updateUser(item);
   }
 
-  
   //delete-user
   deleteUser(event,item) {
     this.usersService.deleteUser(item);
+    console.log(item);
   }
   
-  //edit-user 
+  //edit-user get-id of user  
   editUser(event,item) {
-    this.editState = true;
-    this.itemtoEdit = item;
     this.usersService.editUser(item);
-    this.deleteUser(event,item);
   }
 
 }

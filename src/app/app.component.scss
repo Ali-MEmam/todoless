@@ -1,3 +1,10 @@
-@import './ourVariables.scss';
+app-navbar{}
+section{
+    background-color:#f0efef;
 
-// ******************profile********************//
+    display: flex;
+}
+app-sidebar{
+width: 17%;
+height: 100vh;
+}

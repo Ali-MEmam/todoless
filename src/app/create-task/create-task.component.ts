@@ -27,15 +27,15 @@ item: any = {
   status:'',
   assignTo:'',
   attachment:'',
+  
 }
-
 //all arrays and vars
 editState:boolean=false;
 itemtoEdit:tasks;
 fileData: any;
 projectForm: FormGroup;
 todo: tasks[];
-
+currentProjectID;
 workingOn = [
 
 ];
@@ -61,6 +61,8 @@ filteredOptions: Observable<users[]>;
       this.assignTo.push(this.taskForm.value.assignTo);
       this.taskForm.value.assignTo = this.assignTo;  
       this.taskForm.value.status = 'pending'
+      this.taskForm.value.projectId = JSON.parse(localStorage.getItem('currentProject')).id
+      this.taskForm.value.personId = JSON.parse(localStorage.getItem('currentUser')).id
       console.log("valid");
       console.log(this.taskForm.value);
       this.TasksService.createTasks(this.taskForm.value);
@@ -96,8 +98,10 @@ filteredOptions: Observable<users[]>;
       status:'',
       assignTo:'',
       attachment:'',
+      projectId:'',
     });
 
+   
     // !!!!!!!!!!!!!!--------------- Get Users from firebase ---------------!!!!!!!!!!!!!!!!!
 
     this.usersService.getUser().subscribe(items=>{

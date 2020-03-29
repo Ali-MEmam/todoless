@@ -1,6 +1,5 @@
 <button [matDialogClose] class="close_modal"><mat-icon>clear</mat-icon></button>
 <h3 class="text-center h2">Create Task</h3>
-
 <form
   class="example-form"
   [formGroup]="taskForm"
@@ -57,15 +56,13 @@
     <input matInput type="email" placeholder="" value="" formControlName="invitors" />
   </mat-form-field> -->
 <!-- ----------------------------- Attachment -------------------------------->
-<div class="row">
-  <div class="col-5">
-    <input class="ng-hide"  formControlName="attachment" hidden id="input-file-id" multiple type="file" (change)="readURL($event)" />
-<label for="input-file-id" class="choose-file" ><mat-icon>attachment</mat-icon></label>
-</div>
-  <div class="col-5">
-    <button mat-button type="submit" class="save-edit btn-info">Create</button>
+  <div class="row">
+    <div class="col-5">
+      <input class="ng-hide"  formControlName="attachment" hidden id="input-file-id" multiple type="file" (change)="readURL($event)" />
+  <label for="input-file-id" class="choose-file" ><mat-icon>attachment</mat-icon></label>
   </div>
-  
-</div>
-  
+    <div class="col-5">
+      <button mat-button type="submit" class="save-edit btn-info">Create</button>
+    </div>
+  </div>
 </form>

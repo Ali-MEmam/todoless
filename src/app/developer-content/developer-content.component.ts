@@ -47,7 +47,6 @@ export class DeveloperContentComponent implements OnInit {
 
   constructor(private TasksService: TasksService,public dialog: MatDialog,
     private usersService : usersService) {
-    
    }
 
 
@@ -112,13 +111,33 @@ export class DeveloperContentComponent implements OnInit {
   ngOnInit(): any {
     
     this.TasksService.getTasks().subscribe((items: any) => {
-      this.todo = items.filter(data => data.status === 'pending');
-      this.workingOn = items.filter(data => data.status === 'workingOn');
-      this.finished = items.filter(data => data.status === 'finished');
-      console.log(items);
-      for (let i = 0; i < this.todo.length; i++) {
-        this.totalProjectTime = this.todo[i].totalTime + this.totalProjectTime;
+      console.log(JSON.parse(localStorage.getItem('currentProject')).id)
+      console.log(items)
+      let tasksWithProjectId;
+      let tasks =[];
+      tasksWithProjectId = items.filter(data => data.projectId === JSON.parse(localStorage.getItem('currentProject')).id)
+      if(tasksWithProjectId){
+      for(var i = 0; i < tasksWithProjectId.length ; i++){
+        for(var j= 0 ; j < tasksWithProjectId[i].assignTo[j].length;j++){
+          if(tasksWithProjectId[i].assignTo[j] === JSON.parse(localStorage.getItem('currentUser')).id || tasksWithProjectId[i].personId === JSON.parse(localStorage.getItem('currentUser')).id ){
+            tasks.push(tasksWithProjectId[i])
+          }
+        }
       }
+    }
+    this.todo = tasks.filter(data => data.status === 'pending');
+    this.workingOn = tasks.filter(data => data.status === 'workingOn');
+    this.finished = tasks.filter(data => data.status === 'finished');
+    console.log(tasks);
+    console.log(tasks[0].assignTo[0]);
+      // if(items.projectId === JSON.parse(localStorage.getItem('currentProject')).id){
+        if(this.todo){
+          for (let i = 0; i < this.todo.length; i++) {
+            this.totalProjectTime = this.todo[i].totalTime + this.totalProjectTime;
+          }
+        }
+
+      // }
     })
 
     this.usersService.getUser().subscribe(items=>{

@@ -128,8 +128,6 @@ export class DeveloperContentComponent implements OnInit {
     this.todo = tasks.filter(data => data.status === 'pending');
     this.workingOn = tasks.filter(data => data.status === 'workingOn');
     this.finished = tasks.filter(data => data.status === 'finished');
-    console.log(tasks);
-    console.log(tasks[0].assignTo[0]);
       // if(items.projectId === JSON.parse(localStorage.getItem('currentProject')).id){
         if(this.todo){
           for (let i = 0; i < this.todo.length; i++) {

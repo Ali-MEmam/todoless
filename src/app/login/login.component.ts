@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
 
     this.userData.getUser().subscribe(users => {
       this.allUsers = users;
-      console.log(this.allUsers)
+      // console.log(this.allUsers)
     })
 
     this.login = this.fb.group({

@@ -6,6 +6,7 @@ import { users } from '../modals/users';
 import { Label } from 'ng2-charts';
 import { ChartOptions, ChartType ,ChartDataSets } from 'chart.js';
 import { AccountInfoService } from '../account-info.service';
+import { ToggleasideService } from '../toggleaside.service';
 
 @Component({
   selector: 'app-profile',
@@ -24,7 +25,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(private f: FormBuilder,
     private usersService: usersService,
-    private loged:AccountInfoService) { }
+    private loged:AccountInfoService,
+    private toggler:ToggleasideService) { }
 
 /* -------------------------------------------------------------------------- */
 /*                                  Variable                                  */
@@ -105,7 +107,17 @@ public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): voi
         this.usersComments = this.currentUser.comments
       }
     })
-
+    this.toggler.currentStatus.subscribe(status =>{
+      if(document.querySelector('.profile-info__details-rating') || document.querySelector('.profile__chart')){
+      if(status && window.matchMedia("(max-width: 768px)").matches){
+          document.querySelector('.profile-info__details-rating').classList.add("displayHidden")
+          document.querySelector('.profile__chart').classList.add("displayHidden")
+        }else{
+          document.querySelector('.profile-info__details-rating').classList.remove("displayHidden")
+          document.querySelector('.profile__chart').classList.remove("displayHidden")
+        }
+      }
+    })
 
     this.fileSrc = "../../assets/imgs/users/default-user-image-300x300.png";
     this.userComment = this.f.group({

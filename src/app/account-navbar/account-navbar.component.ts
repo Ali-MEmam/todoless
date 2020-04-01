@@ -28,6 +28,6 @@ export class AccountNavbarComponent implements OnInit {
   }
   logout(){
     localStorage.removeItem('currentUser');
-    this.router.navigate(['home'])
+    this.router.navigate(['/home'])
   }
 }

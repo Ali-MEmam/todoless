@@ -45,7 +45,7 @@
         }
         &__sumbit{
             border: none;
-            width: 50%;
+            width: 100%;
             font-size: 15px;
             height: 40px;
 
@@ -68,4 +68,35 @@
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
+}
+@media only screen and (max-width: 768px) {
+    .support{
+        flex-wrap: wrap;
+        &-list{
+            flex: 1 1 100%;
+            padding: 0;
+            &__item{
+                margin: 0 auto 40px;
+            }
+        }
+        &-problem{
+            margin: 0 auto;
+            &__name{
+                width: 90%;
+                margin: 0 auto;
+            }
+            &__coverLetter{
+                width: 90%;
+                margin: 20px auto;
+    
+            }
+            &__sumbit{
+                width: 90%;
+                border-radius: 0px;
+                margin: 0 auto 20px;
+            }
+        }
+    }
+    
+
 }

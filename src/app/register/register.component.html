@@ -11,9 +11,11 @@
                         <label for="" #labelKeyName>Name</label>
                         <input class="form-container__wrapper-input" (change)="onChangeName()" formControlName="name"  (focus)="labelUp($event,labelKeyName)" (focusout)="labelDown($event,labelKeyName)" type="text" >
                     </div>
-                        <button *ngIf="register.get('name').hasError('pattern')" class="form-container__wrapper-input-msg"><mat-icon class="support">error</mat-icon>
+                        <button *ngIf="register.get('name').hasError('pattern') || nameIsExist" class="form-container__wrapper-input-msg"><mat-icon class="support">error</mat-icon>
                         </button>
                     <div *ngIf="register.get('name').hasError('pattern')" class="not-valid-name"> name Must be </div>
+                    <div *ngIf="nameIsExist" class="not-valid-name">vaild email</div>
+
                 </div>
         <!-- ----------------------------- Email Input ----------------------------- -->
                 <div class="form-container__wrapper">

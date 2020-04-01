@@ -54,3 +54,16 @@
     outline: none !important;
     box-shadow: none
 }
+@media only screen and (min-width: 320px) and (max-width: 767px)  {
+    .container{
+        .projects-nav{
+            .btn-group{
+                .btn{
+                    font-size: 12px;
+                  
+                }
+            }
+            
+        }
+    }
+  }

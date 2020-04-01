@@ -50,16 +50,20 @@
     }
 }
 @media only screen and (max-width: 768px) {
+ 
     .navbar{
         padding-top: 2rem;
+        padding-bottom: 0px;
         &-container__collapse-links{
-            background-color:$white;
+            background-color:#ffffff;
             margin: 0 ;
             text-align: center;
             overflow: hidden;
+            margin-top: 10px;
         }
         .nav-link{
             border-bottom: 1px solid #f3f3f3;
+            font-size: 13px !important;
         }
         a.nav-link.register{
             color:$white;

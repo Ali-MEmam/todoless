@@ -8,6 +8,6 @@
     <form class="form-group support-problem" [formGroup]="support" (ngSubmit)="onSubmit(support)">
         <input type="text" class="form-control support-problem__name" formControlName="problemName" [value]="problemName" disabled/>
         <textarea  class="form-control support-problem__coverLetter" formControlName="problemLetter"></textarea>
-        <button class="support-problem__sumbit btn-primary rounded-pill" type="submit">Send</button>
+        <button class="support-problem__sumbit btn-primary" type="submit">Send</button>
     </form>
 </section>

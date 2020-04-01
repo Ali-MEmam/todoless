@@ -3,6 +3,7 @@ import {FormGroup,FormBuilder, Validators} from '@angular/forms';
 
 import {users} from './../modals/users';
 import {usersService} from './../users.service/users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -26,14 +27,15 @@ export class RegisterComponent implements OnInit {
   register:FormGroup;
   hide:boolean = true;
 
-
+  currentUserLoged;
 /* -------------------------------------------------------------------------- */
 /*                                Contstructor                                */
 /* -------------------------------------------------------------------------- */
 
 
   constructor(private fb:FormBuilder,
-    private UsersService:usersService) { }
+    private UsersService:usersService,
+    private router:Router) { }
 
 
 /* -------------------------------------------------------------------------- */
@@ -54,7 +56,12 @@ export class RegisterComponent implements OnInit {
 
     this.UsersService.getUser().subscribe(company =>{
       this.allUsers = company;
-      console.log(this.allUsers)
+      for(let i = 0 ; i < this.allUsers.length;i++){
+        if(this.allUsers[i].email === this.register.value.email){
+          localStorage.setItem('currentUser',JSON.stringify(this.allUsers[i]))
+          this.router.navigate(['account',JSON.parse(localStorage.getItem('currentUser')).id,'profile'])
+        }
+      }
     })
   }
 
@@ -75,6 +82,8 @@ export class RegisterComponent implements OnInit {
       return value.name === this.register.value.name
     })
     this.nameIsExist = checker
+    console.log(this.nameIsExist)
+
   }
   onChangeEmail(){
     let checker = this.allUsers.some(value=>{

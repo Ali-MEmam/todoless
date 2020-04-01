@@ -53,13 +53,15 @@
     .navbar{
         padding-top: 2rem;
         &-container__collapse-links{
-            background-color:$white;
+            background-color:#ffffff;
             margin: 0 ;
             text-align: center;
             overflow: hidden;
+            margin-top: 10px;
         }
         .nav-link{
             border-bottom: 1px solid #f3f3f3;
+            font-size: 13px !important;
         }
         a.nav-link.register{
             color:$white;
@@ -69,7 +71,7 @@
             padding: 0;
             position: relative;
             right: 0;
-            font-size:18px;
+            font-size: 13px;
             padding: 15px;
             &:hover{
                 padding: 0;

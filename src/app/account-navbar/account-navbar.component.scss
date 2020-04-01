@@ -81,3 +81,7 @@
 ::ng-deep .mat-badge-small.mat-badge-above .mat-badge-content{
     top:-4px
 }
+@media only screen and (min-width: 320px) and (max-width: 767px)  {
+.navbar{
+}
+}

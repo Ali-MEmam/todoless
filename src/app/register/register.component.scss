@@ -117,14 +117,23 @@ app-reg-animation {
 
 
 @media only screen and (max-width: 770px) {
+  .form-container{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
   .register{
-    background-position: 30% 5rem;
+    // background-position: 30% 5rem;
+    height: unset;
+    min-height: 100vh;
+    background-position: right;
   }
 }
 @media only screen and (max-width: 500px) {
   .register{
     background-image: url('../../assets/imgs/register/signinBgSmallScreen.jpg');
     background-size: cover;
-    background-position: 0;
+    min-height: 100vh;
+    height: unset;
+    background-position: right;
   }
 }

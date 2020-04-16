@@ -14,9 +14,9 @@
                     <div class="dropdown">
                         <button id="my-dropdown" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                         <figure *ngIf="currentUser.image" class="navbar-container__content-list--item-img"><img class="img-full"  [src]="currentUser.image"></figure>
-                        <figure *ngIf="!currentUser.image" class="navbar-container__content-list--item-img"><img class="img-full"  src='../../assets/imgs/friends/friend.png'></figure>
+                        <figure *ngIf="!currentUser.image" class="navbar-container__content-list--item-img"><img class="img-full"  src='https://i.postimg.cc/sx7wGfx0/friend.png'></figure>
 
-                        {{currentUser.name}}
+                        <div class="user-name">{{currentUser.name}}</div>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="my-dropdown">
                             <a class="dropdown-item active" href="#" (click)="logout()">Logout</a>
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </li>
-            </ul>       
+            </ul>        
         </div>
     </nav>
 

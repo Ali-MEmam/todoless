@@ -2,7 +2,8 @@
 .example-form {
     /* min-width: 150px;
     max-width: 500px; */
-    width: 60rem;
+    // width: 60rem;
+    width: 100%;
   }
   
   .example-full-width {
@@ -31,4 +32,26 @@
     border: 0;
     color: gray;
     float: right;
+  }
+
+
+
+  @media only screen and (max-width:550px){
+    .example-half-width{
+      width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  
+  .save-edit{
+    float: left;
+    left: 55%;
+  }
+  .choose-file{
+    margin-left: 0;
+  }
+
   }

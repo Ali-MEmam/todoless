@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-11 col-md-3 profile__info-img">
             <figure class="rounded-circle">
-              <img class="img-full" *ngIf="!currentUser.image" src='../../assets/imgs/friends/friend.png' style="width: 100%; height: 100%;">
+              <img class="img-full" *ngIf="!currentUser.image" src='https://i.postimg.cc/sx7wGfx0/friend.png' style="width: 100%; height: 100%;">
               <img id="imagePreview" *ngIf="currentUser.image" [src]="currentUser.image" style="width: 100%; height: 100%;" />
               <form [formGroup]='userProfile' class=" profile__info-img__form">
                 <label class="attach-file">
@@ -61,7 +61,7 @@
             <div class="profile__comments-comment__user-img col-1">
               <figure>
                 <img class="img-fluid"  *ngIf="user.img" [src]="user.img" alt="" />
-                <img class="img-fluid" *ngIf="!user.img" src='../../assets/imgs/friends/friend.png'>
+                <img class="img-fluid" *ngIf="!user.img" src='https://i.postimg.cc/sx7wGfx0/friend.png'>
               </figure>
             </div>
             <div class="profile__comments-comment__text col-9">

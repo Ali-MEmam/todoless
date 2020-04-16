@@ -53,6 +53,9 @@
     font-size: 13px;
     font-weight:$bold;
 }
+.user-name{
+    display: inline-block;
+}
 .dropdown-toggle::after{
     vertical-align: 0;
 }
@@ -81,7 +84,17 @@
 ::ng-deep .mat-badge-small.mat-badge-above .mat-badge-content{
     top:-4px
 }
-@media only screen and (min-width: 320px) and (max-width: 767px)  {
-.navbar{
-}
+@media only screen and(max-width: 767px)  {
+
+    .user-name{
+        display: inline-block;
+        width: 100%;
+        font-size: 10px;
+    }
+    .navbar-container__content-list--item-img{
+        display: block;
+        margin: 0;
+        margin-left: 35%;
+        padding: 0;
+    }
 }

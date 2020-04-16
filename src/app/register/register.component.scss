@@ -1,6 +1,6 @@
 @import '../ourVariables.scss';
 .register{
-  background-image: url('../../assets/imgs/register/signinBg.jpg');
+  background-image: url('https://i.postimg.cc/vZpKmTY9/signinBg.jpg');
   background-size: cover;
   height: 100%;
   background-repeat: no-repeat;
@@ -130,7 +130,7 @@ app-reg-animation {
 }
 @media only screen and (max-width: 500px) {
   .register{
-    background-image: url('../../assets/imgs/register/signinBgSmallScreen.jpg');
+    background-image: url('https://i.postimg.cc/xdzWGHxt/signin-Bg-Small-Screen.jpg');
     background-size: cover;
     min-height: 100vh;
     height: unset;
